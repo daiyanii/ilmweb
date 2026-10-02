@@ -3,8 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<!-- Optional for GitHub Pages: set content to your deployed /api/translate URL. -->
-<meta name="ilm-translation-endpoint" content="">
 <title>Ilm — A Path Through Islamic Knowledge</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -374,14 +372,14 @@ body::before{
 .view > main > *:nth-child(3){ animation-delay:.14s; }
 .view > main > *:nth-child(4){ animation-delay:.21s; }
 .view > footer{ animation:contentIn .62s cubic-bezier(.2,.75,.25,1) .18s both; }
-.forum-card{ animation:cardIn .65s cubic-bezier(.2,.75,.25,1) calc(var(--i,0) * 70ms + .08s) both; overflow:hidden; }
+.forum-card{ animation:cardIn .65s cubic-bezier(.2,.75,.25,1) calc(var(--i,0) * 70ms + .08s) backwards; overflow:hidden; }
 .forum-card::after{
   content:""; position:absolute; inset:0; pointer-events:none;
   background:linear-gradient(115deg,transparent 25%,rgba(255,255,255,.16) 48%,transparent 68%);
   transform:translateX(-125%); transition:transform .7s ease;
 }
 .forum-card:hover::after,.forum-card:focus-visible::after{ transform:translateX(125%); }
-.toc-item{ animation:lineIn .52s cubic-bezier(.2,.75,.25,1) calc(var(--i,0) * 28ms + .05s) both; }
+.toc-item{ animation:lineIn .52s cubic-bezier(.2,.75,.25,1) calc(var(--i,0) * 28ms + .05s) backwards; }
 .toc-item:focus-visible{ outline:2px solid var(--gold-2); outline-offset:4px; }
 .article > *:nth-child(-n+8){ animation:contentIn .58s cubic-bezier(.2,.75,.25,1) calc(var(--i,0) * 55ms + .04s) both; }
 .intro-star{ animation:starFloat 9s ease-in-out 2.8s infinite; transform-origin:center; }
@@ -435,88 +433,143 @@ body::before{
 }
 
 
-/* ============ STANDALONE AI TRANSLATOR ============ */
+/* ============ TRANSLATOR ============ */
 .topbar{position:relative;z-index:10;}
 .topbar-actions{display:flex;align-items:center;justify-content:flex-end;gap:.85rem;min-width:0;}
 .translate-control{position:relative;}
-.translate-btn,.translate-run,.translate-save,.translate-reset{
-  appearance:none;border:1px solid var(--line);background:var(--card-bg);color:var(--ink);
-  border-radius:999px;padding:.5rem .75rem;font-size:.78rem;cursor:pointer;
-  transition:border-color .2s ease,color .2s ease,background .2s ease,transform .2s ease;
+.translate-select{
+  appearance:none;-webkit-appearance:none;
+  border:1px solid var(--line);background-color:var(--card-bg);color:var(--ink);
+  border-radius:999px;padding:.5rem 2rem .5rem .9rem;font-family:inherit;font-size:.78rem;cursor:pointer;max-width:11rem;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23B8863B' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right .75rem center;
+  transition:border-color .2s ease,box-shadow .2s ease;
 }
-.translate-btn:hover,.translate-btn:focus-visible,.translate-run:hover,.translate-run:focus-visible,.translate-save:hover,.translate-save:focus-visible,.translate-reset:hover,.translate-reset:focus-visible{
-  border-color:var(--gold-2);color:var(--gold-2);outline:none;
-}
-.translate-btn:active,.translate-run:active,.translate-save:active,.translate-reset:active{transform:translateY(1px);}
-.translate-panel{
-  position:absolute;right:0;top:calc(100% + .7rem);width:min(300px,calc(100vw - 2rem));
-  padding:1rem;background:var(--parchment);border:1px solid var(--line);border-radius:10px;
-  box-shadow:0 14px 32px rgba(27,36,32,.14);}
-.translate-panel[hidden]{display:none;}
-.translate-panel label,.translate-panel summary{display:block;color:var(--ink);font-size:.78rem;font-weight:600;margin-bottom:.35rem;}
-.translate-panel input{width:100%;border:1px solid var(--line);border-radius:6px;background:var(--card-bg);color:var(--ink);padding:.55rem .6rem;font:inherit;font-size:.84rem;outline:none;}
-.translate-panel input:focus{border-color:var(--gold-2);box-shadow:0 0 0 3px rgba(184,134,59,.12);}
-.translate-row{display:flex;gap:.45rem;margin-bottom:.7rem;}
-.translate-row .translate-run{white-space:nowrap;background:var(--gold-2);border-color:var(--gold-2);color:var(--parchment);}
-.translate-settings{border-top:1px solid var(--line);padding-top:.7rem;}
-.translate-settings summary{cursor:pointer;list-style:none;}
-.translate-settings summary::-webkit-details-marker{display:none;}
-.translate-settings summary::after{content:"＋";float:right;color:var(--gold-2);}
-.translate-settings[open] summary::after{content:"−";}
-.translate-key-row{display:flex;gap:.45rem;margin-top:.55rem;}
-.translate-key-row .translate-save{white-space:nowrap;}
-.translate-note,.translate-status{margin:.65rem 0 0;color:var(--ink-soft);font-size:.72rem;line-height:1.45;}
-.translate-status[data-state="error"]{color:#A61E1E;}
-.translate-status[data-state="busy"]{color:var(--gold-2);}
-.translate-reset{margin-top:.55rem;padding:.35rem .55rem;font-size:.7rem;}
+.translate-select:hover,.translate-select:focus-visible{border-color:var(--gold-2);outline:none;box-shadow:0 0 0 3px rgba(184,134,59,.14);}
+.translate-select:disabled{opacity:.6;cursor:progress;}
+.translate-select option{background:var(--parchment);color:var(--ink);}
+.translate-toast{position:fixed;left:50%;bottom:1.5rem;transform:translateX(-50%);z-index:50;max-width:min(92vw,420px);background:var(--ink);color:var(--parchment);padding:.7rem 1rem;border-radius:10px;font-size:.85rem;line-height:1.45;box-shadow:0 8px 24px rgba(0,0,0,.25);}
+/* hide Google's own banner/toolbar so only our dropdown shows */
+body{top:0 !important;}
+body > .skiptranslate, iframe.skiptranslate, .goog-te-banner-frame, #goog-gt-tt, .goog-te-balloon-frame{display:none !important;}
+#google_translate_element{display:none;}
+.goog-text-highlight{background:none !important;box-shadow:none !important;}
 @media (max-width:700px){
   .topbar{align-items:flex-start;gap:.7rem;}
   .topbar-actions{gap:.5rem;align-items:flex-start;}
   .crumbs{justify-content:flex-end;text-align:right;}
-  .translate-btn{padding:.48rem .6rem;}
-}
-@media (prefers-reduced-motion:reduce){
-  .translate-btn,.translate-run,.translate-save,.translate-reset{transition:none;}
+  .translate-select{padding:.48rem 1.8rem .48rem .7rem;max-width:8.5rem;}
 }
 
 
-/* ============ WHOLE-SITE REFINEMENT ============ */
-.beginner-guide,.article-support{
-  position:relative;max-width:68ch;margin:0 0 2rem;padding:1rem 1.1rem 1.05rem;
-  border:1px solid var(--line);border-left:2px solid var(--gold-2);border-radius:8px 8px 8px 2px;
-  background:linear-gradient(120deg,rgba(255,255,255,.24),transparent 70%);
+/* ============ WELCOME / START PAGE ============ */
+.welcome-tools{display:flex;justify-content:flex-end;padding:1.2rem clamp(1.25rem,4vw,3rem) 0;}
+.welcome{max-width:880px;margin:0 auto;padding:clamp(1.5rem,5vw,3.5rem) clamp(1.25rem,4vw,2rem) 4rem;}
+.welcome-hero{text-align:center;display:flex;flex-direction:column;align-items:center;gap:1.3rem;padding-bottom:clamp(2rem,5vw,3rem);}
+.welcome-hero .intro-star{width:min(40vw,150px);height:min(40vw,150px);}
+.welcome-hero h1{font-size:clamp(2.6rem,8vw,4.4rem);line-height:1;animation:riseIn .9s ease 1.2s backwards;}
+.welcome-hero .kicker{font-size:1.08rem;color:var(--ink-soft);line-height:1.6;max-width:44ch;margin:0;animation:riseIn .9s ease 1.5s backwards;}
+.enter-big{
+  display:inline-flex;align-items:center;justify-content:center;gap:.9rem;
+  width:min(100%,520px);padding:1.5rem 2rem;margin-top:.6rem;
+  background:var(--gold);color:var(--parchment);
+  font-family:'Amiri',Georgia,serif;font-weight:700;font-size:clamp(1.5rem,4.5vw,2rem);letter-spacing:.3px;
+  border:1px solid var(--gold-2);border-radius:4px 4px 30px 4px;
+  box-shadow:0 10px 30px -12px var(--gold);
+  transition:transform .25s ease,box-shadow .25s ease,background .25s ease;
+  animation:riseIn .9s ease 1.9s backwards;position:relative;overflow:hidden;
 }
-.beginner-guide::after{content:"✦";position:absolute;right:1rem;top:.8rem;color:var(--gold-2);opacity:.55;font-size:.9rem;}
-.guide-kicker,.support-kicker{margin:0 0 .28rem;color:var(--gold-2);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;}
-.beginner-guide h2{font-size:1.15rem;margin:0 0 .45rem;}
-.beginner-guide p,.article-support p{margin:0;color:var(--ink-soft);font-size:.92rem;line-height:1.65;max-width:64ch;}
-.guide-steps{display:flex;flex-wrap:wrap;gap:.45rem;margin:.7rem 0 0;padding:0;list-style:none;}
-.guide-steps li{display:inline-flex;align-items:center;gap:.35rem;color:var(--ink);font-size:.76rem;}
-.guide-steps li:not(:last-child)::after{content:"→";color:var(--gold-2);margin-left:.15rem;}
-.article-support{margin:.1rem 0 2rem;padding:.7rem 1rem;border-left-width:1px;border-style:dashed;background:none;}
-.article-support p{font-size:.82rem;}
-.article-support strong{color:var(--ink);font-weight:600;}
-.article .scroll-reveal{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.75,.25,1);}
-.article .scroll-reveal.is-visible{opacity:1;transform:none;}
-.scroll-top{
-  position:fixed;right:clamp(1rem,3vw,2rem);bottom:1.25rem;z-index:25;width:42px;height:42px;
-  border:1px solid var(--line);border-radius:50%;background:var(--parchment);color:var(--gold-2);
-  box-shadow:0 6px 18px rgba(27,36,32,.1);font-size:1.1rem;cursor:pointer;opacity:0;transform:translateY(10px);pointer-events:none;
-  transition:opacity .25s ease,transform .25s ease,background .2s ease;
-}
-.scroll-top.is-visible{opacity:1;transform:none;pointer-events:auto;}
-.scroll-top:hover,.scroll-top:focus-visible{background:var(--card-bg);outline:2px solid var(--gold-2);outline-offset:3px;}
+.enter-big:hover,.enter-big:focus-visible{transform:translateY(-3px);background:var(--gold-2);box-shadow:0 16px 36px -12px var(--gold);}
+.enter-big svg{width:26px;height:26px;flex:none;transition:transform .25s ease;}
+.enter-big:hover svg{transform:translateX(5px);}
+.enter-note{font-size:.82rem;color:var(--ink-soft);margin:0;animation:riseIn .9s ease 2.1s backwards;}
+.w-section{border-top:1px solid var(--line);padding:clamp(1.8rem,4vw,2.6rem) 0 0;margin-top:clamp(1.8rem,4vw,2.6rem);}
+.w-section h2{font-size:clamp(1.6rem,3.4vw,2.1rem);margin-bottom:.8rem;}
+.w-section p{color:var(--ink-soft);line-height:1.75;font-size:1.02rem;margin:0 0 .9rem;max-width:68ch;}
+.w-section p:last-child{margin-bottom:0;}
+.w-eyebrow{font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-2);font-weight:600;margin:0 0 .5rem !important;}
+.w-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1.2rem;}
+.w-card{display:flex;flex-direction:column;gap:.55rem;background:var(--card-bg);border:1px solid var(--line);border-radius:4px 4px 22px 4px;padding:1.3rem 1.2rem;transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .18s ease-out,border-color .25s ease,box-shadow .25s ease;}
+a.w-card:hover,a.w-card:focus-visible{border-color:var(--gold-2);box-shadow:0 14px 28px rgba(27,36,32,.09);transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(-4px);}
+.w-card .num{font-family:'Amiri',serif;font-weight:700;font-size:1.5rem;color:var(--gold);line-height:1;}
+.w-card h3{font-size:1.2rem;}
+.w-card p{font-size:.9rem !important;line-height:1.6 !important;margin:0 !important;}
+.w-steps{list-style:none;counter-reset:w;margin:1.2rem 0 0;padding:0;display:grid;gap:.9rem;}
+.w-steps li{counter-increment:w;position:relative;padding:1rem 1.2rem 1rem 3.6rem;background:var(--card-bg);border:1px solid var(--line);border-radius:4px 4px 18px 4px;color:var(--ink-soft);line-height:1.65;font-size:.98rem;}
+.w-steps li::before{content:counter(w);position:absolute;left:1.1rem;top:.85rem;font-family:'Amiri',serif;font-weight:700;font-size:1.6rem;color:var(--gold);line-height:1;}
+.w-steps li strong{color:var(--ink);font-weight:600;}
+.w-final{text-align:center;display:flex;flex-direction:column;align-items:center;gap:1rem;}
+.w-final h2{margin-bottom:0;}
+.w-final p{margin:0;}
+.w-final .enter-big{animation:none;}
+
+
+/* ============ POLISH LAYER ============ */
+.weave{inset:-100px 0;transform:translate3d(0,calc(var(--scroll-progress) * -70px),0);}
+html.js .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s cubic-bezier(.2,.75,.25,1);}
+html.js .rv.in{opacity:1;transform:none;}
+.article h2{scroll-margin-top:1.2rem;}
+.article h2::after{content:"";display:block;height:2px;width:2.6rem;margin-top:.4rem;background:var(--gold-2);transform-origin:left;transition:transform .8s ease .15s;}
+html.js .article h2.rv:not(.in)::after{transform:scaleX(0);}
+.article blockquote{transition:border-color .25s ease,background .25s ease;}
+.article blockquote:hover{border-left-color:var(--teal);background:linear-gradient(90deg,rgba(184,134,59,.07),transparent 70%);}
+.article{overflow-wrap:break-word;}
+.article table{display:block;max-width:100%;overflow-x:auto;}
+.toc-item{transition:background .25s ease;}
+.toc-item .body{transition:transform .25s ease;}
+.toc-item:hover{background:linear-gradient(90deg,rgba(184,134,59,.08),transparent 75%);}
+.toc-item:hover .body{transform:translateX(5px);}
+.forum-card > .ic{transition:transform .35s cubic-bezier(.2,.75,.25,1);}
+.forum-card:hover > .ic,.forum-card:focus-visible > .ic{transform:translateZ(22px) rotate(-8deg) scale(1.12);}
+.welcome{position:relative;}
+.welcome::before{content:"";position:absolute;left:50%;top:-30px;width:min(92vw,760px);height:440px;z-index:-1;transform:translateX(-50%);background:radial-gradient(closest-side,rgba(184,134,59,.24),transparent 72%);filter:blur(8px);pointer-events:none;animation:drift 12s ease-in-out infinite alternate;}
+@keyframes drift{from{transform:translateX(-53%) scale(1);}to{transform:translateX(-47%) scale(1.14);}}
+.welcome-hero h1{background:linear-gradient(90deg,var(--ink) 0%,var(--gold-2) 45%,var(--ink) 90%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:riseIn .9s ease 1.2s backwards,shimmer 7s linear 2.4s infinite;}
+@keyframes shimmer{to{background-position:-220% 0;}}
+.enter-big::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.4) 50%,transparent 70%);transform:translateX(-130%);animation:shine 5s ease-in-out 3.2s infinite;}
+.enter-big:hover::after{animation:none;transform:translateX(130%);transition:transform .7s ease;}
+@keyframes shine{0%,70%{transform:translateX(-130%);}100%{transform:translateX(130%);}}
+.pageinfo{display:flex;flex-wrap:wrap;gap:.5rem;margin:-.4rem 0 1.1rem;font-size:.78rem;color:var(--ink-soft);}
+.pageinfo .chip{border:1px solid var(--line);border-radius:999px;padding:.22rem .7rem;background:var(--card-bg);}
+.otp{display:flex;align-items:center;gap:.45rem;margin:0 0 1.1rem;overflow-x:auto;padding-bottom:.35rem;scrollbar-width:none;max-width:68ch;}
+.otp::-webkit-scrollbar{display:none;}
+.otp > span{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-2);font-weight:600;white-space:nowrap;}
+.otp button{flex:none;white-space:nowrap;max-width:15rem;overflow:hidden;text-overflow:ellipsis;border:1px solid var(--line);background:var(--card-bg);color:var(--ink);border-radius:999px;padding:.34rem .8rem;font-size:.78rem;cursor:pointer;transition:border-color .2s ease,color .2s ease,transform .2s ease;}
+.otp button:hover,.otp button:focus-visible{border-color:var(--gold-2);color:var(--gold-2);transform:translateY(-1px);outline:none;}
+.howto{margin:0 0 1.8rem;max-width:68ch;border:1px solid var(--line);border-left:3px solid var(--gold-2);border-radius:4px 4px 18px 4px;background:var(--card-bg);padding:0 1.1rem;}
+.howto summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:.6rem;padding:.8rem 0;font-family:'Amiri',Georgia,serif;font-weight:700;font-size:1.15rem;}
+.howto summary::-webkit-details-marker{display:none;}
+.howto summary::after{content:"+";margin-left:auto;color:var(--gold-2);font-size:1.2rem;line-height:1;}
+.howto[open] summary::after{content:"\2212";}
+.howto ul{margin:0 0 .9rem;padding-left:1.1rem;color:var(--ink-soft);line-height:1.65;font-size:.92rem;}
+.howto li{margin:.3rem 0;}
+.to-top{position:fixed;right:max(1rem,env(safe-area-inset-right,0px));bottom:max(1rem,env(safe-area-inset-bottom,0px));z-index:30;width:48px;height:48px;padding:0;border-radius:50%;border:1px solid var(--line);background:var(--parchment);color:var(--gold-2);display:grid;place-items:center;cursor:pointer;opacity:0;transform:translateY(14px) scale(.9);pointer-events:none;box-shadow:0 6px 18px rgba(27,36,32,.16);transition:opacity .3s ease,transform .3s cubic-bezier(.2,.75,.25,1),border-color .2s ease,box-shadow .2s ease;}
+.to-top.show{opacity:1;transform:none;pointer-events:auto;}
+.to-top.show:hover,.to-top.show:focus-visible{transform:translateY(-3px);border-color:var(--gold-2);box-shadow:0 12px 26px rgba(27,36,32,.22);outline:none;}
+.to-top svg{position:absolute;inset:0;width:100%;height:100%;transform:rotate(-90deg);}
+.to-top circle{fill:none;stroke-width:2;}
+.to-top .trk{stroke:var(--line);}
+.to-top .bar{stroke:var(--gold-2);stroke-linecap:round;stroke-dasharray:132px;stroke-dashoffset:calc(132px * (1 - var(--scroll-progress)));}
+.to-top .arr{position:relative;font-size:1.15rem;line-height:1;}
+@media (max-width:700px){.otp button{max-width:11rem;}.welcome::before{height:340px;}}
 @media (prefers-reduced-motion:reduce){
-  .article .scroll-reveal{opacity:1;transform:none;transition:none;}
-  .scroll-top{transition:none;}
+  html.js .rv,html.js .rv.in{opacity:1;transform:none;transition:none;}
+  html.js .article h2.rv:not(.in)::after{transform:none;}
+  .weave{transform:none;}
+  .welcome::before,.enter-big::after{animation:none;}
+  .welcome-hero h1{animation:none;background:none;color:var(--ink);-webkit-text-fill-color:currentColor;}
+  .to-top{transition:none;}
+  .toc-item:hover .body,.forum-card:hover > .ic{transform:none;}
+  .w-card,a.w-card:hover,a.w-card:focus-visible{transform:none;transition:none;}
 }
 
 </style>
 </head>
 <body>
 <div class="weave"></div>
+<div id="google_translate_element"></div>
 <div id="app"></div>
-<button class="scroll-top" type="button" data-scroll-top aria-label="Back to top">↑</button>
+<button class="to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 48 48" aria-hidden="true"><circle class="trk" cx="24" cy="24" r="21"/><circle class="bar" cx="24" cy="24" r="21"/></svg><span class="arr" aria-hidden="true">&#8593;</span></button>
 
 <script>
 /* ============ DATA ============ */
@@ -934,7 +987,7 @@ const CONTENT = {
 
 <p>But the innovations are NOT limited to women, for instance, many ignorant Men think that a Woman has to wear hijab in private or around other women, or think that we are allowed to hurt women and beat them into wearing hijab, this is another harmful innovation! A woman is free to wear comfortable clothing in private, and around her spouse in private may be as undressed as she wishes, nor can we hurt her for this.</p>
 
-<p>And some morons amongst the men think a woman is obligated to disclose her prior relationships or marriages, and that she owes him an explanation of her past, including zina. but this is HARAM and an INNOVATION! Your spouse owes you NOTHING about their past, nor should you care especially if they had repented!  All of these are western innovations that harm our ummah!</p>
+<p>And some morons amongst the men think a woman is obligated to disclose her prior relationships or marriages, and that she owes him an explanation of her past, including zina. But this is HARAM and an INNOVATION! Your spouse owes you NOTHING about their past, nor should you care especially if they had repented!  All of these are western innovations that harm our ummah!</p>
 
 <h2>What is required of us</h2>
 
@@ -1195,113 +1248,95 @@ const CONTENT = {
 <blockquote>&ldquo;Avoid that which I forbid you to do, and do that which I command you to do as much as you can.&rdquo;<cite>Sahih al-Bukhari, 7288</cite></blockquote>
 `,
 "what-is-islam/aqeedah/introduction-to-aqeedah": `
-<p class="lede">The word Aqeedah comes from the Arabic root <em>&lsquo;aqada</em>, which means &ldquo;to tie a knot.&rdquo; In Islam, Aqeedah is the firm belief of the heart in what Allah and His Messenger &#xFDFA; taught about Allah, His angels, His books, His messengers, the Last Day, and divine decree. It is the creed that gives every other act its meaning.</p>
+<p class="lede">The word Aqeedah comes from the Arabic root <em>&lsquo;aqada</em>, which literally means &ldquo;to tie a knot.&rdquo; In Islamic terminology, it refers to a firm, unshakeable belief in the heart that is free from any doubt &mdash; the creed or theology of Islam.</p>
 
-<p><strong>You cannot have valid Iman without correct Aqeedah.</strong> Iman is not merely a feeling, a cultural identity, or an abstract conviction that Islam is true. It is sincere belief in the heart, testimony and obedience on the tongue, and submission expressed through the actions of the limbs. Correct Aqeedah is the foundation that makes those belief, speech, and actions Islamic.</p>
+<p>Aqeedah deals with the foundation of belief upon which all Islamic practice is built; without a sound Aqeedah, actions are considered void.</p>
 
-<p>This does not mean that every minor mistake, technical misunderstanding, or disputed scholarly question makes a person a disbeliever. The decisive issue is whether a person rejects a foundational belief that is established clearly and necessarily in Islam. Knowingly or stubbornly denying such a core belief is Kufr. Applying the ruling to a particular person, however, requires that the proof has reached them clearly and that the conditions and barriers relevant to that judgement have been considered. Do not confuse a serious warning about a belief with casually declaring individuals apostates.</p>
+<p>Aqeedah comes before the practice of the religion, and the Companions themselves learned faith first. It was narrated that Jundub bin &lsquo;Abdullah said:</p>
 
-<h2>Aqeedah is the foundation of Iman</h2>
+<blockquote>&ldquo;We were with the Prophet (&#xFDFA;), and we were strong youths, so we learned faith before we learned Qur&rsquo;an. Then we learned Qur&rsquo;an and our faith increased thereby.&rdquo;<cite>Sunan Ibn Majah, 61</cite></blockquote>
 
-<p>A building cannot stand without a foundation. In the same way, worship cannot be sound if the beliefs underneath it deny Allah, reject His Messenger, or contradict the foundations of revelation. A person may perform outward actions, but Iman requires that those actions rest upon Tawhid and acceptance of the truth. This is why the Companions learned faith before learning the Qur&rsquo;an in detail:</p>
+<p>Abdul-Ghani al-Mujaddidi said:</p>
 
-<blockquote>&ldquo;We were with the Prophet &#xFDFA;, and we were strong youths, so we learned faith before we learned Qur&rsquo;an. Then we learned Qur&rsquo;an and our faith increased thereby.&rdquo;<cite>Sunan Ibn Majah, 61</cite></blockquote>
+<blockquote>&ldquo;From this, it is derived that one should study matters related to belief before studying Fiqh and the Qur&rsquo;an.&rdquo;<cite>See Inja&rsquo; al-Hajah, Sharh Sunan Ibn Majah</cite></blockquote>
 
-<p>Learning Aqeedah is therefore not an advanced hobby reserved for scholars. Every Muslim needs the essentials: who Allah is, what belongs to Him alone, why Muhammad &#xFDFA; must be followed, what revelation requires, and what happens after death. More detailed questions can be studied gradually, but the foundations cannot be treated as optional.</p>
+<p>Faith (Iman in Arabic) in Islam is not purely within the belief of the religion being true. It is also in your actions and what you believe. Your faith even increases with good deeds and decreases with bad deeds. This also relates to why reverting to Islam requires one to pronounce the Shahada (Declaration of Faith), which we cover in the forum on how to be Muslim.</p>
 
-<h2>What Iman actually includes</h2>
+<p><strong>Evidence that faith includes actions, not only belief:</strong></p>
 
-<p>The clearest definition is that Iman includes <strong>belief of the heart, speech of the tongue, and action of the limbs</strong>. These are not three unrelated versions of faith. They are three connected expressions of one reality:</p>
+<p><strong>1. Allah describes true believers by what they do.</strong></p>
 
-<ul>
-<li><strong>Belief of the heart:</strong> affirming Allah&rsquo;s truth, loving Him, fearing Him, hoping in Him, trusting Him, and accepting the articles of faith.</li>
-<li><strong>Speech of the tongue:</strong> pronouncing the Shahadah, remembering Allah, reciting revelation, telling the truth, and speaking what faith requires.</li>
-<li><strong>Action of the limbs:</strong> praying, fasting, giving Zakah, making Hajj when able, obeying Allah, avoiding what He forbids, and treating people with justice and mercy.</li>
-</ul>
+<blockquote>&ldquo;The believers are only those who, when Allah is mentioned, their hearts become fearful, and when His verses are recited to them, it increases them in faith; and upon their Lord they rely. The ones who establish prayer, and from what We have provided them, they spend. Those are the believers, truly.&rdquo;<cite>Surah al-Anfal, 8:2&ndash;4</cite></blockquote>
 
-<p>If Iman were only an inward opinion, the Qur&rsquo;an would not repeatedly describe believers by what they do. Allah joins belief to action throughout revelation.</p>
+<p><strong>2. Faith is tied to striving with wealth and life.</strong></p>
 
-<h2>Evidence that faith includes actions</h2>
+<blockquote>&ldquo;The believers are only those who have believed in Allah and His Messenger and then doubt not but strive with their wealth and their lives in the cause of Allah. It is those who are the truthful.&rdquo;<cite>Surah al-Hujurat, 49:15</cite></blockquote>
 
-<p><strong>1. The Qur&rsquo;an calls people believers by describing their worship and conduct.</strong> Allah says:</p>
+<p><strong>3. Righteousness joins belief and action.</strong></p>
 
-<blockquote>&ldquo;The true believers are only those whose hearts tremble at the remembrance of Allah, whose faith increases when His revelations are recited to them, who put their trust in their Lord, establish prayer, and donate from what We have provided them. It is they who are the true believers.&rdquo;<cite>Qur&rsquo;an, 8:2&ndash;4</cite></blockquote>
+<blockquote>&ldquo;&hellip; but [true] righteousness is [in] one who believes in Allah, the Last Day, the angels, the Book, and the prophets and gives wealth, in spite of love for it, to relatives, orphans, the needy, the traveler, those who ask [for help], and for freeing slaves; [and who] establishes prayer and gives zakah; [those who] fulfill their promise when they promise; and [those who] are patient in poverty and hardship and during battle. Those are the ones who have been true, and it is those who are the righteous.&rdquo;<cite>Surah al-Baqarah, 2:177</cite></blockquote>
 
-<p>This passage begins with the heart, then mentions reliance, prayer, and spending, and finally calls the whole group &ldquo;the true believers.&rdquo; The actions are not presented as unrelated decorations; they are part of the description of Iman.</p>
+<p><strong>4. Salvation is for those who believe and do righteous deeds.</strong></p>
 
-<p><strong>2. True faith is proven by costly commitment.</strong> Allah says:</p>
+<blockquote>&ldquo;Indeed, mankind is in loss, except for those who have believed and done righteous deeds and advised each other to truth and advised each other to patience.&rdquo;<cite>Surah al-&lsquo;Asr, 103:2&ndash;3</cite></blockquote>
 
-<blockquote>&ldquo;The true believers are only those who believe in Allah and His Messenger, never doubt, and strive with their wealth and their lives in the cause of Allah. They are the ones true in faith.&rdquo;<cite>Qur&rsquo;an, 49:15</cite></blockquote>
+<p><strong>5. The Prophet &#xFDFA; called deeds parts of faith.</strong> Imam al-Bukhari placed this hadith in a chapter titled &ldquo;(What is said) regarding the deeds of faith&rdquo;:</p>
 
-<p>The verse does not describe truthfulness in faith as a private claim. It connects belief and certainty to sacrifice and action.</p>
+<blockquote>&ldquo;Faith (Belief) consists of more than sixty branches (i.e. parts). And Haya [modesty] is a part of faith.&rdquo;<cite>Sahih al-Bukhari, 9</cite></blockquote>
 
-<p><strong>3. Righteousness combines creed and practice.</strong> Allah describes righteousness as belief in Allah, the Last Day, the angels, the Book, and the prophets, together with giving wealth, establishing prayer, giving Zakah, fulfilling promises, and patiently obeying Him:</p>
+<p><strong>6. The Prophet &#xFDFA; explained &ldquo;belief in Allah alone&rdquo; with actions.</strong> When the delegation of &lsquo;Abd al-Qays came to him, he asked them:</p>
 
-<blockquote>&ldquo;Those are the ones who have been true, and it is those who are mindful of Allah.&rdquo;<cite>Qur&rsquo;an, 2:177</cite></blockquote>
+<blockquote>&ldquo;Do you know what is meant by belief in Allah? It is to testify that none has the right to be worshipped except Allah, to offer prayers perfectly, to give Zakat, and to give Al-Khumus (one-fifth of the war booty) (in Allah&rsquo;s Cause).&rdquo;<cite>Sahih al-Bukhari, 7556 (see also 53)</cite></blockquote>
 
-<p>Belief and action are listed together because neither can be reduced to the other. A claim of belief that produces no submission is not the complete Iman praised in revelation.</p>
+<p><strong>7. Prayer itself is called &ldquo;faith.&rdquo;</strong> When the direction of prayer changed, some Muslims had already died while praying toward Jerusalem. Al-Bara&rsquo; ibn &lsquo;Azib reported what Allah revealed about them:</p>
 
-<p><strong>4. Salvation is described as belief and righteous deeds.</strong> Allah says about the people who are not in loss:</p>
+<blockquote>&ldquo;And Allah would never make your faith (prayers) to be lost.&rdquo;<cite>Sahih al-Bukhari, 40; Surah al-Baqarah, 2:143</cite></blockquote>
 
-<blockquote>&ldquo;Except those who believe and do righteous deeds, encourage one another to truth, and encourage one another to patience.&rdquo;<cite>Qur&rsquo;an, 103:3</cite></blockquote>
+<p>Imam al-Bukhari titled that chapter &ldquo;The (offering of) Salat (prayers) is a part of faith.&rdquo;</p>
 
-<p>The repeated Qur&rsquo;anic pairing of <em>those who believe</em> with <em>those who do righteous deeds</em> makes the relationship explicit. Faith is not merely what a person says is inside them; it is belief that produces obedience.</p>
+<p><strong>8. Forbidding evil is part of faith, and its lowest level is the weakest faith.</strong></p>
 
-<p><strong>5. The Prophet &#xFDFA; explicitly made deeds branches of faith.</strong> He said:</p>
+<blockquote>&ldquo;Whoever of you sees something evil, let him change it with his hand; and if he is not able, then with his tongue; and if he is not able, then with his heart, and that is the weakest of faith.&rdquo;<cite>Sahih Muslim, 49</cite></blockquote>
 
-<blockquote>&ldquo;Faith has over seventy branches. The highest of them is the declaration that there is no god but Allah, and the lowest of them is removing something harmful from the path; and modesty is a branch of faith.&rdquo;<cite>Sahih Muslim, 35b</cite></blockquote>
+<p>In all of these texts, deeds are named as parts of faith itself. Faith is not only believing that Islam is true.</p>
 
-<p>The highest branch is speech, the lowest branch is a physical act, and modesty is an inward moral quality that appears in conduct. This hadith cannot be reconciled with the idea that Iman is only mental agreement.</p>
+<p>There are things in Aqeedah which are known by necessity, fitrah, and mass attestation. Not knowing these removes a person from Islam. Examples include knowing that Allah exists, that He is eternal and all-powerful, that angels exist, that Allah is one, and that prayer is an obligation, among other essentials.</p>
 
-<p><strong>6. Even the heading of a chapter in Sahih al-Bukhari records this principle:</strong> &ldquo;The deeds of faith.&rdquo; The Prophet &#xFDFA; also said that faith has more than sixty branches and that modesty is a part of faith.</p>
+<p>If someone has committed disbelief in this world while having had absolutely no access to Islam at all, Allah may test that person on the Day of Judgment &mdash; this is outlined elsewhere on this site.</p>
 
-<p><strong>7. The Qur&rsquo;an calls prayer &ldquo;faith.&rdquo;</strong> When the direction of prayer was changed, Allah said:</p>
+<p>Allah Most High has said in the Quran:</p>
 
-<blockquote>&ldquo;Allah would never cause your faith to be lost.&rdquo;<cite>Qur&rsquo;an, 2:143</cite></blockquote>
+<blockquote>&ldquo;And We would never punish (a people) until We have sent a messenger.&rdquo;<cite>Surah al-Isra, 17:15</cite></blockquote>
 
-<p>The early Muslims understood &ldquo;your faith&rdquo; here to include the prayers they had already performed toward the first Qiblah. This is direct evidence that an outward act of worship can be described as Iman.</p>
+<p>Imam Ibn Abi Hatim, in his Tafsir, narrates the following with a good chain. The Messenger of Allah &#xFDFA; said:</p>
 
-<p><strong>8. Iman increases.</strong> Allah says that when a Surah is revealed, it increases the believers in faith, and He describes believers whose hearts tremble, whose faith increases with revelation, and who respond with obedience. Iman is therefore not a motionless label. It grows through knowledge, reflection, sincerity, and righteous action, and it weakens through sins, heedlessness, and disobedience.</p>
+<blockquote>&ldquo;The one who died during the Fatrah will say, &lsquo;My Lord! No Book or Messenger came to me.&rsquo; Then he will recite the following ayah: &lsquo;Our Lord! If only You had sent us a messenger, we would have followed Your signs and become believers.&rsquo;&rdquo;<cite>Tafsir Ibn Abi Hatim; the ayah is Surah al-Qasas, 28:47</cite></blockquote>
 
-<h2>Islam, Iman, and Ihsan</h2>
+<p>Ibn Jarir and Ibn Abi Hatim narrate in their respective Tafsirs that Qatada said regarding this ayah:</p>
 
-<p>In the Hadith of Jibril, the Prophet &#xFDFA; distinguished between the questions about Islam, Iman, and Ihsan. Islam was described through the outward pillars: Shahadah, Salah, Zakah, fasting, and Hajj. Iman was described through the six articles of belief. Ihsan was to worship Allah as though you see Him, knowing that He sees you. When the terms are mentioned together, this shows the difference between their emphases; when Iman is mentioned by itself, it includes the whole religion, including the speech and actions that faith requires.</p>
+<blockquote>&ldquo;Indeed Allah Most High will not punish anybody until news from Allah reaches him or until a proof from Allah reaches him (i.e. by means of the Messenger of Allah &#xFDFA;).&rdquo;<cite>Tafsir Ibn Jarir and Tafsir Ibn Abi Hatim</cite></blockquote>
 
-<p>This is why it is wrong to say, &ldquo;I believe in my heart, so my actions do not matter.&rdquo; The heart is the root, the tongue declares it, and the limbs testify to it. A person may have weak Iman and commit a grave sin while remaining within Islam; that sin still damages and diminishes their faith. The Prophet &#xFDFA; said that the adulterer, thief, and drinker are not believers while committing those acts. The scholars explain this as a severe negation of complete Iman, not a licence to make careless Takfir of every sinner. It proves that actions affect the reality and strength of Iman.</p>
+<blockquote>Abu Huraira reported Allah&rsquo;s Messenger (&#xFDFA;) as saying: No baby is born but upon Fitra. It is his parents who make him a Jew or a Christian or a Polytheist. A person said: Allah&rsquo;s Messenger, what is your opinion if they were to die before that (before reaching the age of adolescence when they can distinguish between right and wrong)? He said: It is Allah alone Who knows what they would be doing.<cite>Sahih Muslim, 2658e</cite></blockquote>
 
-<h2>What does an error in Aqeedah mean?</h2>
+<p>The Prophet &#xFDFA; said:</p>
 
-<p>When this page says that an error in core Aqeedah is disbelief, it means the rejection or denial of a foundational truth that a person is required to affirm: for example, denying Allah&rsquo;s existence, denying that Allah alone deserves worship, denying the prophethood of Muhammad &#xFDFA;, rejecting the Qur&rsquo;an as revelation, or denying the Resurrection after the truth has been established.</p>
+<blockquote>&ldquo;There are four who will present their case on the Day of Resurrection: a deaf man who never heard anything, an insane man, a very old and senile man, and a man who died during the Fatrah. As for the deaf man, he will say: &lsquo;O Lord, Islam came but I never heard anything.&rsquo; As for the insane man, he will say: &lsquo;O Lord, Islam came and the young boys were throwing camel dung at me.&rsquo; As for the senile man, he will say: &lsquo;O Lord, Islam came and I did not understand anything.&rsquo; As for the one who died during the Fatrah, he will say: &lsquo;O Lord, no Messenger from You came to me.&rsquo; Allah will accept their pledge of obedience to Him, then He will send word to them that they should enter the Fire. By the One in Whose Hand is the soul of Muhammad, if they enter it, it will be cool and safe for them.&rdquo;<cite>al-Tabarani (2/79) with a Sahih sanad; Musnad Ahmad (16301); Ibn Hibban (1827); graded Sahih by Shaykh al-Albani in as-Sahihah (1434), by Ibn al-Qayyim in Tariq al-Hijratayn (1/397), and by Shaykh Muqbil in Sahih al-Musnad (19)</cite></blockquote>
 
-<p>These are not harmless alternative opinions. A person cannot simultaneously have Iman in Allah and reject Allah&rsquo;s existence; cannot affirm the Messenger while denying his prophethood; and cannot claim submission while deliberately rejecting a necessary foundation of the religion. Correct Aqeedah is therefore a condition of Iman, not an optional supplement to it.</p>
+<p>Yazid bin Aban said: We said to Anas (may Allah be pleased with him): O Abu Hamzah! What do you say in regards to the children of the Mushriks? He said: The Messenger of Allah &#xFDFA; said:</p>
 
-<p>At the same time, precision is part of justice. Not every unfamiliar phrase, technical mistake, disputed interpretation, or failure to know a complicated issue is the same as consciously rejecting a foundation. A ruling about a statement or belief must not be turned into reckless judgement about a particular person without knowledge of what they understood, what reached them, and whether the proof was established.</p>
+<blockquote>&ldquo;They won&rsquo;t have any sins for which they would be punished, so that they would be the inhabitants of the Fire; neither would they have any good deeds for which they would be rewarded, so that they become the inhabitants of the Paradise. They will be the servants of the people of Paradise.&rdquo;<cite>Abu Dawud al-Tayalisi in his Musnad (2225); al-Tabarani in al-Mu&lsquo;jam al-Awsat (5355) and al-Mu&lsquo;jam al-Kabir (6993); al-Bazzar (4516, 7466); graded &ldquo;Sahih li shawahid&rdquo; (authentic due to supporting chains) in as-Sahihah (1468)</cite></blockquote>
 
-<h2>Is ignorance an excuse?</h2>
+<p>Anas (may Allah be pleased with him) said that the Prophet &#xFDFA; said:</p>
 
-<p><strong>Ignorance is not a blanket excuse for rejecting the foundations of Islam.</strong> If the message of Islam has reached a person clearly enough for them to know its essential claim, then saying &ldquo;I did not study Aqeedah&rdquo; does not make deliberate rejection harmless. A Muslim is obligated to learn the essentials needed for faith and worship. Not knowing Arabic, living in a non-Muslim country, or never having read a specialist book is not automatically the same as having had no access to Islam.</p>
+<blockquote>&ldquo;Four (types of people) will come on the Day of Judgment: the infant, the insane, the one who died during al-Fatrah and a very old and senile man. Everyone will present their case. Allah will say to the neck from the Hellfire: {Arise!} And He will say to them: {I used to send Messengers to my slaves from among themselves, and I am a Messenger from Myself to you. So enter into this (Fire).} So those for whom misery was written will say: O Lord! How should we enter this, whereas this is what we are trying to run away from? As for those for whom happiness was written, they will be charging towards it (to enter it). Allah will say: {You (would have been) more severe in denying and disobeying My Messengers.} So those (who ran to enter the fire) will be made to enter the Jannah and those (who complained) will be made to enter the Hellfire.&rdquo;<cite>Musnad al-Bazzar (7594); Musnad Abu Ya&lsquo;la (4224). Shaykh al-Albani said that the Hadith with this chain is &ldquo;Da&lsquo;if&rdquo; (weak), but there are other Ahadith that raise its level (like the first Hadith of al-Aswad); see as-Sahihah (2468)</cite></blockquote>
 
-<p>The exception is the person who genuinely had no access to the message at all, or lacked the capacity to understand it. Allah says:</p>
+<p>Al-Hafiz Abu Bakr al-Bazzar reported in his Musnad, on the authority of Thawban (may Allah be pleased with him), that the Prophet &#xFDFA; said:</p>
 
-<blockquote>&ldquo;We never punish until We have sent a messenger.&rdquo;<cite>Qur&rsquo;an, 17:15</cite></blockquote>
+<blockquote>&ldquo;When it will be the Day of Judgment, people from the days of ignorance will come forth carrying idols on their backs. Their Lord will ask them [in al-Zuhd of Ibn al-Mubarak it is: Allah will ask them: {What did you used to worship?}] and they will say: O our Lord! You did not send any Messenger to us nor did we receive any commands from You. Had You sent us the Messenger we would have been Your obedient servants. Their Lord will say to them: {If I command you with a task will you obey Me?} They will say: Yes! They will be commanded to walk towards the Hellfire and enter it. They will walk towards it till when they come close to it, they will hear its raging and roaring. They will return back to their Lord saying: O our Lord! Take us out from it. He will say to them: {Did you not claim to Me that if I command you with a task, you will obey Me?} He will take a promise from them and say to them: {Go towards it and enter it.} They will (again) walk towards it till when they see it, they will disperse and return back. They will say: O our Lord! Distance us from it for we cannot enter it. He will say: {Enter it humiliated.}&rdquo; The Prophet &#xFDFA; said: &ldquo;Had they entered it the first time, they would have found it cool and safe (for them).&rdquo;<cite>Musnad al-Bazzar (4169); the words within the brackets are from al-Zuhd (1323) of Ibn al-Mubarak. Al-Hakim also reported it in al-Mustadrak (8390) and said: &ldquo;It is Sahih as per the condition of al-Bukhari and Muslim but they did not report it,&rdquo; and al-Dhahabi agreed with him</cite></blockquote>
 
-<p>Allah also says that messengers were sent so that people would have no argument against Him after the messengers had come. The people of the Fatrah, a person who never heard the message in an accessible form, a child who had not reached understanding, and a person without the capacity to comprehend are not treated as though they knowingly rejected a proof they never received. Their case belongs to Allah&rsquo;s perfect justice, and the reports about testing those who had no access are discussed on the relevant pages.</p>
+<p>Imam adh-Dhuhli reported on the authority of Abu Sa&lsquo;id al-Khudri (may Allah be pleased with him) that the Prophet &#xFDFA; said:</p>
 
-<p><strong>Having a difficult or distorted presentation of Islam is not automatically the same as having no access to Islam.</strong> The question is whether a real message and proof reached the person in a way they could understand, not whether they encountered a perfect teacher, answered every question immediately, or lived in a Muslim-majority society. Allah alone knows each person&rsquo;s circumstances and judges with complete justice.</p>
-
-<h2>A practical summary</h2>
-
-<ol>
-<li>Learn the foundations of Aqeedah from the Qur&rsquo;an and authentic Sunnah.</li>
-<li>Believe them inwardly without knowingly rejecting what Allah revealed.</li>
-<li>Declare the Shahadah and speak what faith requires.</li>
-<li>Act upon that belief through Salah, obedience, repentance, and good deeds.</li>
-<li>Understand that Iman increases with obedience and decreases with sin.</li>
-<li>Do not confuse a sin, a minor mistake, or a disputed issue with deliberate rejection of a core belief.</li>
-<li>Do not use the excuse of ignorance to avoid learning the essentials once the message has reached you.</li>
-</ol>
-
-<p class="lede">Aqeedah is the foundation of Iman, and Iman is belief, speech, and action. Correct the foundation, learn what Allah requires, and let the truth of the heart appear in the worship of the limbs.</p>
+<blockquote>&ldquo;(In regards to) the one who died during al-Fatrah, the insane and the infant. The one who died during the Fatrah will say: No Book had reached me. The insane will say: O my Lord! You did not give me a sound intellect so that I could distinguish what is good and what is evil. The infant will say: O my Lord! I did not reach adolescence. Then the fire will be raised for them and it will be said to them: {Enter it.}&rdquo; The Prophet &#xFDFA; said: &ldquo;So those who were in Allah&rsquo;s knowledge from the successful people &ndash; had they been given the chance to act (in this world) &ndash; they will enter it (and no harm will happen to them), and those who were in Allah&rsquo;s knowledge from the wretched people &ndash; had they been given the chance to act (in this world) &ndash; will hold back (from entering it). He will say (to those who did not enter): {You disobey Me (now), so how would you be had My Messengers come to you?}&rdquo;</blockquote>
 `,
 "what-is-islam/aqeedah/tawhid/introduction-to-tawhid": `
 <p class="lede">Tawhid (توحيد) comes from the Arabic root <em>w-h-d</em> (و-ح-د), meaning &ldquo;unification&rdquo; or &ldquo;declaring something to be one.&rdquo; It is monotheism, the belief that Allah is One, unique, singular, and without equal or partner in His essence, attributes, and rights.</p>
@@ -1834,7 +1869,7 @@ const CONTENT = {
 "what-is-islam/aqeedah/udhr-bil-jahil-and-iqamatul-hujjah": `
 <p class="lede">Whether ignorance excuses a person in Islam depends on the nature of the matter in question.</p>
 
-<p>The ruling can be summarised in three points:</p>
+<p>The ruling can be summarized in three points:</p>
 
 <ol>
   <li><strong>Matters that are mass-transmitted, universally attested, or known by Fitrah.</strong> Not affirming these is disbelief.</li>
@@ -3920,16 +3955,16 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 
 <blockquote>&ldquo;And whose words are better than someone who calls ˹others˺ to Allah, does good, and says, &ldquo;I am truly one of those who submit.&rdquo;?&rdquo;<cite>Surah 41:33</cite></blockquote>
 
-<p>To do Dawah, i suggest you learn how to argue for yourself and how to discuss with people, here are my tips below :</p>
+<p>To do Dawah, I suggest you learn how to argue for yourself and how to discuss with people. Here are my tips below :</p>
 
 <ol>
 <li>Learn what Classical Logic, Deduction, Induction and Abduction is and how to use it.</li>
 <li>Learn what Truth is by definition and how we achieve Truth through Logic and Evidence, which includes learning the different forms of evidence and probability.</li>
 <li>Learn the different logical fallacies.</li>
 <li>Learn Islam, you cannot defend the religion and spread it if you do not understand it in detail.</li>
-<li>Learn Why islam is True to begin with, i go over this in the site.</li>
-<li>Learn common Refutations to common arguments against Islam, i go over this in this site too.</li>
-<li>In a discussion with someone adhere to the principles i outline below :
+<li>Learn Why Islam Is True to begin with. I go over this on the site.</li>
+<li>Learn common Refutations to common arguments against Islam. I go over this on this site too.</li>
+<li>In a discussion with someone adhere to the principles I outline below:
 <ul>
 <li>Always point out if your opponent is inferring a logical impossibility</li>
 <li>Always point out if your opponent is committing a logical fallacy.</li>
@@ -4445,7 +4480,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 
 <p>Despite feminists attempting to speak for Muslim women to claim the hijab/Islam is &quot;oppressive&quot;, this fails to take into account voice of real Muslim women. In reality Muslim women contradict feminist myths about the hijab, and say Islam protects them. Source: <a href="https://www.tandfonline.com/doi/abs/10.1080/00909880701434299" target="_blank" rel="noopener">https://www.tandfonline.com/doi/abs/10.1080/00909880701434299</a></p>
 
-<blockquote>“The results show that veiled women score much lower on social appearance anxiety than non-veiled women.&quot; Source: <a href="https://brill.com/view/journals/jet/30/2/article-p127_127.xml" target="_blank" rel="noopener">https://brill.com/view/journals/jet/30/2/article-p127_127.xml</a></blockquote>
+<blockquote>“The results show that veiled women score much lower on social appearance anxiety than non-veiled women.” Source: <a href="https://brill.com/view/journals/jet/30/2/article-p127_127.xml" target="_blank" rel="noopener">https://brill.com/view/journals/jet/30/2/article-p127_127.xml</a></blockquote>
 
 <p>A study of 450 French Muslim women found that those who wore the hijab reported significantly lower body dissatisfaction, disordered eating, and pressure to meet beauty ideals compared to those who did not—despite experiencing higher levels of perceived discrimination. The findings suggest that wearing the hijab may serve as a protective factor against body image issues. Source: <a href="https://www.tandfonline.com/doi/abs/10.1080/13674676.2017.1312322?journalCode=cmhr20" target="_blank" rel="noopener">https://www.tandfonline.com/doi/abs/10.1080/13674676.2017.1312322?journalCode=cmhr20</a></p>
 
@@ -4778,7 +4813,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 
 <p>None of these are objective they are contingent, variable, species‑specific, changeable, not binding on the universe.</p>
 
-<p>Evolution selects behaviours that increase survival and reproduction.</p>
+<p>Evolution selects behaviors that increase survival and reproduction.</p>
 
 <p>It does not care about:</p>
 
@@ -4792,7 +4827,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 
 <p>So evolution cannot ground objective morality.</p>
 
-<p>Any attempt to define X as good or bad is a subjective value judgement, i can simply counter with my own subjective value judgement to any morality you give me that opposes it. Essentially rendering your morality without God a meaningless social construct.</p>
+<p>Any attempt to define X as good or bad is a subjective value judgement. I can simply counter with my own subjective value judgement to any morality you give me that opposes it. Essentially rendering your morality without God a meaningless social construct.</p>
 
 <h2>Islam also avoids degeneracy like this</h2>
 
@@ -4802,7 +4837,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 
 <p>This creates equivocation, where the same word is used in different senses inside the same argument, causing misunderstandings and false conclusions.</p>
 
-<ul><li>The first meaning of gender is biological sex, which refers to reproductive anatomy. This definition is objective, measurable, and universally used in biology, medicine, and traditional legal systems. Under this definition, “woman” means an adult human female, and “man” means an adult human male. Keep in mind, the terms Male and Female are inherently biological (sex) whilst Man and Woman are gender related, so they CAN BE sex.</li></ul>
+<ul><li>The first meaning of gender is biological sex, which refers to reproductive anatomy. This definition is objective, measurable, and universally used in biology, medicine, and traditional legal systems. Under this definition, “woman” means an adult human female, and “man” means an adult human male. Keep in mind, the terms Male and Female are inherently biological (sex) while Man and Woman are gender related, so they CAN BE sex.</li></ul>
 
 <ul><li>The second meaning of gender is gender identity, which is a modern sociological and psychological concept. Gender identity is defined as a person’s internal sense of being a man, woman, both, neither, or something else. It does not depend on biology, behavior, hormones, or cultural roles. Because it is defined only as “identifying as X,” it becomes circular: “I am a woman because I identify as a woman.” This makes gender identity a purely titular category with no external criteria. Example: “I am a Man/Woman because i feel like one” in other words, “feeling” like a man/woman is just to say that you call yourself it, it has no meaning beyond that. It is purely titular.</li></ul>
 
@@ -5309,17 +5344,68 @@ function wordmarkSVG(){
 
 /* ============ VIEWS ============ */
 function renderIntro(){
+  const sections = FORUMS.map((f,i) => `
+    <a class="w-card" href="#/forum/${f.id}">
+      <span class="num">${i+1}</span>
+      <h3>${f.title}</h3>
+      <p>${f.blurb}</p>
+    </a>`).join("");
   app.innerHTML = `
-  <div class="view intro" id="introTap">
-    ${starSVG(180, true)}
-    <h1>Ilm</h1>
-    <p class="kicker">A quiet path through the history, evidence, and practice of Islam.</p>
-    <div class="enter-hint">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12h14M13 6l6 6-6 6"/></svg>
-      Tap anywhere to enter
+  <div class="view">
+    <div class="welcome-tools">
+      <div class="translate-control notranslate" translate="no">
+        <label for="ilm-lang" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Translate this page</label>
+        <select id="ilm-lang" class="translate-select" data-translate-select>${langOptions()}</select>
+      </div>
     </div>
+    <div class="welcome">
+      <header class="welcome-hero">
+        ${starSVG(150, true)}
+        <h1>Ilm</h1>
+        <p class="kicker">A quiet path through the history, evidence, and practice of Islam.</p>
+        <a class="enter-big" href="#/index">Enter the Index <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+        <p class="enter-note">Not sure where to start? Scroll down for a short guide.</p>
+      </header>
+
+      <section class="w-section">
+        <p class="w-eyebrow">About</p>
+        <h2>What this site is</h2>
+        <p>Ilm (<em>knowledge</em>) is a study website about Islam. It gathers articles on belief, law, history, and the arguments for and against Islam in one organised place, so a reader can follow a clear path instead of hunting across scattered pages.</p>
+        <p>It is written for anyone who wants to learn: someone curious about what Muslims believe, a new Muslim finding their footing, or a student who wants the evidence laid out with sources.</p>
+      </section>
+
+      <section class="w-section">
+        <p class="w-eyebrow">Layout</p>
+        <h2>How it is organised</h2>
+        <p>The site has four sections, arranged as a path from belief to history to practice. Each one opens into pages you can read on their own or in order.</p>
+        <div class="w-grid">${sections}</div>
+      </section>
+
+      <section class="w-section">
+        <p class="w-eyebrow">Guide</p>
+        <h2>How to use it</h2>
+        <ol class="w-steps">
+          <li><strong>Start at the Index.</strong> It lists the four sections. Pick one, and it shows the pages inside it.</li>
+          <li><strong>Read in order if you are new.</strong> Pages build on each other. <em>What Is Islam</em> is the best first stop, and the sections inside it run from the introduction onward.</li>
+          <li><strong>Find your way around.</strong> The trail at the top of every page shows where you are, and the <strong>Ilm</strong> logo takes you back to the Index. On long pages, the <em>On this page</em> buttons jump between sections and the round ↑ button takes you back to the top.</li>
+          <li><strong>Check the sources.</strong> Pages quote the Quran, hadith, and scholars. Follow the references and study further. A single page is an introduction, not a replacement for learning from qualified teachers.</li>
+          <li><strong>Read in your language.</strong> Use the <strong>Translate</strong> dropdown in the top bar to translate the page you are on. Machine translation can miss nuance, so check important points against the original.</li>
+        </ol>
+      </section>
+
+      <section class="w-section">
+        <p class="w-eyebrow">A note</p>
+        <h2>Before you begin</h2>
+        <p>This site is for study and reflection. Take your time, read with an open mind, and bring your questions to people of knowledge.</p>
+      </section>
+
+      <section class="w-section w-final">
+        <h2>Ready?</h2>
+        <a class="enter-big" href="#/index">Enter the Index <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
+      </section>
+    </div>
+    <footer>Ilm — for study and reflection.</footer>
   </div>`;
-  document.getElementById("introTap").addEventListener("click", () => { location.hash = "#/index"; });
 }
 
 function topbar(crumbs){
@@ -5334,21 +5420,9 @@ function topbar(crumbs){
     <a class="wordmark" href="#/index">${wordmarkSVGSmall()} Ilm</a>
     <div class="topbar-actions">
       <nav class="crumbs">${crumbHTML}</nav>
-      <div class="translate-control">
-        <button class="translate-btn" type="button" data-translate-toggle aria-expanded="false">Translate</button>
-        <div class="translate-panel" data-translate-panel hidden>
-          <label for="ilm-target-language">Translate this page to</label>
-          <div class="translate-row">
-            <input id="ilm-target-language" data-translate-language list="ilm-language-list" value="Spanish" autocomplete="off" spellcheck="false">
-            <button class="translate-run" type="button" data-translate-run>Go</button>
-          </div>
-          <datalist id="ilm-language-list">
-            <option>Arabic</option><option>Chinese (Simplified)</option><option>Dutch</option><option>English</option><option>French</option><option>German</option><option>Hindi</option><option>Indonesian</option><option>Italian</option><option>Japanese</option><option>Korean</option><option>Malay</option><option>Persian</option><option>Portuguese</option><option>Russian</option><option>Spanish</option><option>Swedish</option><option>Turkish</option><option>Urdu</option>
-          </datalist>
-          <p class="translate-note">One click for visitors — no account or API key needed. The site owner connects the secure translation service once.</p>
-          <p class="translate-status" data-translate-status>AI translation preserves page structure. Review important text before publishing.</p>
-          <button class="translate-reset" type="button" data-translate-restore hidden>Restore original</button>
-        </div>
+      <div class="translate-control notranslate" translate="no">
+        <label for="ilm-lang" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Translate this page</label>
+        <select id="ilm-lang" class="translate-select" data-translate-select>${langOptions()}</select>
       </div>
     </div>
   </div>`;
@@ -5425,7 +5499,6 @@ function articlePage(crumbs, eyebrow, title, desc, html, backHref, backLabel){
     <main>
       <p class="sf-eyebrow">${eyebrow}</p>
       <h1 class="sf-title">${title}</h1>
-      <aside class="article-support"><p><strong>How to use this page:</strong> Start with the highlighted summary, then follow the explanation and check any Qur&rsquo;an, Hadith, or scholarly references named in the text.</p></aside>
       <div class="article">${renderedHtml}</div>
       <a class="back-link" href="${backHref}">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12H6M11 6l-6 6 6 6"/></svg>
@@ -5435,51 +5508,6 @@ function articlePage(crumbs, eyebrow, title, desc, html, backHref, backLabel){
     <footer>Ilm — for study and reflection.</footer>
   </div>`;
 }
-
-
-const FORUM_GUIDES={
-  "what-is-islam":{
-    title:"A clear starting path",
-    body:"Start with what Islam is, then learn the foundations of Aqeedah, how a person enters Islam, and how belief is lived through Fiqh. Each step prepares you for the next.",
-    steps:["Understand the message","Learn the foundations","Practice the essentials","Go deeper with sources"]
-  },
-  "why-islam-is-true":{
-    title:"How to read the arguments",
-    body:"Begin with the principles used to evaluate truth claims. Then follow the arguments in order, separating the premises, the evidence, and the conclusion so you can assess each point clearly.",
-    steps:["Clarify the question","Check the premises","Study the evidence","Follow the conclusion"]
-  },
-  "islamic-history":{
-    title:"How to use this timeline",
-    body:"Read the history in sequence when you can. Notice the difference between a primary report, a later historical summary, and an interpretation, and use the named sources to investigate further.",
-    steps:["Read in order","Notice the context","Check the sources","Keep the timeline in view"]
-  },
-  "refutations":{
-    title:"How to approach a refutation",
-    body:"First understand the relevant Islamic position, then state the objection fairly, and finally follow the response and its evidence. A short page is an introduction, not a substitute for careful study.",
-    steps:["Learn the position","State the objection fairly","Trace the evidence","Study the wider topic"]
-  }
-};
-function forumGuide(f){
-  const guide=FORUM_GUIDES[f.id];
-  if(!guide) return "";
-  return `<aside class="beginner-guide" aria-label="Beginner guide">
-    <p class="guide-kicker">Start here</p>
-    <h2>${guide.title}</h2>
-    <p>${guide.body}</p>
-    <ol class="guide-steps">${guide.steps.map(step=>`<li>${step}</li>`).join("")}</ol>
-  </aside>`;
-}
-function bindScrollReveal(){
-  const targets=[...document.querySelectorAll(".article > p,.article > h2,.article > h3,.article > blockquote,.article > ul,.article > ol,.article > figure,.article > .rule")];
-  targets.forEach((el,i)=>{ if(i>0) el.classList.add("scroll-reveal"); });
-  if(!motionOK || !("IntersectionObserver" in window)){
-    targets.forEach(el=>el.classList.add("is-visible")); return;
-  }
-  const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("is-visible");observer.unobserve(entry.target);}}),{rootMargin:"0px 0px -10% 0px",threshold:.05});
-  targets.forEach(el=>{if(el.classList.contains("scroll-reveal")) observer.observe(el);});
-}
-const contentObserver=new MutationObserver(()=>requestAnimationFrame(bindScrollReveal));
-contentObserver.observe(app,{childList:true});
 
 function renderForum(id){
   const f = forumById(id);
@@ -5492,7 +5520,6 @@ function renderForum(id){
     <main>
       <div class="forum-head">${ICONS[f.icon]}<h1>${f.title}</h1></div>
       <p class="forum-sub">${f.blurb}</p>
-      ${forumGuide(f)}
       <div class="toc">${items}</div>
       <a class="back-link" href="#/index">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12H6M11 6l-6 6 6 6"/></svg>
@@ -5622,7 +5649,7 @@ window.addEventListener("scroll", updateScrollProgress, {passive:true});
 
 function bind3DMotion(){
   if(!motionOK) return;
-  document.querySelectorAll(".forum-card").forEach(card => {
+  document.querySelectorAll(".forum-card,.w-card").forEach(card => {
     card.addEventListener("pointermove", e => {
       const r = card.getBoundingClientRect();
       const x = Math.max(0, Math.min(1, (e.clientX-r.left)/r.width));
@@ -5640,111 +5667,150 @@ function bind3DMotion(){
 }
 
 
-/* ============ AI TRANSLATION ============ */
-const TRANSLATION_ENDPOINT = window.ILM_TRANSLATION_ENDPOINT || document.querySelector('meta[name="ilm-translation-endpoint"]')?.content.trim() || "/api/translate";
-
-function translationStatus(panel, message, state=""){
-  const el=panel.querySelector("[data-translate-status]");
-  if(el){ el.textContent=message; el.dataset.state=state; }
+/* ============ TRANSLATION (Google Website Translator, no API key) ============ */
+const TRANSLATE_LANGS=[
+  ["sq","Shqip (Albanian)"],["am","አማርኛ (Amharic)"],["ar","العربية (Arabic)"],["az","Azərbaycan (Azerbaijani)"],
+  ["bn","বাংলা (Bengali)"],["bs","Bosanski (Bosnian)"],["zh-CN","简体中文 (Chinese, Simplified)"],["zh-TW","繁體中文 (Chinese, Traditional)"],
+  ["nl","Nederlands (Dutch)"],["fr","Français (French)"],["de","Deutsch (German)"],["ha","Hausa"],
+  ["hi","हिन्दी (Hindi)"],["id","Bahasa Indonesia (Indonesian)"],["it","Italiano (Italian)"],["ja","日本語 (Japanese)"],
+  ["kk","Қазақша (Kazakh)"],["ko","한국어 (Korean)"],["ms","Bahasa Melayu (Malay)"],["fa","فارسی (Persian)"],
+  ["pl","Polski (Polish)"],["pt","Português (Portuguese)"],["ps","پښتو (Pashto)"],["ru","Русский (Russian)"],
+  ["so","Soomaali (Somali)"],["es","Español (Spanish)"],["sw","Kiswahili (Swahili)"],["ta","தமிழ் (Tamil)"],
+  ["th","ไทย (Thai)"],["tr","Türkçe (Turkish)"],["ur","اردو (Urdu)"],["uz","Oʻzbek (Uzbek)"],["vi","Tiếng Việt (Vietnamese)"]
+];
+let currentLang="";
+try{ currentLang=localStorage.getItem("ilm-lang")||""; }catch(e){}
+function langOptions(){
+  const first=`<option value="">${currentLang?"English (original)":"Translate"}</option>`;
+  return first+TRANSLATE_LANGS.map(([c,n])=>`<option value="${c}"${c===currentLang?" selected":""}>${n}</option>`).join("");
 }
-function translationNodes(view){
-  const walker=document.createTreeWalker(view,NodeFilter.SHOW_TEXT);
-  const nodes=[]; let node; let i=0;
-  while(node=walker.nextNode()){
-    const parent=node.parentElement;
-    if(!parent || parent.closest(".translate-control,.wordmark,svg,script,style,button,select,option,input,textarea,[data-no-translate]")) continue;
-    const text=node.nodeValue.trim();
-    if(text.length<2 || !/[A-Za-zÀ-ÖØ-öø-ÿ\u0600-\u06ff\u3040-\u30ff\u4e00-\u9fff]/.test(text)) continue;
-    nodes.push({id:`t${i++}`,node,text,original:node.nodeValue});
-  }
-  return nodes;
+let translatorPromise=null;
+function translatorReady(){
+  if(translatorPromise) return translatorPromise;
+  translatorPromise=new Promise((resolve,reject)=>{
+    window.ilmTranslateInit=()=>{
+      try{
+        new google.translate.TranslateElement({pageLanguage:"en",autoDisplay:false,includedLanguages:TRANSLATE_LANGS.map(l=>l[0]).join(",")},"google_translate_element");
+      }catch(e){ reject(e); return; }
+      let tries=0;
+      const t=setInterval(()=>{
+        const combo=document.querySelector("#google_translate_element select.goog-te-combo");
+        if(combo){ clearInterval(t); resolve(combo); }
+        else if(++tries>80){ clearInterval(t); reject(new Error("timeout")); }
+      },100);
+    };
+    const sc=document.createElement("script");
+    sc.src="https://translate.google.com/translate_a/element.js?cb=ilmTranslateInit";
+    sc.async=true;
+    sc.onerror=()=>reject(new Error("load"));
+    document.head.appendChild(sc);
+  }).catch(err=>{ translatorPromise=null; throw err; });
+  return translatorPromise;
 }
-function chunksFor(items){
-  const chunks=[]; let chunk=[]; let chars=0;
-  for(const item of items){
-    if(chunk.length && (chunk.length>=45 || chars+item.text.length>12000)){chunks.push(chunk);chunk=[];chars=0;}
-    chunk.push({id:item.id,text:item.text}); chars+=item.text.length;
-  }
-  if(chunk.length) chunks.push(chunk);
-  return chunks;
+function pageIsTranslated(){ const c=document.documentElement.classList; return c.contains("translated-ltr")||c.contains("translated-rtl"); }
+function clearTranslateCookie(){
+  const past="googtrans=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+  document.cookie=past;
+  const host=location.hostname; if(host) document.cookie=past+";domain="+host;
 }
-async function requestTranslation(targetLanguage,pageTitle,items){
-  const response=await fetch(TRANSLATION_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({targetLanguage,pageTitle,items})});
-  const data=await response.json().catch(()=>({}));
-  if(!response.ok) throw new Error(data?.error || "The translation service is unavailable.");
-  if(!Array.isArray(data.translations)) throw new Error("The translation service returned an invalid response.");
-  return data.translations;
+function translateToast(msg){
+  document.querySelector(".translate-toast")?.remove();
+  const el=document.createElement("div"); el.className="translate-toast"; el.setAttribute("role","status"); el.textContent=msg;
+  document.body.appendChild(el); setTimeout(()=>el.remove(),5000);
 }
-function applyTranslation(item,translated){
-  const original=item.original;
-  const leading=original.match(/^\s*/)?.[0]||"";
-  const trailing=original.match(/\s*$/)?.[0]||"";
-  item.node.nodeValue=leading+translated.trim()+trailing;
-}
-async function translateCurrentPage(panel){
-  const target=(panel.querySelector("[data-translate-language]").value||"").trim();
-  const view=document.querySelector(".view");
-  if(!target){translationStatus(panel,"Enter a target language.","error");return;}
-  if(!view){translationStatus(panel,"No page content is ready yet.","error");return;}
-  const items=translationNodes(view);
-  if(!items.length){translationStatus(panel,"There is no translatable text on this page.","error");return;}
-  const run=panel.querySelector("[data-translate-run]"); run.disabled=true; run.textContent="…";
-  translationStatus(panel,`Translating ${items.length} text blocks into ${target}…`,"busy");
+function pickCombo(combo,code){ combo.value=code; combo.dispatchEvent(new Event("change")); }
+async function setSiteLanguage(code){
+  const sel=document.querySelector("[data-translate-select]");
+  const previous=currentLang;
+  currentLang=code;
+  try{ localStorage.setItem("ilm-lang",code); }catch(e){}
+  if(!code && !translatorPromise && !pageIsTranslated()){ clearTranslateCookie(); if(sel) sel.innerHTML=langOptions(); return; }
+  if(sel) sel.disabled=true;
   try{
-    const title=view.querySelector("h1")?.textContent?.trim()||document.title;
-    const translations=[];
-    for(const chunk of chunksFor(items)){
-      const result=await requestTranslation(target,title,chunk);
-      const byId=new Map(result.map(x=>[x.id,typeof x.translation==="string"?x.translation:""]));
-      for(const item of chunk){
-        const translated=byId.get(item.id);
-        if(!translated) throw new Error(`Translation missing for ${item.id}.`);
-        translations.push([item,translated]);
-      }
+    const combo=await translatorReady();
+    pickCombo(combo,code);
+    if(!code){
+      setTimeout(()=>{ if(pageIsTranslated()){ clearTranslateCookie(); location.reload(); } },1200);
     }
-    for(const [item,translated] of translations) applyTranslation(item,translated);
-    window.ilmTranslationState={items,target};
-    panel.querySelector("[data-translate-restore]").hidden=false;
-    translationStatus(panel,`Translated to ${target}. Review important text before publishing.`);
-  }catch(error){
-    const disconnected=error instanceof TypeError || /Failed to fetch|NetworkError|Load failed/i.test(error.message||"");
-    translationStatus(panel,disconnected
-      ? "Translation service is not connected. Deploy the included api/translate.js and open the deployed site, or set the endpoint in the HTML for GitHub Pages."
-      : (error.message||"Translation failed. Please try again."),"error");
-  }finally{run.disabled=false;run.textContent="Go";}
-}
-function restoreTranslation(panel){
-  const state=window.ilmTranslationState;
-  if(!state) return;
-  for(const item of state.items) if(item.node.isConnected) item.node.nodeValue=item.original;
-  window.ilmTranslationState=null;
-  panel.querySelector("[data-translate-restore]").hidden=true;
-  translationStatus(panel,"Restored the original page text.");
-}
-document.addEventListener("click",event=>{
-  const toggle=event.target.closest("[data-translate-toggle]");
-  if(toggle){
-    const panel=toggle.parentElement.querySelector("[data-translate-panel]");
-    const open=panel.hidden; panel.hidden=!open; toggle.setAttribute("aria-expanded",String(open));
-    if(open) panel.querySelector("[data-translate-language]").focus();
-    return;
+    const now=document.querySelector("[data-translate-select]");
+    if(now){ now.innerHTML=langOptions(); }
+  }catch(e){
+    currentLang=previous;
+    try{ localStorage.setItem("ilm-lang",previous); }catch(_){}
+    if(sel) sel.value=previous;
+    translateToast("Translation couldn't load. Check your internet connection and try again. (It also needs the site to be opened from a web address, not a local file.)");
+  }finally{
+    const now=document.querySelector("[data-translate-select]"); if(now) now.disabled=false;
   }
-  const run=event.target.closest("[data-translate-run]");
-  if(run){translateCurrentPage(run.closest("[data-translate-panel]"));return;}
-  const restore=event.target.closest("[data-translate-restore]");
-  if(restore){restoreTranslation(restore.closest("[data-translate-panel]"));return;}
-  if(!event.target.closest(".translate-control")) document.querySelectorAll("[data-translate-panel]").forEach(panel=>panel.hidden=true);
+}
+document.addEventListener("change",event=>{
+  const sel=event.target.closest&&event.target.closest("[data-translate-select]");
+  if(sel) setSiteLanguage(sel.value);
 });
-document.addEventListener("keydown",event=>{if(event.key==="Escape")document.querySelectorAll("[data-translate-panel]").forEach(panel=>panel.hidden=true);});
+if(currentLang){
+  translatorReady().then(combo=>{ if(combo.value!==currentLang) pickCombo(combo,currentLang); }).catch(()=>{});
+}
 
-
-const scrollTopButton=document.querySelector("[data-scroll-top]");
-window.addEventListener("scroll",()=>scrollTopButton?.classList.toggle("is-visible",window.scrollY>650),{passive:true});
-scrollTopButton?.addEventListener("click",()=>window.scrollTo({top:0,behavior:motionOK?"smooth":"auto"}));
+/* ============ PAGE ENHANCEMENTS ============ */
+document.documentElement.classList.add("js");
+const FORUM_TIPS={
+  "what-is-islam":"Read in order if you are new: the introduction first, then Aqeedah, then the rest.",
+  "why-islam-is-true":"Separate the premises, the evidence, and the conclusion as you read, and judge each one on its own.",
+  "islamic-history":"Notice the dates and the sources named, and read the pages in sequence when you can.",
+  "refutations":"Learn the Islamic position first, then the objection, then the response and its evidence."
+};
+let revealIO=null;
+function revealOnScroll(els){
+  if(!motionOK || !("IntersectionObserver" in window)) return;
+  if(revealIO) revealIO.disconnect();
+  revealIO=new IntersectionObserver(entries=>entries.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add("in"); revealIO.unobserve(e.target); }
+  }),{rootMargin:"0px 0px -8% 0px",threshold:.04});
+  els.forEach(el=>{ el.classList.add("rv"); revealIO.observe(el); });
+}
+function buildGuide(art){
+  if(document.querySelector(".howto")) return;
+  const h=art.innerHTML, count=re=>(h.match(re)||[]).length;
+  const heads=[...art.querySelectorAll("h2")];
+  const mins=Math.max(1,Math.round((art.textContent.match(/\S+/g)||[]).length/210));
+  const tips=[];
+  const fid=location.hash.split("/")[2]||"";
+  if(FORUM_TIPS[fid]) tips.push(FORUM_TIPS[fid]);
+  if(heads.length>=3) tips.push("On a long page, use the On this page buttons to jump to a section, and the round arrow button to return to the top.");
+  if(count(/<blockquote/g)) tips.push("Quotes are the evidence. The source is written in small text under each one, so you can look it up yourself.");
+  if(count(/class="cta-link"|href="#\/forum/g)) tips.push("Gold links and buttons open related pages. Use your browser's back button to return.");
+  if(count(/<ol/g)) tips.push("Numbered lists are meant to be read in order, because each point builds on the one before.");
+  if(count(/<table/g)) tips.push("Tables scroll sideways on small screens.");
+  if(count(/<strong>/g)>6) tips.push("Bold text marks key terms and rulings. Skim the bold first, then read the detail.");
+  tips.push("To read this page in another language, use the Translate menu at the top.");
+  let open=true; try{ open=localStorage.getItem("ilm-howto")!=="0"; }catch(e){}
+  const chips=heads.length>=3
+    ? `<nav class="otp" aria-label="On this page"><span>On this page</span>${heads.slice(0,10).map((x,i)=>`<button type="button" data-jump="${i}">${x.textContent.trim().slice(0,40)}</button>`).join("")}</nav>` : "";
+  art.insertAdjacentHTML("beforebegin",
+    `<div class="pageinfo"><span class="chip">&asymp; ${mins} min read</span></div>${chips}
+     <details class="howto"${open?" open":""}><summary>How to use this page</summary><ul>${tips.slice(0,5).map(t=>`<li>${t}</li>`).join("")}</ul></details>`);
+}
+function enhanceView(){
+  const art=document.querySelector(".article");
+  if(art) buildGuide(art);
+  if(document.querySelector(".w-card")) bind3DMotion();
+  revealOnScroll([...document.querySelectorAll(".article > *:nth-child(n+9), .w-section")]);
+}
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-jump]"); if(!b) return;
+  const t=document.querySelectorAll(".article h2")[+b.dataset.jump];
+  if(t) t.scrollIntoView({behavior:motionOK?"smooth":"auto",block:"start"});
+});
+document.addEventListener("toggle",e=>{
+  if(e.target.classList&&e.target.classList.contains("howto")){ try{ localStorage.setItem("ilm-howto",e.target.open?"1":"0"); }catch(_){} }
+},true);
+const toTop=document.querySelector(".to-top");
+function syncToTop(){ toTop&&toTop.classList.toggle("show",window.scrollY>500); }
+window.addEventListener("scroll",syncToTop,{passive:true});
+toTop&&toTop.addEventListener("click",()=>window.scrollTo({top:0,behavior:motionOK?"smooth":"auto"}));
 
 /* ============ ROUTER ============ */
-function route(){
-  window.ilmTranslationState=null;
+function routeBase(){
   const hash = location.hash.replace(/^#\/?/,"");
   const parts = hash.split("/").filter(Boolean);
   window.scrollTo(0,0);
@@ -5757,6 +5823,7 @@ function route(){
   if(parts[0] === "forum" && parts[1] && parts[2] && parts[3]){ renderNode(parts[1], parts.slice(2)); return; }
   renderIntro();
 }
+function route(){ routeBase(); enhanceView(); syncToTop(); }
 window.addEventListener("hashchange", route);
 route();
 </script>
