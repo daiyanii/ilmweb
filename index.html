@@ -351,6 +351,132 @@ footer{
   text-align:center; color:var(--ink-soft); font-size:.8rem;
 }
 
+
+/* ============ LIGHTWEIGHT MOTION LAYER ============ */
+:root{ --mx:50%; --my:38%; --scroll-progress:0; }
+body::before{
+  content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
+  background:radial-gradient(520px circle at var(--mx) var(--my), rgba(184,134,59,.11), transparent 66%);
+  opacity:.7; transition:background-position .8s ease;
+}
+#app::after{
+  content:""; position:fixed; z-index:20; left:0; top:0; width:100%; height:2px;
+  background:var(--gold-2); transform:scaleX(var(--scroll-progress)); transform-origin:left center;
+  box-shadow:0 0 12px rgba(184,134,59,.35); pointer-events:none;
+}
+.weave{ transition:opacity .6s ease; }
+.view{ will-change:opacity,transform; }
+.view > .topbar{ animation:topbarIn .65s cubic-bezier(.2,.75,.25,1) both; }
+.view > main > *{ animation:contentIn .62s cubic-bezier(.2,.75,.25,1) both; }
+.view > main > *:nth-child(2){ animation-delay:.07s; }
+.view > main > *:nth-child(3){ animation-delay:.14s; }
+.view > main > *:nth-child(4){ animation-delay:.21s; }
+.view > footer{ animation:contentIn .62s cubic-bezier(.2,.75,.25,1) .18s both; }
+.forum-card{ animation:cardIn .65s cubic-bezier(.2,.75,.25,1) calc(var(--i,0) * 70ms + .08s) both; overflow:hidden; }
+.forum-card::after{
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(115deg,transparent 25%,rgba(255,255,255,.16) 48%,transparent 68%);
+  transform:translateX(-125%); transition:transform .7s ease;
+}
+.forum-card:hover::after,.forum-card:focus-visible::after{ transform:translateX(125%); }
+.toc-item{ animation:lineIn .52s cubic-bezier(.2,.75,.25,1) calc(var(--i,0) * 28ms + .05s) both; }
+.toc-item:focus-visible{ outline:2px solid var(--gold-2); outline-offset:4px; }
+.article > *:nth-child(-n+8){ animation:contentIn .58s cubic-bezier(.2,.75,.25,1) calc(var(--i,0) * 55ms + .04s) both; }
+.intro-star{ animation:starFloat 9s ease-in-out 2.8s infinite; transform-origin:center; }
+@keyframes topbarIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes contentIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+@keyframes cardIn{from{opacity:0;transform:translateY(18px) scale(.985)}to{opacity:1;transform:translateY(0) scale(1)}}
+@keyframes lineIn{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:translateX(0)}}
+@keyframes starFloat{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-7px) rotate(1.5deg)}}
+@media (hover:hover){
+  .wordmark svg{ transition:transform .45s ease; }
+  .wordmark:hover svg{ transform:rotate(45deg) scale(1.08); }
+  .back-link svg{ transition:transform .25s ease; }
+  .back-link:hover svg{ transform:translateX(-3px); }
+}
+@media (prefers-reduced-motion:reduce){
+  body::before{transition:none;}
+  #app::after{display:none;}
+  .view > .topbar,.view > main > *,.view > footer,.forum-card,.toc-item,.article > *:nth-child(-n+8),.intro-star{animation:none;opacity:1;transform:none;}
+  .forum-card::after{display:none;}
+}
+
+
+/* ============ LIGHTWEIGHT 3D LAYER ============ */
+.forum-grid{ perspective:1400px; }
+.forum-card{
+  transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateZ(0);
+  transform-style:preserve-3d;
+  transition:transform .18s ease-out, border-color .25s ease, box-shadow .25s ease;
+}
+.forum-card::before{
+  content:""; position:absolute; inset:0; pointer-events:none; border-radius:inherit;
+  background:radial-gradient(circle at var(--gx,50%) var(--gy,50%), rgba(255,255,255,.22), transparent 36%);
+  opacity:0; transition:opacity .25s ease;
+}
+.forum-card:hover,.forum-card:focus-visible{
+  transform:perspective(900px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg)) translateY(-4px) translateZ(8px);
+  box-shadow:0 14px 28px rgba(27,36,32,.09);
+}
+.forum-card:hover::before,.forum-card:focus-visible::before{opacity:1;}
+.forum-card > *{ transform:translateZ(12px); }
+.intro{ perspective:1000px; }
+.intro-star{ transform-style:preserve-3d; }
+@keyframes starFloat{
+  0%,100%{transform:rotateX(var(--star-rx,0deg)) rotateY(var(--star-ry,0deg)) translateY(0) rotateZ(0deg)}
+  50%{transform:rotateX(var(--star-rx,0deg)) rotateY(var(--star-ry,0deg)) translateY(-7px) rotateZ(1.5deg)}
+}
+@media (prefers-reduced-motion:reduce){
+  .forum-card,.forum-card:hover,.forum-card:focus-visible{transform:none;transition:none;box-shadow:none;}
+  .forum-card > *{transform:none;}
+  .forum-card::before{display:none;}
+}
+
+
+/* ============ STANDALONE AI TRANSLATOR ============ */
+.topbar{position:relative;z-index:10;}
+.topbar-actions{display:flex;align-items:center;justify-content:flex-end;gap:.85rem;min-width:0;}
+.translate-control{position:relative;}
+.translate-btn,.translate-run,.translate-save,.translate-reset{
+  appearance:none;border:1px solid var(--line);background:var(--card-bg);color:var(--ink);
+  border-radius:999px;padding:.5rem .75rem;font-size:.78rem;cursor:pointer;
+  transition:border-color .2s ease,color .2s ease,background .2s ease,transform .2s ease;
+}
+.translate-btn:hover,.translate-btn:focus-visible,.translate-run:hover,.translate-run:focus-visible,.translate-save:hover,.translate-save:focus-visible,.translate-reset:hover,.translate-reset:focus-visible{
+  border-color:var(--gold-2);color:var(--gold-2);outline:none;
+}
+.translate-btn:active,.translate-run:active,.translate-save:active,.translate-reset:active{transform:translateY(1px);}
+.translate-panel{
+  position:absolute;right:0;top:calc(100% + .7rem);width:min(300px,calc(100vw - 2rem));
+  padding:1rem;background:var(--parchment);border:1px solid var(--line);border-radius:10px;
+  box-shadow:0 14px 32px rgba(27,36,32,.14);}
+.translate-panel[hidden]{display:none;}
+.translate-panel label,.translate-panel summary{display:block;color:var(--ink);font-size:.78rem;font-weight:600;margin-bottom:.35rem;}
+.translate-panel input{width:100%;border:1px solid var(--line);border-radius:6px;background:var(--card-bg);color:var(--ink);padding:.55rem .6rem;font:inherit;font-size:.84rem;outline:none;}
+.translate-panel input:focus{border-color:var(--gold-2);box-shadow:0 0 0 3px rgba(184,134,59,.12);}
+.translate-row{display:flex;gap:.45rem;margin-bottom:.7rem;}
+.translate-row .translate-run{white-space:nowrap;background:var(--gold-2);border-color:var(--gold-2);color:var(--parchment);}
+.translate-settings{border-top:1px solid var(--line);padding-top:.7rem;}
+.translate-settings summary{cursor:pointer;list-style:none;}
+.translate-settings summary::-webkit-details-marker{display:none;}
+.translate-settings summary::after{content:"＋";float:right;color:var(--gold-2);}
+.translate-settings[open] summary::after{content:"−";}
+.translate-key-row{display:flex;gap:.45rem;margin-top:.55rem;}
+.translate-key-row .translate-save{white-space:nowrap;}
+.translate-note,.translate-status{margin:.65rem 0 0;color:var(--ink-soft);font-size:.72rem;line-height:1.45;}
+.translate-status[data-state="error"]{color:#A61E1E;}
+.translate-status[data-state="busy"]{color:var(--gold-2);}
+.translate-reset{margin-top:.55rem;padding:.35rem .55rem;font-size:.7rem;}
+@media (max-width:700px){
+  .topbar{align-items:flex-start;gap:.7rem;}
+  .topbar-actions{gap:.5rem;align-items:flex-start;}
+  .crumbs{justify-content:flex-end;text-align:right;}
+  .translate-btn{padding:.48rem .6rem;}
+}
+@media (prefers-reduced-motion:reduce){
+  .translate-btn,.translate-run,.translate-save,.translate-reset{transition:none;}
+}
+
 </style>
 </head>
 <body>
@@ -553,7 +679,7 @@ const FORUMS = [
     numbered:false,
     subs:[
       ["Heretics","Responses to historical sects and beliefs considered outside mainstream orthodoxy. This section also covers individual people, not just sects.",[
-        ["Intro to Heretics and Ahlul Bidah",""],
+        ["Intro to Heretics and Ahlul Bid’ah",""],
         ["Asharis",""],
         ["Maturidis",""],
         ["Shias","",[
@@ -561,7 +687,7 @@ const FORUMS = [
           ["Hadithul Ghadeer",""]
         ]],
         ["Ibadis",""],
-        ["Quranists",""],
+        ["Qur’anists",""],
         ["Khawarij",""],
         ["Ahmadiyya",""],
         ["Nation of Islam",""],
@@ -759,11 +885,11 @@ const CONTENT = {
 
 <h2>Opinions and Western norms</h2>
 
-<p>Some people nowadays fall into bid&rsquo;ah, particularly western norms that get transferred and conflated with islamic rulings. Some of the ignorant people today speak about islam and give their opinions without evidence from the Shariah, and this is from the major sins! Those who say &ldquo;i think&rdquo;, &ldquo;in my opinion&rdquo; or &ldquo;it should be that&hellip;&rdquo; without following up their claim from the Qur&rsquo;aan, Sunnah, Salaf and Concensus of the Scholars are Innovators, they must be left, despised and their opinions have nothing to do with the religion!</p>
+<p>Some people nowadays fall into bid&rsquo;ah, particularly Western norms that get transferred and conflated with Islamic rulings. Some of the ignorant people today speak about Islam and give their opinions without evidence from the Shariah, and this is from the major sins! Those who say &ldquo;I think&rdquo;, &ldquo;in my opinion&rdquo; or &ldquo;it should be that&hellip;&rdquo; without following up their claim from the Qur&rsquo;aan, Sunnah, Salaf and Consensus of the Scholars are Innovators, they must be left, despised and their opinions have nothing to do with the religion!</p>
 
 <p>&ldquo;It should be&rdquo; Are you God? No? Then there is no &ldquo;should&rdquo;. You don&rsquo;t make legislation that is not your right, it is the right of God, your opinion is worth less than dirt in the religion.</p>
 
-<p>If anything that comes out your mouth when talking about islam isn&rsquo;t Qur&rsquo;aan, Sunnah, the sayings of the Salaf or the concensus of the Scholars throw your opinion in a garbage can and burn it because The people of Sunnah don&rsquo;t care!</p>
+<p>If anything that comes out of your mouth when talking about Islam isn&rsquo;t Qur&rsquo;aan, Sunnah, the sayings of the Salaf or the consensus of the Scholars throw your opinion in a garbage can and burn it because The people of Sunnah don&rsquo;t care!</p>
 
 <p>There is no opinion in religion except the opinion of the prophet &#xFDFA;, we only take the opinion of men when it is derived from revelation!</p>
 
@@ -5115,7 +5241,33 @@ function topbar(crumbs){
   return `
   <div class="topbar">
     <a class="wordmark" href="#/index">${wordmarkSVGSmall()} Ilm</a>
-    <nav class="crumbs">${crumbHTML}</nav>
+    <div class="topbar-actions">
+      <nav class="crumbs">${crumbHTML}</nav>
+      <div class="translate-control">
+        <button class="translate-btn" type="button" data-translate-toggle aria-expanded="false">Translate</button>
+        <div class="translate-panel" data-translate-panel hidden>
+          <label for="ilm-target-language">Translate this page to</label>
+          <div class="translate-row">
+            <input id="ilm-target-language" data-translate-language list="ilm-language-list" value="Spanish" autocomplete="off" spellcheck="false">
+            <button class="translate-run" type="button" data-translate-run>Go</button>
+          </div>
+          <datalist id="ilm-language-list">
+            <option>Arabic</option><option>Chinese (Simplified)</option><option>Dutch</option><option>English</option><option>French</option><option>German</option><option>Hindi</option><option>Indonesian</option><option>Italian</option><option>Japanese</option><option>Korean</option><option>Malay</option><option>Persian</option><option>Portuguese</option><option>Russian</option><option>Spanish</option><option>Swedish</option><option>Turkish</option><option>Urdu</option>
+          </datalist>
+          <details class="translate-settings">
+            <summary>Gemini API key</summary>
+            <div class="translate-key-row">
+              <input type="password" data-translate-key placeholder="Paste your key" autocomplete="off">
+              <button class="translate-save" type="button" data-translate-save>Save</button>
+            </div>
+            <p class="translate-note">Your key stays in this browser and is sent directly to Google Gemini. It is never written into this HTML file. <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Get a key</a></p>
+            <button class="translate-reset" type="button" data-translate-reset>Forget saved key</button>
+          </details>
+          <p class="translate-status" data-translate-status>AI translation preserves page structure. Review important text before publishing.</p>
+          <button class="translate-reset" type="button" data-translate-restore hidden>Restore original</button>
+        </div>
+      </div>
+    </div>
   </div>`;
 }
 function wordmarkSVGSmall(){
@@ -5123,8 +5275,8 @@ function wordmarkSVGSmall(){
 }
 
 function renderIndex(){
-  const cards = FORUMS.map(f => `
-    <a class="forum-card" href="#/forum/${f.id}">
+  const cards = FORUMS.map((f, i) => `
+    <a class="forum-card" style="--i:${i}" href="#/forum/${f.id}">
       ${ICONS[f.icon]}
       <h2>${f.title}</h2>
       <p>${f.blurb}</p>
@@ -5143,11 +5295,12 @@ function renderIndex(){
     </main>
     <footer>Ilm — for study and reflection.</footer>
   </div>`;
+  bind3DMotion();
 }
 
 function tocList(items, hrefFor, numbered){
   return items.map(([title], i) => `
-    <a class="toc-item" href="${hrefFor(title)}">
+    <a class="toc-item" style="--i:${i}" href="${hrefFor(title)}">
       ${numbered ? `<span class="num">${String(i+1).padStart(2,"0")}</span>` : ""}
       <span class="body">
         <span class="ttl">${title}</span>
@@ -5311,11 +5464,170 @@ function renderNode(fid, slugs){
   app.innerHTML = placeholderPage(crumbs, eyebrow, node.t, "", backHref, backLabel);
 }
 
+
+/* ============ MOTION CONTROLS ============ */
+const motionOK = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+let pointerFrame = 0;
+let pointerX = 50, pointerY = 38;
+function paintPointerGlow(){
+  document.documentElement.style.setProperty("--mx", `${pointerX}%`);
+  document.documentElement.style.setProperty("--my", `${pointerY}%`);
+  document.documentElement.style.setProperty("--star-rx", `${(50-pointerY)*.12}deg`);
+  document.documentElement.style.setProperty("--star-ry", `${(pointerX-50)*.12}deg`);
+  pointerFrame = 0;
+}
+if(motionOK){
+  window.addEventListener("pointermove", e => {
+    pointerX = (e.clientX / Math.max(window.innerWidth, 1)) * 100;
+    pointerY = (e.clientY / Math.max(window.innerHeight, 1)) * 100;
+    if(!pointerFrame) pointerFrame = requestAnimationFrame(paintPointerGlow);
+  }, {passive:true});
+}
+function updateScrollProgress(){
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  document.documentElement.style.setProperty("--scroll-progress", max > 0 ? (window.scrollY / max).toFixed(4) : "0");
+}
+window.addEventListener("scroll", updateScrollProgress, {passive:true});
+
+
+function bind3DMotion(){
+  if(!motionOK) return;
+  document.querySelectorAll(".forum-card").forEach(card => {
+    card.addEventListener("pointermove", e => {
+      const r = card.getBoundingClientRect();
+      const x = Math.max(0, Math.min(1, (e.clientX-r.left)/r.width));
+      const y = Math.max(0, Math.min(1, (e.clientY-r.top)/r.height));
+      card.style.setProperty("--rx", `${(0.5-y)*7}deg`);
+      card.style.setProperty("--ry", `${(x-0.5)*7}deg`);
+      card.style.setProperty("--gx", `${x*100}%`);
+      card.style.setProperty("--gy", `${y*100}%`);
+    }, {passive:true});
+    card.addEventListener("pointerleave", () => {
+      card.style.setProperty("--rx", "0deg");
+      card.style.setProperty("--ry", "0deg");
+    }, {passive:true});
+  });
+}
+
+
+/* ============ AI TRANSLATION ============ */
+const GEMINI_MODEL = "gemini-2.5-flash";
+const GEMINI_KEY_STORAGE = "ilm-gemini-key";
+const TRANSLATION_SYSTEM = `You are a meticulous translator for an Islamic knowledge website. Translate the supplied visible text into the requested target language. Preserve meaning, tone, names, honorifics, Arabic/transliterated terms, citations, numbers, and punctuation unless a standard target-language equivalent is clearly correct. Do not add explanations, omit content, soften claims, or translate identifiers. Return ONLY a valid JSON array with the exact same ids, each object shaped as {"id":"...","translation":"..."}.`;
+
+function translationStatus(panel, message, state=""){
+  const el=panel.querySelector("[data-translate-status]");
+  if(el){ el.textContent=message; el.dataset.state=state; }
+}
+function translationNodes(view){
+  const walker=document.createTreeWalker(view,NodeFilter.SHOW_TEXT);
+  const nodes=[]; let node; let i=0;
+  while(node=walker.nextNode()){
+    const parent=node.parentElement;
+    if(!parent || parent.closest(".translate-control,.wordmark,svg,script,style,button,select,option,input,textarea,[data-no-translate]")) continue;
+    const text=node.nodeValue.trim();
+    if(text.length<2 || !/[A-Za-zÀ-ÖØ-öø-ÿ\u0600-\u06ff\u3040-\u30ff\u4e00-\u9fff]/.test(text)) continue;
+    nodes.push({id:`t${i++}`,node,text,original:node.nodeValue});
+  }
+  return nodes;
+}
+function chunksFor(items){
+  const chunks=[]; let chunk=[]; let chars=0;
+  for(const item of items){
+    if(chunk.length && (chunk.length>=45 || chars+item.text.length>12000)){chunks.push(chunk);chunk=[];chars=0;}
+    chunk.push({id:item.id,text:item.text}); chars+=item.text.length;
+  }
+  if(chunk.length) chunks.push(chunk);
+  return chunks;
+}
+async function askGemini(apiKey,targetLanguage,pageTitle,items){
+  const endpoint=`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
+  const response=await fetch(endpoint,{method:"POST",headers:{"Content-Type":"application/json","x-goog-api-key":apiKey},body:JSON.stringify({
+    systemInstruction:{parts:[{text:TRANSLATION_SYSTEM}]},
+    contents:[{role:"user",parts:[{text:JSON.stringify({targetLanguage,pageTitle,items})}]}],
+    generationConfig:{temperature:0,responseMimeType:"application/json"}
+  })});
+  const data=await response.json();
+  if(!response.ok) throw new Error(data?.error?.message || `Gemini request failed (${response.status})`);
+  const raw=data?.candidates?.[0]?.content?.parts?.map(p=>p.text||"").join("")||"";
+  const jsonText=raw.match(/\[[\s\S]*\]/)?.[0];
+  if(!jsonText) throw new Error("Gemini returned no translation JSON.");
+  const parsed=JSON.parse(jsonText);
+  if(!Array.isArray(parsed)) throw new Error("Gemini returned an invalid translation shape.");
+  return parsed;
+}
+function applyTranslation(item,translated){
+  const original=item.original;
+  const leading=original.match(/^\s*/)?.[0]||"";
+  const trailing=original.match(/\s*$/)?.[0]||"";
+  item.node.nodeValue=leading+translated.trim()+trailing;
+}
+async function translateCurrentPage(panel){
+  const apiKey=(panel.querySelector("[data-translate-key]").value.trim()||localStorage.getItem(GEMINI_KEY_STORAGE)||"").trim();
+  const target=(panel.querySelector("[data-translate-language]").value||"").trim();
+  const view=document.querySelector(".view");
+  if(!apiKey){translationStatus(panel,"Add a Gemini API key under settings to start.","error");panel.querySelector("[data-translate-key]").focus();return;}
+  if(!target){translationStatus(panel,"Enter a target language.","error");return;}
+  if(!view){translationStatus(panel,"No page content is ready yet.","error");return;}
+  const items=translationNodes(view);
+  if(!items.length){translationStatus(panel,"There is no translatable text on this page.","error");return;}
+  const run=panel.querySelector("[data-translate-run]"); run.disabled=true; run.textContent="…";
+  translationStatus(panel,`Translating ${items.length} text blocks into ${target}…`,"busy");
+  try{
+    const title=view.querySelector("h1")?.textContent?.trim()||document.title;
+    const translations=[];
+    for(const chunk of chunksFor(items)){
+      const result=await askGemini(apiKey,target,title,chunk);
+      const byId=new Map(result.map(x=>[x.id,typeof x.translation==="string"?x.translation:""]));
+      for(const item of chunk){
+        const translated=byId.get(item.id);
+        if(!translated) throw new Error(`Translation missing for ${item.id}.`);
+        translations.push([item,translated]);
+      }
+    }
+    for(const [item,translated] of translations) applyTranslation(item,translated);
+    window.ilmTranslationState={items,target};
+    panel.querySelector("[data-translate-restore]").hidden=false;
+    translationStatus(panel,`Translated to ${target}. Review important text before publishing.`);
+  }catch(error){
+    translationStatus(panel,error.message||"Translation failed. Check the key and try again.","error");
+  }finally{run.disabled=false;run.textContent="Go";}
+}
+function restoreTranslation(panel){
+  const state=window.ilmTranslationState;
+  if(!state) return;
+  for(const item of state.items) if(item.node.isConnected) item.node.nodeValue=item.original;
+  window.ilmTranslationState=null;
+  panel.querySelector("[data-translate-restore]").hidden=true;
+  translationStatus(panel,"Restored the original page text.");
+}
+document.addEventListener("click",event=>{
+  const toggle=event.target.closest("[data-translate-toggle]");
+  if(toggle){
+    const panel=toggle.parentElement.querySelector("[data-translate-panel]");
+    const open=panel.hidden; panel.hidden=!open; toggle.setAttribute("aria-expanded",String(open));
+    if(open){const key=localStorage.getItem(GEMINI_KEY_STORAGE);if(key)panel.querySelector("[data-translate-key]").value=key;panel.querySelector("[data-translate-language]").focus();}
+    return;
+  }
+  const run=event.target.closest("[data-translate-run]");
+  if(run){translateCurrentPage(run.closest("[data-translate-panel]"));return;}
+  const save=event.target.closest("[data-translate-save]");
+  if(save){const panel=save.closest("[data-translate-panel]"),key=panel.querySelector("[data-translate-key]").value.trim();if(key){localStorage.setItem(GEMINI_KEY_STORAGE,key);translationStatus(panel,"Saved on this device. The key is not in the HTML file.");}return;}
+  const reset=event.target.closest("[data-translate-reset]");
+  if(reset){localStorage.removeItem(GEMINI_KEY_STORAGE);const panel=reset.closest("[data-translate-panel]");panel.querySelector("[data-translate-key]").value="";translationStatus(panel,"Forgot the saved key.");return;}
+  const restore=event.target.closest("[data-translate-restore]");
+  if(restore){restoreTranslation(restore.closest("[data-translate-panel]"));return;}
+  if(!event.target.closest(".translate-control")) document.querySelectorAll("[data-translate-panel]").forEach(panel=>panel.hidden=true);
+});
+document.addEventListener("keydown",event=>{if(event.key==="Escape")document.querySelectorAll("[data-translate-panel]").forEach(panel=>panel.hidden=true);});
+
 /* ============ ROUTER ============ */
 function route(){
+  window.ilmTranslationState=null;
   const hash = location.hash.replace(/^#\/?/,"");
   const parts = hash.split("/").filter(Boolean);
   window.scrollTo(0,0);
+  updateScrollProgress();
 
   if(parts.length === 0){ renderIntro(); return; }
   if(parts[0] === "index"){ renderIndex(); return; }
