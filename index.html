@@ -3,6 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<!-- Optional for GitHub Pages: set content to your deployed /api/translate URL. -->
+<meta name="ilm-translation-endpoint" content="">
 <title>Ilm — A Path Through Islamic Knowledge</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -5639,7 +5641,7 @@ function bind3DMotion(){
 
 
 /* ============ AI TRANSLATION ============ */
-const TRANSLATION_ENDPOINT = window.ILM_TRANSLATION_ENDPOINT || "/api/translate";
+const TRANSLATION_ENDPOINT = window.ILM_TRANSLATION_ENDPOINT || document.querySelector('meta[name="ilm-translation-endpoint"]')?.content.trim() || "/api/translate";
 
 function translationStatus(panel, message, state=""){
   const el=panel.querySelector("[data-translate-status]");
@@ -5705,7 +5707,10 @@ async function translateCurrentPage(panel){
     panel.querySelector("[data-translate-restore]").hidden=false;
     translationStatus(panel,`Translated to ${target}. Review important text before publishing.`);
   }catch(error){
-    translationStatus(panel,error.message||"Translation failed. Please try again.","error");
+    const disconnected=error instanceof TypeError || /Failed to fetch|NetworkError|Load failed/i.test(error.message||"");
+    translationStatus(panel,disconnected
+      ? "Translation service is not connected. Deploy the included api/translate.js and open the deployed site, or set the endpoint in the HTML for GitHub Pages."
+      : (error.message||"Translation failed. Please try again."),"error");
   }finally{run.disabled=false;run.textContent="Go";}
 }
 function restoreTranslation(panel){
