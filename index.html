@@ -477,11 +477,44 @@ body::before{
   .translate-btn,.translate-run,.translate-save,.translate-reset{transition:none;}
 }
 
+
+/* ============ WHOLE-SITE REFINEMENT ============ */
+.beginner-guide,.article-support{
+  position:relative;max-width:68ch;margin:0 0 2rem;padding:1rem 1.1rem 1.05rem;
+  border:1px solid var(--line);border-left:2px solid var(--gold-2);border-radius:8px 8px 8px 2px;
+  background:linear-gradient(120deg,rgba(255,255,255,.24),transparent 70%);
+}
+.beginner-guide::after{content:"✦";position:absolute;right:1rem;top:.8rem;color:var(--gold-2);opacity:.55;font-size:.9rem;}
+.guide-kicker,.support-kicker{margin:0 0 .28rem;color:var(--gold-2);font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;}
+.beginner-guide h2{font-size:1.15rem;margin:0 0 .45rem;}
+.beginner-guide p,.article-support p{margin:0;color:var(--ink-soft);font-size:.92rem;line-height:1.65;max-width:64ch;}
+.guide-steps{display:flex;flex-wrap:wrap;gap:.45rem;margin:.7rem 0 0;padding:0;list-style:none;}
+.guide-steps li{display:inline-flex;align-items:center;gap:.35rem;color:var(--ink);font-size:.76rem;}
+.guide-steps li:not(:last-child)::after{content:"→";color:var(--gold-2);margin-left:.15rem;}
+.article-support{margin:.1rem 0 2rem;padding:.7rem 1rem;border-left-width:1px;border-style:dashed;background:none;}
+.article-support p{font-size:.82rem;}
+.article-support strong{color:var(--ink);font-weight:600;}
+.article .scroll-reveal{opacity:0;transform:translateY(16px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.75,.25,1);}
+.article .scroll-reveal.is-visible{opacity:1;transform:none;}
+.scroll-top{
+  position:fixed;right:clamp(1rem,3vw,2rem);bottom:1.25rem;z-index:25;width:42px;height:42px;
+  border:1px solid var(--line);border-radius:50%;background:var(--parchment);color:var(--gold-2);
+  box-shadow:0 6px 18px rgba(27,36,32,.1);font-size:1.1rem;cursor:pointer;opacity:0;transform:translateY(10px);pointer-events:none;
+  transition:opacity .25s ease,transform .25s ease,background .2s ease;
+}
+.scroll-top.is-visible{opacity:1;transform:none;pointer-events:auto;}
+.scroll-top:hover,.scroll-top:focus-visible{background:var(--card-bg);outline:2px solid var(--gold-2);outline-offset:3px;}
+@media (prefers-reduced-motion:reduce){
+  .article .scroll-reveal{opacity:1;transform:none;transition:none;}
+  .scroll-top{transition:none;}
+}
+
 </style>
 </head>
 <body>
 <div class="weave"></div>
 <div id="app"></div>
+<button class="scroll-top" type="button" data-scroll-top aria-label="Back to top">↑</button>
 
 <script>
 /* ============ DATA ============ */
@@ -1160,57 +1193,113 @@ const CONTENT = {
 <blockquote>&ldquo;Avoid that which I forbid you to do, and do that which I command you to do as much as you can.&rdquo;<cite>Sahih al-Bukhari, 7288</cite></blockquote>
 `,
 "what-is-islam/aqeedah/introduction-to-aqeedah": `
-<p class="lede">The word Aqeedah comes from the Arabic root <em>&lsquo;aqada</em>, which literally means &ldquo;to tie a knot.&rdquo; In Islamic terminology, it refers to a firm, unshakeable belief in the heart that is free from any doubt &mdash; the creed or theology of Islam.</p>
+<p class="lede">The word Aqeedah comes from the Arabic root <em>&lsquo;aqada</em>, which means &ldquo;to tie a knot.&rdquo; In Islam, Aqeedah is the firm belief of the heart in what Allah and His Messenger &#xFDFA; taught about Allah, His angels, His books, His messengers, the Last Day, and divine decree. It is the creed that gives every other act its meaning.</p>
 
-<p>Aqeedah deals with the foundation of belief upon which all Islamic practice is built; without a sound Aqeedah, actions are considered void.</p>
+<p><strong>You cannot have valid Iman without correct Aqeedah.</strong> Iman is not merely a feeling, a cultural identity, or an abstract conviction that Islam is true. It is sincere belief in the heart, testimony and obedience on the tongue, and submission expressed through the actions of the limbs. Correct Aqeedah is the foundation that makes those belief, speech, and actions Islamic.</p>
 
-<p>Aqeedah comes before the practice of the religion, and the Companions themselves learned faith first. It was narrated that Jundub bin &lsquo;Abdullah said:</p>
+<p>This does not mean that every minor mistake, technical misunderstanding, or disputed scholarly question makes a person a disbeliever. The decisive issue is whether a person rejects a foundational belief that is established clearly and necessarily in Islam. Knowingly or stubbornly denying such a core belief is Kufr. Applying the ruling to a particular person, however, requires that the proof has reached them clearly and that the conditions and barriers relevant to that judgement have been considered. Do not confuse a serious warning about a belief with casually declaring individuals apostates.</p>
 
-<blockquote>&ldquo;We were with the Prophet (&#xFDFA;), and we were strong youths, so we learned faith before we learned Qur&rsquo;an. Then we learned Qur&rsquo;an and our faith increased thereby.&rdquo;<cite>Sunan Ibn Majah, 61</cite></blockquote>
+<h2>Aqeedah is the foundation of Iman</h2>
 
-<p>Abdul-Ghani al-Mujaddidi said:</p>
+<p>A building cannot stand without a foundation. In the same way, worship cannot be sound if the beliefs underneath it deny Allah, reject His Messenger, or contradict the foundations of revelation. A person may perform outward actions, but Iman requires that those actions rest upon Tawhid and acceptance of the truth. This is why the Companions learned faith before learning the Qur&rsquo;an in detail:</p>
 
-<blockquote>&ldquo;From this, it is derived that one should study matters related to belief before studying Fiqh and the Qur&rsquo;an.&rdquo;<cite>See Inja&rsquo; al-Hajah, Sharh Sunan Ibn Majah</cite></blockquote>
+<blockquote>&ldquo;We were with the Prophet &#xFDFA;, and we were strong youths, so we learned faith before we learned Qur&rsquo;an. Then we learned Qur&rsquo;an and our faith increased thereby.&rdquo;<cite>Sunan Ibn Majah, 61</cite></blockquote>
 
-<p>Faith (Iman in Arabic) in Islam is not purely within the belief of the religion being true. It is also in your actions and what you believe. Your faith even increases with good deeds and decreases with bad deeds. This also relates to why reverting to Islam requires one to pronounce the Shahada (Declaration of Faith), which we cover in the forum on how to be Muslim.</p>
+<p>Learning Aqeedah is therefore not an advanced hobby reserved for scholars. Every Muslim needs the essentials: who Allah is, what belongs to Him alone, why Muhammad &#xFDFA; must be followed, what revelation requires, and what happens after death. More detailed questions can be studied gradually, but the foundations cannot be treated as optional.</p>
 
-<p>There are things in Aqeedah which are known by necessity, fitrah, and mass attestation. Not knowing these removes a person from Islam. Examples include knowing that Allah exists, that He is eternal and all-powerful, that angels exist, that Allah is one, and that prayer is an obligation, among other essentials.</p>
+<h2>What Iman actually includes</h2>
 
-<p>If someone has committed disbelief in this world while having had absolutely no access to Islam at all, Allah may test that person on the Day of Judgment &mdash; this is outlined elsewhere on this site.</p>
+<p>The clearest definition is that Iman includes <strong>belief of the heart, speech of the tongue, and action of the limbs</strong>. These are not three unrelated versions of faith. They are three connected expressions of one reality:</p>
 
-<p>Allah Most High has said in the Quran:</p>
+<ul>
+<li><strong>Belief of the heart:</strong> affirming Allah&rsquo;s truth, loving Him, fearing Him, hoping in Him, trusting Him, and accepting the articles of faith.</li>
+<li><strong>Speech of the tongue:</strong> pronouncing the Shahadah, remembering Allah, reciting revelation, telling the truth, and speaking what faith requires.</li>
+<li><strong>Action of the limbs:</strong> praying, fasting, giving Zakah, making Hajj when able, obeying Allah, avoiding what He forbids, and treating people with justice and mercy.</li>
+</ul>
 
-<blockquote>&ldquo;And We would never punish (a people) until We have sent a messenger.&rdquo;<cite>Surah al-Isra, 17:15</cite></blockquote>
+<p>If Iman were only an inward opinion, the Qur&rsquo;an would not repeatedly describe believers by what they do. Allah joins belief to action throughout revelation.</p>
 
-<p>Imam Ibn Abi Hatim, in his Tafsir, narrates the following with a good chain. The Messenger of Allah &#xFDFA; said:</p>
+<h2>Evidence that faith includes actions</h2>
 
-<blockquote>&ldquo;The one who died during the Fatrah will say, &lsquo;My Lord! No Book or Messenger came to me.&rsquo; Then he will recite the following ayah: &lsquo;Our Lord! If only You had sent us a messenger, we would have followed Your signs and become believers.&rsquo;&rdquo;<cite>Tafsir Ibn Abi Hatim; the ayah is Surah al-Qasas, 28:47</cite></blockquote>
+<p><strong>1. The Qur&rsquo;an calls people believers by describing their worship and conduct.</strong> Allah says:</p>
 
-<p>Ibn Jarir and Ibn Abi Hatim narrate in their respective Tafsirs that Qatada said regarding this ayah:</p>
+<blockquote>&ldquo;The true believers are only those whose hearts tremble at the remembrance of Allah, whose faith increases when His revelations are recited to them, who put their trust in their Lord, establish prayer, and donate from what We have provided them. It is they who are the true believers.&rdquo;<cite>Qur&rsquo;an, 8:2&ndash;4</cite></blockquote>
 
-<blockquote>&ldquo;Indeed Allah Most High will not punish anybody until news from Allah reaches him or until a proof from Allah reaches him (i.e. by means of the Messenger of Allah &#xFDFA;).&rdquo;<cite>Tafsir Ibn Jarir and Tafsir Ibn Abi Hatim</cite></blockquote>
+<p>This passage begins with the heart, then mentions reliance, prayer, and spending, and finally calls the whole group &ldquo;the true believers.&rdquo; The actions are not presented as unrelated decorations; they are part of the description of Iman.</p>
 
-<blockquote>Abu Huraira reported Allah&rsquo;s Messenger (&#xFDFA;) as saying: No baby is born but upon Fitra. It is his parents who make him a Jew or a Christian or a Polytheist. A person said: Allah&rsquo;s Messenger, what is your opinion if they were to die before that (before reaching the age of adolescence when they can distinguish between right and wrong)? He said: It is Allah alone Who knows what they would be doing.<cite>Sahih Muslim, 2658e</cite></blockquote>
+<p><strong>2. True faith is proven by costly commitment.</strong> Allah says:</p>
 
-<p>The Prophet &#xFDFA; said:</p>
+<blockquote>&ldquo;The true believers are only those who believe in Allah and His Messenger, never doubt, and strive with their wealth and their lives in the cause of Allah. They are the ones true in faith.&rdquo;<cite>Qur&rsquo;an, 49:15</cite></blockquote>
 
-<blockquote>&ldquo;There are four who will present their case on the Day of Resurrection: a deaf man who never heard anything, an insane man, a very old and senile man, and a man who died during the Fatrah. As for the deaf man, he will say: &lsquo;O Lord, Islam came but I never heard anything.&rsquo; As for the insane man, he will say: &lsquo;O Lord, Islam came and the young boys were throwing camel dung at me.&rsquo; As for the senile man, he will say: &lsquo;O Lord, Islam came and I did not understand anything.&rsquo; As for the one who died during the Fatrah, he will say: &lsquo;O Lord, no Messenger from You came to me.&rsquo; Allah will accept their pledge of obedience to Him, then He will send word to them that they should enter the Fire. By the One in Whose Hand is the soul of Muhammad, if they enter it, it will be cool and safe for them.&rdquo;<cite>al-Tabarani (2/79) with a Sahih sanad; Musnad Ahmad (16301); Ibn Hibban (1827); graded Sahih by Shaykh al-Albani in as-Sahihah (1434), by Ibn al-Qayyim in Tariq al-Hijratayn (1/397), and by Shaykh Muqbil in Sahih al-Musnad (19)</cite></blockquote>
+<p>The verse does not describe truthfulness in faith as a private claim. It connects belief and certainty to sacrifice and action.</p>
 
-<p>Yazid bin Aban said: We said to Anas (may Allah be pleased with him): O Abu Hamzah! What do you say in regards to the children of the Mushriks? He said: The Messenger of Allah &#xFDFA; said:</p>
+<p><strong>3. Righteousness combines creed and practice.</strong> Allah describes righteousness as belief in Allah, the Last Day, the angels, the Book, and the prophets, together with giving wealth, establishing prayer, giving Zakah, fulfilling promises, and patiently obeying Him:</p>
 
-<blockquote>&ldquo;They won&rsquo;t have any sins for which they would be punished, so that they would be the inhabitants of the Fire; neither would they have any good deeds for which they would be rewarded, so that they become the inhabitants of the Paradise. They will be the servants of the people of Paradise.&rdquo;<cite>Abu Dawud al-Tayalisi in his Musnad (2225); al-Tabarani in al-Mu&lsquo;jam al-Awsat (5355) and al-Mu&lsquo;jam al-Kabir (6993); al-Bazzar (4516, 7466); graded &ldquo;Sahih li shawahid&rdquo; (authentic due to supporting chains) in as-Sahihah (1468)</cite></blockquote>
+<blockquote>&ldquo;Those are the ones who have been true, and it is those who are mindful of Allah.&rdquo;<cite>Qur&rsquo;an, 2:177</cite></blockquote>
 
-<p>Anas (may Allah be pleased with him) said that the Prophet &#xFDFA; said:</p>
+<p>Belief and action are listed together because neither can be reduced to the other. A claim of belief that produces no submission is not the complete Iman praised in revelation.</p>
 
-<blockquote>&ldquo;Four (types of people) will come on the Day of Judgment: the infant, the insane, the one who died during al-Fatrah and a very old and senile man. Everyone will present their case. Allah will say to the neck from the Hellfire: {Arise!} And He will say to them: {I used to send Messengers to my slaves from among themselves, and I am a Messenger from Myself to you. So enter into this (Fire).} So those for whom misery was written will say: O Lord! How should we enter this, whereas this is what we are trying to run away from? As for those for whom happiness was written, they will be charging towards it (to enter it). Allah will say: {You (would have been) more severe in denying and disobeying My Messengers.} So those (who ran to enter the fire) will be made to enter the Jannah and those (who complained) will be made to enter the Hellfire.&rdquo;<cite>Musnad al-Bazzar (7594); Musnad Abu Ya&lsquo;la (4224). Shaykh al-Albani said that the Hadith with this chain is &ldquo;Da&lsquo;if&rdquo; (weak), but there are other Ahadith that raise its level (like the first Hadith of al-Aswad); see as-Sahihah (2468)</cite></blockquote>
+<p><strong>4. Salvation is described as belief and righteous deeds.</strong> Allah says about the people who are not in loss:</p>
 
-<p>Al-Hafiz Abu Bakr al-Bazzar reported in his Musnad, on the authority of Thawban (may Allah be pleased with him), that the Prophet &#xFDFA; said:</p>
+<blockquote>&ldquo;Except those who believe and do righteous deeds, encourage one another to truth, and encourage one another to patience.&rdquo;<cite>Qur&rsquo;an, 103:3</cite></blockquote>
 
-<blockquote>&ldquo;When it will be the Day of Judgment, people from the days of ignorance will come forth carrying idols on their backs. Their Lord will ask them [in al-Zuhd of Ibn al-Mubarak it is: Allah will ask them: {What did you used to worship?}] and they will say: O our Lord! You did not send any Messenger to us nor did we receive any commands from You. Had You sent us the Messenger we would have been Your obedient servants. Their Lord will say to them: {If I command you with a task will you obey Me?} They will say: Yes! They will be commanded to walk towards the Hellfire and enter it. They will walk towards it till when they come close to it, they will hear its raging and roaring. They will return back to their Lord saying: O our Lord! Take us out from it. He will say to them: {Did you not claim to Me that if I command you with a task, you will obey Me?} He will take a promise from them and say to them: {Go towards it and enter it.} They will (again) walk towards it till when they see it, they will disperse and return back. They will say: O our Lord! Distance us from it for we cannot enter it. He will say: {Enter it humiliated.}&rdquo; The Prophet &#xFDFA; said: &ldquo;Had they entered it the first time, they would have found it cool and safe (for them).&rdquo;<cite>Musnad al-Bazzar (4169); the words within the brackets are from al-Zuhd (1323) of Ibn al-Mubarak. Al-Hakim also reported it in al-Mustadrak (8390) and said: &ldquo;It is Sahih as per the condition of al-Bukhari and Muslim but they did not report it,&rdquo; and al-Dhahabi agreed with him</cite></blockquote>
+<p>The repeated Qur&rsquo;anic pairing of <em>those who believe</em> with <em>those who do righteous deeds</em> makes the relationship explicit. Faith is not merely what a person says is inside them; it is belief that produces obedience.</p>
 
-<p>Imam adh-Dhuhli reported on the authority of Abu Sa&lsquo;id al-Khudri (may Allah be pleased with him) that the Prophet &#xFDFA; said:</p>
+<p><strong>5. The Prophet &#xFDFA; explicitly made deeds branches of faith.</strong> He said:</p>
 
-<blockquote>&ldquo;(In regards to) the one who died during al-Fatrah, the insane and the infant. The one who died during the Fatrah will say: No Book had reached me. The insane will say: O my Lord! You did not give me a sound intellect so that I could distinguish what is good and what is evil. The infant will say: O my Lord! I did not reach adolescence. Then the fire will be raised for them and it will be said to them: {Enter it.}&rdquo; The Prophet &#xFDFA; said: &ldquo;So those who were in Allah&rsquo;s knowledge from the successful people &ndash; had they been given the chance to act (in this world) &ndash; they will enter it (and no harm will happen to them), and those who were in Allah&rsquo;s knowledge from the wretched people &ndash; had they been given the chance to act (in this world) &ndash; will hold back (from entering it). He will say (to those who did not enter): {You disobey Me (now), so how would you be had My Messengers come to you?}&rdquo;</blockquote>
+<blockquote>&ldquo;Faith has over seventy branches. The highest of them is the declaration that there is no god but Allah, and the lowest of them is removing something harmful from the path; and modesty is a branch of faith.&rdquo;<cite>Sahih Muslim, 35b</cite></blockquote>
+
+<p>The highest branch is speech, the lowest branch is a physical act, and modesty is an inward moral quality that appears in conduct. This hadith cannot be reconciled with the idea that Iman is only mental agreement.</p>
+
+<p><strong>6. Even the heading of a chapter in Sahih al-Bukhari records this principle:</strong> &ldquo;The deeds of faith.&rdquo; The Prophet &#xFDFA; also said that faith has more than sixty branches and that modesty is a part of faith.</p>
+
+<p><strong>7. The Qur&rsquo;an calls prayer &ldquo;faith.&rdquo;</strong> When the direction of prayer was changed, Allah said:</p>
+
+<blockquote>&ldquo;Allah would never cause your faith to be lost.&rdquo;<cite>Qur&rsquo;an, 2:143</cite></blockquote>
+
+<p>The early Muslims understood &ldquo;your faith&rdquo; here to include the prayers they had already performed toward the first Qiblah. This is direct evidence that an outward act of worship can be described as Iman.</p>
+
+<p><strong>8. Iman increases.</strong> Allah says that when a Surah is revealed, it increases the believers in faith, and He describes believers whose hearts tremble, whose faith increases with revelation, and who respond with obedience. Iman is therefore not a motionless label. It grows through knowledge, reflection, sincerity, and righteous action, and it weakens through sins, heedlessness, and disobedience.</p>
+
+<h2>Islam, Iman, and Ihsan</h2>
+
+<p>In the Hadith of Jibril, the Prophet &#xFDFA; distinguished between the questions about Islam, Iman, and Ihsan. Islam was described through the outward pillars: Shahadah, Salah, Zakah, fasting, and Hajj. Iman was described through the six articles of belief. Ihsan was to worship Allah as though you see Him, knowing that He sees you. When the terms are mentioned together, this shows the difference between their emphases; when Iman is mentioned by itself, it includes the whole religion, including the speech and actions that faith requires.</p>
+
+<p>This is why it is wrong to say, &ldquo;I believe in my heart, so my actions do not matter.&rdquo; The heart is the root, the tongue declares it, and the limbs testify to it. A person may have weak Iman and commit a grave sin while remaining within Islam; that sin still damages and diminishes their faith. The Prophet &#xFDFA; said that the adulterer, thief, and drinker are not believers while committing those acts. The scholars explain this as a severe negation of complete Iman, not a licence to make careless Takfir of every sinner. It proves that actions affect the reality and strength of Iman.</p>
+
+<h2>What does an error in Aqeedah mean?</h2>
+
+<p>When this page says that an error in core Aqeedah is disbelief, it means the rejection or denial of a foundational truth that a person is required to affirm: for example, denying Allah&rsquo;s existence, denying that Allah alone deserves worship, denying the prophethood of Muhammad &#xFDFA;, rejecting the Qur&rsquo;an as revelation, or denying the Resurrection after the truth has been established.</p>
+
+<p>These are not harmless alternative opinions. A person cannot simultaneously have Iman in Allah and reject Allah&rsquo;s existence; cannot affirm the Messenger while denying his prophethood; and cannot claim submission while deliberately rejecting a necessary foundation of the religion. Correct Aqeedah is therefore a condition of Iman, not an optional supplement to it.</p>
+
+<p>At the same time, precision is part of justice. Not every unfamiliar phrase, technical mistake, disputed interpretation, or failure to know a complicated issue is the same as consciously rejecting a foundation. A ruling about a statement or belief must not be turned into reckless judgement about a particular person without knowledge of what they understood, what reached them, and whether the proof was established.</p>
+
+<h2>Is ignorance an excuse?</h2>
+
+<p><strong>Ignorance is not a blanket excuse for rejecting the foundations of Islam.</strong> If the message of Islam has reached a person clearly enough for them to know its essential claim, then saying &ldquo;I did not study Aqeedah&rdquo; does not make deliberate rejection harmless. A Muslim is obligated to learn the essentials needed for faith and worship. Not knowing Arabic, living in a non-Muslim country, or never having read a specialist book is not automatically the same as having had no access to Islam.</p>
+
+<p>The exception is the person who genuinely had no access to the message at all, or lacked the capacity to understand it. Allah says:</p>
+
+<blockquote>&ldquo;We never punish until We have sent a messenger.&rdquo;<cite>Qur&rsquo;an, 17:15</cite></blockquote>
+
+<p>Allah also says that messengers were sent so that people would have no argument against Him after the messengers had come. The people of the Fatrah, a person who never heard the message in an accessible form, a child who had not reached understanding, and a person without the capacity to comprehend are not treated as though they knowingly rejected a proof they never received. Their case belongs to Allah&rsquo;s perfect justice, and the reports about testing those who had no access are discussed on the relevant pages.</p>
+
+<p><strong>Having a difficult or distorted presentation of Islam is not automatically the same as having no access to Islam.</strong> The question is whether a real message and proof reached the person in a way they could understand, not whether they encountered a perfect teacher, answered every question immediately, or lived in a Muslim-majority society. Allah alone knows each person&rsquo;s circumstances and judges with complete justice.</p>
+
+<h2>A practical summary</h2>
+
+<ol>
+<li>Learn the foundations of Aqeedah from the Qur&rsquo;an and authentic Sunnah.</li>
+<li>Believe them inwardly without knowingly rejecting what Allah revealed.</li>
+<li>Declare the Shahadah and speak what faith requires.</li>
+<li>Act upon that belief through Salah, obedience, repentance, and good deeds.</li>
+<li>Understand that Iman increases with obedience and decreases with sin.</li>
+<li>Do not confuse a sin, a minor mistake, or a disputed issue with deliberate rejection of a core belief.</li>
+<li>Do not use the excuse of ignorance to avoid learning the essentials once the message has reached you.</li>
+</ol>
+
+<p class="lede">Aqeedah is the foundation of Iman, and Iman is belief, speech, and action. Correct the foundation, learn what Allah requires, and let the truth of the heart appear in the worship of the limbs.</p>
 `,
 "what-is-islam/aqeedah/tawhid/introduction-to-tawhid": `
 <p class="lede">Tawhid (توحيد) comes from the Arabic root <em>w-h-d</em> (و-ح-د), meaning &ldquo;unification&rdquo; or &ldquo;declaring something to be one.&rdquo; It is monotheism, the belief that Allah is One, unique, singular, and without equal or partner in His essence, attributes, and rights.</p>
@@ -5254,15 +5343,7 @@ function topbar(crumbs){
           <datalist id="ilm-language-list">
             <option>Arabic</option><option>Chinese (Simplified)</option><option>Dutch</option><option>English</option><option>French</option><option>German</option><option>Hindi</option><option>Indonesian</option><option>Italian</option><option>Japanese</option><option>Korean</option><option>Malay</option><option>Persian</option><option>Portuguese</option><option>Russian</option><option>Spanish</option><option>Swedish</option><option>Turkish</option><option>Urdu</option>
           </datalist>
-          <details class="translate-settings">
-            <summary>Gemini API key</summary>
-            <div class="translate-key-row">
-              <input type="password" data-translate-key placeholder="Paste your key" autocomplete="off">
-              <button class="translate-save" type="button" data-translate-save>Save</button>
-            </div>
-            <p class="translate-note">Your key stays in this browser and is sent directly to Google Gemini. It is never written into this HTML file. <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Get a key</a></p>
-            <button class="translate-reset" type="button" data-translate-reset>Forget saved key</button>
-          </details>
+          <p class="translate-note">One click for visitors — no account or API key needed. The site owner connects the secure translation service once.</p>
           <p class="translate-status" data-translate-status>AI translation preserves page structure. Review important text before publishing.</p>
           <button class="translate-reset" type="button" data-translate-restore hidden>Restore original</button>
         </div>
@@ -5342,6 +5423,7 @@ function articlePage(crumbs, eyebrow, title, desc, html, backHref, backLabel){
     <main>
       <p class="sf-eyebrow">${eyebrow}</p>
       <h1 class="sf-title">${title}</h1>
+      <aside class="article-support"><p><strong>How to use this page:</strong> Start with the highlighted summary, then follow the explanation and check any Qur&rsquo;an, Hadith, or scholarly references named in the text.</p></aside>
       <div class="article">${renderedHtml}</div>
       <a class="back-link" href="${backHref}">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12H6M11 6l-6 6 6 6"/></svg>
@@ -5351,6 +5433,51 @@ function articlePage(crumbs, eyebrow, title, desc, html, backHref, backLabel){
     <footer>Ilm — for study and reflection.</footer>
   </div>`;
 }
+
+
+const FORUM_GUIDES={
+  "what-is-islam":{
+    title:"A clear starting path",
+    body:"Start with what Islam is, then learn the foundations of Aqeedah, how a person enters Islam, and how belief is lived through Fiqh. Each step prepares you for the next.",
+    steps:["Understand the message","Learn the foundations","Practice the essentials","Go deeper with sources"]
+  },
+  "why-islam-is-true":{
+    title:"How to read the arguments",
+    body:"Begin with the principles used to evaluate truth claims. Then follow the arguments in order, separating the premises, the evidence, and the conclusion so you can assess each point clearly.",
+    steps:["Clarify the question","Check the premises","Study the evidence","Follow the conclusion"]
+  },
+  "islamic-history":{
+    title:"How to use this timeline",
+    body:"Read the history in sequence when you can. Notice the difference between a primary report, a later historical summary, and an interpretation, and use the named sources to investigate further.",
+    steps:["Read in order","Notice the context","Check the sources","Keep the timeline in view"]
+  },
+  "refutations":{
+    title:"How to approach a refutation",
+    body:"First understand the relevant Islamic position, then state the objection fairly, and finally follow the response and its evidence. A short page is an introduction, not a substitute for careful study.",
+    steps:["Learn the position","State the objection fairly","Trace the evidence","Study the wider topic"]
+  }
+};
+function forumGuide(f){
+  const guide=FORUM_GUIDES[f.id];
+  if(!guide) return "";
+  return `<aside class="beginner-guide" aria-label="Beginner guide">
+    <p class="guide-kicker">Start here</p>
+    <h2>${guide.title}</h2>
+    <p>${guide.body}</p>
+    <ol class="guide-steps">${guide.steps.map(step=>`<li>${step}</li>`).join("")}</ol>
+  </aside>`;
+}
+function bindScrollReveal(){
+  const targets=[...document.querySelectorAll(".article > p,.article > h2,.article > h3,.article > blockquote,.article > ul,.article > ol,.article > figure,.article > .rule")];
+  targets.forEach((el,i)=>{ if(i>0) el.classList.add("scroll-reveal"); });
+  if(!motionOK || !("IntersectionObserver" in window)){
+    targets.forEach(el=>el.classList.add("is-visible")); return;
+  }
+  const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add("is-visible");observer.unobserve(entry.target);}}),{rootMargin:"0px 0px -10% 0px",threshold:.05});
+  targets.forEach(el=>{if(el.classList.contains("scroll-reveal")) observer.observe(el);});
+}
+const contentObserver=new MutationObserver(()=>requestAnimationFrame(bindScrollReveal));
+contentObserver.observe(app,{childList:true});
 
 function renderForum(id){
   const f = forumById(id);
@@ -5363,6 +5490,7 @@ function renderForum(id){
     <main>
       <div class="forum-head">${ICONS[f.icon]}<h1>${f.title}</h1></div>
       <p class="forum-sub">${f.blurb}</p>
+      ${forumGuide(f)}
       <div class="toc">${items}</div>
       <a class="back-link" href="#/index">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12H6M11 6l-6 6 6 6"/></svg>
@@ -5511,9 +5639,7 @@ function bind3DMotion(){
 
 
 /* ============ AI TRANSLATION ============ */
-const GEMINI_MODEL = "gemini-2.5-flash";
-const GEMINI_KEY_STORAGE = "ilm-gemini-key";
-const TRANSLATION_SYSTEM = `You are a meticulous translator for an Islamic knowledge website. Translate the supplied visible text into the requested target language. Preserve meaning, tone, names, honorifics, Arabic/transliterated terms, citations, numbers, and punctuation unless a standard target-language equivalent is clearly correct. Do not add explanations, omit content, soften claims, or translate identifiers. Return ONLY a valid JSON array with the exact same ids, each object shaped as {"id":"...","translation":"..."}.`;
+const TRANSLATION_ENDPOINT = window.ILM_TRANSLATION_ENDPOINT || "/api/translate";
 
 function translationStatus(panel, message, state=""){
   const el=panel.querySelector("[data-translate-status]");
@@ -5540,21 +5666,12 @@ function chunksFor(items){
   if(chunk.length) chunks.push(chunk);
   return chunks;
 }
-async function askGemini(apiKey,targetLanguage,pageTitle,items){
-  const endpoint=`https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent`;
-  const response=await fetch(endpoint,{method:"POST",headers:{"Content-Type":"application/json","x-goog-api-key":apiKey},body:JSON.stringify({
-    systemInstruction:{parts:[{text:TRANSLATION_SYSTEM}]},
-    contents:[{role:"user",parts:[{text:JSON.stringify({targetLanguage,pageTitle,items})}]}],
-    generationConfig:{temperature:0,responseMimeType:"application/json"}
-  })});
-  const data=await response.json();
-  if(!response.ok) throw new Error(data?.error?.message || `Gemini request failed (${response.status})`);
-  const raw=data?.candidates?.[0]?.content?.parts?.map(p=>p.text||"").join("")||"";
-  const jsonText=raw.match(/\[[\s\S]*\]/)?.[0];
-  if(!jsonText) throw new Error("Gemini returned no translation JSON.");
-  const parsed=JSON.parse(jsonText);
-  if(!Array.isArray(parsed)) throw new Error("Gemini returned an invalid translation shape.");
-  return parsed;
+async function requestTranslation(targetLanguage,pageTitle,items){
+  const response=await fetch(TRANSLATION_ENDPOINT,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({targetLanguage,pageTitle,items})});
+  const data=await response.json().catch(()=>({}));
+  if(!response.ok) throw new Error(data?.error || "The translation service is unavailable.");
+  if(!Array.isArray(data.translations)) throw new Error("The translation service returned an invalid response.");
+  return data.translations;
 }
 function applyTranslation(item,translated){
   const original=item.original;
@@ -5563,10 +5680,8 @@ function applyTranslation(item,translated){
   item.node.nodeValue=leading+translated.trim()+trailing;
 }
 async function translateCurrentPage(panel){
-  const apiKey=(panel.querySelector("[data-translate-key]").value.trim()||localStorage.getItem(GEMINI_KEY_STORAGE)||"").trim();
   const target=(panel.querySelector("[data-translate-language]").value||"").trim();
   const view=document.querySelector(".view");
-  if(!apiKey){translationStatus(panel,"Add a Gemini API key under settings to start.","error");panel.querySelector("[data-translate-key]").focus();return;}
   if(!target){translationStatus(panel,"Enter a target language.","error");return;}
   if(!view){translationStatus(panel,"No page content is ready yet.","error");return;}
   const items=translationNodes(view);
@@ -5577,7 +5692,7 @@ async function translateCurrentPage(panel){
     const title=view.querySelector("h1")?.textContent?.trim()||document.title;
     const translations=[];
     for(const chunk of chunksFor(items)){
-      const result=await askGemini(apiKey,target,title,chunk);
+      const result=await requestTranslation(target,title,chunk);
       const byId=new Map(result.map(x=>[x.id,typeof x.translation==="string"?x.translation:""]));
       for(const item of chunk){
         const translated=byId.get(item.id);
@@ -5590,7 +5705,7 @@ async function translateCurrentPage(panel){
     panel.querySelector("[data-translate-restore]").hidden=false;
     translationStatus(panel,`Translated to ${target}. Review important text before publishing.`);
   }catch(error){
-    translationStatus(panel,error.message||"Translation failed. Check the key and try again.","error");
+    translationStatus(panel,error.message||"Translation failed. Please try again.","error");
   }finally{run.disabled=false;run.textContent="Go";}
 }
 function restoreTranslation(panel){
@@ -5606,20 +5721,21 @@ document.addEventListener("click",event=>{
   if(toggle){
     const panel=toggle.parentElement.querySelector("[data-translate-panel]");
     const open=panel.hidden; panel.hidden=!open; toggle.setAttribute("aria-expanded",String(open));
-    if(open){const key=localStorage.getItem(GEMINI_KEY_STORAGE);if(key)panel.querySelector("[data-translate-key]").value=key;panel.querySelector("[data-translate-language]").focus();}
+    if(open) panel.querySelector("[data-translate-language]").focus();
     return;
   }
   const run=event.target.closest("[data-translate-run]");
   if(run){translateCurrentPage(run.closest("[data-translate-panel]"));return;}
-  const save=event.target.closest("[data-translate-save]");
-  if(save){const panel=save.closest("[data-translate-panel]"),key=panel.querySelector("[data-translate-key]").value.trim();if(key){localStorage.setItem(GEMINI_KEY_STORAGE,key);translationStatus(panel,"Saved on this device. The key is not in the HTML file.");}return;}
-  const reset=event.target.closest("[data-translate-reset]");
-  if(reset){localStorage.removeItem(GEMINI_KEY_STORAGE);const panel=reset.closest("[data-translate-panel]");panel.querySelector("[data-translate-key]").value="";translationStatus(panel,"Forgot the saved key.");return;}
   const restore=event.target.closest("[data-translate-restore]");
   if(restore){restoreTranslation(restore.closest("[data-translate-panel]"));return;}
   if(!event.target.closest(".translate-control")) document.querySelectorAll("[data-translate-panel]").forEach(panel=>panel.hidden=true);
 });
 document.addEventListener("keydown",event=>{if(event.key==="Escape")document.querySelectorAll("[data-translate-panel]").forEach(panel=>panel.hidden=true);});
+
+
+const scrollTopButton=document.querySelector("[data-scroll-top]");
+window.addEventListener("scroll",()=>scrollTopButton?.classList.toggle("is-visible",window.scrollY>650),{passive:true});
+scrollTopButton?.addEventListener("click",()=>window.scrollTo({top:0,behavior:motionOK?"smooth":"auto"}));
 
 /* ============ ROUTER ============ */
 function route(){
