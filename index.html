@@ -339,6 +339,16 @@ main{ max-width:1080px; margin:0 auto; padding: clamp(2rem,5vw,4rem) clamp(1.25r
 }
 :root[data-theme="dark"] .article .warning{ --warn:#E8746A; background:rgba(232,116,106,.12); }
 
+.article .tag{
+  display:inline-block; margin:0 .15rem; padding:.05rem .55rem;
+  font-family:'Inter',sans-serif; font-size:.68rem; font-weight:600; font-style:normal;
+  letter-spacing:.09em; text-transform:uppercase; line-height:1.5;
+  border:1px solid var(--gold-2); border-radius:999px; color:var(--gold-2);
+  vertical-align:middle; white-space:nowrap;
+}
+.article .tag.fard{ background:var(--teal); border-color:var(--teal); color:var(--parchment); }
+.article h2 .tag, .article h3 .tag{ position:relative; top:-.1em; }
+
 .back-link{
   display:inline-flex; align-items:center; gap:.4rem;
   margin-top:2.4rem; font-size:.9rem; color:var(--gold-2);
@@ -586,8 +596,8 @@ const FORUMS = [
         ["Introduction to Aqeedah",""],
         ["Tawhid and Sect","The oneness of Allah in His Lordship, His right to worship, and His Names and Attributes.",[
           ["Introduction to Tawhid",""],
-          ["Sect",""],
-          ["Attributes of Allah","The names and attributes of Allah, as affirmed in the Qur'an and Sunnah."]
+          ["Attributes of Allah","The names and attributes of Allah, as affirmed in the Qur'an and Sunnah."],
+          ["Sect",""]
         ]],
         ["Kufr and Shirk",""],
         ["Pillars of Islam",""],
@@ -599,43 +609,53 @@ const FORUMS = [
         ["Udhr bil Jahil and Iqamatul Hujjah",""],
         ["Al Wala wal Bara wa Kufr bi Taghut wa Iman Billah",""],
         ["Specific Beliefs","This section is extra &mdash; not knowing it does not necessarily nullify your Islam, as long as the very basics are affirmed. The other Aqeedah sections above cover the essential stuff and basics.",[
-          ["The Akhirah",""],
-          ["End Times",""],
-          ["Life is not easy and it is temporary",""],
-          ["Creatures in Islam",""],
-          ["Adam in the image of Allah",""],
-          ["Ethics and Morality","",[
+          ["The Hereafter and the End Times","The Akhirah, what awaits in Heaven and Hell, and the signs and events of the end times.",[
+            ["The Akhirah",""],
+            ["Description of Heaven and Hell",""],
+            ["End Times",""],
+            ["The Prophet (peace be upon him) Will Sit on the Throne",""]
+          ]],
+          ["Creation and Mankind","Creatures, Adam, the mind and soul, and the special places Allah has chosen on earth.",[
+            ["Creatures in Islam",""],
+            ["Adam in the image of Allah",""],
+            ["Mind, Soul, Consciousness, Fitrah and Free Will",""],
+            ["Special Religious Places on Earth",""]
+          ]],
+          ["Qur'an and Hadith","The preservation of the Qur'an and how hadith are transmitted and verified.",[
+            ["Mushaf","",[
+              ["Preservation history",""],
+              ["Modes, Dialects and Scripts",""],
+              ["Is the Mushaf uncreated?",""]
+            ]],
+            ["Isnaad and Hadith Science","A beginner's guide to chains of narration and how hadith are verified."]
+          ]],
+          ["Ethics and Morality","Good and evil, halal and haram, character, and the discipline of the tongue.",[
             ["Defining good and evil",""],
             ["Halal and Haram","How actions are ruled in Islam &mdash; from the obligatory to the forbidden."],
             ["List of Good and Bad Deeds",""],
-            ["Hiding Your Good and Bad Deeds",""]
+            ["Hiding Your Good and Bad Deeds",""],
+            ["Grey Areas",""],
+            ["Adab and Akhlaq",""],
+            ["Silence is better than Ill Speech","Keeping silent unless what you say is backed by knowledge, evidence and clean speech."],
+            ["Hidden Blasphemy in Profanity",""]
           ]],
-          ["Special Religious Places on Earth",""],
-          ["Isnaad and Hadith Science","A beginner's guide to chains of narration and how hadith are verified."],
-          ["Dar, War, Taghut and Caliphates","",[
+          ["The Heart and Its States","Intention, hope, fear and patience, and the temporary nature of this life.",[
+            ["Intention",""],
+            ["Hope, Fear and Patience",""],
+            ["Life is not easy and it is temporary",""]
+          ]],
+          ["Dar, War, Taghut and Caliphates","Lands, war, false authority, and the caliphate &mdash; past, present and foretold.",[
             ["Dar al Islam and Dar al Harb",""],
             ["War",""],
             ["Taghut",""],
             ["Caliphates",""],
+            ["Future Caliphate by Imam al-Mahdi and Isa (peace be upon him)","The caliphate foretold for the last days."],
             ["What Nations Are or Were Muslim?",""],
             ["Apostasy",""],
             ["Revolting, Disobeying and Advising",""],
             ["Non Specific Laws",""]
           ]],
-          ["Mind, Soul, Consciousness, Fitrah and Free Will",""],
-          ["Grey Areas",""],
-          ["Adab and Akhlaq",""],
-          ["Description of Heaven and Hell",""],
-          ["Hidden Blasphemy in Profanity",""],
-          ["Mushaf","",[
-            ["Preservation history",""],
-            ["Modes, Dialects and Scripts",""],
-            ["Is the Mushaf uncreated?",""]
-          ]],
-          ["Hope, Fear and Patience",""],
-          ["The Prophet (peace be upon him) Will Sit on the Throne",""],
-          ["Dawah",""],
-          ["Intention",""]
+          ["Dawah",""]
         ]]
       ]],
       ["How to Be Muslim","The essential requirements to enter and remain within Islam, and how to grow in faith beyond the bare minimum.",[
@@ -648,22 +668,38 @@ const FORUMS = [
           ["Do Good Deeds As Much As You Can",""],
           ["Ask Allah for Mercy, Forgiveness, and Make Du'a",""],
           ["Learn and Act Upon Islam",""]
-        ]]
+        ]],
+        ["My Personal Recommendation","The order I recommend for learning and practicing Islam, for new Muslims and for Muslims who are struggling."]
       ]],
       ["Fiqh","Islamic jurisprudence — its scope of worship and ethics, and its living tradition of rulings.",[
         ["Introduction to Fiqh",""],
         ["Usool al Fiqh",""],
         ["Different acts of worship","The core acts of worship and their rulings.",[
-          ["Salah",""],
-          ["Purification",""],
+          ["Salah","",[
+            ["Fard Prayers, Pillars and Obligations for Validity",""],
+            ["Sunnahs in Salah",""],
+            ["Sunnah Prayers and How to Do Them",""],
+            ["When Is It Haram to Pray and What Breaks a Prayer",""]
+          ]],
+          ["Purification","The rulings of purification: wudu, ghusl, and hygiene.",[
+            ["Wudu","",[
+              ["Pillars of Wudu",""],
+              ["Sunnahs of Wudu",""],
+              ["Tayammum",""]
+            ]],
+            ["Ghusl",""],
+            ["Hygiene","Cleanliness, fitrah, and everyday personal care in Islam."]
+          ]],
           ["Dua",""],
           ["Fasting",""],
-          ["Pilgrimage",""],
+          ["Pilgrimage","",[
+            ["Hajj",""],
+            ["Umrah",""]
+          ]],
           ["Dhikr",""],
           ["Tawbah and Istighfar",""],
           ["Habits",""],
             ["Eid",""],
-            ["Hygiene","Cleanliness, fitrah, and everyday personal care in Islam."],
             ["Dawah and Etiquette of Discussion",""]
         ]],
         ["Fatwas","Rulings on specific matters of daily life and practice.",[
@@ -735,22 +771,26 @@ const FORUMS = [
   {
     id:"islamic-history",
     title:"Islamic History",
-    blurb:"A chronological path through the religion and the civilizations it produced — from pre-Islamic Arabia to the present day.",
+    blurb:"A chronological path through the religion and the civilizations it produced — from the Prophets and pre-Islamic Arabia to the present day, and the caliphate foretold for the future.",
     icon:"book",
     numbered:true,
     subs:[
-      ["Pre-Islamic Arabia (Jahiliyyah)",""],
       ["The Prophets of Islam",""],
+      ["Pre-Islamic Arabia (Jahiliyyah)",""],
       ["The Seerah",""],
       ["The Sahaba (Companions)",""],
       ["The Rashidun Caliphate",""],
       ["Early Sectarian Schisms",""],
-      ["The Salaf",""],
-      ["The Madhahib",""],
       ["The Umayyads",""],
+      ["The Salaf",""],
       ["The Abbasids",""],
+      ["The Madhahib",""],
       ["The Islamic \u201cGolden Age\u201d",""],
       ["Al-Andalus",""],
+      ["Non-Mainstream Caliphates","Caliphates that arose outside the main line of the Rashidun, Umayyad, Abbasid and Ottoman caliphs.",[
+        ["Caliphate of Cordoba",""],
+        ["Sokoto Caliphate",""]
+      ]],
       ["The Crusades",""],
       ["The Mongol Invasions",""],
       ["The Ottoman Empire",""],
@@ -758,11 +798,9 @@ const FORUMS = [
       ["The Mughal Empire",""],
       ["European Colonialism",""],
       ["Reform Movements",""],
-      ["Post-Colonial Nation-States",""],
-      ["The Discovery of Oil in Gulf States",""],
-      ["Contemporary Wars & Migration",""],
-      ["Contemporary Geopolitics & Digital World",""],
-      ["Famous Individual Historical Figures",""]
+      ["Contemporary Nations",""],
+      ["Famous Individual Historical Figures",""],
+      ["Future Caliphate by Imam al-Mahdi and Isa (peace be upon him)","The caliphate foretold for the last days."]
     ]
   },
   {
@@ -854,6 +892,26 @@ const FORUMS = [
             ["Substances",""],
             ["Racism",""],
             ["Sexism",""],
+            ["Feminism","Islamic responses to feminist claims about the sexes, gender roles, family and society.",[
+              ["Physical difference between sexes",""],
+              ["Emotional difference between sexes",""],
+              ["Gender roles are naturally good",""],
+              ["Women are worse at leading",""],
+              ["Complete autonomy over dress/body is bad",""],
+              ["Abortion",""],
+              ["Patriarchy myth",""],
+              ["Matriarchy is worse",""],
+              ["Men are not treated better by society economically/educationally/socially/politically than women",""],
+              ["Fornication is bad",""],
+              ["Not all men are bad",""],
+              ["Naturalist Emotivist Cognitivism Debunk",""],
+              ["Religion was not created by men to oppress women",""],
+              ["Mansplaining/Private sphere",""],
+              ["Sexual violence",""],
+              ["Debunking Liberalism",""],
+              ["Lesbianism is bad",""],
+              ["Women need Men",""]
+            ]],
             ["Lookism",""]
           ]],
           ["Western Education",""],
@@ -910,7 +968,7 @@ const CONTENT = {
 
 <p>For more on these, see <a href="#/forum/why-islam-is-true/principles-to-understand/logic-and-truth">Logic and Truth</a>, <a href="#/forum/why-islam-is-true/principles-to-understand/existence-and-essence">Existence and Essence</a>, <a href="#/forum/why-islam-is-true/principles-to-understand/space-and-time">Space and Time</a>, <a href="#/forum/why-islam-is-true/principles-to-understand/evidence-and-probability">Evidence and Probability</a> and <a href="#/forum/why-islam-is-true/principles-to-understand/causality">Causality</a>.</p>
 `,
-"what-is-islam/aqeedah/specific-beliefs/hidden-blasphemy-in-profanity": `
+"what-is-islam/aqeedah/specific-beliefs/ethics-and-morality/hidden-blasphemy-in-profanity": `
 <p class="lede">Many common swear words and everyday expressions carry hidden religious meaning. Some mock what is sacred, some are borrowed from Christian speech, and some give creation a status that belongs to Allah. Most people say them without thinking about what they mean.</p>
 
 <h2>Swearing next to sacred words</h2>
@@ -1006,7 +1064,7 @@ const CONTENT = {
 
 <p>Much of this is tied to the signs of the last days, when the religion becomes strange and the Ummah splits and falls into the ways of those before it.</p>
 
-<a class="cta-link" href="#/forum/what-is-islam/aqeedah/specific-beliefs/end-times">
+<a class="cta-link" href="#/forum/what-is-islam/aqeedah/specific-beliefs/the-hereafter-and-the-end-times/end-times">
   Go to End Times
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
 </a>
@@ -1559,7 +1617,104 @@ const CONTENT = {
 
 <p>The reason we even use the term Sunni is to distinguish ourselves from heretics, like the Shias, who do not accept the Sunnah, even if they claim to!</p>
 
-<h2>Athari</h2>
+<h2>Salafi</h2>
+
+<p><strong>Linguistic meaning:</strong> The word <em>Salaf</em> (سَلَف) literally means &ldquo;predecessors,&rdquo; &ldquo;ancestors,&rdquo; or &ldquo;those who came before.&rdquo;</p>
+
+<p><strong>Terminological meaning:</strong> In Islamic terminology, <em>Al-Salaf al-Salih</em> (the Pious Predecessors) refers specifically to the first three generations of the Muslim Ummah:</p>
+
+<ol>
+<li>The Sahabah (the Companions of the Prophet &#xFDFA;)</li>
+<li>The Tabi&lsquo;un (the Successors who met the Companions)</li>
+<li>Taba&lsquo; al-Tabi&lsquo;in (the Successors of the Successors)</li>
+</ol>
+
+<p><strong>Salafi</strong> (سَلَفِي): An attribution (<em>nisbah</em>) meaning one who attaches themselves to the methodology (Manhaj) and creed (&lsquo;Aqeeda) of these first three generations, taking their consensus and understanding of the Quran and Sunnah as the binding standard for practicing Islam.</p>
+
+<p>Scholars use several explicit Hadiths to prove that following the path of the Sahabah and early generations is mandatory.</p>
+
+<p><strong>The Superiority of the First Three Generations</strong></p>
+
+<p>The Prophet &#xFDFA; explicitly elevated these three generations above all subsequent ones:</p>
+
+<blockquote>&ldquo;The best of people are my generation, then those who follow them, then those who follow them.&rdquo;<cite>Sahih al-Bukhari, 2652; Sahih Muslim, 2533</cite></blockquote>
+
+<p>Scholars reason that if the Prophet &#xFDFA; declared these generations to be the best in knowledge, practice, and understanding, deviating from their collective understanding in favor of later opinions leads to lower guidance or misguidance.</p>
+
+<p><strong>The Explicit Command to Follow the Caliphs and Companions</strong></p>
+
+<p>In the famous Hadith of Al-Irbad ibn Sariyah (may Allah be pleased with him), the Prophet &#xFDFA; gave a binding directive regarding times of disagreement:</p>
+
+<blockquote>&ldquo;He among you who lives long after me will see much difference. So hold fast to my Sunnah and the Sunnah of the Rightly-Guided Caliphs; bite onto it with your molar teeth. And beware of newly invented matters [in religion], for every newly invented matter is an innovation, and every innovation is misguidance.&rdquo;<cite>Sunan Abi Dawud, 4607; Sunan at-Tirmidhi, 2676 &mdash; graded Sahih</cite></blockquote>
+
+<p>Here, the Prophet &#xFDFA; explicitly commanded obedience to the way of his Rightly-Guided Caliphs (Abu Bakr, &lsquo;Umar, &lsquo;Uthman, and &lsquo;Ali) alongside his own Sunnah, establishing their practice as a binding proof (<em>hujjah</em>)! They are all part of the Salaf!</p>
+
+<p><strong>The Hadith of the Saved Sect (Al-Firqah an-Najiyah)</strong></p>
+
+<p>The Prophet &#xFDFA; foretold the division of the Ummah and specified the single path to salvation:</p>
+
+<blockquote>&ldquo;My Ummah will divide into seventy-three sects; all of them will be in the Fire except one.&rdquo; They asked: &ldquo;O Messenger of Allah, which one is it?&rdquo; He replied: &ldquo;That which I and my Companions are upon today.&rdquo;<cite>Sunan at-Tirmidhi, 2641 &mdash; graded Hasan</cite></blockquote>
+
+<p>By defining the &ldquo;Saved Sect&rdquo; as those who strictly remain upon what he and his Companions practiced, adhering to the way of the Sahabah is established as a requirement for salvation from religious deviation.</p>
+
+<p><strong>Hadiths on Consensus (Ijma&lsquo;) and the Jama&lsquo;ah</strong></p>
+
+<p>The principle of Ijma&lsquo; (scholarly consensus) is intimately tied to the Salaf. The early consensus of the Companions and their successors is protected from error by divine guarantee.</p>
+
+<p>Ibn Umar reported: The Messenger of Allah &#xFDFA; said:</p>
+
+<blockquote>&ldquo;Verily, Allah will not let my nation agree upon misguidance. The hand of Allah is over the united community.&rdquo;<cite>Sunan at-Tirmidhi, 2167 &mdash; graded Sahih (authentic)</cite></blockquote>
+
+<p>Therefore, the ijma&lsquo; (consensus) of the Salaf is <strong>binding</strong>; anyone who rejects it is a kaafir. And one ought to follow their way in all matters.</p>
+
+<p><strong>The reasoning:</strong> If you reject the Messenger, you reject Allah; and if you reject the consensus of the Salaf and their trustworthiness, then you reject the Messenger. Therefore, if you reject the Salaf, you reject Allah, which is kufr!</p>
+
+
+<h3>Our revelation is the Qur&rsquo;an and the Sunnah, and we understand it the way the Salaf did</h3>
+
+<p>Being Salafi does not add a third source of religion next to the Qur&rsquo;an and the Sunnah, and it does not mean following people. Our revelation is the Qur&rsquo;an and the Sunnah, and nothing else is revelation. What Salafi means is that when we interpret this revelation, we do not use our own opinions, our own philosophy, or the trends of our time. We interpret it the way those who received it interpreted it: the Companions, and the two generations after them.</p>
+
+<p>Why is this the only sound way?</p>
+
+<ol>
+<li><strong>They received the revelation first-hand.</strong> The Companions heard the Qur&rsquo;an from the Prophet &#xFDFA;, saw the situations in which verses came down, watched him pray, fast, judge and fight, and asked him when they did not understand. Allah tells His Messenger that his task includes explaining what was sent down:
+<blockquote>&ldquo;And We have sent down to you the Reminder so that you may make clear to the people what was sent down to them.&rdquo;<cite>Quran 16:44</cite></blockquote>
+Those who heard that explanation directly understood it better than anyone who came after.</li>
+<li><strong>Arabic was their language.</strong> They spoke the language of the revelation as their native tongue, before it was affected by translation, philosophy and foreign terminology.</li>
+<li><strong>Allah and His Messenger testified to them.</strong> Allah is pleased with them and with those who follow them in goodness, and He warns against leaving their way:
+<blockquote>&ldquo;The foremost forerunners among the Muhajirun and the Ansar, and those who followed them in goodness &mdash; Allah is pleased with them, and they are pleased with Him.&rdquo;<cite>Quran 9:100</cite></blockquote>
+<blockquote>&ldquo;And whoever opposes the Messenger after guidance has become clear to him and follows a path other than that of the believers, We will leave him in the path he has chosen and burn him in Hell &mdash; what an evil destination!&rdquo;<cite>Quran 4:115</cite></blockquote>
+The &ldquo;path of the believers&rdquo; here is first of all the path of those who believed in the Prophet &#xFDFA; in his own lifetime.</li>
+<li><strong>The ones who gave us the text are the ones who explained it.</strong> We have the Qur&rsquo;an and the hadith because the Salaf transmitted them, memorized them and practiced them. It makes no sense to trust their word on <em>what</em> the revelation says and then distrust their word on <em>what it means</em>. If their understanding cannot be trusted, then neither can their transmission, and then we have no religion left.</li>
+<li><strong>Without a fixed standard, the text can be made to say anything.</strong> Every sect quotes the Qur&rsquo;an and the Sunnah and claims to understand them correctly. The Khawarij did, and so did the Mu&lsquo;tazilah, the Jahmiyyah and every other group that went astray. The Prophet &#xFDFA; did not leave us guessing: the saved group is the one upon what he and his Companions were upon. That is the standard that stops everyone from interpreting the revelation according to his own desires.</li>
+</ol>
+
+<p>So when a later scholar, a philosopher, or a modern movement offers an interpretation that the Salaf did not hold, we do not say &ldquo;they discovered something that the Companions missed.&rdquo; We say that the revelation was complete and understood on the day it was revealed, and that anything new in the religion is rejected.</p>
+
+<h3>The role of scholars</h3>
+
+<p>If the revelation is the Qur&rsquo;an and the Sunnah, and the way to understand it is the way of the Salaf, then what is the role of a scholar? A scholar is a learned teacher. His job is to <strong>teach us the revelation and the way of the Salaf</strong>: to explain the verses and hadith, to tell us what the Companions and their students said about them, to clear up what is difficult, and to warn us against what contradicts them. He is a carrier and teacher of knowledge, not a second lawgiver.</p>
+
+<p>Allah commands the one who does not know to ask those who do:</p>
+
+<blockquote>&ldquo;So ask the people of knowledge if you do not know.&rdquo;<cite>Quran 16:43</cite></blockquote>
+
+<p>And the Prophet &#xFDFA; described the scholars as the heirs of the prophets, and what the prophets leave behind is knowledge, not wealth:</p>
+
+<blockquote>&ldquo;The scholars are the inheritors of the prophets, and the prophets do not leave behind dinar or dirham; they leave behind knowledge. Whoever takes it has taken a great share.&rdquo;<cite>Sunan Abi Dawud, 3641; Sunan at-Tirmidhi, 2682</cite></blockquote>
+
+<p>This tells us how to treat scholars:</p>
+
+<ul>
+<li><strong>We take knowledge from them, we do not worship them.</strong> A scholar is followed in what he conveys from the Qur&rsquo;an, the Sunnah and the Salaf. His own opinion has no authority against them. Allah condemned those who made their rabbis and monks lords besides Him (Quran 9:31), and it was by obeying them in making things halal and haram that they did so.</li>
+<li><strong>A scholar&rsquo;s statement is accepted when it agrees with the evidence and the way of the Salaf, and left when it contradicts them.</strong> The great Imams said this about themselves. Imam Malik told people to measure his opinions against the Book and the Sunnah and to leave whatever contradicted them.</li>
+<li><strong>We must choose our teachers carefully.</strong> Not everyone who is called a scholar teaches the way of the Salaf. Knowledge is religion, so we look at whom we take it from, and we stay away from those who give verdicts without knowledge, because the Prophet &#xFDFA; warned that when the real scholars are gone, people will take ignorant leaders who answer without knowledge, go astray, and lead others astray (<em>Sahih al-Bukhari</em>, 100).</li>
+<li><strong>A person who is not a scholar learns from the scholars and does not invent his own interpretation.</strong> That is why Salafis return to the books and students of the Salaf, and why the layman asks, learns and follows evidence instead of inventing his own reading of the text.</li>
+</ul>
+
+<h3>Athari: the Salafi way with Allah&rsquo;s names and attributes</h3>
+
+<p>Athari comes from <em>athar</em>, the narrations from the Prophet &#xFDFA; and the Salaf. Being Athari is simply what being Salafi means in the matter of Allah&rsquo;s names and attributes: we take what came in the revelation, and we understand it the way the Salaf understood it.</p>
 
 <p>The term Athari refers to the Athari creed, which is a methodology of how we interpret the attributes of Allah.</p>
 
@@ -1640,58 +1795,6 @@ const CONTENT = {
 
 <p>Also, when we say Allah is above, we do not mean above such that He is inside space as a container, because His aboveness is relational and unlike creation; we do not affirm space is a container to begin with! He is above and separate from all creation, exalted is He.</p>
 
-<h2>Salafi</h2>
-
-<p><strong>Linguistic meaning:</strong> The word <em>Salaf</em> (سَلَف) literally means &ldquo;predecessors,&rdquo; &ldquo;ancestors,&rdquo; or &ldquo;those who came before.&rdquo;</p>
-
-<p><strong>Terminological meaning:</strong> In Islamic terminology, <em>Al-Salaf al-Salih</em> (the Pious Predecessors) refers specifically to the first three generations of the Muslim Ummah:</p>
-
-<ol>
-<li>The Sahabah (the Companions of the Prophet &#xFDFA;)</li>
-<li>The Tabi&lsquo;un (the Successors who met the Companions)</li>
-<li>Taba&lsquo; al-Tabi&lsquo;in (the Successors of the Successors)</li>
-</ol>
-
-<p><strong>Salafi</strong> (سَلَفِي): An attribution (<em>nisbah</em>) meaning one who attaches themselves to the methodology (Manhaj) and creed (&lsquo;Aqeeda) of these first three generations, taking their consensus and understanding of the Quran and Sunnah as the binding standard for practicing Islam.</p>
-
-<p>Scholars use several explicit Hadiths to prove that following the path of the Sahabah and early generations is mandatory.</p>
-
-<p><strong>The Superiority of the First Three Generations</strong></p>
-
-<p>The Prophet &#xFDFA; explicitly elevated these three generations above all subsequent ones:</p>
-
-<blockquote>&ldquo;The best of people are my generation, then those who follow them, then those who follow them.&rdquo;<cite>Sahih al-Bukhari, 2652; Sahih Muslim, 2533</cite></blockquote>
-
-<p>Scholars reason that if the Prophet &#xFDFA; declared these generations to be the best in knowledge, practice, and understanding, deviating from their collective understanding in favor of later opinions leads to lower guidance or misguidance.</p>
-
-<p><strong>The Explicit Command to Follow the Caliphs and Companions</strong></p>
-
-<p>In the famous Hadith of Al-Irbad ibn Sariyah (may Allah be pleased with him), the Prophet &#xFDFA; gave a binding directive regarding times of disagreement:</p>
-
-<blockquote>&ldquo;He among you who lives long after me will see much difference. So hold fast to my Sunnah and the Sunnah of the Rightly-Guided Caliphs; bite onto it with your molar teeth. And beware of newly invented matters [in religion], for every newly invented matter is an innovation, and every innovation is misguidance.&rdquo;<cite>Sunan Abi Dawud, 4607; Sunan at-Tirmidhi, 2676 &mdash; graded Sahih</cite></blockquote>
-
-<p>Here, the Prophet &#xFDFA; explicitly commanded obedience to the way of his Rightly-Guided Caliphs (Abu Bakr, &lsquo;Umar, &lsquo;Uthman, and &lsquo;Ali) alongside his own Sunnah, establishing their practice as a binding proof (<em>hujjah</em>)! They are all part of the Salaf!</p>
-
-<p><strong>The Hadith of the Saved Sect (Al-Firqah an-Najiyah)</strong></p>
-
-<p>The Prophet &#xFDFA; foretold the division of the Ummah and specified the single path to salvation:</p>
-
-<blockquote>&ldquo;My Ummah will divide into seventy-three sects; all of them will be in the Fire except one.&rdquo; They asked: &ldquo;O Messenger of Allah, which one is it?&rdquo; He replied: &ldquo;That which I and my Companions are upon today.&rdquo;<cite>Sunan at-Tirmidhi, 2641 &mdash; graded Hasan</cite></blockquote>
-
-<p>By defining the &ldquo;Saved Sect&rdquo; as those who strictly remain upon what he and his Companions practiced, adhering to the way of the Sahabah is established as a requirement for salvation from religious deviation.</p>
-
-<p><strong>Hadiths on Consensus (Ijma&lsquo;) and the Jama&lsquo;ah</strong></p>
-
-<p>The principle of Ijma&lsquo; (scholarly consensus) is intimately tied to the Salaf. The early consensus of the Companions and their successors is protected from error by divine guarantee.</p>
-
-<p>Ibn Umar reported: The Messenger of Allah &#xFDFA; said:</p>
-
-<blockquote>&ldquo;Verily, Allah will not let my nation agree upon misguidance. The hand of Allah is over the united community.&rdquo;<cite>Sunan at-Tirmidhi, 2167 &mdash; graded Sahih (authentic)</cite></blockquote>
-
-<p>Therefore, the ijma&lsquo; (consensus) of the Salaf is <strong>binding</strong>; anyone who rejects it is a kaafir. And one ought to follow their way in all matters.</p>
-
-<p><strong>The reasoning:</strong> If you reject the Messenger, you reject Allah; and if you reject the consensus of the Salaf and their trustworthiness, then you reject the Messenger. Therefore, if you reject the Salaf, you reject Allah, which is kufr!</p>
-
 <p>Let me make it clear again: <strong>anyone</strong> who is <strong>not</strong> Sunni, who is <strong>not</strong> Athari, and who is <strong>not</strong> Salafi, is <strong>not</strong> a Muslim!</p>
 
 <p>For a full refutation of many deviant sects, beliefs, and people, click here:</p>
@@ -1721,7 +1824,7 @@ const CONTENT = {
 
 <h2>Dar al-Islam and Dar al-Kufr</h2>
 
-<p>The Dar is the land a person lives in, and it decides how we judge him before we know anything else about him. <strong>Dar al-Islam</strong> is a land where Shariah is enforced as the supreme authority and a Caliph rules it. <strong>Dar al-Kufr</strong> (also called Dar al-Harb or Dar al-Taghut) is a land ruled by the laws of disbelief. Both are explained in full on their own page:</p>
+<p>The Dar is the land a person lives in, and it decides how we judge him before we know anything else about him. <strong>Dar al-Islam</strong> is a land where Shariah is enforced as the supreme authority and which is led by a Muslim ruler, whether that ruler is a Caliph or the leader of a Muslim Nation State. <strong>Dar al-Kufr</strong> (also called Dar al-Harb or Dar al-Taghut) is a land ruled by the laws of disbelief. Both are explained in full on their own page:</p>
 
 <a class="cta-link" href="#/forum/what-is-islam/aqeedah/specific-beliefs/dar-war-taghut-and-caliphates/dar-al-islam-and-dar-al-harb">
   Dar al-Islam and Dar al-Harb
@@ -1759,7 +1862,7 @@ const CONTENT = {
 
 <p>Takfir bil-Umum means to make Takfir of a group generally. Takfir ad-Dar means to make Takfir of a land and the people in it.</p>
 
-<p>These two forms of Takfir apply specifically to lands that are not Dar al-Islam (a land with a Caliph ruling by Shariah), or to groups where Kufr is the majority. In this case, you cannot consider anyone Muslim unless there are clear signs of Islam like the Shahada or prayer.</p>
+<p>These two forms of Takfir apply specifically to lands that are not Dar al-Islam (a land where a Muslim ruler, a Caliph or the leader of a Nation State, rules by Shariah), or to groups where Kufr is the majority. In this case, you cannot consider anyone Muslim unless there are clear signs of Islam like the Shahada or prayer.</p>
 
 <p>And obviously, if you see them commit a nullifier, then you are obligated to make Takfir.</p>
 
@@ -2115,7 +2218,7 @@ const CONTENT = {
 <li>Leaving behind ongoing charity (Sadaqah Jariyah), such as knowledge that benefits others or a cause that continues to help people after one&rsquo;s death</li>
 </ul>
 `,
-"what-is-islam/aqeedah/specific-beliefs/grey-areas": `
+"what-is-islam/aqeedah/specific-beliefs/ethics-and-morality/grey-areas": `
 <p class="lede">Not every matter is equally clear. Islam teaches us to distinguish what is plainly lawful, what is plainly unlawful, and what is doubtful. When a person is unsure, the safer response is to pause, seek reliable knowledge, and avoid the doubtful rather than follow desire or guess.</p>
 
 <h2>The principle of avoiding doubtful matters</h2>
@@ -2292,7 +2395,12 @@ const CONTENT = {
 "what-is-islam/aqeedah/specific-beliefs/dar-war-taghut-and-caliphates/dar-al-islam-and-dar-al-harb": `
 <h2>Dar al-Islam (The Abode of Islam)</h2>
 
-<p>Dar al-Islam is any territory where Islamic Law (Shariah) is enforced as the supreme authority, and a Caliph (Muslim ruler) leads the nation.</p>
+<p>Dar al-Islam is any territory where Islamic Law (Shariah) is enforced as the supreme authority, and which is led by a Muslim ruler. That ruler is either the Caliph, who has authority over all Muslims worldwide, or the leader of a Muslim Nation State, who leads his nation but does not meet every condition of the Caliph. Not every Muslim ruler is a Caliph. The difference is explained on the Caliphates page:</p>
+
+<a class="cta-link" href="#/forum/what-is-islam/aqeedah/specific-beliefs/dar-war-taghut-and-caliphates/caliphates">
+  Go to Caliphates
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
 
 <p>Dar al-Islam is composed of two citizen classes: Muslim citizens (Al-Muslimun) and non-Muslim protected subjects (Ahl al-Dhimmah). Ahl al-Dhimmah (&ldquo;the people of the covenant&rdquo;) are non-Muslims &mdash; primarily Jews, Christians (Ahl al-Kitab), and Magians &mdash; who reside permanently within Dar al-Islam under a contract of protection (Aqd al-Dhimmah).</p>
 
@@ -2479,7 +2587,7 @@ const CONTENT = {
 
 <h2>Status and Handling of Prisoners of War (Asra)</h2>
 
-<p>Captured enemy combatants fall under the administrative authority of the Imam (supreme ruler). Individual soldiers cannot execute prisoners on their own initiative. The Imam must choose one of four legal options, based strictly on public welfare (Maslahah):</p>
+<p>Captured enemy combatants fall under the administrative authority of the Imam (here the Imam of the Major Imamate, meaning the Caliph, the supreme ruler). Individual soldiers cannot execute prisoners on their own initiative. The Imam must choose one of four legal options, based strictly on public welfare (Maslahah):</p>
 
 <ol>
   <li><strong>Execution (Al-Qatl):</strong> limited strictly to active enemy combatants or war criminals whose release poses an immediate threat to state security.</li>
@@ -2502,13 +2610,27 @@ const CONTENT = {
 "what-is-islam/aqeedah/specific-beliefs/dar-war-taghut-and-caliphates/caliphates": `
 <h2>The Caliphate (Al-Khilafah) and the System of Bay&rsquo;ah</h2>
 
-<p>The Caliphate (Al-Khilafah), or Supreme Imamate (Al-Imamah al-&lsquo;Uzma), is the supreme executive governance system established to succeed Prophethood in guarding the Islamic faith and managing worldly affairs by divine law.</p>
+<p>The Caliphate (Al-Khilafah), or the Major Imamate (Al-Imamah al-Kubra, also called Al-Imamah al-&lsquo;Uzma), is the supreme governance system established to succeed Prophethood in guarding the Islamic faith and managing worldly affairs by divine law.</p>
+
+<p><strong>A Caliph is not simply a Muslim ruler.</strong> The Caliphate is a specific office with specific conditions (listed below), and the Caliph&rsquo;s authority is over <strong>all Muslims worldwide</strong>, not over one country. A Muslim who rules a country but does not meet all the conditions, or who does not hold authority over the Muslims everywhere, is not a Caliph. That is a different thing, called a Nation State, explained below.</p>
+
+<h2>Major Imamate and Minor Imamate</h2>
+
+<p>The word <em>Imam</em> literally means the one who is followed, the one in front. In Islamic texts it is used for different kinds of leaders, so what is meant has to be understood from the context.</p>
+
+<ul>
+  <li><strong>The Major Imamate (Al-Imamah al-Kubra):</strong> general leadership of the whole Ummah in matters of religion and worldly affairs. The one who holds it is the Caliph, so when the books of fiqh speak of &ldquo;the Imam&rdquo; in rulings on war, prisoners, hudud and the state, they mean the ruler of the Muslims. The Prophet &#xFDFA; said: <em>&ldquo;The Imam is a shield, behind whom the people fight and by whom they protect themselves.&rdquo;</em> (<em>Sahih al-Bukhari</em>, 2957; <em>Sahih Muslim</em>, 1841).</li>
+  <li><strong>The Minor Imamate (Al-Imamah al-Sughra):</strong> leading the prayer. The one who stands in front of the congregation is also called the Imam. The Prophet &#xFDFA; said: <em>&ldquo;The Imam is appointed only to be followed.&rdquo;</em> (<em>Sahih al-Bukhari</em>, 722; <em>Sahih Muslim</em>, 414). The Imam of a mosque has this role. He leads the prayer, and he is not a ruler.</li>
+  <li>The title <em>Imam</em> is also used as a mark of honor for leading scholars, such as Imam Malik or Imam al-Bukhari. This is how it is used on this site when the name of a scholar is mentioned.</li>
+</ul>
+
+<p>So the same word is used for the ruler of the Muslims and for the leader of a prayer. Neither is the same as the other, and neither should be confused with the title of a scholar. Whenever you see &ldquo;Imam&rdquo; in a ruling, ask which one is meant.</p>
 
 <h2>Choosing the Caliph and His Requirements</h2>
 
 <p>The Khalifah is chosen by Ahlul Ikhtiyar, also called Ahl al-Hall wal-&lsquo;Aqd (literally &ldquo;the people of loosening and binding&rdquo;): the influential representatives of the Ummah who hold political, military, and religious authority. They evaluate candidates against the requirements below. Once they reach consensus or majority agreement on a candidate in the capital, they issue the primary pledge (Bay&rsquo;at al-In&rsquo;iqad). The general populace then pays the secondary pledge of obedience (Bay&rsquo;at al-Ta&rsquo;ah).</p>
 
-<p>The Pledge of Allegiance (Bay&rsquo;ah) is a formal contract with a qualified Muslim leader, who is tasked with:</p>
+<p>The Pledge of Allegiance (Bay&rsquo;ah) is a formal contract with the Caliph, who is tasked with:</p>
 
 <ul>
   <li>Protecting the Islamic creed and state interests</li>
@@ -2549,9 +2671,35 @@ const CONTENT = {
 
 <p>Sources: al-eman.com</p>
 
+<h2>The Caliph&rsquo;s Authority Over All Muslims</h2>
+
+<p>The Ummah is one Ummah, and the Caliphate is one leadership for all of it. Allah says:</p>
+
+<blockquote>&ldquo;Indeed this, your religion, is one religion, and I am your Lord, so worship Me.&rdquo;<cite>Quran 21:92</cite></blockquote>
+
+<p>For this reason, there cannot be two Caliphs at the same time. The Prophet &#xFDFA; said:</p>
+
+<blockquote>&ldquo;When the pledge has been given to two Caliphs, kill the latter of them.&rdquo;<cite>Sahih Muslim, 1853</cite></blockquote>
+
+<p>He also said that after him there would be Caliphs and that the pledge to the first is to be fulfilled, and then the one after (<em>Sahih al-Bukhari</em>, 3455; <em>Sahih Muslim</em>, 1842). And he warned that whoever dies without a pledge on his neck dies a death of Jahiliyyah (<em>Sahih Muslim</em>, 1851). The scholars, such as al-Mawardi, used these texts to show that appointing a Caliph is an obligation upon the Ummah, and that when there is one, every Muslim is under his authority.</p>
+
+<h2>Nation States</h2>
+
+<p>A Muslim can lead a country without being the Caliph. If a Muslim leader rules a nation but does not meet all the conditions of the Caliph, or does not have authority over the Muslims worldwide, he is not a Caliph. His state is called a <strong>Nation State</strong>.</p>
+
+<ul>
+  <li>A Nation State <strong>can still be Dar al-Islam</strong>. What makes a land Dar al-Islam is that Islamic law is enforced as the supreme authority and it is led by Muslims. It does not depend on the land having a Caliph at that moment.</li>
+  <li>The Caliph rules the whole Ummah. The leader of a Nation State leads one nation, and does not hold the powers of the Caliph.</li>
+  <li>Which present-day nations are Dar al-Islam is a matter of debate, so no examples are given here. See <a href="#/forum/what-is-islam/aqeedah/specific-beliefs/dar-war-taghut-and-caliphates/what-nations-are-or-were-muslim">What Nations Are or Were Muslim?</a></li>
+</ul>
+
+<h3>Nation States must join the Caliph</h3>
+
+<p>Because the Caliph has authority over <strong>all Muslims</strong>, a Muslim nation state does not have the right to remain a separate and independent authority once there is a Caliph. Its ruler must pledge allegiance to the Caliph and its people fall under his authority, just as every other Muslim does. Being a Muslim nation does not exempt a ruler from the pledge. It is the thing that obliges him to give it.</p>
+
 <h2>The Rules of Obedience and Rebellion (Khuruj)</h2>
 
-<p>Obedience (Al-Sam&rsquo; wa al-Ta&rsquo;ah) to an established Muslim ruler is mandatory in all matters that do not command a sin.</p>
+<p>Obedience (Al-Sam&rsquo; wa al-Ta&rsquo;ah) to an established Muslim ruler, whether he is the Caliph or the leader of a Muslim Nation State, is mandatory in all matters that do not command a sin.</p>
 
 <h3>The Limit of Obedience</h3>
 
@@ -2570,8 +2718,17 @@ const CONTENT = {
 <p>The Prophet &#xFDFA; allowed withdrawing allegiance only if:</p>
 
 <blockquote>&ldquo;You see clear, open disbelief (Kufr Bawah) for which you have direct proof from Allah.&rdquo;<cite>Sahih al-Bukhari, 7056</cite></blockquote>
+<h2>The Caliphate Foretold</h2>
+
+<p>The Prophet &#xFDFA; foretold that a Caliphate on the method of prophethood will return in the future. To read about it, and about Imam al-Mahdi and the descent of &lsquo;Isa (peace be upon him), go here:</p>
+
+<a class="cta-link" href="#/forum/what-is-islam/aqeedah/specific-beliefs/dar-war-taghut-and-caliphates/future-caliphate-by-imam-al-mahdi-and-isa-peace-be-upon-him">
+  Go to Future Caliphate
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+
 `,
-"what-is-islam/aqeedah/specific-beliefs/hope-fear-and-patience": `
+"what-is-islam/aqeedah/specific-beliefs/the-heart-and-its-states/hope-fear-and-patience": `
 <p class="lede">The believer lives between hope in Allah&rsquo;s mercy and fear of His punishment, and holds both with patience.</p>
 
 <h2>Hope (Raja&rsquo;) and fear (Khawf) together</h2>
@@ -2621,7 +2778,7 @@ const CONTENT = {
 <p>He also said that patience is at the first strike of a calamity,<cite>Al-Bukhari and Muslim</cite> and that no one has been given a better and wider gift than patience.<cite>Al-Bukhari and Muslim</cite></p>
 
 `,
-"what-is-islam/aqeedah/specific-beliefs/intention": `
+"what-is-islam/aqeedah/specific-beliefs/the-heart-and-its-states/intention": `
 <p class="lede">Intention (Niyyah) is the resolve of the heart to do an act for Allah, and it is what separates worship from habit.</p>
 
 <h2>Actions are by intentions</h2>
@@ -2665,7 +2822,7 @@ const CONTENT = {
 <p>The Prophet &#xFDFA; said of those who were left behind at Tabuk because of a real excuse: &ldquo;They were with you,&rdquo; because the excuse alone held them back.<cite>Sahih al-Bukhari</cite> In the same way, when two Muslims meet with swords, the killer and the killed are both in the Fire, because the one killed was also keen to kill his companion.<cite>Al-Bukhari and Muslim</cite></p>
 
 `,
-"what-is-islam/aqeedah/specific-beliefs/adab-and-akhlaq": `
+"what-is-islam/aqeedah/specific-beliefs/ethics-and-morality/adab-and-akhlaq": `
 <p class="lede">Adab is manners and etiquette; Akhlaq is character. Islam defines both by revelation and not by custom.</p>
 
 <h2>The Prophet &#xFDFA; is the standard</h2>
@@ -2705,7 +2862,7 @@ const CONTENT = {
 <p>He also taught mercy: &ldquo;The Merciful shows mercy to those who are merciful. Show mercy to those on earth, and the One above the heavens will show mercy to you.&rdquo;<cite>Sunan Abi Dawud and Sunan at-Tirmidhi</cite></p>
 
 `,
-"what-is-islam/aqeedah/specific-beliefs/life-is-not-easy-and-it-is-temporary": `
+"what-is-islam/aqeedah/specific-beliefs/the-heart-and-its-states/life-is-not-easy-and-it-is-temporary": `
 <p class="lede">Islam does not promise an easy life &mdash; it promises a meaningful one, and a temporary one, with something far greater waiting beyond it.</p>
 
 <h2>This life is a test, not the destination</h2>
@@ -3011,7 +3168,7 @@ const CONTENT = {
 
 <h3>Image / Form (Aṣ-Ṣūrah)</h3>
 <blockquote>&ldquo;&hellip;My Lord came to me in the finest appearance and said, &lsquo;O Muhammad, over what do the highest angels dispute?&rsquo; I said, &lsquo;I do not know, My Lord.&rsquo; So He placed His Palm (Kaff) between my shoulder blades until I felt its cool touch between my chest&hellip;&rdquo;</blockquote>
-<p>See also the full evidence on the page <a href="#/forum/what-is-islam/aqeedah/specific-beliefs/adam-in-the-image-of-allah">Adam in the image of Allah</a>.</p>
+<p>See also the full evidence on the page <a href="#/forum/what-is-islam/aqeedah/specific-beliefs/creation-and-mankind/adam-in-the-image-of-allah">Adam in the image of Allah</a>.</p>
 
 <h3>Visibleness / Ability to be Seen (Al-Ru&rsquo;yah)</h3>
 <blockquote>&ldquo;When Moses came at the appointed time and his Lord spoke to him, he asked, &lsquo;My Lord! Reveal Yourself to me so I may see You.&rsquo; Allah answered, &lsquo;You cannot see Me! But look at the mountain. If it remains firm in its place, only then will you see Me.&rsquo; When his Lord appeared to the mountain, He levelled it to dust and Moses collapsed unconscious. When he recovered, he cried, &lsquo;Glory be to You! I turn to You in repentance and I am the first of the believers.&rsquo;&rdquo;<cite>Quran 7:143 (Al-A&lsquo;raf)</cite></blockquote>
@@ -3038,7 +3195,7 @@ const CONTENT = {
 <p>Imam Adh-Dhahabi said, commenting on this report:</p>
 <blockquote>&ldquo;This is authentic and proven from Thabit ibn Al-Mubarak and Ahmad (may Allah have mercy on them both). The words &lsquo;in heaven&rsquo; in another report explain to you that what he meant by saying &lsquo;in heaven&rsquo; was &lsquo;above the heaven&rsquo;, as in the other sahih report which he wrote to Yahya ibn Mansoor Al-Faqeeh.&rdquo;<cite>Adh-Dhahabi, Al-&lsquo;Arsh, 2/189</cite></blockquote>
 `,
-"what-is-islam/aqeedah/specific-beliefs/isnaad-and-hadith-science": `
+"what-is-islam/aqeedah/specific-beliefs/quran-and-hadith/isnaad-and-hadith-science": `
 <p class="lede">Almost everything we know about how the Prophet &#xFDFA; prayed, fasted and lived comes to us through hadith. Muslims built a whole science to check that these reports are authentic. This page explains it from scratch.</p>
 
 <h2>What is a hadith?</h2>
@@ -3102,7 +3259,7 @@ const CONTENT = {
 
 <p>Scholars can sometimes differ on the grading of a particular hadith, since it takes judgement about narrators and hidden defects. For a beginner, the safe starting point is the Sahih collections and trusted scholars who explain the gradings.</p>
 `,
-"what-is-islam/aqeedah/specific-beliefs/the-akhirah": `
+"what-is-islam/aqeedah/specific-beliefs/the-hereafter-and-the-end-times/the-akhirah": `
 <p class="lede">Belief in the Akhirah (the Afterlife) is known by necessity. It is implied by the fifth pillar of Iman: believing in the Last Day, also called Judgement Day.</p>
 
 <p>In Islam, human existence is not defined by worldly life (Ad-Dunya), but by a journey that passes through distinct stages, from death to the final destination in Paradise (Jannah) or Hellfire (Jahannam).</p>
@@ -3173,7 +3330,7 @@ const CONTENT = {
   <li><strong>Hellfire (Jahannam):</strong> The home of punishment for disbelievers, polytheists, and hypocrites (eternally), and for unrepentant sinning believers (temporarily, until they are cleansed and moved to Jannah).</li>
 </ul>
 `,
-"what-is-islam/aqeedah/specific-beliefs/description-of-heaven-and-hell": `
+"what-is-islam/aqeedah/specific-beliefs/the-hereafter-and-the-end-times/description-of-heaven-and-hell": `
 <p class="lede">The Hereafter is real. Paradise is the everlasting home of faith, safety, joy, and Allah’s pleasure. Hell is the abode of disbelief and punishment. The Qur’an and Sunnah describe both so that the believer hopes for Paradise, fears Hell, and acts before the Day of Judgment.</p>
 
 <h2>Warnings about Hell</h2>
@@ -3334,7 +3491,7 @@ const CONTENT = {
 
 <p>May Allah make us among the people of Paradise, protect us from the Fire, and grant us sincerity and righteous deeds.</p>
 `,
-"what-is-islam/aqeedah/specific-beliefs/the-prophet-peace-be-upon-him-will-sit-on-the-throne": `
+"what-is-islam/aqeedah/specific-beliefs/the-hereafter-and-the-end-times/the-prophet-peace-be-upon-him-will-sit-on-the-throne": `
 <p class="lede">This page discusses the reports concerning the Prophet &#xFDFA; sitting on the Throne on the Day of Judgment, and points to a dedicated study of the statements attributed to the Salaf.</p>
 
 <p>For the detailed discussion and collected early reports, read: <a href="https://athari-archive.com/2025/02/20/the-salaf-affirmed-that-the-prophet-%EF%B7%BA-will-sit-on-the-throne/" target="_blank" rel="noopener">The Salaf Affirmed That the Prophet &#xFDFA; Will Sit on the Throne</a>.</p>
@@ -3351,8 +3508,18 @@ const CONTENT = {
 <p><a class="cta-link" href="#/forum/what-is-islam/fiqh/different-acts-of-worship/dawah-and-etiquette-of-discussion">Dawah and Etiquette of Discussion</a></p>
 
 <p>Dawah should be based on the Qur’an and authentic Sunnah, delivered with patience and clarity, and free from arrogance, mockery, dishonesty, and the desire to win praise.</p>
+
+<h2>How I recommend teaching Islam</h2>
+
+<p>If you give dawah, I recommend teaching people Islam in the same order I recommend for learning it: begin with why Islam is true, clear their doubts, explain what Islam is, teach the correct Aqeedah, help them take the Shahada and make Ghusl, and warn them about the nullifiers. Do not start by loading a new person with fine details of fiqh. Build the foundation first, and the rest follows. The full order is here:</p>
+
+<a class="cta-link" href="#/forum/what-is-islam/how-to-be-muslim/my-personal-recommendation">
+  Go to My Personal Recommendation
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+
 `,
-"what-is-islam/aqeedah/specific-beliefs/end-times": `
+"what-is-islam/aqeedah/specific-beliefs/the-hereafter-and-the-end-times/end-times": `
 <p class="lede">The End Times are the final phase of worldly life before the Resurrection. The Messenger of Allah &#xFDFA; described their signs so that believers would remain alert, strengthen their faith, repent, and hurry to good deeds. The date of the Hour is known only to Allah.</p>
 
 <h2>The purpose of learning the signs</h2>
@@ -3644,7 +3811,7 @@ const CONTENT = {
 
 <p>This page collects Qur’anic verses, hadith, and athar on the End Times in a readable order. The narrations should be studied with their Arabic wording, chains, variant routes, hadith gradings, and the explanations of qualified scholars. Please verify each hadith and athar yourself before quoting it as evidence, and Allah knows best.</p>
 `,
-"what-is-islam/aqeedah/specific-beliefs/creatures-in-islam": `
+"what-is-islam/aqeedah/specific-beliefs/creation-and-mankind/creatures-in-islam": `
 <h2>Angels (Al-Mala&rsquo;ikah)</h2>
 
 <h3>Origin &amp; Substance</h3>
@@ -3822,7 +3989,7 @@ const CONTENT = {
 
 <p>However, on the Day of Judgment, Allah gathers all animals to demonstrate absolute divine justice &mdash; enabling a hornless animal to settle its score with a horned animal that oppressed it. Once absolute justice is established, Allah commands them: &ldquo;Become dust,&rdquo; at which point they turn into soil (Turab).</p>
 `,
-"what-is-islam/aqeedah/specific-beliefs/adam-in-the-image-of-allah": `
+"what-is-islam/aqeedah/specific-beliefs/creation-and-mankind/adam-in-the-image-of-allah": `
 <p>Al-Bukhari (6227) and Muslim (2841) narrated from Abu Hurayrah (may Allah be pleased with him) that the Prophet (peace and blessings of Allah be upon him) said:</p>
 <blockquote>&ldquo;<a href="https://islamqa.info/en/answers/21949" target="_blank" rel="noopener">Allah created Adam in His image</a>, and he was sixty cubits tall. When he created him he said, &lsquo;Go and greet that group of angels who are sitting and listen to how they greet you, for that will be your greeting and the greeting of your descendants.&rsquo; So he said, &lsquo;As-salamu &lsquo;alaykum (peace be upon you),&rsquo; and they said, &lsquo;As-salamu &lsquo;alayka wa rahmat-Allah (Peace be upon you and the mercy of Allah).&rsquo; So they added (the words) &lsquo;wa rahmat-Allah.&rsquo; Everyone who enters Paradise will be in the form of Adam, but mankind continued to grow shorter until now.&rdquo;<cite>Sahih al-Bukhari, 6227; Sahih Muslim, 2841</cite></blockquote>
 
@@ -3929,7 +4096,7 @@ const CONTENT = {
   <li><strong>Sagha&rsquo;ir (Minor sins):</strong> Such as swearing, arrogance, insults, and impoliteness. These are forgiven by doing good deeds and other small things, even without repenting.</li>
 </ul>
 `,
-"what-is-islam/aqeedah/specific-beliefs/special-religious-places-on-earth": `
+"what-is-islam/aqeedah/specific-beliefs/creation-and-mankind/special-religious-places-on-earth": `
 <h2>The Three Sacred Mosques (Al-Masajid al-Thalathah)</h2>
 
 <p>Only these three mosques possess a sanctity for which travel is specifically legislated, on account of the multiplied prayer rewards.</p>
@@ -4338,6 +4505,18 @@ const CONTENT = {
 <blockquote>&ldquo;There is none who testifies sincerely that none has the right to be worshipped but Allah and Muhammad is his Apostle, except that Allah will save him from the Hell-fire.&rdquo;<cite>Sahih al-Bukhari, 128</cite></blockquote>
 
 <p>This means anyone who sincerely believes in Allah and His Messenger &#xFDFA; and testifies such will be saved. But keep in mind, this does not mean Aqeedah isn&rsquo;t essential &mdash; there is no belief without the proper form of that belief. It is not even considered belief to affirm Islam without the correct Aqeedah.</p>
+
+<h2>After renewing your Shahada: make Ghusl</h2>
+
+<p>After you take or renew your Shahada, make <strong>ghusl</strong> (the full ritual bath). When Qays ibn &lsquo;Asim (may Allah be pleased with him) accepted Islam, the Prophet &#xFDFA; commanded him to wash with water and lote-leaf (<em>Sunan Abi Dawud</em>, 355; <em>Sunan at-Tirmidhi</em>, 605; <em>Sunan an-Nasa&rsquo;i</em>, 188 &mdash; graded Sahih).</p>
+
+<p>The scholars differ on whether ghusl after entering Islam is obligatory or recommended, and the safe course is to do it. It is especially important if you lost faith, fell into a nullifier of Islam, have not been praying, or fear that your Islam is not intact and you are renewing it. For how to do it, see the page on Ghusl:</p>
+
+<a class="cta-link" href="#/forum/what-is-islam/fiqh/different-acts-of-worship/purification/ghusl">
+  Go to Ghusl
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+
 `,
 "what-is-islam/how-to-be-muslim/avoid-every-nullifier-of-islam-nawaqid-al-islam": `
 <p>Here are all of them outlined &mdash; this is extremely important. If you want to stay Muslim then you must avoid the nullifiers of Islam: things that make you a non-Muslim even if your intention wasn&rsquo;t to leave Islam.</p>
@@ -4837,6 +5016,521 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <li>Speak politely.</li>
 </ul></li>
 </ol>
+
+<p>For the order I recommend when teaching Islam to someone, see:</p>
+
+<a class="cta-link" href="#/forum/what-is-islam/how-to-be-muslim/my-personal-recommendation">
+  My Personal Recommendation
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+
+`,
+"what-is-islam/fiqh/different-acts-of-worship/purification/hygiene": `
+<p class="lede">Cleanliness is part of the religion. In Islam, some of it is obligatory (<span class="tag fard">Fard</span>) and some of it is recommended (<span class="tag">Sunnah</span>). Each one is marked below.</p>
+
+<blockquote>&ldquo;Purity is half of faith.&rdquo;<cite>Sahih Muslim 223</cite></blockquote>
+
+<h2>1. Removing physical filth (Najasah) <span class="tag fard">Fard</span></h2>
+
+<p>It is obligatory to remove najasah (physical filth) from three things:</p>
+<ul>
+<li>Your <strong>body</strong></li>
+<li>Your <strong>clothes</strong></li>
+<li>Your <strong>place of prayer</strong></li>
+</ul>
+
+<p>Allah says: &ldquo;And your clothes, purify them.&rdquo; (Qur&rsquo;an 74:4)</p>
+
+<p>Examples of najasah:</p>
+
+<h3>Urine</h3>
+<blockquote>The Prophet &#xFDFA; passed by two graves and said: &ldquo;They are being punished, and not for something major. One of them did not protect himself from his urine.&rdquo;<cite>Sahih al-Bukhari 216, Sahih Muslim 292</cite></blockquote>
+
+<h3>Feces</h3>
+<p>The Prophet &#xFDFA; was praying in his sandals when Jibril told him there was filth on them. He took them off in the middle of the prayer. (Sunan Abi Dawud 650)</p>
+
+<h3>Blood</h3>
+<p>Asma&rsquo; asked the Prophet &#xFDFA; about menstrual blood that gets on a garment. He said: &ldquo;Scrape it, rub it with water, rinse it, and then pray in it.&rdquo; (Sahih al-Bukhari 227, Sahih Muslim 291)</p>
+
+<h3>Semen</h3>
+<p>Semen must be washed from the body and clothes, including after it has dried. &lsquo;A&rsquo;ishah said: &ldquo;I used to wash semen from the garment of the Messenger of Allah &#xFDFA;, and he would go out to the prayer with the marks of the water still on it.&rdquo; (Sahih al-Bukhari 229, Sahih Muslim 289)</p>
+<p><em>Note:</em> this is the position of the Maliki and Hanafi schools, who consider semen najis. The Shafi&rsquo;i and Hanbali schools consider it pure, and only recommend washing it.</p>
+
+<h3>Dog saliva</h3>
+<blockquote>&ldquo;The purification of the vessel of one of you, when a dog has licked it, is to wash it seven times, the first of them with soil.&rdquo;<cite>Sahih Muslim 279; see also Sahih al-Bukhari 172</cite></blockquote>
+<p><em>Note:</em> the Maliki school holds that the dog itself is not najis, and that this washing is commanded as an act of obedience. Most other schools count the saliva as najis. All of them agree the vessel must be washed seven times.</p>
+
+<h3>Anything else that is considered najis</h3>
+<p>The same rule applies to anything else the scholars rule to be najis. If it is on your body, clothes or place of prayer, remove it.</p>
+
+<h3>Your place of prayer</h3>
+<p>A Bedouin urinated in the mosque and the Companions rushed at him. The Prophet &#xFDFA; said: &ldquo;Leave him, and pour a bucket of water over his urine.&rdquo; (Sahih al-Bukhari 220, Sahih Muslim 284)</p>
+
+<h2>2. Istinja&rsquo; (cleaning after the toilet) <span class="tag fard">Fard</span></h2>
+
+<p>After urinating or defecating, it is <strong>fard</strong> to clean the private parts with:</p>
+<ul>
+<li><strong>Water</strong>, or</li>
+<li><strong>Dry materials</strong> (stones, tissues) <strong>if no filth remains spread</strong>. If the filth has spread beyond its usual place, use water.</li>
+</ul>
+
+<p>This is part of removing najasah, and it is required before wudu.</p>
+
+<blockquote>Anas said: &ldquo;When the Prophet &#xFDFA; went out to relieve himself, a boy and I would carry a vessel of water for him.&rdquo;<cite>Sahih al-Bukhari 150, Sahih Muslim 271</cite></blockquote><blockquote>&ldquo;When one of you goes to relieve himself, let him take three stones and wipe with them, for they will suffice him.&rdquo;<cite>Sunan Abi Dawud 40, Sunan an-Nasa&rsquo;i 44</cite></blockquote>
+
+<p>The recommended manners of istinja&rsquo; are Sunnah:</p>
+<ul>
+<li><span class="tag">Sunnah</span> Use the <strong>left hand</strong>, not the right. &ldquo;None of you should hold his private part with his right hand when he urinates, nor wipe himself with his right hand.&rdquo; (Sahih al-Bukhari 153, Sahih Muslim 267)</li>
+<li><span class="tag">Sunnah</span> When using stones or tissue, wipe an <strong>odd number</strong> of times. (Sahih al-Bukhari 162, Sahih Muslim 237; some schools require three wipes, see Sahih Muslim 262)</li>
+<li><span class="tag">Sunnah</span> Say Bismillah and the du&rsquo;a before entering the bathroom. See <a href="#/forum/what-is-islam/fiqh/different-acts-of-worship/habits">Habits</a>.</li>
+</ul>
+
+<p>Details are explained in this video:</p>
+<a class="video-link" href="https://youtu.be/rEU8_cFiBSY?is=W6qTcbYEqNdBmdys" target="_blank" rel="noopener">Watch the details (video)</a>
+
+<h2>3. The practices of the Fitrah</h2>
+
+<p>The Prophet &#xFDFA; taught that some practices of personal care belong to the natural disposition (fitrah) Allah created people upon.</p>
+
+<blockquote>I heard the Prophet &#xFDFA; saying: &ldquo;Five practices are characteristics of the Fitrah: circumcision, shaving the pubic hair, cutting the moustache short, clipping the nails, and depilating the hair of the armpits.&rdquo;<cite>Sahih al-Bukhari 5891; see also Sahih Muslim 257</cite></blockquote>
+
+<p>Sahih Muslim 261 gives a longer list that also includes the toothstick (miswak), rinsing the mouth and nose, and washing with water after the toilet.</p>
+
+<p>Most of these are <strong>Sunnah</strong> and not obligatory, with circumcision being the one the scholars differ over (below). There is also a limit on how long you may leave them:</p>
+
+<blockquote>&ldquo;We were given a time limit for trimming the moustache, clipping the nails, plucking the armpit hair and shaving the pubic hair: not to leave them more than forty days.&rdquo;<cite>Sahih Muslim 258</cite></blockquote>
+
+<h2>4. The Miswak (toothstick) <span class="tag">Sunnah</span></h2>
+
+<p>The miswak (siwak) is a specific kind of stick used to clean the teeth. It is <strong>not obligatory</strong>. Not everyone even has one. It is a very strongly emphasized Sunnah, and the Prophet &#xFDFA; stressed it repeatedly.</p>
+
+<blockquote>Anas reported that the Messenger of Allah &#xFDFA; said: &ldquo;I have told you repeatedly to use the siwak.&rdquo; (The Prophet &#xFDFA; put emphasis on the use of the siwak.)<cite>Sahih al-Bukhari 888</cite></blockquote><blockquote>Ibn &lsquo;Abbas reported that the Messenger of Allah &#xFDFA; said: &ldquo;I was ordered to use the toothstick so often that I thought something of it would be sent down to me in the Qur&rsquo;an or revealed to me.&rdquo;<cite>Musnad Ahmad 2998</cite></blockquote><blockquote>Abu Hurayrah reported that the Messenger of Allah &#xFDFA; said: &ldquo;Were it not a burden upon my nation, I would have ordered them to use the toothstick before every prayer.&rdquo; In another narration: &ldquo;...with every ablution.&rdquo;<cite>Sahih al-Bukhari 847, Sahih Muslim 252</cite></blockquote><blockquote>&ldquo;The siwak is a purification for the mouth and pleasing to the Lord.&rdquo;<cite>Sunan an-Nasa&rsquo;i 5</cite></blockquote>
+
+<p>If you do not have a miswak, <strong>brushing your teeth</strong> with a normal toothbrush is still good, and it achieves the purpose of cleaning the mouth. The miswak simply carries the extra reward of following the Sunnah exactly.</p>
+
+<p>More hadith on the miswak:</p>
+<a class="video-link" href="https://www.abuaminaelias.com/dailyhadithonline/tag/toothstick-miswak-al-siwak/" target="_blank" rel="noopener">Daily Hadith Online: the toothstick (Abu Amina Elias)</a>
+
+<h2>In summary</h2>
+
+<p>Obligations and recommendations together:</p>
+<ul>
+<li><strong>Removing najasah</strong> from body, clothes and place of prayer <span class="tag fard">Fard</span></li>
+<li><strong>Istinja&rsquo;</strong> with water, or with stones or tissue if no filth has spread <span class="tag fard">Fard</span></li>
+<li><strong>Circumcision for males.</strong> A confirmed Sunnah in the Maliki and Hanafi schools, and obligatory in the Shafi&rsquo;i and Hanbali schools. Either way it should be done. <span class="tag">Sunnah</span></li>
+<li><strong>Shaving the pubic hair</strong> when it becomes unhygienic (never leave it past forty days) <span class="tag">Sunnah</span></li>
+<li><strong>Trimming the nails</strong> <span class="tag">Sunnah</span></li>
+<li><strong>Removing the armpit hair</strong> <span class="tag">Sunnah</span></li>
+<li><strong>Trimming the moustache</strong> <span class="tag">Sunnah</span></li>
+<li><strong>Brushing the teeth with a miswak</strong> (still good even if it is not a miswak) <span class="tag">Sunnah</span></li>
+</ul>
+`,
+"what-is-islam/fiqh/different-acts-of-worship/eid": `
+<p class="lede">Islam has two Eids every year: Eid al-Fitr and Eid al-Adha. They are days of worship, gratitude and joy, and they are the only two festivals Allah gave this ummah.</p>
+
+<h2>The two Eids</h2>
+<ul>
+<li><strong>Eid al-Fitr:</strong> the 1st of Shawwal, the day after Ramadan ends.</li>
+<li><strong>Eid al-Adha:</strong> the 10th of Dhul Hijjah, the day of sacrifice during the Hajj season.</li>
+</ul>
+
+<blockquote>The Messenger of Allah &#xFDFA; came to Madinah and they had two days on which they used to play. He said: &ldquo;What are these two days?&rdquo; They said: &ldquo;We used to play on them in the Days of Ignorance.&rdquo; The Messenger of Allah &#xFDFA; said: &ldquo;Allah has replaced them for you with something better: the day of Adha and the day of Fitr.&rdquo;<cite>Sunan Abi Dawud 1134, Sunan an-Nasa&rsquo;i 1556</cite></blockquote>
+
+<h2>Before the prayer</h2>
+
+<h3>Zakat al-Fitr (Eid al-Fitr only) <span class="tag fard">Fard</span></h3>
+<p>Zakat al-Fitr is obligatory on every Muslim, for themselves and for those they provide for. It is paid in staple food and must be paid before the Eid prayer.</p>
+<blockquote>The Messenger of Allah &#xFDFA; made zakat al-fitr obligatory, a sa&lsquo; of dates or a sa&lsquo; of barley, on the slave and the free, male and female, young and old among the Muslims, and he commanded that it be paid before the people go out to the prayer.<cite>Sahih al-Bukhari 1503, Sahih Muslim 984</cite></blockquote><blockquote>&ldquo;Whoever pays it before the prayer, it is an accepted zakah. Whoever pays it after the prayer, it is only ordinary charity.&rdquo;<cite>Sunan Abi Dawud 1609</cite></blockquote>
+
+<h3>Take ghusl <span class="tag">Sunnah</span></h3>
+<p>Ibn &lsquo;Umar used to take ghusl on the day of Eid before going out to the prayer. (Muwatta Imam Malik, Book of the Two Eids)</p>
+
+<h3>Wear your best permissible clothes and perfume <span class="tag">Sunnah</span></h3>
+<p>&lsquo;Umar suggested buying a robe to wear on Eid. The Prophet &#xFDFA; did not object to dressing well for Eid. He only objected to that robe because it was silk, which is forbidden for men. (Sahih al-Bukhari 948)</p>
+
+<h3>Eat before leaving on Eid al-Fitr, and wait on Eid al-Adha <span class="tag">Sunnah</span></h3>
+<blockquote>The Prophet &#xFDFA; would not go out on the morning of Eid al-Fitr until he had eaten some dates, and he would eat an odd number.<cite>Sahih al-Bukhari 953</cite></blockquote><blockquote>The Prophet &#xFDFA; would not go out on the day of Fitr until he had eaten, and on the day of Adha he would not eat until he had prayed.<cite>Jami&lsquo; at-Tirmidhi 542</cite></blockquote>
+
+<h3>Say the Takbir <span class="tag">Sunnah</span></h3>
+<p>Allah says: &ldquo;...so that you complete the prescribed period and glorify Allah for having guided you, and perhaps you will be grateful.&rdquo; (Qur&rsquo;an 2:185). The takbir is said aloud from the night before Eid until the Eid prayer begins, and on Eid al-Adha it also continues through the days of Tashreeq (11th to 13th of Dhul Hijjah), as Allah says: &ldquo;And remember Allah during the appointed days.&rdquo; (Qur&rsquo;an 2:203). The scholars differ slightly on the exact start and end times.</p>
+
+<p class="ar" dir="rtl" lang="ar">اللَّهُ أَكْبَرُ اللَّهُ أَكْبَرُ، لَا إِلَهَ إِلَّا اللَّهُ، وَاللَّهُ أَكْبَرُ اللَّهُ أَكْبَرُ، وَلِلَّهِ الْحَمْدُ</p>
+<p><em>Allahu Akbar, Allahu Akbar, la ilaha illa Allah, wallahu Akbar, Allahu Akbar, wa lillahil hamd.</em> This is how the Companions, such as Ibn Mas&lsquo;ud, said it.</p>
+
+<h2>The Eid prayer</h2>
+
+<h3>Ruling</h3>
+<p>The Eid prayer is at least a <strong>confirmed Sunnah</strong> (sunnah mu&rsquo;akkadah) in the Maliki and Shafi&rsquo;i schools. The Hanafis hold it is wajib, and the Hanbalis hold it is fard kifayah (a communal obligation). So no one should skip it. <span class="tag">Sunnah</span></p>
+
+<h3>How to pray it</h3>
+<ul>
+<li>It is <strong>two rak&lsquo;ahs</strong>, prayed in congregation after sunrise.</li>
+<li>There is <strong>no adhan and no iqamah</strong>. (Sahih al-Bukhari 960, Sahih Muslim 886)</li>
+<li>It is prayed <strong>before the khutbah</strong>. The Prophet &#xFDFA;, Abu Bakr and &lsquo;Umar all prayed first and then gave the khutbah. (Sahih al-Bukhari 956)</li>
+<li><span class="tag">Sunnah</span> <strong>Extra takbirs</strong> are said before the recitation: seven in the first rak&lsquo;ah and five in the second. In the Maliki school the seven include the opening takbir. (Sunan Abi Dawud 1151)</li>
+<li><span class="tag">Sunnah</span> Recite <strong>Surah al-A&lsquo;la and Surah al-Ghashiyah</strong>, or <strong>Qaf and al-Qamar</strong>. (Sahih Muslim 878, Sahih Muslim 891)</li>
+<li><span class="tag">Sunnah</span> Pray it in the open ground (the musalla) and not only in the mosque. (Sahih al-Bukhari 956)</li>
+<li><span class="tag">Sunnah</span> Stay for and listen to the khutbah.</li>
+</ul>
+
+<h3>Women attend too <span class="tag">Sunnah</span></h3>
+<p>Umm &lsquo;Atiyyah said: &ldquo;We were commanded to bring out the women on the two Eids, including the young girls and the menstruating women. The menstruating women stay away from the prayer area, but they witness the good and the supplication of the Muslims.&rdquo; (Sahih al-Bukhari 324, Sahih Muslim 890)</p>
+
+<h3>Take a different route home <span class="tag">Sunnah</span></h3>
+<p>Jabir said that on the day of Eid the Prophet &#xFDFA; would return by a different route from the one he took going. (Sahih al-Bukhari 986)</p>
+
+<h3>Congratulate each other <span class="tag">Sunnah</span></h3>
+<p>The Companions would say to each other <em>Taqabbala Allahu minna wa minkum</em> (&ldquo;May Allah accept it from us and from you&rdquo;). Ibn Hajar mentions this in <em>Fath al-Bari</em> and says its chain is hasan.</p>
+
+<h2>The sacrifice (Eid al-Adha only)</h2>
+
+<p>Allah says: &ldquo;So pray to your Lord and sacrifice.&rdquo; (Qur&rsquo;an 108:2)</p>
+
+<ul>
+<li><strong>Ruling:</strong> a confirmed Sunnah for those who can afford it in the Maliki school (the Hanafis say wajib). <span class="tag">Sunnah</span></li>
+<li><strong>Time:</strong> after the Eid prayer, not before. &ldquo;Whoever sacrifices before the prayer has only slaughtered meat for his family, and it is not a sacrifice.&rdquo; (Sahih al-Bukhari 5560)</li>
+<li><strong>Example:</strong> Anas said the Prophet &#xFDFA; sacrificed two horned rams, saying Bismillah and Allahu Akbar. (Sahih al-Bukhari 5545, Sahih Muslim 1966)</li>
+<li><span class="tag">Sunnah</span> If you intend to sacrifice, do not cut your hair or nails from the start of Dhul Hijjah until you have sacrificed. (Sahih Muslim 1977; some scholars say this is obligatory)</li>
+</ul>
+
+<h2>What is forbidden on Eid</h2>
+
+<p><strong>Fasting on the two Eid days is haram.</strong> Abu Sa&lsquo;id said the Prophet &#xFDFA; forbade fasting on the day of Fitr and the day of Adha. (Sahih al-Bukhari 1991, Sahih Muslim 827)</p>
+
+<h2>A day of joy</h2>
+
+<blockquote>&ldquo;The days of Tashreeq are days of eating, drinking and remembrance of Allah.&rdquo;<cite>Sahih Muslim 1141</cite></blockquote>
+<p>Enjoy the day with family and the community, eat, give to the poor, and remember Allah. Do not turn it into a day of disobedience.</p>
+`,
+"what-is-islam/fiqh/different-acts-of-worship/tawbah-and-istighfar": `
+<p class="lede">Istighfar and tawbah are not the same thing. Istighfar is <strong>seeking forgiveness</strong>. Tawbah is <strong>repentance</strong>, and it has steps. Istighfar is one of those steps.</p>
+
+<h2>Istighfar: seeking forgiveness</h2>
+
+<p>Istighfar is asking Allah to forgive you, for example by saying <em>Astaghfirullah</em> (&ldquo;I seek forgiveness from Allah&rdquo;). You can do it anytime, for any sin, and even when you have not sinned.</p>
+
+<ul>
+<li><span class="tag">Sunnah</span> <strong>Make istighfar constantly.</strong> The Prophet &#xFDFA; said: &ldquo;By Allah, I seek forgiveness from Allah and repent to Him more than seventy times a day.&rdquo; (Sahih al-Bukhari 6307)</li>
+<li><span class="tag">Sunnah</span> In another narration he said: &ldquo;O people, repent to Allah, for I repent to Him a hundred times a day.&rdquo; (Sahih Muslim 2702)</li>
+<li><span class="tag">Sunnah</span> Say Astaghfirullah three times after every prayer. When the Prophet &#xFDFA; finished his prayer he would seek forgiveness three times. (Sahih Muslim 591)</li>
+</ul>
+
+<p>Allah says: &ldquo;Seek forgiveness from your Lord. Indeed, He is ever Forgiving.&rdquo; (Qur&rsquo;an 71:10)</p>
+
+<h3>Sayyid al-Istighfar (the master of seeking forgiveness) <span class="tag">Sunnah</span></h3>
+
+<p class="ar" dir="rtl" lang="ar">اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ لَكَ بِذَنْبِي فَاغْفِرْ لِي، فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ</p>
+<p>&ldquo;O Allah, You are my Lord, there is no god but You. You created me and I am Your slave, and I keep Your covenant and promise as best I can. I seek refuge in You from the evil of what I have done. I acknowledge Your favor upon me and I acknowledge my sin, so forgive me, for none forgives sins except You.&rdquo;</p>
+<blockquote>&ldquo;Whoever says it during the day with firm faith in it and dies on that day before the evening, he is of the people of Paradise. Whoever says it during the night with firm faith in it and dies before the morning, he is of the people of Paradise.&rdquo;<cite>Sahih al-Bukhari 6306</cite></blockquote>
+
+<h2>Tawbah: repentance</h2>
+
+<p>Tawbah means returning to Allah from sin. It is <strong>obligatory</strong> <span class="tag fard">Fard</span> to repent from every sin, and to do it right away. Allah says: &ldquo;O you who believe, repent to Allah with sincere repentance.&rdquo; (Qur&rsquo;an 66:8) and &ldquo;Turn to Allah in repentance, all of you, O believers, so that you may be successful.&rdquo; (Qur&rsquo;an 24:31)</p>
+
+<p>Tawbah has <strong>four steps</strong>:</p>
+<ol>
+<li><strong>Stop doing the sin.</strong> You cannot repent from something you are still doing.</li>
+<li><strong>Intend not to do it again.</strong> Resolve in your heart not to return to it.</li>
+<li><strong>Regret doing it.</strong> The Prophet &#xFDFA; said: &ldquo;Regret is repentance.&rdquo; (Sunan Ibn Majah 4252)</li>
+<li><strong>Make istighfar.</strong> Ask Allah to forgive you.</li>
+</ol>
+
+<p>Allah describes the people who do this: &ldquo;And those who, when they commit an immorality or wrong themselves, remember Allah and seek forgiveness for their sins &mdash; and who can forgive sins except Allah? &mdash; and do not persist in what they have done while they know.&rdquo; (Qur&rsquo;an 3:135)</p>
+
+<h3>If you hurt someone else</h3>
+
+<p>If your sin wronged another person, the four steps are not enough on their own. You must also <strong>make amends and apologize</strong> <span class="tag fard">Fard</span>. Return what you took, repair what you damaged, and ask the person to forgive you. Allah will not forgive what is owed to people until it is settled with them.</p>
+
+<blockquote>&ldquo;Whoever has wronged his brother in respect of his honor or anything else, let him ask for his forgiveness today, before the time comes when there will be no dinar or dirham. If he has good deeds, they will be taken from him according to the wrong he did, and if he has none, the bad deeds of the one he wronged will be taken and put on him.&rdquo;<cite>Sahih al-Bukhari 2449</cite></blockquote>
+
+<h2>Allah accepts tawbah</h2>
+
+<p>No sin is too big to repent from, and Allah accepts repentance until the end. This includes shirk: when a person repents and returns to Tawhid, it is forgiven.</p>
+
+<blockquote>&ldquo;Say, &lsquo;O My servants who have transgressed against themselves, do not despair of the mercy of Allah. Indeed, Allah forgives all sins. Indeed, it is He who is the Forgiving, the Merciful.&rsquo;&rdquo;<cite>Qur&rsquo;an 39:53</cite></blockquote>
+
+<blockquote>&ldquo;O son of Adam, as long as you call upon Me and hope in Me, I will forgive you for what you have done, and I do not mind. O son of Adam, if your sins reached the clouds of the sky and then you asked My forgiveness, I would forgive you.&rdquo;<cite>Jami&lsquo; at-Tirmidhi 3540</cite></blockquote><blockquote>&ldquo;Allah accepts the repentance of the servant as long as the death rattle has not reached his throat.&rdquo;<cite>Jami&lsquo; at-Tirmidhi 3537</cite></blockquote><blockquote>&ldquo;Whoever repents before the sun rises from the west, Allah will accept his repentance.&rdquo;<cite>Sahih Muslim 2703</cite></blockquote><blockquote>&ldquo;Every son of Adam sins, and the best of those who sin are those who repent.&rdquo;<cite>Jami&lsquo; at-Tirmidhi 2499, Sunan Ibn Majah 4251</cite></blockquote>
+
+<p>So <strong>never delay and never despair</strong>. Repent now, and keep making istighfar for the rest of your life.</p>
+
+<p>See also:</p>
+<a class="cta-link" href="#/forum/what-is-islam/how-to-be-muslim/other-important-things/ask-allah-for-mercy-forgiveness-and-make-dua">
+  Ask Allah for Mercy, Forgiveness, and Make Du&rsquo;a
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+`,
+"what-is-islam/fiqh/different-acts-of-worship/dhikr": `
+<p class="lede">Dhikr is remembering Allah, with the tongue, the heart and the limbs. It is the easiest act of worship, it can be done at any time, and its rewards are great.</p>
+
+<p>Allah says: &ldquo;O you who believe, remember Allah with much remembrance, and glorify Him morning and evening.&rdquo; (Qur&rsquo;an 33:41-42)</p>
+
+<p>The dhikr that is part of the prayer (such as the takbir) and the Shahada are obligatory <span class="tag fard">Fard</span>. Beyond that, dhikr is <strong>Sunnah</strong> <span class="tag">Sunnah</span>, and you should do as much of it as you can.</p>
+
+<h2>Why make dhikr</h2>
+
+<ul>
+<li>&ldquo;So remember Me, and I will remember you.&rdquo; (Qur&rsquo;an 2:152)</li>
+<li>&ldquo;Verily, in the remembrance of Allah do hearts find rest.&rdquo; (Qur&rsquo;an 13:28)</li>
+</ul>
+
+<blockquote>&ldquo;The example of the one who remembers his Lord and the one who does not is like that of the living and the dead.&rdquo;<cite>Sahih al-Bukhari 6407</cite></blockquote><blockquote>&ldquo;Shall I not tell you of the best of your deeds, the most pure in the sight of your King, and the highest in your ranks, and better for you than spending gold and silver, and better than meeting your enemy and striking their necks and they strike yours?&rdquo; They said: &ldquo;Yes.&rdquo; He said: &ldquo;The remembrance of Allah.&rdquo;<cite>Jami&lsquo; at-Tirmidhi 3377</cite></blockquote><blockquote>A man said: &ldquo;O Messenger of Allah, the laws of Islam have become too many for me, so tell me something I can hold on to.&rdquo; He said: &ldquo;Let your tongue always be moist with the remembrance of Allah.&rdquo;<cite>Jami&lsquo; at-Tirmidhi 3375, Sunan Ibn Majah 3793</cite></blockquote>
+
+<h2>Make dhikr at all times <span class="tag">Sunnah</span></h2>
+
+<p>&lsquo;A&rsquo;ishah said that the Prophet &#xFDFA; used to remember Allah at all times. (Sahih Muslim 373) You can do dhikr walking, sitting, working, or lying down. Allah praises &ldquo;those who remember Allah while standing, sitting, and lying on their sides.&rdquo; (Qur&rsquo;an 3:191)</p>
+
+<h3>Easy phrases to say often</h3>
+
+<ul>
+<li><strong>SubhanAllahi wa bihamdihi, SubhanAllahil &lsquo;Adheem.</strong> &ldquo;Two words that are light on the tongue, heavy on the scale, and beloved to the Most Merciful.&rdquo; (Sahih al-Bukhari 6406, Sahih Muslim 2694)</li>
+<li><strong>SubhanAllahi wa bihamdihi</strong> a hundred times in a day: &ldquo;his sins are forgiven even if they are like the foam of the sea.&rdquo; (Sahih al-Bukhari 6405)</li>
+<li><strong>La ilaha illa Allah wahdahu la sharika lah, lahul mulku wa lahul hamdu wa huwa &lsquo;ala kulli shay&rsquo;in qadir</strong> a hundred times in a day carries the reward of freeing ten slaves, and a hundred good deeds are written for him. (Sahih al-Bukhari 3293)</li>
+<li><strong>La hawla wa la quwwata illa billah</strong>, which is &ldquo;a treasure from the treasures of Paradise.&rdquo; (Sahih al-Bukhari 6384, Sahih Muslim 2704)</li>
+<li><strong>Salawat upon the Prophet &#xFDFA;.</strong> &ldquo;Whoever sends one blessing upon me, Allah will send ten blessings upon him.&rdquo; (Sahih Muslim 408)</li>
+<li><strong>Istighfar.</strong> See <a href="#/forum/what-is-islam/fiqh/different-acts-of-worship/tawbah-and-istighfar">Tawbah and Istighfar</a>.</li>
+</ul>
+
+<h2>Prescribed dhikr at certain times</h2>
+
+<p>On top of constant dhikr, the Prophet &#xFDFA; taught specific dhikr for specific times, each with great benefits. All of it is <strong>Sunnah</strong> <span class="tag">Sunnah</span>. For example:</p>
+
+<ul>
+<li><strong>After every fard prayer:</strong> SubhanAllah 33 times, Alhamdulillah 33 times, Allahu Akbar 33 times, and then completing the hundred with <em>La ilaha illa Allah wahdahu la sharika lah...</em> (Sahih al-Bukhari 843, Sahih Muslim 595)</li>
+<li><strong>Morning and evening:</strong> Allah says: &ldquo;And glorify the praises of your Lord before the rising of the sun and before its setting.&rdquo; (Qur&rsquo;an 20:130). The Prophet &#xFDFA; taught saying Surah al-Ikhlas, al-Falaq and an-Nas three times each morning and evening. (Sunan Abi Dawud 5082, Jami&lsquo; at-Tirmidhi 3575)</li>
+<li><strong>Before sleeping:</strong> Ayat al-Kursi, which brings a guardian from Allah through the night (Sahih al-Bukhari 5010), and Surah al-Ikhlas, al-Falaq and an-Nas, blown into your hands and wiped over your body. (Sahih al-Bukhari 5017)</li>
+</ul>
+
+<p>These are only examples. There is a prescribed dhikr for waking up, entering and leaving the house, eating, travelling, entering the mosque, and many other moments, with the Arabic text, the translation and the benefits of each. You can find them all here:</p>
+
+<a class="video-link" href="https://lifewithallah.com/dhikr-dua/" target="_blank" rel="noopener">Dhikr and Du&rsquo;a (Life With Allah)</a>
+`,
+"what-is-islam/fiqh/different-acts-of-worship/fasting": `
+<p class="lede">A fast in Islam is simple: <strong>no food or drink, from the instant Fajr starts to the instant Maghrib starts.</strong> Sexual relations are also forbidden during the fast.</p>
+
+<blockquote>&ldquo;...And eat and drink until the white thread of dawn becomes distinct to you from the black thread of night. Then complete the fast until the night.&rdquo;<cite>Qur&rsquo;an 2:187</cite></blockquote>
+
+<blockquote>&ldquo;When the night comes from this side, and the day goes away from that side, and the sun has set, then the fasting person has to break his fast.&rdquo;<cite>Sahih al-Bukhari 1954, Sahih Muslim 1100</cite></blockquote>
+
+<ul>
+<li><strong>Intention (niyyah):</strong> you must intend the fast in your heart before Fajr. &ldquo;Whoever does not intend the fast before dawn, there is no fast for him.&rdquo; (Sunan Abi Dawud 2454) <span class="tag fard">Fard</span></li>
+<li><strong>Suhur</strong> (the meal before Fajr): &ldquo;Eat suhur, for in suhur there is blessing.&rdquo; (Sahih al-Bukhari 1923, Sahih Muslim 1095) <span class="tag">Sunnah</span></li>
+<li><strong>Break the fast quickly at Maghrib:</strong> &ldquo;The people will remain upon good as long as they hasten to break the fast.&rdquo; (Sahih al-Bukhari 1957, Sahih Muslim 1098) <span class="tag">Sunnah</span></li>
+<li><strong>Break it with fresh dates, or dry dates, or water.</strong> (Sunan Abi Dawud 2356) <span class="tag">Sunnah</span></li>
+<li><strong>If you eat or drink by forgetting,</strong> complete your fast. &ldquo;Allah fed him and gave him drink.&rdquo; (Sahih al-Bukhari 1933, Sahih Muslim 1155)</li>
+</ul>
+
+<p>The du&rsquo;a the Prophet &#xFDFA; used when breaking the fast <span class="tag">Sunnah</span> (Sunan Abi Dawud 2357):</p>
+<p class="ar" dir="rtl" lang="ar">ذَهَبَ الظَّمَأُ وَابْتَلَّتِ الْعُرُوقُ وَثَبَتَ الأَجْرُ إِنْ شَاءَ اللَّهُ</p>
+<p>&ldquo;The thirst is gone, the veins are moist, and the reward is confirmed, if Allah wills.&rdquo;</p>
+
+<p>If you are ill or travelling you may break the fast and make up the days later (Qur&rsquo;an 2:184-185). A woman who is menstruating or in postnatal bleeding must not fast, and she makes up the days later. &lsquo;A&rsquo;ishah said: &ldquo;We were commanded to make up the fasts, and we were not commanded to make up the prayers.&rdquo; (Sahih Muslim 335)</p>
+
+<h2>The different fasts</h2>
+
+<p>There are different fasts for different days. <strong>Only the fast of Ramadan (sawm) is an obligation.</strong> All the others are Sunnah.</p>
+
+<h3>Ramadan <span class="tag fard">Fard</span></h3>
+<p>The month-long fast of Ramadan is <strong>obligatory</strong>, and it is also <strong>a pillar of Islam</strong>.</p>
+<blockquote>&ldquo;O you who believe, fasting is prescribed for you as it was prescribed for those before you, so that you may become mindful of Allah.&rdquo;<cite>Qur&rsquo;an 2:183</cite></blockquote>
+<blockquote>&ldquo;Islam is built upon five: the testimony that there is no god but Allah and that Muhammad is the Messenger of Allah, establishing the prayer, giving the zakah, Hajj to the House, and fasting Ramadan.&rdquo;<cite>Sahih al-Bukhari 8, Sahih Muslim 16</cite></blockquote>
+
+<h3>Six days of Shawwal <span class="tag">Sunnah</span></h3>
+<p>Fasting six days in the month of Shawwal, the month after Ramadan.</p>
+<blockquote>&ldquo;Whoever fasts Ramadan and then follows it with six days of Shawwal, it is as if he fasted the whole year.&rdquo;<cite>Sahih Muslim 1164</cite></blockquote>
+
+<h3>The three White Days <span class="tag">Sunnah</span></h3>
+<p>The 13th, 14th and 15th of every Islamic (lunar) month.</p>
+<blockquote>&ldquo;If you fast three days of the month, then fast the thirteenth, fourteenth and fifteenth.&rdquo;<cite>Jami&lsquo; at-Tirmidhi 761, Sunan an-Nasa&rsquo;i 2424</cite></blockquote>
+
+<h3>Tasu&lsquo;a, the 9th of Muharram <span class="tag">Sunnah</span></h3>
+<blockquote>Ibn &lsquo;Abbas reported that the Prophet &#xFDFA; said: &ldquo;If I live until next year, I will certainly fast the ninth.&rdquo;<cite>Sahih Muslim 1134</cite></blockquote>
+
+<h3>Ashura, the 10th of Muharram <span class="tag">Sunnah</span></h3>
+<p>The Prophet &#xFDFA; found the Jews fasting Ashura and said: &ldquo;We have more right to Musa than you,&rdquo; and he fasted it and told the Muslims to fast it. (Sahih al-Bukhari 2004)</p>
+<blockquote>&ldquo;Fasting the day of Ashura, I hope that Allah will accept it as an expiation for the year before it.&rdquo;<cite>Sahih Muslim 1162</cite></blockquote>
+
+<h3>Arafah, the 9th of Dhul Hijjah <span class="tag">Sunnah</span></h3>
+<p>This is Sunnah for everyone <strong>except those who are at Arafah on Hajj</strong>, who should not fast it. (The Prophet &#xFDFA; was brought a cup of milk on the day of Arafah and he drank it while the people watched. Sahih al-Bukhari 1988, Sahih Muslim 1123)</p>
+<blockquote>&ldquo;Fasting the day of Arafah, I hope that Allah will accept it as an expiation for the year before it and the year after it.&rdquo;<cite>Sahih Muslim 1162</cite></blockquote>
+
+<h3>Mondays <span class="tag">Sunnah</span></h3>
+<p>The Prophet &#xFDFA; was asked about fasting on Monday and said: &ldquo;That is the day on which I was born, and the day on which revelation came to me.&rdquo; (Sahih Muslim 1162)</p>
+
+<h3>Thursdays <span class="tag">Sunnah</span></h3>
+<blockquote>&ldquo;The deeds are presented on Mondays and Thursdays, and I like for my deeds to be presented while I am fasting.&rdquo;<cite>Jami&lsquo; at-Tirmidhi 747</cite></blockquote>
+
+<p>It is haram to fast on the two Eid days. See <a href="#/forum/what-is-islam/fiqh/different-acts-of-worship/eid">Eid</a>.</p>
+`,
+"what-is-islam/fiqh/different-acts-of-worship/dua": `
+<p class="lede">Du&rsquo;a is asking Allah. It is an act of worship, and it has no complicated conditions.</p>
+
+<p>Du&rsquo;a doesn&rsquo;t have specific obligations. You raise and cup your hands (do not press your hands together like the Christians do, cup your hands) and ask God whatever you want as long as it is halal. You pretty much just do it whenever you want, when you want to ask God for something. Du&rsquo;a is a recommended act of worship <span class="tag">Sunnah</span>, and it is directed to Allah alone. Calling on anyone else is shirk: &ldquo;And the mosques are for Allah, so do not invoke anyone along with Allah.&rdquo; (Qur&rsquo;an 72:18)</p>
+
+<blockquote>&ldquo;Du&rsquo;a is worship.&rdquo;<cite>Jami&lsquo; at-Tirmidhi 3371, Sunan Abi Dawud 1479</cite></blockquote>
+
+<blockquote>&ldquo;And your Lord says, &lsquo;Call upon Me; I will respond to you.&rsquo;&rdquo;<cite>Qur&rsquo;an 40:60</cite></blockquote>
+
+<h2>Allah accepts all du&rsquo;as</h2>
+
+<p>Allah accepts all du&rsquo;as, as long as they are halal, but He won&rsquo;t always grant what you asked for. He can either:</p>
+<ul>
+<li><strong>Grant</strong> what you asked.</li>
+<li><strong>Not grant</strong> what you asked, but give you <strong>good deeds</strong> for making the du&rsquo;a.</li>
+<li><strong>Not grant</strong> what you asked, but <strong>save you from harm</strong> or give you something else instead.</li>
+</ul>
+
+<blockquote>&ldquo;There is no Muslim who makes a du&rsquo;a that contains no sin and no severing of family ties, except that Allah gives him one of three things: either He answers his du&rsquo;a quickly, or He stores it for him in the Hereafter, or He turns away from him an equivalent evil.&rdquo; They said: &ldquo;Then we will make a lot of du&rsquo;a.&rdquo; He said: &ldquo;Allah is more generous.&rdquo;<cite>Musnad Ahmad 11133; see also Jami&lsquo; at-Tirmidhi 3573</cite></blockquote>
+
+<h2>Tips for making du&rsquo;a</h2>
+
+<ul>
+<li><strong>Make du&rsquo;a often,</strong> optimally facing the qiblah with your hands cupped. <span class="tag">Sunnah</span> &ldquo;Your Lord is shy and generous. He is shy to return the hands of His servant empty when he raises them to Him.&rdquo; (Sunan Abi Dawud 1488, Jami&lsquo; at-Tirmidhi 3556) The Prophet &#xFDFA; also faced the qiblah and raised his hands when he made du&rsquo;a for rain. (Sahih al-Bukhari 1005) Ask with the palms facing up. (Sunan Abi Dawud 1486)</li>
+<li><strong>Praise Allah, and then send salawat upon Muhammad &#xFDFA;, before and after the du&rsquo;a.</strong> <span class="tag">Sunnah</span> The Prophet &#xFDFA; heard a man make du&rsquo;a without praising Allah or sending salawat and said he was hasty. He told them: &ldquo;When one of you prays, let him begin by praising Allah and extolling Him, then send blessings upon the Prophet, and then ask for what he wishes.&rdquo; (Sunan Abi Dawud 1481, Jami&lsquo; at-Tirmidhi 3477). &lsquo;Umar said: &ldquo;Du&rsquo;a is suspended between heaven and earth, and none of it rises until you send blessings upon your Prophet.&rdquo; (Jami&lsquo; at-Tirmidhi 486)</li>
+<li><strong>Say Ameen at the end of the du&rsquo;a.</strong> <span class="tag">Sunnah</span> The Prophet &#xFDFA; said that Ameen seals it. (Sunan Abi Dawud 938)</li>
+</ul>
+
+<h2>Examples of du&rsquo;as you can make</h2>
+
+<p>You can ask for anything personal that you need, and you can also use these du&rsquo;as from the Qur&rsquo;an and Sunnah. All of them are <span class="tag">Sunnah</span>.</p>
+
+<h3>1. A good life in this world and the next</h3>
+<p class="ar" dir="rtl" lang="ar">رَبَّنَا آتِنَا فِي الدُّنْيَا حَسَنَةً وَفِي الْآخِرَةِ حَسَنَةً وَقِنَا عَذَابَ النَّارِ</p>
+<p>&ldquo;Our Lord, give us good in this world and good in the Hereafter, and protect us from the punishment of the Fire.&rdquo; (Qur&rsquo;an 2:201). This was the du&rsquo;a the Prophet &#xFDFA; made most often. (Sahih al-Bukhari 4522, Sahih Muslim 2690)</p>
+
+<h3>2. Firmness of the heart</h3>
+<p class="ar" dir="rtl" lang="ar">يَا مُقَلِّبَ الْقُلُوبِ ثَبِّتْ قَلْبِي عَلَى دِينِكَ</p>
+<p>&ldquo;O Turner of the hearts, make my heart firm upon Your religion.&rdquo; (Jami&lsquo; at-Tirmidhi 2140)</p>
+
+<h3>3. Forgiveness for all believers</h3>
+<p class="ar" dir="rtl" lang="ar">اللَّهُمَّ اغْفِرْ لِلْمُسْلِمِينَ وَالْمُسْلِمَاتِ وَالْمُؤْمِنِينَ وَالْمُؤْمِنَاتِ</p>
+<p>&ldquo;O Allah, forgive the Muslim men and women, and the believing men and women.&rdquo; Allah commands: &ldquo;And ask forgiveness for your sin and for the believing men and the believing women.&rdquo; (Qur&rsquo;an 47:19)</p>
+
+<h3>4. All good, and refuge from all evil</h3>
+<p class="ar" dir="rtl" lang="ar">اللَّهُمَّ إِنِّي أَسْأَلُكَ مِنَ الْخَيْرِ كُلِّهِ، عَاجِلِهِ وَآجِلِهِ، مَا عَلِمْتُ مِنْهُ وَمَا لَمْ أَعْلَمْ، وَأَعُوذُ بِكَ مِنَ الشَّرِّ كُلِّهِ، عَاجِلِهِ وَآجِلِهِ، مَا عَلِمْتُ مِنْهُ وَمَا لَمْ أَعْلَمْ</p>
+<p>&ldquo;O Allah, I ask You for all good, the immediate and the delayed, what I know of it and what I do not know. And I seek refuge in You from all evil, the immediate and the delayed, what I know of it and what I do not know.&rdquo; (Sunan Ibn Majah 3846)</p>
+
+<h3>5. Paradise, and protection from the Fire (three times each)</h3>
+<p class="ar" dir="rtl" lang="ar">اللَّهُمَّ إِنِّي أَسْأَلُكَ الْجَنَّةَ</p>
+<p>&ldquo;O Allah, I ask You for Paradise.&rdquo; (x3)</p>
+<p class="ar" dir="rtl" lang="ar">اللَّهُمَّ أَجِرْنِي مِنَ النَّارِ</p>
+<p>&ldquo;O Allah, protect me from the Fire.&rdquo; (x3)</p>
+<blockquote>&ldquo;Whoever asks Allah for Paradise three times, Paradise says: &lsquo;O Allah, admit him into Paradise.&rsquo; And whoever seeks protection from the Fire three times, the Fire says: &lsquo;O Allah, protect him from the Fire.&rsquo;&rdquo;<cite>Jami&lsquo; at-Tirmidhi 2572, Sunan Ibn Majah 4340</cite></blockquote>
+
+<h3>6. Sayyid al-Istighfar</h3>
+<p>The master of seeking forgiveness (Sahih al-Bukhari 6306). The full text and its virtue are on the <a href="#/forum/what-is-islam/fiqh/different-acts-of-worship/tawbah-and-istighfar">Tawbah and Istighfar</a> page.</p>
+<p class="ar" dir="rtl" lang="ar">اللَّهُمَّ أَنْتَ رَبِّي لَا إِلَهَ إِلَّا أَنْتَ، خَلَقْتَنِي وَأَنَا عَبْدُكَ، وَأَنَا عَلَى عَهْدِكَ وَوَعْدِكَ مَا اسْتَطَعْتُ، أَعُوذُ بِكَ مِنْ شَرِّ مَا صَنَعْتُ، أَبُوءُ لَكَ بِنِعْمَتِكَ عَلَيَّ، وَأَبُوءُ لَكَ بِذَنْبِي فَاغْفِرْ لِي، فَإِنَّهُ لَا يَغْفِرُ الذُّنُوبَ إِلَّا أَنْتَ</p>
+
+<h3>7. Martyrdom</h3>
+<p class="ar" dir="rtl" lang="ar">اللَّهُمَّ إِنِّي أَسْأَلُكَ الشَّهَادَةَ</p>
+<p>&ldquo;O Allah, I ask You for martyrdom.&rdquo; The Prophet &#xFDFA; said: &ldquo;Whoever sincerely asks Allah for martyrdom, Allah will raise him to the ranks of the martyrs, even if he dies in his bed.&rdquo; (Sahih Muslim 1909)</p>
+
+<h3>8. Refuge from the punishment of the grave, Hellfire, the trials of life and death, and the Dajjal</h3>
+<p class="ar" dir="rtl" lang="ar">اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ عَذَابِ الْقَبْرِ، وَمِنْ عَذَابِ جَهَنَّمَ، وَمِنْ فِتْنَةِ الْمَحْيَا وَالْمَمَاتِ، وَمِنْ شَرِّ فِتْنَةِ الْمَسِيحِ الدَّجَّالِ</p>
+<p>&ldquo;O Allah, I seek refuge in You from the punishment of the grave, from the punishment of Hellfire, from the trials of life and death, and from the evil of the trial of the False Messiah, the Dajjal.&rdquo; The Prophet &#xFDFA; commanded that this be said at the end of the prayer, after the final tashahhud and before the salam. (Sahih Muslim 588)</p>
+
+<h3>9. Refuge from the punishment of the grave</h3>
+<p class="ar" dir="rtl" lang="ar">اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنْ عَذَابِ الْقَبْرِ</p>
+<p>&ldquo;O Allah, I seek refuge in You from the punishment of the grave.&rdquo; The Prophet &#xFDFA; used to seek refuge from it in his prayers. (Sahih al-Bukhari 1377)</p>
+
+<h3>10. Forgiveness and mercy</h3>
+<p class="ar" dir="rtl" lang="ar">رَبِّ اغْفِرْ وَارْحَمْ وَأَنْتَ خَيْرُ الرَّاحِمِينَ</p>
+<p>&ldquo;My Lord, forgive and have mercy, for You are the best of the merciful.&rdquo; (Qur&rsquo;an 23:118)</p>
+
+<p>There are many more du&rsquo;as, with their Arabic, translation and benefits, here:</p>
+<a class="video-link" href="https://lifewithallah.com/dhikr-dua/" target="_blank" rel="noopener">Dhikr and Du&rsquo;a (Life With Allah)</a>
+`,
+"what-is-islam/fiqh/different-acts-of-worship/habits": `
+<p class="lede">Here is a list of things to do routinely as a Muslim. Each one is marked as obligatory (<span class="tag fard">Fard</span>) or recommended (<span class="tag">Sunnah</span>), so you know which is which.</p>
+
+<h2>Greeting</h2>
+
+<h3>Greeting a Muslim, or departing from one</h3>
+<p>Say <strong>Assalamu &lsquo;Alaikum</strong> at minimum, but it is better to say <strong>Assalamu &lsquo;Alaikum wa Rahmatullah</strong>, and even better to say <strong>Assalamu &lsquo;Alaikum wa Rahmatullahi wa Barakatuh</strong>. Giving the greeting first is Sunnah <span class="tag">Sunnah</span>.</p>
+<p class="ar" dir="rtl" lang="ar">السَّلَامُ عَلَيْكُمْ وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ</p><blockquote>A man came to the Prophet &#xFDFA; and said: &ldquo;Assalamu &lsquo;alaykum.&rdquo; He returned the greeting, and the man sat down. The Prophet &#xFDFA; said: &ldquo;Ten.&rdquo; Another came and said: &ldquo;Assalamu &lsquo;alaykum wa rahmatullah.&rdquo; He returned it, and said: &ldquo;Twenty.&rdquo; Another came and said: &ldquo;Assalamu &lsquo;alaykum wa rahmatullahi wa barakatuh.&rdquo; He returned it, and said: &ldquo;Thirty.&rdquo;<cite>Sunan Abi Dawud 5195, Jami&lsquo; at-Tirmidhi 2689</cite></blockquote><blockquote>&ldquo;When one of you reaches a gathering, let him give the greeting of peace. When he wants to get up and leave, let him give the greeting of peace. The first is no more important than the last.&rdquo;<cite>Sunan Abi Dawud 5208, Jami&lsquo; at-Tirmidhi 2706</cite></blockquote><blockquote>&ldquo;You will not enter Paradise until you believe, and you will not believe until you love one another. Shall I tell you something that, if you do it, you will love one another? Spread the greeting of peace among yourselves.&rdquo;<cite>Sahih Muslim 54</cite></blockquote>
+
+<h3>Replying to a greeting, or to a farewell</h3>
+<p>Reply <strong>Wa &lsquo;alaykum assalam</strong>, or <strong>Wa &lsquo;alaykum assalam wa rahmatullah</strong>, or <strong>Wa &lsquo;alaykum assalam wa rahmatullahi wa barakatuh</strong>. You should reply with at least an equal salam to the one the Muslim gave you. Replying is <strong>obligatory</strong> <span class="tag fard">Fard</span>.</p>
+<blockquote>&ldquo;When you are greeted with a greeting, respond with a better one, or at least return it equally.&rdquo;<cite>Qur&rsquo;an 4:86</cite></blockquote>
+
+<h2>Bismillah and Alhamdulillah</h2>
+
+<h3>Say Bismillah before entering the bathroom, and before eating or drinking <span class="tag">Sunnah</span></h3>
+<p class="ar" dir="rtl" lang="ar">بِسْمِ اللَّهِ</p>
+<ul>
+<li><strong>Before eating or drinking:</strong> the Prophet &#xFDFA; told &lsquo;Umar ibn Abi Salamah: &ldquo;Mention the name of Allah, eat with your right hand, and eat from what is near you.&rdquo; (Sahih al-Bukhari 5376, Sahih Muslim 2022) If you forget, say <em>Bismillahi awwalahu wa akhirahu</em> when you remember. (Sunan Abi Dawud 3767, Jami&lsquo; at-Tirmidhi 1858)</li>
+<li><strong>Before entering the bathroom:</strong> &ldquo;The screen between the eyes of the jinn and the private parts of the children of Adam, when one of them enters the toilet, is to say Bismillah.&rdquo; (Jami&lsquo; at-Tirmidhi 606). It is also Sunnah to follow it with the du&rsquo;a the Prophet &#xFDFA; used (Sahih al-Bukhari 142, Sahih Muslim 375):</li>
+</ul>
+<p class="ar" dir="rtl" lang="ar">اللَّهُمَّ إِنِّي أَعُوذُ بِكَ مِنَ الْخُبُثِ وَالْخَبَائِثِ</p>
+<p>&ldquo;O Allah, I seek refuge in You from the male and female devils.&rdquo;</p>
+
+<h3>Say Alhamdulillah after eating, and after sneezing <span class="tag">Sunnah</span></h3>
+<p class="ar" dir="rtl" lang="ar">الْحَمْدُ لِلَّهِ</p><blockquote>&ldquo;Allah is pleased with His servant who eats a morsel and praises Him for it, or drinks a sip and praises Him for it.&rdquo;<cite>Sahih Muslim 2734</cite></blockquote>
+
+<h3>When someone sneezes</h3>
+<ol>
+<li>The one who sneezes says <strong>Alhamdulillah</strong>. <span class="tag">Sunnah</span></li>
+<li>A Muslim who hears them say Alhamdulillah should say <strong>Yarhamukallah</strong> (&ldquo;May Allah have mercy on you&rdquo;). The Prophet &#xFDFA; called this a right of one Muslim upon another, and many scholars hold that it is obligatory <span class="tag fard">Fard</span>. If the person did not say Alhamdulillah, you do not say it. (Sahih Muslim 2992)</li>
+<li>The one who sneezed replies <strong>Yahdikumu Allahu wa yuslihu balakum</strong> (&ldquo;May Allah guide you and set your affairs right&rdquo;). <span class="tag">Sunnah</span></li>
+</ol>
+<p class="ar" dir="rtl" lang="ar">يَرْحَمُكَ اللَّهُ</p><p class="ar" dir="rtl" lang="ar">يَهْدِيكُمُ اللَّهُ وَيُصْلِحُ بَالَكُمْ</p><blockquote>&ldquo;When one of you sneezes, let him say Alhamdulillah, and let his brother or companion say Yarhamukallah. When he says Yarhamukallah, let him say: Yahdikumu Allahu wa yuslihu balakum.&rdquo; Also: &ldquo;It is a right upon every Muslim who hears it to say Yarhamukallah.&rdquo;<cite>Sahih al-Bukhari 6224, 6223</cite></blockquote>
+
+<h2>Knowledge and the Qur&rsquo;an</h2>
+
+<h3>Learn the religion daily</h3>
+<p>Learning what is obligatory upon you is itself obligatory <span class="tag fard">Fard</span>. Beyond that, seeking more knowledge daily is Sunnah <span class="tag">Sunnah</span>.</p>
+<blockquote>&ldquo;Seeking knowledge is an obligation upon every Muslim.&rdquo;<cite>Sunan Ibn Majah 224</cite></blockquote><blockquote>&ldquo;Whoever travels a path seeking knowledge, Allah makes easy for him a path to Paradise.&rdquo;<cite>Sahih Muslim 2699</cite></blockquote>
+<p>Start with the different acts of worship:</p>
+<a class="cta-link" href="#/forum/what-is-islam/fiqh/different-acts-of-worship">
+  Go to Different Acts of Worship
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+
+<h3>Read, listen to, memorize and live by the Qur&rsquo;an</h3>
+<p>Learning enough of the Qur&rsquo;an to pray, and living by what it commands, is obligatory <span class="tag fard">Fard</span>. Reading it daily, listening to it, and memorizing more of it are Sunnah <span class="tag">Sunnah</span>.</p>
+<ul>
+<li>&ldquo;The best of you are those who learn the Qur&rsquo;an and teach it.&rdquo; (Sahih al-Bukhari 5027)</li>
+<li>&ldquo;Whoever reads a letter from the Book of Allah will have a good deed, and a good deed is multiplied by ten.&rdquo; (Jami&lsquo; at-Tirmidhi 2910)</li>
+<li>&ldquo;Read the Qur&rsquo;an, for it will come on the Day of Resurrection as an intercessor for its companions.&rdquo; (Sahih Muslim 804)</li>
+<li>&ldquo;The one who recites the Qur&rsquo;an and is skilled in it is with the noble and righteous angels. The one who recites it while stumbling and finding it difficult has two rewards.&rdquo; (Sahih al-Bukhari 4937, Sahih Muslim 798)</li>
+<li>Listening: &ldquo;And when the Qur&rsquo;an is recited, listen to it and be silent, that you may receive mercy.&rdquo; (Qur&rsquo;an 7:204)</li>
+<li>Living by it: &lsquo;A&rsquo;ishah said of the Prophet &#xFDFA;: &ldquo;His character was the Qur&rsquo;an.&rdquo; (Sahih Muslim 746)</li>
+</ul>
+
+<h3>Give dawah to others</h3>
+<p>Dawah is a communal obligation (fard kifayah) <span class="tag fard">Fard</span>, and every Muslim should do their part according to what they know <span class="tag">Sunnah</span>. Enjoining good and forbidding evil is obligatory according to your ability. (Sahih Muslim 49)</p>
+<blockquote>&ldquo;Invite to the way of your Lord with wisdom and good instruction, and argue with them in a way that is best.&rdquo;<cite>Qur&rsquo;an 16:125</cite></blockquote>
+<blockquote>&ldquo;Whoever calls to guidance will have a reward like the rewards of those who follow him, without that diminishing their rewards in the slightest.&rdquo;<cite>Sahih Muslim 2674</cite></blockquote><a class="cta-link" href="#/forum/what-is-islam/fiqh/different-acts-of-worship/dawah-and-etiquette-of-discussion">
+  Go to Dawah and Etiquette of Discussion
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+
+<h3>Share knowledge with others <span class="tag">Sunnah</span></h3>
+<p>Sharing what you know is Sunnah. If someone asks you about something you know and they need it, withholding it is a sin.</p>
+<blockquote>&ldquo;Convey from me, even if it is one verse.&rdquo;<cite>Sahih al-Bukhari 3461</cite></blockquote><blockquote>&ldquo;When a person dies, his deeds come to an end except for three: ongoing charity, beneficial knowledge, or a righteous child who prays for him.&rdquo;<cite>Sahih Muslim 1631</cite></blockquote><blockquote>&ldquo;Whoever is asked about knowledge and conceals it will be bridled with a bridle of fire on the Day of Resurrection.&rdquo;<cite>Sunan Abi Dawud 3658, Jami&lsquo; at-Tirmidhi 2649</cite></blockquote>
+
+<h2>Giving and worship</h2>
+
+<h3>Give charity beyond zakat <span class="tag">Sunnah</span></h3>
+<p>Zakat is obligatory <span class="tag fard">Fard</span>, but voluntary charity (sadaqah) on top of it is Sunnah.</p>
+<blockquote>&ldquo;Protect yourselves from the Fire, even with half a date.&rdquo;<cite>Sahih al-Bukhari 1417, Sahih Muslim 1016</cite></blockquote><blockquote>&ldquo;Charity does not decrease wealth.&rdquo;<cite>Sahih Muslim 2588</cite></blockquote><blockquote>&ldquo;Charity extinguishes sin as water extinguishes fire.&rdquo;<cite>Jami&lsquo; at-Tirmidhi 2616</cite></blockquote>
+
+<h3>Do Hajj and Umrah often, the major and minor pilgrimage</h3>
+<p>Hajj is obligatory once in a lifetime for the one who is able <span class="tag fard">Fard</span> (Qur&rsquo;an 3:97, Sahih Muslim 1337). Umrah is Sunnah in the Maliki school, and obligatory in the Shafi&rsquo;i and Hanbali schools. Doing Hajj and Umrah again and again, beyond the obligation, is Sunnah <span class="tag">Sunnah</span>.</p>
+<blockquote>&ldquo;From one Umrah to the next is an expiation for what is between them, and an accepted Hajj has no reward except Paradise.&rdquo;<cite>Sahih al-Bukhari 1773, Sahih Muslim 1349</cite></blockquote><blockquote>&ldquo;Follow up Hajj with Umrah, and Umrah with Hajj, for they remove poverty and sins as the bellows remove the impurities of iron, gold and silver.&rdquo;<cite>Jami&lsquo; at-Tirmidhi 810, Sunan an-Nasa&rsquo;i 2631</cite></blockquote>
+
+<h3>Constant dhikr <span class="tag">Sunnah</span></h3>
+<p>&ldquo;Let your tongue always be moist with the remembrance of Allah.&rdquo; (Jami&lsquo; at-Tirmidhi 3375)</p>
+<a class="cta-link" href="#/forum/what-is-islam/fiqh/different-acts-of-worship/dhikr">
+  Go to Dhikr
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+
+<h3>Constant istighfar and tawbah</h3>
+<p>Tawbah from every sin is obligatory <span class="tag fard">Fard</span>, and constant istighfar is Sunnah <span class="tag">Sunnah</span>. The Prophet &#xFDFA; made istighfar more than seventy times a day. (Sahih al-Bukhari 6307)</p>
+<a class="cta-link" href="#/forum/what-is-islam/fiqh/different-acts-of-worship/tawbah-and-istighfar">
+  Go to Tawbah and Istighfar
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
 `,
 "what-is-islam/fiqh/fatwas/tasweer": `
 <p class="lede">What is the ruling on making, viewing and keeping pictures, photos and drawings of living beings (humans and animals), including digital images on screens, according to the Maliki school?</p>
@@ -5618,6 +6312,22 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <li>Manual labor</li>
 <li>Combat training</li></ul>
 
+<h2>Work &mdash; Healthy, Natural Livelihoods</h2>
+
+<p>Islam does not only allow honest work. It honors it, and the work it holds up as the ideal is the kind that is healthy for the body and the mind. Every prophet worked, and the Prophet &#xFDFA; himself worked as a shepherd:</p>
+
+<blockquote>Abu Huraira reported: The Prophet &#xFDFA; said, &ldquo;Allah did not send any prophet but that he cared for sheep.&rdquo; The companions asked, &ldquo;And you as well?&rdquo; The Prophet said, &ldquo;Yes. I was a shepherd with a modest wage on behalf of the people of Mecca.&rdquo;<cite>Sahih al-Bukhari, 2262</cite></blockquote>
+
+<p>Look at what shepherding is: hours of walking, fresh air and sunlight, close contact with animals and the land, patience, responsibility for something living, and no screens, noise or sitting. It is natural work that builds a strong body, a calm mind and a sense of duty, and the religion makes it a trait of every prophet. The Prophet &#xFDFA; also taught:</p>
+
+<blockquote>&ldquo;No one has ever eaten better food than that which he has earned by working with his own hands. The Prophet of Allah, Dawud, used to eat from the earnings of his own hands.&rdquo;<cite>Sahih al-Bukhari, 2072</cite></blockquote>
+
+<p>Zakariyya (peace be upon him) was a carpenter (<em>Sahih Muslim</em>, 2379), and farming is praised as a source of charity:</p>
+
+<blockquote>&ldquo;There is no Muslim who plants a tree or sows a field, and then a human, a bird or an animal eats from it, except that it is a charity for him.&rdquo;<cite>Sahih al-Bukhari, 2320; Sahih Muslim, 1553</cite></blockquote>
+
+<p>So the religion promotes work with the hands, with the land and with animals, honest trade, and craft. At the same time, it forbids livelihoods built on harm, such as interest, intoxicants, fraud and the sale of sex. It promotes work that is good for the worker and good for others.</p>
+
 <h2>Hygiene — Natural, Non-Toxic</h2>
 
 <p>They used:</p>
@@ -5773,6 +6483,27 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <h2>Privacy and Sexual Dignity</h2>
 
 <p>Sex is viewed as an intimate act that belongs within the privacy of marriage. Islam discourages public displays of sexual behavior, exposing one's body unnecessarily, and openly discussing intimate acts. Sexuality is treated as something honorable that deserves privacy rather than public entertainment.</p>
+
+<h2>Benefits of Gender Segregation</h2>
+
+<p>Critics present the separation of men and women in some settings as oppression. In fact, it is one of the strengths of Islam, and it benefits both sexes. It is a good thing about the religion, not a bad one.</p>
+
+<ul>
+<li><strong>Women feel more comfortable and safe.</strong> Where men and women are separated, a woman does not have to deal with being stared at, judged on her looks, approached, or pressured. She can study, exercise, speak, relax and dress comfortably without being on display. Many societies, Muslim and non-Muslim, have introduced women-only train carriages, women-only gyms and swimming sessions, and women&rsquo;s colleges, often because women asked for exactly this and felt safer with it.</li>
+<li><strong>Men are not tempted, and they cannot be creeps.</strong> Segregation removes the opportunity for staring, flirting, unwanted advances and harassment before they begin. Islam does not treat men as beasts. It treats them as humans who have desires, and it builds an environment that helps them control those desires instead of testing them all day. The Prophet &#xFDFA; said that when a man is alone with a woman who is not permitted to him, the third among them is Shaytan (<em>Sunan at-Tirmidhi</em>, 2165 &mdash; graded Sahih). Closing the door is easier and safer than fighting at the door.</li>
+<li><strong>Both sexes can focus.</strong> Without constant romantic and sexual tension, comparison and showing off, people can put their attention on study, work and worship. Many who support single-sex education argue that students, especially girls, take part more freely and are less self-conscious.</li>
+<li><strong>It protects marriages and trust.</strong> Fewer private encounters means less jealousy, fewer affairs, and fewer suspicions between spouses. It supports what is mentioned above under &ldquo;Preventing Jealousy and Conflict&rdquo; and &ldquo;Encouraging Commitment.&rdquo;</li>
+<li><strong>It comes with lowering the gaze for both.</strong> Allah commands believing men and believing women alike to lower their gaze and guard their chastity (Quran 24:30&ndash;31), so the duty falls equally on both, and neither is blamed.</li>
+</ul>
+
+<p>It is also not confinement. In the time of the Prophet &#xFDFA;, women attended the mosque, learned, traded, and treated the wounded in battle. When women told the Prophet &#xFDFA; that the men were taking all of his time, he set aside a day for them to teach them (<em>Sahih al-Bukhari</em>, 101), and the best rows for women in the prayer were the last ones, away from the men (<em>Sahih Muslim</em>, 440). The Qur&rsquo;an also praises the two women who waited aside until the shepherds had finished watering, and one of them came to Musa walking with modesty (Quran 28:23&ndash;25). Women were respected and valued, with their own space, and they were safe.</p>
+
+<p>Segregation in Islam is a form of respect and protection for women and for men, not a punishment. For the ruling itself, see the page on Freemixing:</p>
+
+<a class="cta-link" href="#/forum/what-is-islam/fiqh/fatwas/freemixing">
+  Go to Freemixing
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
 
 <h2>Prohibition of Pornography</h2>
 
@@ -6006,7 +6737,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 
 <p>Causality is the concept of cause and effect. A cause is an account for an existent outside itself (this account is also sometimes called grounding). A cause is what brings an effect into existence.</p>
 `,
-"what-is-islam/aqeedah/specific-beliefs/mind-soul-consciousness-fitrah-and-free-will": `
+"what-is-islam/aqeedah/specific-beliefs/creation-and-mankind/mind-soul-consciousness-fitrah-and-free-will": `
 <h2>What is the mind in Islam?</h2>
 
 <p>In Islam, the &ldquo;mind&rdquo; is the faculty by which one understands, reasons, and distinguishes. It is a quality of the soul, not a separate thing in itself.</p>
@@ -6268,8 +6999,295 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <p>We have proven that a being who is uncaused, independent, eternal, possesses a will, and is our creator, exists.</p>
 
 <p class="lede">What does that sound like to you?</p>
+`,
+"what-is-islam/how-to-be-muslim/my-personal-recommendation": `
+<p class="lede">This is the order I recommend for learning and practicing Islam, for new Muslims and for Muslims who are struggling. It is a path, and each step prepares you for the next.</p>
+
+<h2>Part 1: The minimum to being Muslim</h2>
+
+<p>Do these in order. Together, they are the minimum, and they are what you should focus on first.</p>
+
+<ol>
+<li><strong>Why Islam is true.</strong> You cannot commit your life to a religion you do not believe is true. Start with the evidence, so that your belief rests on reason and not on emotion or inheritance.
+<a class="cta-link" href="#/forum/why-islam-is-true">
+  Go to Why Islam Is True
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+</li>
+<li><strong>Clear your doubts (Shubha) with the refutations.</strong> Doubts left unanswered stay in the heart and grow. Deal with the objections you have heard, so they do not shake you later.
+<a class="cta-link" href="#/forum/refutations">
+  Go to Refutations
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+</li>
+<li><strong>The definition of Islam.</strong> Know what you are joining before you join it: what Islam is, what it asks of you, and what it is not.
+<a class="cta-link" href="#/forum/what-is-islam/introduction-to-the-religion">
+  Go to Introduction to the Religion
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+</li>
+<li><strong>Aqeedah.</strong> Without the correct Aqeedah you cannot be Muslim, and belief in Islam without the correct form of that belief is not belief. This is the foundation that everything else stands on.
+<a class="cta-link" href="#/forum/what-is-islam/aqeedah">
+  Go to Aqeedah
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+</li>
+<li><strong>Take your Shahada again and make Ghusl.</strong> Do this especially if you lost faith, fell into a nullifier of Islam, have not been praying, or fear that your Islam is not intact. It gives you a clean and certain start from the point at which you know what Islam is.
+<a class="cta-link" href="#/forum/what-is-islam/how-to-be-muslim/take-your-shahada-testimony-of-faith">
+  Go to the Shahada
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+<a class="cta-link" href="#/forum/what-is-islam/fiqh/different-acts-of-worship/purification/ghusl">
+  Go to Ghusl
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+</li>
+<li><strong>Avoid every nullifier of Islam, and especially do not abandon the prayer.</strong> Right from the beginning, keep the prayer and stay away from everything that breaks your Islam. This is how you remain Muslim.
+<a class="cta-link" href="#/forum/what-is-islam/aqeedah/nawaqidul-islam">
+  Go to the Nullifiers of Islam
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+<a class="cta-link" href="#/forum/what-is-islam/fiqh/different-acts-of-worship/salah">
+  Go to Salah
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+</li>
+<li><strong>Learn the different acts of worship.</strong> It is basically impossible to practice Islam unless you do this. You cannot pray, purify yourself, fast or make du&rsquo;a properly if you do not know how, and learning what is obligatory upon you is itself an obligation (Sunan Ibn Majah 224). Start with the purification (wudu and ghusl), then the prayer, then the fast, and learn the rest as you go. Do your own research as well, and use the Resources tab as a helper.
+<a class="cta-link" href="#/forum/what-is-islam/fiqh/different-acts-of-worship">
+  Go to the Different Acts of Worship
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+<a class="cta-link" href="#/forum/what-is-islam/resources">
+  Go to Resources
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+</li>
+</ol>
+
+<p><strong>That is the minimum to being Muslim. Focus on that for now.</strong> Do not let anything else distract you or overwhelm you until these seven are solid.</p>
+
+<hr class="rule">
+
+<h2>Part 2: Once you have nailed the minimum</h2>
+
+<p>Now you can build on it. Study in this order, because each stage helps you understand the next:</p>
+
+<ol>
+<li><strong>Study the Qur&rsquo;an with Tafsir.</strong> Read it alongside the commentary of the scholars, not alone, so you understand it as it was meant.</li>
+<li><strong>Study the Hadith books with Sharh.</strong> The Sunnah explains the Qur&rsquo;an. Read it with the explanation of the scholars so that you are not left to guess its meaning.</li>
+<li><strong>Study the basics of Usool al-Fiqh.</strong> This teaches you how rulings are derived from the sources, before you study the rulings themselves.
+<a class="cta-link" href="#/forum/what-is-islam/fiqh/usool-al-fiqh">
+  Go to Usool al-Fiqh
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+<a class="cta-link" href="#/forum/what-is-islam/fiqh/fatwas">
+  Go to Fatwas
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+</li>
+<li><strong>Study the basics of Fiqh.</strong> Now learn the rulings of worship and daily life, and why they are what they are.
+<a class="cta-link" href="#/forum/what-is-islam/fiqh/introduction-to-fiqh">
+  Go to Introduction to Fiqh
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+<a class="cta-link" href="#/forum/what-is-islam/fiqh/fatwas">
+  Go to Fatwas
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+</li>
+<li><strong>Study the books of the Salaf and the Salafi scholars.</strong> They give you the understanding of the religion as it was received. Go to the Resources tab if you need help finding sources. Most are in Arabic, but a lot are available in English.
+<a class="cta-link" href="#/forum/what-is-islam/resources">
+  Go to Resources
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+</li>
+</ol>
+
+<p><strong>Do your own research.</strong> Do not take this order, or anything on this site, on blind trust. Check the evidence yourself, and use the Resources tab as a helper to find the Qur&rsquo;an, hadith, tafsir, books and the answers of the scholars.</p>
+
+<a class="cta-link" href="#/forum/what-is-islam/resources">
+  Go to Resources
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+
+<h2>Part 3: Apply it</h2>
+
+<p>Knowledge is meant to be lived. Start applying everything you have learned, so that you stay Muslim, do many good deeds, avoid sins, and seek Allah&rsquo;s forgiveness and mercy.</p>
+
+<ul>
+<li><a href="#/forum/what-is-islam/how-to-be-muslim/other-important-things/avoid-sins-as-much-as-you-can">Avoid sins as much as you can</a></li>
+<li><a href="#/forum/what-is-islam/how-to-be-muslim/other-important-things/do-good-deeds-as-much-as-you-can">Do good deeds as much as you can</a></li>
+<li><a href="#/forum/what-is-islam/how-to-be-muslim/other-important-things/ask-allah-for-mercy-forgiveness-and-make-dua">Ask Allah for mercy, forgiveness, and make du&rsquo;a</a></li>
+<li><a href="#/forum/what-is-islam/how-to-be-muslim/other-important-things/learn-and-act-upon-islam">Learn and act upon Islam</a></li>
+</ul>
+
+<h2>Part 4: Go deeper</h2>
+
+<p>At this point you should have a solid understanding of Islam and be practicing it well. From here, I recommend that you <strong>learn Arabic</strong> and continue studying, especially the Arabic books of the Salafi scholars. Arabic opens the sources directly and protects you from relying only on translations.</p>
+
+<a class="cta-link" href="#/forum/what-is-islam/importance-of-learning-arabic">
+  Go to Importance of Learning Arabic
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+
+<h2>Part 5: Keep improving</h2>
+
+<p>Never stop. Keep improving your Islam through <strong>knowledge, worship, good deeds, and avoiding evil</strong>.</p>
+
+<hr class="rule">
+
+<p>This is also the order I recommend for teaching Islam to others if you give dawah:</p>
+
+<a class="cta-link" href="#/forum/what-is-islam/aqeedah/specific-beliefs/dawah">
+  Go to Dawah
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+`,
+"what-is-islam/aqeedah/specific-beliefs/ethics-and-morality/silence-is-better-than-ill-speech": `
+<p class="lede">Silence is better than ill speech. In Islam you should not speak or give your opinion unless what you say is backed by knowledge and evidence, and unless your speech is clean.</p>
+
+<h2>Speak good, or be silent</h2>
+
+<p>The Prophet &#xFDFA; made this a sign of faith:</p>
+
+<blockquote>&ldquo;Whoever believes in Allah and the Last Day, let him speak good or remain silent.&rdquo;<cite>Sahih al-Bukhari, 6018; Sahih Muslim, 47</cite></blockquote>
+
+<p>Not every thought needs to be said, and not everything you say needs to be shared. Words are recorded:</p>
+
+<blockquote>&ldquo;Not a word does he utter except that with him is an observer prepared [to record it].&rdquo;<cite>Quran 50:18</cite></blockquote>
+
+<h2>Most sins come from the tongue</h2>
+
+<p>The Prophet &#xFDFA; said:</p>
+
+<blockquote>&ldquo;Most of the sins of the son of Adam are from his tongue.&rdquo;<cite>Reported by at-Tabarani and al-Bayhaqi; graded Sahih by al-Albani</cite></blockquote>
+
+<p>When Mu&lsquo;adh (may Allah be pleased with him) asked whether people would be held to account for what they say, the Prophet &#xFDFA; answered:</p>
+
+<blockquote>&ldquo;May your mother lose you, Mu&lsquo;adh! Is there anything that throws people on their faces into the Fire except the harvests of their tongues?&rdquo;<cite>Sunan at-Tirmidhi, 2616 &mdash; graded Hasan Sahih</cite></blockquote>
+
+<p>He also warned how little thought it can take to be destroyed by a word:</p>
+
+<blockquote>&ldquo;A servant may speak a word without giving it any thought, and because of it he falls into the Fire further than the distance between the east and the west.&rdquo;<cite>Sahih al-Bukhari, 6477; Sahih Muslim, 2988</cite></blockquote>
+
+<h2>Falsehood and profanity</h2>
+
+<p>Much of the sin of the tongue is falsehood and filth: lying, backbiting, slander, cursing, insulting, mocking, and obscene or vulgar talk. The Prophet &#xFDFA; said:</p>
+
+<blockquote>&ldquo;The believer is not one who slanders, curses, is obscene or is foul-mouthed.&rdquo;<cite>Sunan at-Tirmidhi, 1977 &mdash; graded Hasan</cite></blockquote>
+
+<blockquote>&ldquo;Whoever does not give up false speech and acting upon it, Allah has no need of him giving up his food and drink.&rdquo;<cite>Sahih al-Bukhari, 1903</cite></blockquote>
+
+<p>Allah describes the believers as those who avoid it:</p>
+
+<blockquote>&ldquo;And they who turn away from ill speech.&rdquo;<cite>Quran 23:3</cite></blockquote>
+
+<p>The Prophet &#xFDFA; also said that a Muslim is the one from whose tongue and hand the Muslims are safe (<em>Sahih al-Bukhari</em>, 10; <em>Sahih Muslim</em>, 40). Even some everyday profanity carries hidden blasphemy, which is explained here:</p>
+
+<a class="cta-link" href="#/forum/what-is-islam/aqeedah/specific-beliefs/ethics-and-morality/hidden-blasphemy-in-profanity">
+  Go to Hidden Blasphemy in Profanity
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+
+<h2>Never speak about what you do not know, or without proof</h2>
+
+<p>Speaking without knowledge is a grave sin, and it is worse when it is about the religion:</p>
+
+<blockquote>&ldquo;And do not pursue that of which you have no knowledge. Indeed, the hearing, the sight and the heart &mdash; about all those one will be questioned.&rdquo;<cite>Quran 17:36</cite></blockquote>
+
+<blockquote>&ldquo;Say: My Lord has only forbidden immoralities, what is apparent of them and what is concealed, sin, unjust aggression, associating others with Allah for which He has sent down no authority, and saying about Allah what you do not know.&rdquo;<cite>Quran 7:33</cite></blockquote>
+
+<p>This includes giving your opinion on the halal and haram, on Aqeedah, on the Qur&rsquo;an and the hadith, on the scholars, or on a person&rsquo;s faith, when you have no knowledge and no evidence. The Prophet &#xFDFA; warned that when knowledge is taken away, people take ignorant leaders who give verdicts without knowledge, and so go astray and lead others astray (<em>Sahih al-Bukhari</em>, 100). Saying &ldquo;Allah knows best&rdquo; or &ldquo;I do not know&rdquo; is not a weakness, it is part of knowledge and a sign of fear of Allah.</p>
+
+<h2>Before you speak</h2>
+
+<ol>
+<li><strong>Do I know this?</strong> Is it something I have learned, and not just something I have heard or assumed?</li>
+<li><strong>Do I have evidence?</strong> Can I back it with the Qur&rsquo;an, the Sunnah, the way of the Salaf, or clear proof?</li>
+<li><strong>Is my speech clean?</strong> Is it free of lies, insults, mockery and filth, and is it said with good manners?</li>
+<li><strong>Is it beneficial?</strong> If it is not needed and not good, silence is better.</li>
+</ol>
+
+<p>If the answer to any of these is no, stay silent.</p>
+
+<p>Silence does not mean hiding the truth when you know it and are obliged to speak. Commanding the good, forbidding the evil, giving testimony and calling to Allah are all required in their place. The rule is that when you do speak, it should be with knowledge, evidence and clean speech. For how to do this when discussing the religion, see:</p>
+
+<a class="cta-link" href="#/forum/what-is-islam/fiqh/different-acts-of-worship/dawah-and-etiquette-of-discussion">
+  Go to Dawah and Etiquette of Discussion
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+<a class="cta-link" href="#/forum/what-is-islam/how-to-be-muslim/other-important-things/learn-and-act-upon-islam">
+  Go to Learn and Act Upon Islam
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+`,
+"what-is-islam/aqeedah/specific-beliefs/dar-war-taghut-and-caliphates/future-caliphate-by-imam-al-mahdi-and-isa-peace-be-upon-him": `
+<p class="lede">The Prophet &#xFDFA; foretold that a Caliphate on the method of prophethood will return before the end of time. It will be led by Imam al-Mahdi, and &lsquo;Isa ibn Maryam (peace be upon him) will descend in his time.</p>
+
+<h2>The Caliphate returns</h2>
+
+<p>Hudhayfah (may Allah be pleased with him) reported that the Prophet &#xFDFA; described the stages the Ummah would go through: Prophethood, then a Caliphate on the method of prophethood, then a biting kingship, then a tyrannical kingship, and then:</p>
+
+<blockquote>&ldquo;...then there will be a Caliphate on the method of prophethood.&rdquo; Then he was silent.<cite>Musnad Ahmad, 18406; graded Sahih by al-Albani in as-Silsilah as-Sahihah, 5</cite></blockquote>
+
+<p>This is the Major Imamate again, one leadership with authority over all Muslims, with the conditions listed on the Caliphates page. When it returns, every Muslim nation state is obliged to join it.</p>
+
+<a class="cta-link" href="#/forum/what-is-islam/aqeedah/specific-beliefs/dar-war-taghut-and-caliphates/caliphates">
+  Go to Caliphates
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+
+<h2>Imam al-Mahdi</h2>
+
+<p>The Mahdi (&ldquo;the guided one&rdquo;) is a righteous man who will rule the Muslims in the last days. He is not a prophet, he is not infallible, and he does not bring a new law. He rules by the Shariah of Muhammad &#xFDFA;.</p>
+
+<blockquote>&ldquo;Among your Caliphs in the last days there will be a Caliph who distributes wealth without counting it.&rdquo;<cite>Sahih Muslim, 2913</cite></blockquote>
+
+<blockquote>&ldquo;If there remained of the world only one day, Allah would lengthen that day until He sends a man from me, or from my family, whose name matches my name and whose father&rsquo;s name matches my father&rsquo;s name. He will fill the earth with justice and fairness as it was filled with injustice and oppression.&rdquo;<cite>Sunan Abi Dawud, 4282 &mdash; graded Sahih</cite></blockquote>
+
+<ul>
+<li>He is from the family of the Prophet &#xFDFA; (the descendants of Fatimah, according to the narrations in the Sunan).</li>
+<li>His time is one of justice, and wealth becomes abundant.</li>
+<li>The narrations about him are many, and most of the scholars of Ahlus Sunnah, among them the scholars of hadith, hold that they are authentic and that belief in him is part of the creed. A small number of scholars doubted them.</li>
+<li>This is not the Shia belief in a hidden Imam who is already born, who is infallible, and who is waiting to return. Ahlus Sunnah do not believe that.</li>
+</ul>
+
+<h2>The descent of &lsquo;Isa (peace be upon him)</h2>
+
+<p>&lsquo;Isa ibn Maryam, the Messiah, was not killed or crucified. Allah raised him, and he will descend before the Day of Judgment, as a follower of the Prophet Muhammad &#xFDFA; and ruling by his Shariah.</p>
+
+<blockquote>&ldquo;By the One in whose hand is my soul, the son of Maryam will soon descend among you as a just ruler. He will break the cross, kill the swine and abolish the jizyah, and wealth will overflow until no one will accept it.&rdquo;<cite>Sahih al-Bukhari, 2222, 3448; Sahih Muslim, 155</cite></blockquote>
+
+<p>He will descend while the Muslims are led by their Imam, and he will pray behind him, as a sign of the honor Allah gave this Ummah:</p>
+
+<blockquote>&ldquo;How will you be when the son of Maryam descends among you and your Imam is from among you?&rdquo;<cite>Sahih al-Bukhari, 3449; Sahih Muslim, 155</cite></blockquote>
+
+<p>He will kill the Dajjal (Antichrist), and in his time Gog and Magog will emerge and then be destroyed (<em>Sahih Muslim</em>, 2937). The full events are on the End Times page:</p>
+
+<a class="cta-link" href="#/forum/what-is-islam/aqeedah/specific-beliefs/the-hereafter-and-the-end-times/end-times">
+  Go to End Times
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+
+<h2>Beware of false claimants</h2>
+
+<p>Nobody should claim to be the Mahdi or the Messiah. Whoever claims it falsely is a liar, and groups that claim that a person of their time is the Mahdi or the returned Messiah have left the way of Ahlus Sunnah. The Messiah who will descend is the same &lsquo;Isa ibn Maryam who was raised by Allah, not a new person born in later times. For the refutation of one such claim, see:</p>
+
+<a class="cta-link" href="#/forum/refutations/heretics/ahmadiyya">
+  Go to Ahmadiyya
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+
+<h2>What this means for us</h2>
+
+<ul>
+<li>We believe in what the Prophet &#xFDFA; told us of the future, without asking how and without inventing details.</li>
+<li>We do not wait passively. We hold to the Qur&rsquo;an and the Sunnah on the understanding of the Salaf, learn our religion, and stay away from the nullifiers of Islam.</li>
+<li>We obey the Muslim ruler in what is good, we do not fight him, and when the Caliphate returns, we give our pledge to its Caliph.</li>
+</ul>
 `
 };
+CONTENT["islamic-history/future-caliphate-by-imam-al-mahdi-and-isa-peace-be-upon-him"] = CONTENT["what-is-islam/aqeedah/specific-beliefs/dar-war-taghut-and-caliphates/future-caliphate-by-imam-al-mahdi-and-isa-peace-be-upon-him"];
 
 /* ============ ICONS (geometric / object line-art only — no living beings) ============ */
 const STAR_PATH = "M150,20 L170.67,100.11 L241.92,58.08 L199.89,129.33 L280,150 L199.89,170.67 L241.92,241.92 L170.67,199.89 L150,280 L129.33,199.89 L58.08,241.92 L100.11,170.67 L20,150 L100.11,129.33 L58.08,58.08 L129.33,100.11 Z";
