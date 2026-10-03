@@ -7517,6 +7517,21 @@ function renderForum(id){
   </div>`;
 }
 
+const NODE_WARNINGS = {
+  "why-islam-is-true/principles-to-understand": "This section is <strong>NOT the proof for Islam</strong>. It is only a tab that goes over <strong>what you need to understand in principle before going over the proof for Islam</strong>. Read it first, so that you can understand and judge the proof properly, and then move on to the proof itself."
+};
+function nodeWarning(key){
+  const w = NODE_WARNINGS[key];
+  if(!w) return "";
+  return `<div class="article"><div class="warning" role="alert">
+    <div class="warning-title">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/><path d="M12 9v4M12 17h.01"/></svg>
+      Warning
+    </div>
+    <p>${w}</p>
+  </div></div>`;
+}
+
 function renderSub(fid, slug){
   const f = forumById(fid);
   if(!f){ location.hash = "#/index"; return; }
@@ -7531,6 +7546,7 @@ function renderSub(fid, slug){
       ${topbar([{label:"Index",href:"#/index"},{label:f.title,href:`#/forum/${f.id}`},{label:title}])}
       <main>
         <div class="forum-head"><h1>${title}</h1></div>
+        ${nodeWarning(`${f.id}/${slug}`)}
         ${desc ? `<p class="forum-sub">${desc}</p>` : ""}
         <div class="toc">${items}</div>
         <a class="back-link" href="#/forum/${f.id}">
@@ -7587,6 +7603,7 @@ function renderNode(fid, slugs){
       ${topbar(crumbs)}
       <main>
         <div class="forum-head"><h1>${node.t}</h1></div>
+        ${nodeWarning(`${f.id}/${slugs.join("/")}`)}
         ${node.d ? `<p class="forum-sub">${node.d}</p>` : ""}
         <div class="toc">${items}</div>
         <a class="back-link" href="${backHref}">
