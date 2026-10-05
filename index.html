@@ -520,6 +520,22 @@ html.js .rv{opacity:0;transform:translateY(16px);transition:opacity .6s ease,tra
 html.js .rv.in{opacity:1;transform:none;}
 .article h2{scroll-margin-top:1.2rem;}
 .article h2::after{content:"";display:block;height:2px;width:2.6rem;margin-top:.4rem;background:var(--gold-2);transform-origin:left;transition:transform .8s ease .15s;}
+.article h2:hover::after{transform:scaleX(1.35);}
+.article-tools{display:flex;justify-content:flex-end;margin:-.25rem 0 1.1rem;}
+.copy-link,.theme-toggle{
+  display:inline-flex;align-items:center;justify-content:center;gap:.4rem;
+  border:1px solid var(--line);background:var(--card-bg);color:var(--ink-soft);
+  border-radius:999px;padding:.42rem .72rem;font:500 .76rem/1 inherit;cursor:pointer;
+  transition:color .2s ease,border-color .2s ease,background .2s ease,transform .2s ease,box-shadow .2s ease;
+}
+.copy-link svg,.theme-toggle svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+.copy-link:hover,.copy-link:focus-visible,.theme-toggle:hover,.theme-toggle:focus-visible{color:var(--gold-2);border-color:var(--gold-2);background:rgba(184,134,59,.08);box-shadow:0 0 0 3px rgba(184,134,59,.1);outline:none;}
+.copy-link:active,.theme-toggle:active{transform:scale(.96);}
+.copy-link.copied{color:var(--teal);border-color:var(--teal);}
+.theme-toggle{width:34px;height:34px;padding:0;flex-shrink:0;}
+.theme-toggle svg{transition:transform .5s cubic-bezier(.2,.75,.25,1);}
+.theme-toggle:hover svg{transform:rotate(18deg) scale(1.08);}
+@media (prefers-reduced-motion:reduce){.article h2:hover::after{transform:none;}.theme-toggle svg{transition:none;}}
 html.js .article h2.rv:not(.in)::after{transform:scaleX(0);}
 .article blockquote{transition:border-color .25s ease,background .25s ease;}
 .article blockquote:hover{border-left-color:var(--teal);background:linear-gradient(90deg,rgba(184,134,59,.07),transparent 70%);}
@@ -5184,7 +5200,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <p>Details are explained in this video:</p>
 <a class="video-link" href="https://youtu.be/rEU8_cFiBSY?si=W6qTcbYEqNdBmdys" target="_blank" rel="noopener">Watch the details (video)</a>
 
-<h2>3. The practices of the Fitrah</h2>
+<h2>3. The practices of the Fitrah <span class="tag fard">Fard</span></h2>
 
 <p>The Prophet &#xFDFA; taught that some practices of personal care belong to the natural disposition (fitrah) Allah created people upon.</p>
 
@@ -7699,6 +7715,27 @@ const slugify = s => s.toLowerCase().replace(/[^\w\s-]/g,"").trim().replace(/\s+
 const forumById = id => FORUMS.find(f => f.id === id);
 const app = document.getElementById("app");
 
+let savedTheme="";
+try{ savedTheme=localStorage.getItem("ilm-theme")||""; }catch(e){}
+if(savedTheme === "light" || savedTheme === "dark") document.documentElement.dataset.theme=savedTheme;
+function themeToggle(){
+  const dark=document.documentElement.dataset.theme === "dark";
+  return `<button class="theme-toggle" type="button" data-theme-toggle aria-pressed="${dark}" aria-label="${dark ? "Switch to light mode" : "Switch to dark mode"}" title="${dark ? "Switch to light mode" : "Switch to dark mode"}">
+    <svg viewBox="0 0 24 24" aria-hidden="true">${dark ? '<path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.5 8.5 0 1 0 20.5 15.2Z"/>' : '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>'}</svg>
+  </button>`;
+}
+function updateThemeButtons(){
+  const dark=document.documentElement.dataset.theme === "dark";
+  document.querySelectorAll("[data-theme-toggle]").forEach(b=>{
+    b.setAttribute("aria-pressed", String(dark));
+    b.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode");
+    b.title=dark ? "Switch to light mode" : "Switch to dark mode";
+    b.innerHTML=dark
+      ? '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 15.2A8.5 8.5 0 0 1 8.8 3.5 8.5 8.5 0 1 0 20.5 15.2Z"/></svg>'
+      : '<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>';
+  });
+}
+
 function starSVG(size, withMark){
   return `<svg class="intro-star" viewBox="0 0 300 300" width="${size}" height="${size}">
     <path d="${STAR_PATH}"/>
@@ -7720,6 +7757,7 @@ function renderIntro(){
   app.innerHTML = `
   <div class="view">
     <div class="welcome-tools">
+      ${themeToggle()}
       <div class="translate-control notranslate" translate="no">
         <label for="ilm-lang" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Translate this page</label>
         <select id="ilm-lang" class="translate-select" data-translate-select>${langOptions()}</select>
@@ -7787,6 +7825,7 @@ function topbar(crumbs){
     <a class="wordmark" href="#/index">${wordmarkSVGSmall()} Ilm</a>
     <div class="topbar-actions">
       <nav class="crumbs">${crumbHTML}</nav>
+      ${themeToggle()}
       <div class="translate-control notranslate" translate="no">
         <label for="ilm-lang" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Translate this page</label>
         <select id="ilm-lang" class="translate-select" data-translate-select>${langOptions()}</select>
@@ -7866,6 +7905,7 @@ function articlePage(crumbs, eyebrow, title, desc, html, backHref, backLabel){
     <main>
       <p class="sf-eyebrow">${eyebrow}</p>
       <h1 class="sf-title">${title}</h1>
+      <div class="article-tools"><button class="copy-link" type="button" data-copy-link title="Copy this page link"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="10" height="10" rx="1.5"/><path d="M6 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1"/></svg><span class="copy-text">Copy link</span></button></div>
       <div class="article">${renderedHtml}</div>
       <a class="back-link" href="${backHref}">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12H6M11 6l-6 6 6 6"/></svg>
@@ -8180,7 +8220,31 @@ function enhanceView(){
   if(document.querySelector(".w-card")) bind3DMotion();
   revealOnScroll([...document.querySelectorAll(".article > *:nth-child(n+9), .w-section")]);
 }
-document.addEventListener("click",e=>{
+document.addEventListener("click",async e=>{
+  const theme=e.target.closest("[data-theme-toggle]");
+  if(theme){
+    const next=document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+    document.documentElement.dataset.theme=next;
+    try{ localStorage.setItem("ilm-theme",next); }catch(_){}
+    updateThemeButtons();
+    return;
+  }
+  const copy=e.target.closest("[data-copy-link]");
+  if(copy){
+    const text=copy.querySelector(".copy-text");
+    const original=text ? text.textContent : "Copy link";
+    try{
+      if(!navigator.clipboard || !navigator.clipboard.writeText) throw new Error("clipboard unavailable");
+      await navigator.clipboard.writeText(location.href);
+      copy.classList.add("copied");
+      if(text) text.textContent="Copied";
+      setTimeout(()=>{ copy.classList.remove("copied"); if(text) text.textContent=original; },1800);
+    }catch(_){
+      if(text) text.textContent="Copy unavailable";
+      setTimeout(()=>{ if(text) text.textContent=original; },1800);
+    }
+    return;
+  }
   const b=e.target.closest("[data-jump]"); if(!b) return;
   const t=document.querySelectorAll(".article h2")[+b.dataset.jump];
   if(t) t.scrollIntoView({behavior:motionOK?"smooth":"auto",block:"start"});
