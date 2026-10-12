@@ -466,6 +466,12 @@ body{top:0 !important;}
 body > .skiptranslate, iframe.skiptranslate, .goog-te-banner-frame, #goog-gt-tt, .goog-te-balloon-frame{display:none !important;}
 #google_translate_element{display:none;}
 .goog-text-highlight{background:none !important;box-shadow:none !important;}
+
+.linktree-link{display:inline-flex;align-items:center;gap:.4rem;height:34px;padding:0 .8rem;border:1px solid var(--line);border-radius:999px;background:var(--card-bg);color:var(--ink);font-family:inherit;font-size:.78rem;font-weight:600;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:color .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease;}
+.linktree-link svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
+.linktree-link:hover,.linktree-link:focus-visible{color:var(--gold-2);border-color:var(--gold-2);background:rgba(184,134,59,.08);box-shadow:0 0 0 3px rgba(184,134,59,.1);outline:none;}
+.linktree-big{height:auto;padding:.7rem 1.3rem;font-size:.95rem;margin-top:1rem;}
+@media (max-width:700px){.linktree-link{padding:0 .6rem;font-size:.72rem;}}
 @media (max-width:700px){
   .topbar{align-items:flex-start;gap:.7rem;}
   .topbar-actions{gap:.5rem;align-items:flex-start;}
@@ -475,7 +481,7 @@ body > .skiptranslate, iframe.skiptranslate, .goog-te-banner-frame, #goog-gt-tt,
 
 
 /* ============ WELCOME / START PAGE ============ */
-.welcome-tools{display:flex;justify-content:flex-end;padding:1.2rem clamp(1.25rem,4vw,3rem) 0;}
+.welcome-tools{display:flex;justify-content:flex-end;align-items:center;gap:.6rem;padding:1.2rem clamp(1.25rem,4vw,3rem) 0;}
 .welcome{max-width:880px;margin:0 auto;padding:clamp(1.5rem,5vw,3.5rem) clamp(1.25rem,4vw,2rem) 4rem;}
 .welcome-hero{text-align:center;display:flex;flex-direction:column;align-items:center;gap:1.3rem;padding-bottom:clamp(2rem,5vw,3rem);}
 .welcome-hero .intro-star{width:min(40vw,150px);height:min(40vw,150px);}
@@ -602,7 +608,7 @@ html{background:var(--parchment);}
 /* ============ ISLAMIC GEOMETRY AND MOTION ============ */
 .weave::before{
   content:"";position:absolute;inset:0;pointer-events:none;
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%23B8863B' stroke-width='.8'%3E%3Crect x='22' y='22' width='28' height='28'/%3E%3Crect x='22' y='22' width='28' height='28' transform='rotate(45 36 36)'/%3E%3Ccircle cx='36' cy='36' r='4'/%3E%3Cpath d='M0 0l6 6M72 0l-6 6M0 72l6-6M72 72l-6-6'/%3E%3C/g%3E%3C/svg%3E") 0 0/72px 72px;opacity:.3;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%23B8863B' stroke-width='.8'%3E%3Crect x='22' y='22' width='28' height='28'/%3E%3Crect x='22' y='22' width='28' height='28' transform='rotate(45 36 36)'/%3E%3Ccircle cx='36' cy='36' r='4'/%3E%3C/g%3E%3C/svg%3E") 0 0/72px 72px;opacity:.3;
   animation:weaveDrift 140s linear infinite;
 }
 @keyframes weaveDrift{to{background-position:72px 72px;}}
@@ -619,6 +625,7 @@ html{background:var(--parchment);}
 @keyframes ledeIn{from{border-left-color:transparent;padding-left:.4rem;}to{border-left-color:var(--gold-2);padding-left:1.1rem;}}
 .wordmark svg path{transform-box:fill-box;transform-origin:center;animation:starSpin 70s linear infinite;}
 @keyframes starSpin{to{transform:rotate(360deg);}}
+.site-disclaimer{max-width:46rem;margin:1rem auto 0;font-size:.74rem;line-height:1.6;opacity:.75;text-align:center;}
 footer::before{
   content:"";display:block;width:22px;height:22px;margin:0 auto 1rem;
   background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23B8863B' stroke-width='1.2'%3E%3Crect x='5' y='5' width='14' height='14'/%3E%3Crect x='5' y='5' width='14' height='14' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat;
@@ -1125,7 +1132,7 @@ const CONTENT = {
 
 <p>&ldquo;It should be&rdquo; Are you God? No? Then there is no &ldquo;should&rdquo;. You don&rsquo;t make legislation that is not your right, it is the right of God, your opinion is worth less than dirt in the religion.</p>
 
-<p>If anything that comes out of your mouth when talking about Islam isn&rsquo;t Qur&rsquo;aan, Sunnah, the sayings of the Salaf or the consensus of the Scholars throw your opinion in a garbage can and burn it because The people of Sunnah don&rsquo;t care!</p>
+<p>If anything that comes out of your mouth when talking about Islam isn&rsquo;t Qur&rsquo;aan, Sunnah, the sayings of the Salaf or the consensus of the Scholars discard your opinion, because the people of the Sunnah do not give it any weight.</p>
 
 <p>There is no opinion in religion except the opinion of the prophet &#xFDFA;, we only take the opinion of men when it is derived from revelation!</p>
 
@@ -1135,7 +1142,7 @@ const CONTENT = {
 
 <p>But the innovations are NOT limited to women, for instance, many ignorant Men think that a Woman has to wear hijab in private or around other women, or think that we are allowed to hurt women and beat them into wearing hijab, this is another harmful innovation! A woman is free to wear comfortable clothing in private, and around her spouse in private may be as undressed as she wishes, nor can we hurt her for this.</p>
 
-<p>And some morons amongst the men think a woman is obligated to disclose her prior relationships or marriages, and that she owes him an explanation of her past, including zina. But this is HARAM and an INNOVATION! Your spouse owes you NOTHING about their past, nor should you care especially if they had repented!  All of these are western innovations that harm our ummah!</p>
+<p>And some men wrongly think a woman is obligated to disclose her prior relationships or marriages, and that she owes him an explanation of her past, including zina. But this is HARAM and an INNOVATION! Your spouse owes you NOTHING about their past, nor should you care especially if they had repented!  All of these are western innovations that harm our ummah!</p>
 
 <h2>Evidence from the scholars</h2>
 
@@ -1744,7 +1751,7 @@ const CONTENT = {
 
 <p>At its core, being Sunni means adhering to the Sunnah (the recorded teachings, sayings, actions, and approvals of the Prophet Muhammad &#xFDFA;). It basically means you follow the Prophet &#xFDFA;, which is obviously mandatory for every Muslim!</p>
 
-<p>The reason we even use the term Sunni is to distinguish ourselves from heretics, like the Shias, who do not accept the Sunnah, even if they claim to!</p>
+<p>The reason we even use the term Sunni is to distinguish ourselves from groups we consider heretical, like the Shias, who do not accept the Sunnah, even if they claim to.</p>
 
 <h2>Salafi</h2>
 
@@ -1858,7 +1865,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <p><strong>Example:</strong> Allah has many attributes. We affirm every attribute, without distorting it, without denying it, without asking how it is, and without saying that His attributes are like anything created. For example, He does have a &ldquo;hand&rdquo;, but the modality of His hand is unknown (how it is or what it looks like) and it is unlike the hands of creatures. Its existence (we know Allah has a hand) and its meaning (Allah has an attribute with which He grabs, grasps, gives, takes, etc.) are known.</p>
 
-<p>And an analogy to disprove the idiots who think this is anthropomorphic:</p>
+<p>And an analogy to disprove the claim of those who think this is anthropomorphic:</p>
 
 <ul>
 <li>Does a human exist?</li>
@@ -2117,6 +2124,16 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 <p>Here, Allah describes the whole of Mecca&rsquo;s people, before the conquest, as persisting in disbelief &mdash; a general Takfir of the land and its people &mdash; even though there were secret believers hidden among them, unknown to the Muslims. The existence of unknown individual exceptions did not stop the general, outward ruling on the land as a whole from being correct.</p>
 
 <p>The Companions treated the Muslims who lived in Dar al-Harb and hid their Islam as Kuffar, because they showed no sign of Islam, and they would have fought them without knowing. Allah held back the fighting not because the Companions would have been wrong in their ruling, but because they would have grieved on learning that they had killed believers. Even with the possibility of hidden Muslims among them, the ruling the Companions gave on everyone in Dar al-Harb, until the opposite was proven, was correct, and Allah confirms this in the verse. When the expeditions and wars of the Prophet &#xFDFA; and his Companions are examined, they treated everyone in the land of Kufr as Kafir, other than those they knew were believers. This is the general ruling for the Dar and its people.</p>
+
+<h3>Abu Bakr and the Riddah wars</h3>
+
+<blockquote>Abu Bakr (radiyallahu &lsquo;anhu) said to Ali, Al-Zubayr, Talha and Abdullah ibn Mas&lsquo;ud (radiyallahu &lsquo;anhum): &ldquo;The Earth is unbelieving.&rdquo;</blockquote>
+
+<blockquote>It is reported about Abu Bakr (radiyallahu &lsquo;anhu) during the Riddah wars that he obliged the people of Medina to attend the mosque, while they said: &ldquo;The land is unbelieving.&rdquo;<cite>Tarikh at-Tabari, 3/245</cite></blockquote>
+
+<blockquote>Abu Bakr said at the start of the Riddah wars: &ldquo;Verily, the earth (the people) today is disbelieving.&rdquo;</blockquote>
+
+<p>Here the Caliph, with the Companions, described the land and its people as a whole as disbelieving &mdash; a general ruling on a land, in the way Takfir ad-Dar and Takfir bil-Umum work.</p>
 
 <h3>Children of the disbelievers</h3>
 
@@ -2788,7 +2805,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <h3>Takfir and what follows from it</h3>
 
-<p>Every Muslim must disbelieve in Taghut, and any Muslim may make Takfir of one who plainly commits kufr, once the conditions of Takfir are met and the preventing factors are absent. Where it is unclear, he asks the people of knowledge. Removing a kafir ruler is obligatory on all Muslims according to their ability, as explained on the Revolting page. Killing and taking property are not done by an individual on his own. This site gives no country examples, because the question of which modern states are Dar al-Islam is debated.</p>
+<p>Every Muslim must disbelieve in Taghut, and any Muslim may make Takfir of one who plainly commits kufr, once the conditions of Takfir are met and the preventing factors are absent. Where it is unclear, he asks the people of knowledge. According to the scholars, removing a ruler who commits clear kufr is an obligation on the Muslims according to their ability and within the limits set out on the Revolting page. Killing and taking property are not done by an individual on his own. This site gives no country examples, because the question of which modern states are Dar al-Islam is debated.</p>
 
 <h2>Hijrah (Migration) From Dar al-Kufr</h2>
 
@@ -4410,13 +4427,33 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <p>This is an explanation within the Islamic framework, not proof of any particular story, and many such reports will also have ordinary explanations.</p>
 
+<h3>How many people claim paranormal experiences?</h3>
+
+<p>Claims of this kind are not rare or limited to one culture. They are among the most widespread human experiences, found in every region and in every period of history:</p>
+<ul>
+<li><strong>Belief in witchcraft:</strong> A study of 95 countries, using more than 140,000 survey respondents from surveys run between 2008 and 2017, found that around 40% of people worldwide believe in witchcraft. Applied to the world&rsquo;s population, that is roughly one billion people (Boris Gershman, <em>PLOS One</em>).</li>
+<li><strong>Spells, curses and magic:</strong> In a 2025 Pew Research Center study of 35 countries, at least 70% of adults in every sub-Saharan African country surveyed said spells, curses or magic can influence people&rsquo;s lives, reaching 87% in Ghana. More than half of adults in every Latin American country surveyed agreed (Colombia 72%, Mexico 56%), and so did 30% of Americans.</li>
+<li><strong>Jinn among Muslims:</strong> In Pew&rsquo;s 2012 survey of Muslims, belief in jinn was 86% in Morocco, 84% in Bangladesh, 77% in Malaysia, 63% in Turkey, and over half in 13 of the 23 countries where the question was asked.</li>
+<li><strong>Ghosts and demons in the West:</strong> A 2019 YouGov poll of US adults found 45% believe ghosts exist, 46% believe demons exist, and 36% said they had personally felt the presence of a ghost or spirit.</li>
+</ul>
+
+<p>These are surveys of belief, not proof that every report is true. But when hundreds of millions of people across unrelated cultures describe the same kinds of unseen beings, shape-shifting, and hidden interference, it fits what revelation says about the jinn.</p>
+
+<h3>Examples of testimonies</h3>
+
+<p>Here are two examples of the many testimonies of people describing encounters with the jinn:</p>
+<ul>
+<li><a href="https://youtu.be/XdwxN-1350w?si=AO2Jv3RK1PhduqZ1" target="_blank" rel="noopener">Testimony on YouTube</a></li>
+<li><a href="https://www.instagram.com/reel/DXJes7xCSqT/?vrfl=dHNwY2IxZjBnejUz" target="_blank" rel="noopener">Testimony on Instagram</a></li>
+</ul>
+
 <h3>Paganism, idol worship and false religion</h3>
 
 <p>This also explains a lot of paganism, idol worship and false religion. The Shayateen, the jinn who follow Iblis, can trick people into worshipping them. They claim to be divine, then do things for those people, so that the worshipper believes the worship is working.</p>
 
 <h3>&ldquo;I had a dream,&rdquo; and &ldquo;It works, I&rsquo;ve tried it&rdquo;</h3>
 
-<p>Some people say, &ldquo;I had a dream about X,&rdquo; as many Christians do, and people who practice magic say, &ldquo;It works, I have tried it before.&rdquo; Such experiences can be real. But they only happen because Allah allows them to happen, and because the person is being tricked by the jinn. They do not happen because what the person is doing has power in itself.</p>
+<p>Some people say, &ldquo;I had a dream about X,&rdquo; as many Christians do, and people who practice magic say, &ldquo;It works, I have tried it before.&rdquo; Such experiences can be real. But they only happen because Allah allows them to happen, and because often the person is being tricked by the jinn. They do not happen because what the person is doing has power in itself.</p>
 
 <p>It is like punching yourself in the face for money. When money arrives, you think the punching is what earned it, but really a jinn is bringing you the money to make you believe the punching works.</p>
 
@@ -6715,140 +6752,6 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </ul>
 
 `,
-"what-is-islam/fiqh/fatwas/tasweer": `
-<p class="lede">What is the ruling on making, viewing and keeping pictures, photos and drawings of living beings (humans and animals), including digital images on screens, according to the Maliki school?</p>
-
-<blockquote><strong>What does &ldquo;Maliki&rdquo; mean?</strong> &ldquo;Maliki&rdquo; means &ldquo;of Malik&rdquo;. It describes the school of Islamic law (madhhab) founded by Imam Malik ibn Anas of Medina (d. 179 AH), and a Maliki is a follower of that school.</blockquote>
-
-<h2>The short answer</h2>
-
-<p>The Maliki school (al-Madhhab al-Maliki), as explained by classical authorities such as Ibn Rushd, Ad-Dardir, An-Nafrawi and &lsquo;Ileesh, divides the ruling by three things: whether the image is <strong>three-dimensional or flat (two-dimensional)</strong>, whether it is <strong>complete or incomplete</strong>, and <strong>how it is used</strong>.</p>
-
-<h2>The three rulings</h2>
-
-<h3>1. Prohibited (Haram): complete 3D figures</h3>
-
-<p>It is strictly prohibited to construct a complete three-dimensional figure of a living creature with a soul (dhat ruh), meaning one that has a physical shadow and all the external limbs needed to live.</p>
-
-<blockquote>&ldquo;The one who makes that image will be punished on the Day of Resurrection, and it will be said to him: &lsquo;Give life to what you have created.&rsquo;&rdquo;</blockquote>
-
-<p>As stated by Imam Ad-Dardir in <em>Ash-Sharh al-Kabir</em>, this applies whether the material is permanent or temporary (for example sculpting with perishable items such as fruit peels). Viewing such statues is likewise forbidden.</p>
-
-<h3>2. Disliked (Makruh): flat images</h3>
-
-<p>Two-dimensional drawings, sketches or prints of humans or animals on flat surfaces (walls, paper, cloth, screens) that cast no physical shadow are <strong>disliked, not forbidden</strong>.</p>
-
-<p><strong>Digital screens:</strong> an image of a human or animal on a computer, phone or television screen is flat 2D imagery. Digital drawing and photography of living beings are therefore <em>makruh</em>, not <em>haram</em>.</p>
-
-<h3>3. Permissible (Mubah), or merely against what is better (Khilaf al-Awla)</h3>
-
-<p>The ruling moves from disliked to permissible, or merely contrary to what is better, in these cases:</p>
-
-<ul>
-  <li><strong>Incomplete figures:</strong> any image (2D or 3D) missing a vital limb or organ without which life could not exist, such as a missing head or upper torso.</li>
-  <li><strong>Degraded surfaces (Al-Mutahan):</strong> 2D images on everyday items that are stepped on, sat on or eaten from, such as floor rugs, mats, cushions or plates.</li>
-  <li><strong>Inanimate objects:</strong> images of things without a soul, such as trees, landscapes, clouds, mountains and buildings, are fully permissible by consensus.</li>
-</ul>
-
-<h2>The evidence for the Maliki position</h2>
-
-<p>The school relies on authentic reports that exempt flat, garment-based designs from the absolute prohibition.</p>
-
-<h3>The Hadith of the Curtain</h3>
-
-<p>Busr ibn Sa&lsquo;id narrated from Zayd ibn Khalid, from Abu Talhah, that the Prophet &#xFDFA; said: &ldquo;The angels do not enter a house in which there are figures.&rdquo; When Zayd later fell ill and had a curtain with images hanging on his door, &lsquo;Ubayd Allah al-Khawlani said: &ldquo;Did you not hear him when he said: &lsquo;Except if it is a design on a garment (cloth)&rsquo;?&rdquo; (Sahih Muslim)</p>
-
-<h3>The Hadith of the Sheet</h3>
-
-<p>Al-Tirmidhi reported that Abu Talhah wanted to remove a sheet from under him because of the images on it. Sahl ibn Hunayf reminded him: &ldquo;Did he not also say: &lsquo;Except if it is a design on a garment&rsquo;?&rdquo; Abu Talhah replied: &ldquo;Yes, but it makes me feel better.&rdquo; (Sahih)</p>
-
-<h2>Conclusion and practical counsel</h2>
-
-<ul>
-  <li><strong>Sculptures:</strong> making or acquiring complete 3D statues of living beings remains <em>haram</em>.</li>
-  <li><strong>Digital art and photography:</strong> drawing living beings or taking digital photos is <em>makruh</em> in the Maliki school, though not sinful.</li>
-  <li><strong>Recommendation:</strong> although flat digital drawings and photos may be used, it is better to limit unnecessary depiction of living creatures, or to use incomplete forms, so as to avoid even the dislike (makruh).</li>
-</ul>
-
-<h2>Two important notes</h2>
-
-<h3>1. Children&rsquo;s toys</h3>
-
-<p>Toys (dolls) for children are allowed, but only if a child actually uses them. A child here means someone who has not reached puberty. The evidence is the report of &lsquo;A&rsquo;ishah:</p>
-
-<blockquote>When the Prophet &#xFDFA; arrived after the expedition of Tabuk or Khaybar (the doubt is from the narrator), the wind raised one end of a curtain hanging in front of her store-room, revealing some dolls that belonged to her. He asked: &ldquo;What is this?&rdquo; She replied: &ldquo;My dolls.&rdquo; Among them he saw a horse with wings made of rags and asked: &ldquo;What is this that I see among them?&rdquo; She said: &ldquo;A horse.&rdquo; He asked: &ldquo;What is this that it has on?&rdquo; She said: &ldquo;Two wings.&rdquo; He asked, surprised: &ldquo;A horse with two wings?&rdquo; She replied: &ldquo;Have you not heard that Solomon had horses with wings?&rdquo; The Prophet &#xFDFA; then laughed so heartily that she could see his molar teeth. (Abu Dawud)</blockquote>
-
-<h3>2. Idols</h3>
-
-<p>If the image is an idol, the obligation to destroy it is even greater than for an ordinary sculpture. See the section on idols below.</p>
-
-<h2>The warnings against image-making</h2>
-
-<p>The following reports are the basis for the prohibition on making images of living beings.</p>
-
-<h3>Ibn &lsquo;Abbas and the image-maker</h3>
-
-<p>Sa&lsquo;id ibn Abi al-Hasan said: I was with Ibn &lsquo;Abbas when a man came and said: &ldquo;O Abu &lsquo;Abbas, I earn my living by what my hands make, and I make these images.&rdquo; Ibn &lsquo;Abbas said: I will only tell you what I heard the Messenger of Allah &#xFDFA; say. I heard him say: &ldquo;Whoever makes an image, Allah will punish him until he breathes life into it, and he will never be able to do that.&rdquo; The man became very upset and his face turned pale, so Ibn &lsquo;Abbas said: &ldquo;Woe to you! If you insist on making images, then make images of these trees and everything that does not have a soul.&rdquo; (Al-Bukhari 2112, Muslim 2110)</p>
-
-<h3>The most severely punished</h3>
-
-<p>&lsquo;Abdullah ibn Mas&lsquo;ud said: I heard the Messenger of Allah &#xFDFA; say: &ldquo;The people who will be the most severely punished before Allah on the Day of Resurrection will be the image makers.&rdquo; (Al-Bukhari 5606, Muslim 2109)</p>
-
-<h3>&ldquo;Give life to what you have created&rdquo;</h3>
-
-<p>&lsquo;Abdullah ibn &lsquo;Umar reported that the Messenger of Allah &#xFDFA; said: &ldquo;Those who make these images will be punished on the Day of Resurrection. It will be said to them: Give life to that which you have created!&rdquo; (Al-Bukhari 5607, Muslim 2108)</p>
-
-<h3>Competing with Allah&rsquo;s creation</h3>
-
-<p>Abu Hurayrah entered a house in Madinah and saw someone making images in it. He said: I heard the Messenger of Allah &#xFDFA; say that Allah says: &ldquo;Who does greater wrong than one who goes and creates something like My creation? Let them create a seed or a small ant!&rdquo; (Al-Bukhari 560, Muslim 2111)</p>
-
-<h2>Images in the home</h2>
-
-<p>The Prophet &#xFDFA; warned against bringing images into the house, saying that it is a sin and deprives a person of good.</p>
-
-<h3>Angels and statues</h3>
-
-<p>Abu Talhah said: I heard the Messenger of Allah &#xFDFA; say: &ldquo;The angels do not enter a house in which there is a dog or statues.&rdquo; (Al-Bukhari 3053, Muslim 2106)</p>
-
-<h3>The pillow with images</h3>
-
-<p>&lsquo;A&rsquo;ishah, Umm al-Mu&rsquo;minin, bought a pillow with images on it. When the Messenger of Allah &#xFDFA; saw it, he stood at the door and did not enter. She saw on his face that he was upset and said: &ldquo;O Messenger of Allah, I repent to Allah and His Messenger. What is my sin?&rdquo; He asked: &ldquo;What is this pillow?&rdquo; She said: &ldquo;I bought it for you so that you could sit and recline on it.&rdquo; The Messenger of Allah &#xFDFA; said: &ldquo;On the Day of Resurrection, the makers of these images will be punished and it will be said to them: Give life to that which you have created.&rdquo; And he said: &ldquo;The angels do not enter a house in which there are images.&rdquo; (Al-Bukhari 1999, Muslim 2107)</p>
-
-<h2>Images of the deceased and images on graves</h2>
-
-<p>The command is to destroy two kinds of images: those that represent a deceased person, and those placed on top of graves, because shirk may come about from both. (From <em>Majmu&lsquo; al-Fatawa</em>, 17/462 and <em>Al-Fawa&rsquo;id</em>, p. 196)</p>
-
-<h2>Idols and their destruction</h2>
-
-<p>An idol is worse than an ordinary image, because it is used for shirk.</p>
-
-<h3>The Prophet&rsquo;s mission</h3>
-
-<p>The Prophet &#xFDFA; entered Makkah when there were 360 idols around the Ka&lsquo;bah. He began striking them with a stick in his hand while reciting: &ldquo;Truth has come and falsehood has vanished.&rdquo; &lsquo;Amr ibn &lsquo;Abasah asked him: &ldquo;Who are you?&rdquo; He said: &ldquo;I am a Prophet.&rdquo; &lsquo;Amr asked: &ldquo;What is a Prophet?&rdquo; He said: &ldquo;I have been sent by Allah.&rdquo; &lsquo;Amr asked: &ldquo;With what have you been sent?&rdquo; He said: &ldquo;I have been sent to join ties of relationship, to break the idols, and to proclaim the oneness of Allah, so that nothing is associated with Him.&rdquo; (<a href="https://sunnah.com/muslim:832" target="_blank" rel="noopener">Sahih Muslim 832</a>)</p>
-
-<h3>The ruling</h3>
-
-<ul>
-  <li>It is not lawful for a Muslim to possess an idol (<a href="https://sunnah.com/bukhari:2236" target="_blank" rel="noopener">Bukhari 2236</a>), so any such idol has to be destroyed.</li>
-  <li>The Prophet &#xFDFA; also defaced images that were not idols (<a href="https://sunnah.com/tirmidhi:2806" target="_blank" rel="noopener">Tirmidhi 2806</a>), and an idol is worse than that.</li>
-  <li>Some scholars note that destroying such idols is a form of forbidding evil (nahy &lsquo;an al-munkar) and state that neither legal punishment nor financial compensation applies to someone who destroys them.</li>
-  <li>The Prophet &#xFDFA; commanded &lsquo;Ali ibn Abi Talib: <span dir="rtl" lang="ar">لا تدع تمثالا إلا طمسته</span> (&ldquo;Do not leave an image without obliterating it&rdquo;). (<a href="https://sunnah.com/muslim:969a" target="_blank" rel="noopener">Muslim</a>)</li>
-</ul>
-
-<h3>Prophets and Companions who destroyed idols</h3>
-
-<ul>
-  <li><strong>Musa (Moses)</strong> &#x639;&#x644;&#x64A;&#x647; &#x627;&#x644;&#x633;&#x644;&#x627;&#x645; destroyed the golden calf (<a href="https://quran.com/20/97?translations=20" target="_blank" rel="noopener">Qur&rsquo;an 20:97</a>).</li>
-  <li><strong>Ibrahim (Abraham)</strong> &#x639;&#x644;&#x64A;&#x647; &#x627;&#x644;&#x633;&#x644;&#x627;&#x645; destroyed the idols of his people (<a href="https://quran.com/21/57-58?translations=20" target="_blank" rel="noopener">Qur&rsquo;an 21:57-58</a>).</li>
-  <li><strong>The Prophet Muhammad</strong> &#xFDFA; destroyed the idols in the Ka&lsquo;bah at the conquest of Makkah (<a href="https://sunnah.com/bukhari:4720" target="_blank" rel="noopener">Bukhari 4720</a>).</li>
-  <li><strong>Khalid ibn al-Walid</strong> was sent by the Prophet &#xFDFA; to Nakhlah to demolish the idol of al-&lsquo;Uzza (<em>Ar-Raheeq al-Makhtum</em>).</li>
-  <li><strong>&lsquo;Amr ibn al-&lsquo;As</strong> was sent to demolish the idol of Suwa&lsquo; (<em>Ar-Raheeq al-Makhtum</em>).</li>
-  <li><strong>Sa&lsquo;d ibn Zayd al-Ashhali</strong> was sent to al-Mushallal to demolish the idol of Manat (<em>Ar-Raheeq al-Makhtum</em>).</li>
-  <li><strong>&lsquo;Ali ibn Abi Talib</strong> was sent to demolish Qullus, the idol of the Tayy&rsquo; tribe (<em>Ar-Raheeq al-Makhtum</em>).</li>
-  <li><strong>Al-Mughirah ibn Shu&lsquo;bah</strong> was sent to Ta&rsquo;if to demolish the idol of al-Lat (<em>Ar-Raheeq al-Makhtum</em>).</li>
-  <li><strong>Jarir ibn &lsquo;Abdullah</strong> was sent to demolish Dhul-Khalasah (<a href="https://sunnah.com/bukhari:4355" target="_blank" rel="noopener">Bukhari 4355</a>).</li>
-</ul>
-`,
 "what-is-islam/fiqh/usool-al-fiqh": `
 <p class="lede">Usool al-Fiqh (legal principles) is the framework for interpreting and understanding Islamic law. There are 4 main schools, each with its own usool, but I recommend the Maliki school. Why?</p>
 
@@ -6960,7 +6863,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 
 <p>Not every taqlid is blatant kufr, fisq or shirk; rather, there are some details pertaining to this matter. None of the four leaders of the schools of fiqh called people to follow his madhhab (school of jurisprudence), or obliged anyone else to act in accordance with it or with a specific madhhab. They used to call people to follow the Qur’an and the Sunnah and to interpret Islamic texts.</p>
 
-<p>When I say become Maliki, I do not mean it in the way some of these morons do nowadays who say you need to make taqlid of scholars if you are not a scholar. No, you do not. What you do is go to the scholars for their evidence and their interpretations, but you do NOT just blindly take their opinion without understanding why, nor do you persist in their opinion if you see evidence against it!</p>
+<p>When I say become Maliki, I do not mean it in the way some people do nowadays who say you need to make taqlid of scholars if you are not a scholar. No, you do not. What you do is go to the scholars for their evidence and their interpretations, but you do NOT just blindly take their opinion without understanding why, nor do you persist in their opinion if you see evidence against it!</p>
 
 <hr class="rule">
 
@@ -7922,11 +7825,11 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 
 <p>As far as the third definition of gender (action and norms) is concerned, it is also irrelevant. It is inter-subjective and has no ethical importance. Whether you’re a person who acts more like what people picture when they hear “Man” or hear “Woman” has no weight in the court of law or in ethical considerations. It is, again, a pure source of confusion purposely made for fitnah.</p>
 
-<p>The loss of knowledge and spreading of misguidance, absurdity and fitnah allowing for degeneracy are signs of the end times.</p>
+<p>The loss of knowledge and spreading of misguidance, absurdity and fitnah allowing for immorality are signs of the end times.</p>
 
 <p>But what even is the difference between Woman-Norms and Man-Norms if they’re not sex related?</p>
 
-<p>The answer is that they actually are inherently stemmed from Norms associated with the SEX, but the LGBTQ will never admit this.</p>
+<p>The answer is that they actually are inherently stemmed from Norms associated with the SEX, but LGBTQ advocates do not accept this.</p>
 
 <p>And another objection to the third definition of gender is that it cannot even be known. You may only perceive a person’s minority masculine side whilst they conceal their majority feminine side. So it would have to be how they act as a whole if in some magical world we could access that knowledge. But we can’t so this definition is inapplicable to anyone.</p>
 
@@ -9123,7 +9026,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 `,
 
 "what-is-islam/aqeedah/specific-beliefs/dar-war-taghut-and-caliphates/revolting-disobeying-and-advising": `
-<p class="lede">Revolt is only for clear kufr from the leader, and against that it is obligatory on all Muslims. Disobedience is only in sin. Advice to the ruler is private.</p>
+<p class="lede">According to the scholars, revolt is permitted only against clear kufr from the leader, and in that case it is an obligation on the Muslims according to their ability. Disobedience is only in sin. Advice to the ruler is private.</p>
 
 <h2>1. Revolting: only against clear kufr</h2>
 <p>A ruler is not removed by force for oppression, sin or favouring himself. The only exception is <strong>open, clear kufr</strong>, which we have proof for from Allah.</p>
@@ -9348,6 +9251,7 @@ function renderIntro(){
   app.innerHTML = `
   <div class="view">
     <div class="welcome-tools">
+      ${linktreeLink()}
       ${themeToggle()}
       <div class="translate-control notranslate" translate="no">
         <label for="ilm-lang" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Translate this page</label>
@@ -9361,6 +9265,7 @@ function renderIntro(){
         <p class="kicker">A quiet path through the history, evidence, and practice of Islam.</p>
         <a class="enter-big" href="#/index">Enter the Index <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
         <p class="enter-note">Not sure where to start? Scroll down for a short guide.</p>
+        ${linktreeLink("linktree-big")}
       </header>
 
       <section class="w-section">
@@ -9400,10 +9305,13 @@ function renderIntro(){
         <a class="enter-big" href="#/index">Enter the Index <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
       </section>
     </div>
-    <footer>Ilm — for study and reflection.</footer>
+    <footer>Ilm — for study and reflection.<p class="site-disclaimer">This website is for education and study only. It describes classical Islamic rulings and the views of scholars. It does not call for, encourage or approve of violence, vigilantism, rebellion or any unlawful action against any person, group or government. Where rulings on war, punishment or rulers are mentioned, they are explained as matters of Islamic law, not as instructions to individuals.</p></footer>
   </div>`;
 }
 
+function linktreeLink(extra){
+  return `<a class="linktree-link notranslate${extra?" "+extra:""}" translate="no" href="https://linktr.ee/daiyanii" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3A4 4 0 0 0 11 18.7l1-1"/></svg>Linktree</a>`;
+}
 function topbar(crumbs){
   const crumbHTML = crumbs.map((c,i) => {
     const isLast = i === crumbs.length-1;
@@ -9416,6 +9324,7 @@ function topbar(crumbs){
     <a class="wordmark" href="#/index">${wordmarkSVGSmall()} Ilm</a>
     <div class="topbar-actions">
       <nav class="crumbs">${crumbHTML}</nav>
+      ${linktreeLink()}
       ${themeToggle()}
       <div class="translate-control notranslate" translate="no">
         <label for="ilm-lang" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Translate this page</label>
@@ -9447,7 +9356,7 @@ function renderIndex(){
       </div>
       <div class="forum-grid">${cards}</div>
     </main>
-    <footer>Ilm — for study and reflection.</footer>
+    <footer>Ilm — for study and reflection.<p class="site-disclaimer">This website is for education and study only. It describes classical Islamic rulings and the views of scholars. It does not call for, encourage or approve of violence, vigilantism, rebellion or any unlawful action against any person, group or government. Where rulings on war, punishment or rulers are mentioned, they are explained as matters of Islamic law, not as instructions to individuals.</p></footer>
   </div>`;
   bind3DMotion();
 }
@@ -9481,7 +9390,7 @@ function placeholderPage(crumbs, eyebrow, title, desc, backHref, backLabel){
         Back to ${backLabel}
       </a>
     </main>
-    <footer>Ilm — for study and reflection.</footer>
+    <footer>Ilm — for study and reflection.<p class="site-disclaimer">This website is for education and study only. It describes classical Islamic rulings and the views of scholars. It does not call for, encourage or approve of violence, vigilantism, rebellion or any unlawful action against any person, group or government. Where rulings on war, punishment or rulers are mentioned, they are explained as matters of Islamic law, not as instructions to individuals.</p></footer>
   </div>`;
 }
 
@@ -9503,7 +9412,7 @@ function articlePage(crumbs, eyebrow, title, desc, html, backHref, backLabel){
         Back to ${backLabel}
       </a>
     </main>
-    <footer>Ilm — for study and reflection.</footer>
+    <footer>Ilm — for study and reflection.<p class="site-disclaimer">This website is for education and study only. It describes classical Islamic rulings and the views of scholars. It does not call for, encourage or approve of violence, vigilantism, rebellion or any unlawful action against any person, group or government. Where rulings on war, punishment or rulers are mentioned, they are explained as matters of Islamic law, not as instructions to individuals.</p></footer>
   </div>`;
 }
 
@@ -9524,7 +9433,7 @@ function renderForum(id){
         Back to Index
       </a>
     </main>
-    <footer>Ilm — for study and reflection.</footer>
+    <footer>Ilm — for study and reflection.<p class="site-disclaimer">This website is for education and study only. It describes classical Islamic rulings and the views of scholars. It does not call for, encourage or approve of violence, vigilantism, rebellion or any unlawful action against any person, group or government. Where rulings on war, punishment or rulers are mentioned, they are explained as matters of Islamic law, not as instructions to individuals.</p></footer>
   </div>`;
 }
 
@@ -9565,7 +9474,7 @@ function renderSub(fid, slug){
           Back to ${f.title}
         </a>
       </main>
-      <footer>Ilm — for study and reflection.</footer>
+      <footer>Ilm — for study and reflection.<p class="site-disclaimer">This website is for education and study only. It describes classical Islamic rulings and the views of scholars. It does not call for, encourage or approve of violence, vigilantism, rebellion or any unlawful action against any person, group or government. Where rulings on war, punishment or rulers are mentioned, they are explained as matters of Islamic law, not as instructions to individuals.</p></footer>
     </div>`;
     return;
   }
@@ -9622,7 +9531,7 @@ function renderNode(fid, slugs){
           Back to ${backLabel}
         </a>
       </main>
-      <footer>Ilm — for study and reflection.</footer>
+      <footer>Ilm — for study and reflection.<p class="site-disclaimer">This website is for education and study only. It describes classical Islamic rulings and the views of scholars. It does not call for, encourage or approve of violence, vigilantism, rebellion or any unlawful action against any person, group or government. Where rulings on war, punishment or rulers are mentioned, they are explained as matters of Islamic law, not as instructions to individuals.</p></footer>
     </div>`;
     return;
   }
