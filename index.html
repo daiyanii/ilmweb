@@ -6,9 +6,8 @@
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#F3ECDA">
 <title>Ilm — A Path Through Islamic Knowledge</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="base-uri 'self'; object-src 'none'; form-action 'self'">
 <style>
 
 /* ============ TOKENS ============ */
@@ -17,7 +16,7 @@
   --parchment-2:#EAE1C9;
   --ink:#1B2420;
   --ink-soft:#3C463F;
-  --gold:#9C7328;
+  --gold:#7F5D1E;
   --gold-2:#B8863B;
   --teal:#215B51;
   --line: rgba(27,36,32,0.16);
@@ -625,7 +624,7 @@ html{background:var(--parchment);}
 @keyframes ledeIn{from{border-left-color:transparent;padding-left:.4rem;}to{border-left-color:var(--gold-2);padding-left:1.1rem;}}
 .wordmark svg path{transform-box:fill-box;transform-origin:center;animation:starSpin 70s linear infinite;}
 @keyframes starSpin{to{transform:rotate(360deg);}}
-.site-disclaimer{max-width:46rem;margin:1rem auto 0;font-size:.74rem;line-height:1.6;opacity:.75;text-align:center;}
+.site-disclaimer{max-width:46rem;margin:1rem auto 0;font-size:.84rem;line-height:1.6;opacity:1;text-align:center;}
 footer::before{
   content:"";display:block;width:22px;height:22px;margin:0 auto 1rem;
   background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23B8863B' stroke-width='1.2'%3E%3Crect x='5' y='5' width='14' height='14'/%3E%3Crect x='5' y='5' width='14' height='14' transform='rotate(45 12 12)'/%3E%3C/g%3E%3C/svg%3E") center/contain no-repeat;
@@ -644,12 +643,41 @@ footer::before{
   .weave::before,.wordmark svg path,footer::before,.article hr.rule,.article p.lede{animation:none;}
   .article h3:hover,.article li:hover,.res-item:hover,.article .cta-link:hover{transform:none;}
 }
+
+/* ============ CONSENT GATE & LEGAL FOOTER ============ */
+html.gate-open{overflow:hidden;}
+.consent{position:fixed;inset:0;z-index:9999;background:var(--parchment);overflow:auto;display:flex;padding:max(1rem,env(safe-area-inset-top)) 1rem max(1rem,env(safe-area-inset-bottom));}
+.c-box{background:var(--parchment-2);color:var(--ink);border:1px solid var(--line);border-radius:14px;max-width:44rem;width:100%;margin:auto;padding:1.4rem 1.3rem;outline:none;line-height:1.6;}
+.c-eyebrow{margin:0 0 .2rem;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);font-weight:600;}
+.c-box h2{margin:0 0 .8rem;font-size:1.5rem;line-height:1.25;}
+.c-disc{border:2px solid var(--teal);border-radius:10px;padding:.8rem 1rem;margin:0 0 1rem;background:var(--card-bg);}
+.c-disc p{margin:.3rem 0 0;font-size:1rem;}
+.c-note{border-left:3px solid var(--gold);padding:.2rem .7rem;margin:0 0 1rem;}
+.c-small{font-size:.84rem;color:var(--ink-soft);margin:.7rem 0;}
+.c-doc{border:1px solid var(--line);border-radius:8px;margin:.4rem 0;background:var(--card-bg);}
+.c-doc summary{cursor:pointer;padding:.55rem .8rem;font-weight:600;color:var(--teal);}
+.c-doc-body{max-height:14rem;overflow:auto;padding:0 .9rem .8rem;font-size:.92rem;}
+.c-doc-body h2{font-size:1rem;margin:.9rem 0 .25rem;}
+.c-doc-body table{display:block;overflow-x:auto;border-collapse:collapse;}
+.c-doc-body th,.c-doc-body td{border:1px solid var(--line);padding:.3rem .5rem;text-align:left;}
+.c-check{display:flex;gap:.65rem;align-items:flex-start;margin:.9rem 0;font-size:.95rem;cursor:pointer;}
+.c-check input{width:1.25rem;height:1.25rem;margin-top:.2rem;flex:none;accent-color:var(--teal);}
+.c-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin:1rem 0 .4rem;}
+.c-actions button{font:inherit;font-weight:600;padding:.65rem 1.1rem;border-radius:9px;cursor:pointer;border:1px solid var(--teal);min-height:2.75rem;}
+.c-go{background:var(--teal);color:var(--parchment);}
+.c-go:disabled{opacity:.5;cursor:not-allowed;}
+.c-alt{background:transparent;color:var(--teal);}
+.consent :focus-visible,.legal-links :focus-visible{outline:3px solid var(--gold);outline-offset:2px;}
+.legal-links{display:flex;flex-wrap:wrap;gap:.3rem 1.1rem;justify-content:center;margin:.9rem auto 0;font-size:.86rem;}
+.legal-links a,.legal-links button{color:var(--teal);background:none;border:0;padding:.3rem 0;font:inherit;cursor:pointer;text-decoration:underline;}
+.site-copy{max-width:46rem;margin:.8rem auto 0;font-size:.8rem;line-height:1.6;text-align:center;color:var(--ink-soft);}
 </style>
 </head>
 <body>
 <div class="weave"></div>
 <div id="google_translate_element"></div>
 <div id="app"></div>
+<noscript><p style="max-width:44rem;margin:2rem auto;padding:0 1rem;font-family:Georgia,serif;line-height:1.6">This site needs JavaScript. This website is for education and study only. It describes classical Islamic rulings and the views of scholars. It does not call for, encourage or approve of unlawful violence, vigilantism, rebellion or action against any person, group or government. Where rulings are mentioned, such as on war, punishment or rulers, they are explained as matters of Islamic law for education and not as instructions to particular individuals.</p></noscript>
 <button class="to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 48 48" aria-hidden="true"><circle class="trk" cx="24" cy="24" r="21"/><circle class="bar" cx="24" cy="24" r="21"/></svg><span class="arr" aria-hidden="true">&#8593;</span></button>
 
 <script>
@@ -1182,10 +1210,10 @@ const CONTENT = {
 <p>Here are links to pages going over his heresies. Take only what is correct from them.</p>
 
 <ul>
-<li><a href="https://t.me/Abujifahh" target="_blank" rel="noopener">https://t.me/Abujifahh</a></li>
-<li><a href="https://fitrahtawheed.com/analysis-on-the-critique-of-abu-hanifa" target="_blank" rel="noopener">https://fitrahtawheed.com/analysis-on-the-critique-of-abu-hanifa</a></li>
-<li><a href="https://urwah.pages.dev/posts/abu-jifah-en/" target="_blank" rel="noopener">https://urwah.pages.dev/posts/abu-jifah-en/</a></li>
-<li><a href="https://discord.gg/aNwvDTPX7d" target="_blank" rel="noopener">https://discord.gg/aNwvDTPX7d</a></li>
+<li><a href="https://t.me/Abujifahh" target="_blank" rel="noopener noreferrer">https://t.me/Abujifahh</a></li>
+<li><a href="https://fitrahtawheed.com/analysis-on-the-critique-of-abu-hanifa" target="_blank" rel="noopener noreferrer">https://fitrahtawheed.com/analysis-on-the-critique-of-abu-hanifa</a></li>
+<li><a href="https://urwah.pages.dev/posts/abu-jifah-en/" target="_blank" rel="noopener noreferrer">https://urwah.pages.dev/posts/abu-jifah-en/</a></li>
+<li><a href="https://discord.gg/aNwvDTPX7d" target="_blank" rel="noopener noreferrer">https://discord.gg/aNwvDTPX7d</a></li>
 </ul>
 
 <h2>The consensus of the Imams against him</h2>
@@ -1296,7 +1324,7 @@ const CONTENT = {
 <p class="lede">The claim that the Qur&rsquo;an permits Muslims to beat their wives is one of the most common objections raised against Islam. The article below goes over the issue in detail.</p>
 
 <ul>
-  <li><a class="cta-link" href="https://www.abuaminaelias.com/quran-let-muslims-beat-wives/" target="_blank" rel="noopener">Does the Quran let Muslims beat their wives? (Abu Amina Elias)</a></li>
+  <li><a class="cta-link" href="https://www.abuaminaelias.com/quran-let-muslims-beat-wives/" target="_blank" rel="noopener noreferrer">Does the Quran let Muslims beat their wives? (Abu Amina Elias)</a></li>
 </ul>
 `,
 "what-is-islam/introduction-to-the-religion": `
@@ -1569,7 +1597,7 @@ const CONTENT = {
 
 <blockquote>&ldquo;Allah has ninety-nine names, one hundred minus one; whoever enumerates (ahsaha) them will enter Paradise.&rdquo;<cite>Sahih al-Bukhari, 2736; Sahih Muslim, 2677</cite></blockquote>
 
-<a class="video-link" href="https://99namesofallah.name/" target="_blank" rel="noopener">
+<a class="video-link" href="https://99namesofallah.name/" target="_blank" rel="noopener noreferrer">
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
   List of the 99 Names of Allah
 </a>
@@ -3695,7 +3723,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 <p>Narrated Mu&lsquo;awiyah ibn Hakam al-Sulami:</p>
 <blockquote>I said: Messenger of Allah, I have a slave girl whom I slapped. This grieved the Messenger of Allah (&#xFDFA;). I said to him: Should I not emancipate her? He said: Bring her to me. He said: Then I brought her. He asked: Where is Allah? She replied: In the heaven. He said: Who am I? She replied: You are the Messenger of Allah. He said: Emancipate her, she is a believer.</blockquote>
 
-<p><strong>1.</strong> Affirming that which Allah has affirmed for Himself in His Glorious Book, in which <a href="https://islamqa.info/en/answers/992" target="_blank" rel="noopener">He describes Himself as being above all of His creation</a>, and rising above His Throne after creating the heavens and earth. This is stated in clear and unambiguous verses of the Quran. Allah says (interpretation of the meaning):</p>
+<p><strong>1.</strong> Affirming that which Allah has affirmed for Himself in His Glorious Book, in which <a href="https://islamqa.info/en/answers/992" target="_blank" rel="noopener noreferrer">He describes Himself as being above all of His creation</a>, and rising above His Throne after creating the heavens and earth. This is stated in clear and unambiguous verses of the Quran. Allah says (interpretation of the meaning):</p>
 <blockquote>&ldquo;And to Allah prostrate all that is in the heavens and all that is in the earth, of the moving (living) creatures and the angels, and they are not proud [i.e. they worship their Lord (Allah) with humility]. They fear their Lord above them, and they do what they are commanded.&rdquo;<cite>Quran 16:49&ndash;50 (An-Nahl)</cite></blockquote>
 <blockquote>&ldquo;Do you feel secure that He, Who is over the heaven (Allah), will not cause the earth to sink with you, and then it should quake? Or do you feel secure that He, Who is over the heaven (Allah), will not send against you a violent whirlwind? Then you shall know how (terrible) has been My Warning.&rdquo;<cite>Quran 67:16&ndash;17 (Al-Mulk)</cite></blockquote>
 <p>And the Prophet (blessings and peace of Allah be upon him) said:</p>
@@ -3708,7 +3736,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 <p><strong>2.</strong> Nothing of the creation of Allah can encompass Him and He is not contained within His creation. He, may He be Glorified, has no need of it. He is above needing it and exalted be He above any of His creation encompassing Him. Allah says (interpretation of the meaning):</p>
 <blockquote>&ldquo;No vision can grasp Him, but He grasps all vision. He is Al-Lateef (the Most Subtle and Courteous), Well-Acquainted with all things.&rdquo;<cite>Quran 6:103 (Al-An&lsquo;am)</cite></blockquote>
 <blockquote>&ldquo;He (Allah) knows what happens to them (His creatures) in this world, and what will happen to them (in the Hereafter) but they will never compass anything of His Knowledge.&rdquo;<cite>Quran 20:110 (Ta-Ha)</cite></blockquote>
-<p>It is proven that &lsquo;Ali ibn Al-Hasan ibn Shaqiq (may Allah have mercy on him), the Shaykh of Al-Bukhari (may Allah have mercy on him) said: I said to &lsquo;Abdullah ibn Al-Mubarak: How do we know our Lord? He said: <a href="https://islamqa.info/en/answers/47048" target="_blank" rel="noopener">[He is] in the seventh heaven above His Throne</a>. According to another version: [He is] above the seventh heaven above His Throne, and we do not say as the Jahmiyyah do, that He is here on earth.</p>
+<p>It is proven that &lsquo;Ali ibn Al-Hasan ibn Shaqiq (may Allah have mercy on him), the Shaykh of Al-Bukhari (may Allah have mercy on him) said: I said to &lsquo;Abdullah ibn Al-Mubarak: How do we know our Lord? He said: <a href="https://islamqa.info/en/answers/47048" target="_blank" rel="noopener noreferrer">[He is] in the seventh heaven above His Throne</a>. According to another version: [He is] above the seventh heaven above His Throne, and we do not say as the Jahmiyyah do, that He is here on earth.</p>
 <p>That was said to Ahmad ibn Hanbal, and he said: This is how we understand it.</p>
 <p>Imam Adh-Dhahabi said, commenting on this report:</p>
 <blockquote>&ldquo;This is authentic and proven from Thabit ibn Al-Mubarak and Ahmad (may Allah have mercy on them both). The words &lsquo;in heaven&rsquo; in another report explain to you that what he meant by saying &lsquo;in heaven&rsquo; was &lsquo;above the heaven&rsquo;, as in the other sahih report which he wrote to Yahya ibn Mansoor Al-Faqeeh.&rdquo;<cite>Adh-Dhahabi, Al-&lsquo;Arsh, 2/189</cite></blockquote>
@@ -4012,7 +4040,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 "what-is-islam/aqeedah/specific-beliefs/the-hereafter-and-the-end-times/the-prophet-peace-be-upon-him-will-sit-on-the-throne": `
 <p class="lede">This page discusses the reports concerning the Prophet &#xFDFA; sitting on the Throne on the Day of Judgment, and points to a dedicated study of the statements attributed to the Salaf.</p>
 
-<p>For the detailed discussion and collected early reports, read: <a href="https://athari-archive.com/2025/02/20/the-salaf-affirmed-that-the-prophet-%EF%B7%BA-will-sit-on-the-throne/" target="_blank" rel="noopener">The Salaf Affirmed That the Prophet &#xFDFA; Will Sit on the Throne</a>.</p>
+<p>For the detailed discussion and collected early reports, read: <a href="https://athari-archive.com/2025/02/20/the-salaf-affirmed-that-the-prophet-%EF%B7%BA-will-sit-on-the-throne/" target="_blank" rel="noopener noreferrer">The Salaf Affirmed That the Prophet &#xFDFA; Will Sit on the Throne</a>.</p>
 
 <p>The subject belongs to the unseen. It should be studied through the reports and explanations of the early scholars, without likening Allah to creation and without speaking about the unseen without evidence.</p>
 `,
@@ -4443,8 +4471,8 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <p>Here are two examples of the many testimonies of people describing encounters with the jinn:</p>
 <ul>
-<li><a href="https://youtu.be/XdwxN-1350w?si=AO2Jv3RK1PhduqZ1" target="_blank" rel="noopener">Testimony on YouTube</a></li>
-<li><a href="https://www.instagram.com/reel/DXJes7xCSqT/?vrfl=dHNwY2IxZjBnejUz" target="_blank" rel="noopener">Testimony on Instagram</a></li>
+<li><a href="https://youtu.be/XdwxN-1350w?si=AO2Jv3RK1PhduqZ1" target="_blank" rel="noopener noreferrer">Testimony on YouTube</a></li>
+<li><a href="https://www.instagram.com/reel/DXJes7xCSqT/?vrfl=dHNwY2IxZjBnejUz" target="_blank" rel="noopener noreferrer">Testimony on Instagram</a></li>
 </ul>
 
 <h3>Paganism, idol worship and false religion</h3>
@@ -4573,7 +4601,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 `,
 "what-is-islam/aqeedah/specific-beliefs/creation-and-mankind/adam-in-the-image-of-allah": `
 <p>Al-Bukhari (6227) and Muslim (2841) narrated from Abu Hurayrah (may Allah be pleased with him) that the Prophet (peace and blessings of Allah be upon him) said:</p>
-<blockquote>&ldquo;<a href="https://islamqa.info/en/answers/21949" target="_blank" rel="noopener">Allah created Adam in His image</a>, and he was sixty cubits tall. When he created him he said, &lsquo;Go and greet that group of angels who are sitting and listen to how they greet you, for that will be your greeting and the greeting of your descendants.&rsquo; So he said, &lsquo;As-salamu &lsquo;alaykum (peace be upon you),&rsquo; and they said, &lsquo;As-salamu &lsquo;alayka wa rahmat-Allah (Peace be upon you and the mercy of Allah).&rsquo; So they added (the words) &lsquo;wa rahmat-Allah.&rsquo; Everyone who enters Paradise will be in the form of Adam, but mankind continued to grow shorter until now.&rdquo;<cite>Sahih al-Bukhari, 6227; Sahih Muslim, 2841</cite></blockquote>
+<blockquote>&ldquo;<a href="https://islamqa.info/en/answers/21949" target="_blank" rel="noopener noreferrer">Allah created Adam in His image</a>, and he was sixty cubits tall. When he created him he said, &lsquo;Go and greet that group of angels who are sitting and listen to how they greet you, for that will be your greeting and the greeting of your descendants.&rsquo; So he said, &lsquo;As-salamu &lsquo;alaykum (peace be upon you),&rsquo; and they said, &lsquo;As-salamu &lsquo;alayka wa rahmat-Allah (Peace be upon you and the mercy of Allah).&rsquo; So they added (the words) &lsquo;wa rahmat-Allah.&rsquo; Everyone who enters Paradise will be in the form of Adam, but mankind continued to grow shorter until now.&rdquo;<cite>Sahih al-Bukhari, 6227; Sahih Muslim, 2841</cite></blockquote>
 
 <p>Muslim (2612) narrated that Abu Hurayrah (may Allah be pleased with him) said: The Messenger of Allah (peace and blessings of Allah be upon him) said:</p>
 <blockquote>&ldquo;When any one fights his brother, let him avoid the face, for Allah created Adam in His image.&rdquo;<cite>Sahih Muslim, 2612</cite></blockquote>
@@ -4799,7 +4827,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <p>Upon hearing this, the Prophet ﷺ said, “He has spoken the truth, so the rest of you are not to say anything to him except good.” When ʿUmar said that Hātib had betrayed Allah, His Messenger, and the believers, the Prophet ﷺ reminded him that Hātib had participated in Badr and said that perhaps Allah had looked upon the people of Badr and forgiven them. The incident shows why the person’s intention and the surrounding circumstances must be examined before a ruling is made.</p>
 
-<p>Muslims may also seek assistance from <a href="https://abukhadeejah.com/ibn-baaz-allowed-the-american-military-into-saudi-arabia/" target="_blank" rel="noopener">non-Muslims if there is a genuine need</a> and the assistance does not mean supporting disbelief against Islam. The Prophet ﷺ accepted the assistance of Ṣafwān ibn Umayyah, who was not Muslim at the time, at Hunayn. Mālik, Abū Hanīfah, al-Shāfiʿī, al-Layth, al-Awzāʿī, and Ibn ʿUthaymīn discussed the permissibility of necessary assistance and the benefits for Muslims.</p>
+<p>Muslims may also seek assistance from <a href="https://abukhadeejah.com/ibn-baaz-allowed-the-american-military-into-saudi-arabia/" target="_blank" rel="noopener noreferrer">non-Muslims if there is a genuine need</a> and the assistance does not mean supporting disbelief against Islam. The Prophet ﷺ accepted the assistance of Ṣafwān ibn Umayyah, who was not Muslim at the time, at Hunayn. Mālik, Abū Hanīfah, al-Shāfiʿī, al-Layth, al-Awzāʿī, and Ibn ʿUthaymīn discussed the permissibility of necessary assistance and the benefits for Muslims.</p>
 
 <h4>Aiding one group of unbelievers against another</h4>
 
@@ -5263,7 +5291,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 </a>
 `,
 "what-is-islam/how-to-be-muslim/take-your-shahada-testimony-of-faith": `
-<a class="video-link" href="https://mishkahacademy.com/how-to-say-the-shahada-arabic-english-in-islam/" target="_blank" rel="noopener">
+<a class="video-link" href="https://mishkahacademy.com/how-to-say-the-shahada-arabic-english-in-islam/" target="_blank" rel="noopener noreferrer">
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
   How to Say the Shahada (Arabic &amp; English)
 </a>
@@ -5456,14 +5484,14 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <p><strong>YouTube Playlist to Learn Quranic Arabic</strong><br>
 This is an excellent step-by-step series specifically geared toward understanding the language of the Quran:</p>
-<a class="cta-link" href="https://youtube.com/playlist?list=PL6qzEglvHszdO7eGitcmXnvdZi7ZeYhVj&amp;si=te2RZE_sEH2O-PiS" target="_blank" rel="noopener">
+<a class="cta-link" href="https://youtube.com/playlist?list=PL6qzEglvHszdO7eGitcmXnvdZi7ZeYhVj&amp;si=te2RZE_sEH2O-PiS" target="_blank" rel="noopener noreferrer">
   Quranic Arabic Playlist
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
 </a>
 
 <p><strong>Channel for Arabic (Arabic 101)</strong><br>
 A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Quranic linguistics in a visual, easy-to-digest format:</p>
-<a class="cta-link" href="https://youtube.com/@arabic101?si=6g7EtTgsXsoW_IKV" target="_blank" rel="noopener">
+<a class="cta-link" href="https://youtube.com/@arabic101?si=6g7EtTgsXsoW_IKV" target="_blank" rel="noopener noreferrer">
   Arabic 101
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
 </a>
@@ -5482,7 +5510,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <h2>Start here: the Qur&rsquo;an and the Salaf in English</h2>
 
 <div class="res-item">
-  <a class="res-link" href="https://quran.com" target="_blank" rel="noopener">
+  <a class="res-link" href="https://quran.com" target="_blank" rel="noopener noreferrer">
     Quran.com
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5491,7 +5519,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </div>
 
 <div class="res-item">
-  <a class="res-link" href="https://www.sayingsofthesalaf.org/" target="_blank" rel="noopener">
+  <a class="res-link" href="https://www.sayingsofthesalaf.org/" target="_blank" rel="noopener noreferrer">
     Sayings of the Salaf
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5502,7 +5530,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <h2>Articles &amp; Q&amp;A</h2>
 
 <div class="res-item">
-  <a class="res-link" href="https://abukhadeejah.com/" target="_blank" rel="noopener">
+  <a class="res-link" href="https://abukhadeejah.com/" target="_blank" rel="noopener noreferrer">
     Abu Khadeejah — Articles &amp; Q&amp;A
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5511,7 +5539,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </div>
 
 <div class="res-item">
-  <a class="res-link" href="https://www.abuaminaelias.com/" target="_blank" rel="noopener">
+  <a class="res-link" href="https://www.abuaminaelias.com/" target="_blank" rel="noopener noreferrer">
     Faith in Allah (Abu Amina Elias)
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5522,7 +5550,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <h2>Fiqh, Fatawa &amp; Scholarly Audio</h2>
 
 <div class="res-item">
-  <a class="res-link" href="https://islamqa.info" target="_blank" rel="noopener">
+  <a class="res-link" href="https://islamqa.info" target="_blank" rel="noopener noreferrer">
     IslamQA
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5531,7 +5559,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </div>
 
 <div class="res-item">
-  <a class="res-link" href="https://alifta.gov.sa" target="_blank" rel="noopener">
+  <a class="res-link" href="https://alifta.gov.sa" target="_blank" rel="noopener noreferrer">
     Al-Ifta
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5540,7 +5568,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </div>
 
 <div class="res-item">
-  <a class="res-link" href="https://islamway.net" target="_blank" rel="noopener">
+  <a class="res-link" href="https://islamway.net" target="_blank" rel="noopener noreferrer">
     Islamway
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5549,7 +5577,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </div>
 
 <div class="res-item">
-  <a class="res-link" href="https://taqyeed.com" target="_blank" rel="noopener">
+  <a class="res-link" href="https://taqyeed.com" target="_blank" rel="noopener noreferrer">
     Taqyeed
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5560,7 +5588,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <h2>Tafsir &amp; Quranic Study Tools</h2>
 
 <div class="res-item">
-  <a class="res-link" href="https://altafsir.com" target="_blank" rel="noopener">
+  <a class="res-link" href="https://altafsir.com" target="_blank" rel="noopener noreferrer">
     Altafsir.com
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5569,7 +5597,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </div>
 
 <div class="res-item">
-  <a class="res-link" href="https://almaany.com" target="_blank" rel="noopener">
+  <a class="res-link" href="https://almaany.com" target="_blank" rel="noopener noreferrer">
     Almaany
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5578,7 +5606,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </div>
 
 <div class="res-item">
-  <a class="res-link" href="https://furqan.co" target="_blank" rel="noopener">
+  <a class="res-link" href="https://furqan.co" target="_blank" rel="noopener noreferrer">
     Furqan
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5587,7 +5615,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </div>
 
 <div class="res-item">
-  <a class="res-link" href="https://tafsir.app" target="_blank" rel="noopener">
+  <a class="res-link" href="https://tafsir.app" target="_blank" rel="noopener noreferrer">
     Al-Bahith Al-Qurani
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5596,7 +5624,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </div>
 
 <div class="res-item">
-  <a class="res-link" href="https://baheth.info" target="_blank" rel="noopener">
+  <a class="res-link" href="https://baheth.info" target="_blank" rel="noopener noreferrer">
     Baheth
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5607,7 +5635,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <h2>Hadith, Isnad &amp; Scholar Biography Tools</h2>
 
 <div class="res-item">
-  <a class="res-link" href="https://sunnah.com" target="_blank" rel="noopener">
+  <a class="res-link" href="https://sunnah.com" target="_blank" rel="noopener noreferrer">
     Sunnah.com
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5616,7 +5644,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </div>
 
 <div class="res-item">
-  <a class="res-link" href="http://muslimscholars.info" target="_blank" rel="noopener">
+  <a class="res-link" href="http://muslimscholars.info" target="_blank" rel="noopener noreferrer">
     Muslim Scholars Database (Rijal)
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5625,7 +5653,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </div>
 
 <div class="res-item">
-  <a class="res-link" href="https://dorar.net" target="_blank" rel="noopener">
+  <a class="res-link" href="https://dorar.net" target="_blank" rel="noopener noreferrer">
     Dorar Al-Saniyya
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5634,7 +5662,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </div>
 
 <div class="res-item">
-  <a class="res-link" href="https://play.google.com/store/apps/details?id=com.arabiait.sunna" target="_blank" rel="noopener">
+  <a class="res-link" href="https://play.google.com/store/apps/details?id=com.arabiait.sunna" target="_blank" rel="noopener noreferrer">
     Jami’ al-Kutub al-Tis’ah
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5643,7 +5671,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </div>
 
 <div class="res-item">
-  <a class="res-link" href="https://tarrjim.com" target="_blank" rel="noopener">
+  <a class="res-link" href="https://tarrjim.com" target="_blank" rel="noopener noreferrer">
     Tarrjim
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5652,7 +5680,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </div>
 
 <div class="res-item">
-  <a class="res-link" href="https://tarajm.com" target="_blank" rel="noopener">
+  <a class="res-link" href="https://tarajm.com" target="_blank" rel="noopener noreferrer">
     Tarajm
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5661,7 +5689,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </div>
 
 <div class="res-item">
-  <a class="res-link" href="https://islamweb.net/ar/library" target="_blank" rel="noopener">
+  <a class="res-link" href="https://islamweb.net/ar/library" target="_blank" rel="noopener noreferrer">
     Islamweb Library
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5670,7 +5698,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </div>
 
 <div class="res-item">
-  <a class="res-link" href="https://hadith.islam-db.com" target="_blank" rel="noopener">
+  <a class="res-link" href="https://hadith.islam-db.com" target="_blank" rel="noopener noreferrer">
     Mawsu’at al-Hadith
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5679,7 +5707,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </div>
 
 <div class="res-item">
-  <a class="res-link" href="https://mutoon.net" target="_blank" rel="noopener">
+  <a class="res-link" href="https://mutoon.net" target="_blank" rel="noopener noreferrer">
     Mutoon al-Hadith
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5688,7 +5716,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </div>
 
 <div class="res-item">
-  <a class="res-link" href="https://turath.io" target="_blank" rel="noopener">
+  <a class="res-link" href="https://turath.io" target="_blank" rel="noopener noreferrer">
     Jami’ Al-Khadim / Al-Turath
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5697,7 +5725,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </div>
 
 <div class="res-item">
-  <a class="res-link" href="https://shamela.ws" target="_blank" rel="noopener">
+  <a class="res-link" href="https://shamela.ws" target="_blank" rel="noopener noreferrer">
     Al-Maktaba Al-Shamela
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5708,7 +5736,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <h2>Books, PDFs &amp; Manuscripts</h2>
 
 <div class="res-item">
-  <a class="res-link" href="https://www.kalamullah.com/classical.html" target="_blank" rel="noopener">
+  <a class="res-link" href="https://www.kalamullah.com/classical.html" target="_blank" rel="noopener noreferrer">
     Kalamullah
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5717,7 +5745,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </div>
 
 <div class="res-item">
-  <a class="res-link" href="https://archive.org/details/islamic_library" target="_blank" rel="noopener">
+  <a class="res-link" href="https://archive.org/details/islamic_library" target="_blank" rel="noopener noreferrer">
     Archive.org (Islamic Kutub Tags)
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5726,7 +5754,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </div>
 
 <div class="res-item">
-  <a class="res-link" href="https://noor-book.com" target="_blank" rel="noopener">
+  <a class="res-link" href="https://noor-book.com" target="_blank" rel="noopener noreferrer">
     Noor Library
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5735,7 +5763,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </div>
 
 <div class="res-item">
-  <a class="res-link" href="https://waqfeya.net" target="_blank" rel="noopener">
+  <a class="res-link" href="https://waqfeya.net" target="_blank" rel="noopener noreferrer">
     Al-Maktaba Al-Waqfeya
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5744,7 +5772,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </div>
 
 <div class="res-item">
-  <a class="res-link" href="https://wadod.net" target="_blank" rel="noopener">
+  <a class="res-link" href="https://wadod.net" target="_blank" rel="noopener noreferrer">
     Wadod
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
   </a>
@@ -5881,7 +5909,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </ul>
 
 <p>Details are explained in this video:</p>
-<a class="video-link" href="https://youtu.be/rEU8_cFiBSY?si=W6qTcbYEqNdBmdys" target="_blank" rel="noopener">Watch the details (video)</a>
+<a class="video-link" href="https://youtu.be/rEU8_cFiBSY?si=W6qTcbYEqNdBmdys" target="_blank" rel="noopener noreferrer">Watch the details (video)</a>
 
 <h2>3. The practices of the Fitrah <span class="tag fard">Fard</span></h2>
 
@@ -5906,7 +5934,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <p>If you do not have a miswak, <strong>brushing your teeth</strong> with a normal toothbrush is still good, and it achieves the purpose of cleaning the mouth. The miswak simply carries the extra reward of following the Sunnah exactly.</p>
 
 <p>More hadith on the miswak:</p>
-<a class="video-link" href="https://www.abuaminaelias.com/dailyhadithonline/tag/toothstick-miswak-al-siwak/" target="_blank" rel="noopener">Daily Hadith Online: the toothstick (Abu Amina Elias)</a>
+<a class="video-link" href="https://www.abuaminaelias.com/dailyhadithonline/tag/toothstick-miswak-al-siwak/" target="_blank" rel="noopener noreferrer">Daily Hadith Online: the toothstick (Abu Amina Elias)</a>
 
 <h2>In summary</h2>
 
@@ -6099,7 +6127,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 
 <p>These are only examples. There is a prescribed dhikr for waking up, entering and leaving the house, eating, travelling, entering the mosque, and many other moments, with the Arabic text, the translation and the benefits of each. You can find them all here:</p>
 
-<a class="video-link" href="https://lifewithallah.com/dhikr-dua/" target="_blank" rel="noopener">Dhikr and Du&rsquo;a (Life With Allah)</a>
+<a class="video-link" href="https://lifewithallah.com/dhikr-dua/" target="_blank" rel="noopener noreferrer">Dhikr and Du&rsquo;a (Life With Allah)</a>
 
 <h2>My compilation of dhikr in the Sunnah</h2>
 
@@ -6316,7 +6344,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <p>&ldquo;My Lord, forgive and have mercy, for You are the best of the merciful.&rdquo; (Qur&rsquo;an 23:118)</p>
 
 <p>There are many more du&rsquo;as, with their Arabic, translation and benefits, here:</p>
-<a class="video-link" href="https://lifewithallah.com/dhikr-dua/" target="_blank" rel="noopener">Dhikr and Du&rsquo;a (Life With Allah)</a>
+<a class="video-link" href="https://lifewithallah.com/dhikr-dua/" target="_blank" rel="noopener noreferrer">Dhikr and Du&rsquo;a (Life With Allah)</a>
 `,
 "what-is-islam/fiqh/different-acts-of-worship/habits": `
 <p class="lede">Here is a list of things to do routinely as a Muslim. Each one is marked as obligatory (<span class="tag fard">Fard</span>) or recommended (<span class="tag">Sunnah</span>), so you know which is which.</p>
@@ -6680,7 +6708,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 
 <p>The detailed ruling, with the opinions of the schools, is here (IslamQA):</p>
 
-<a class="cta-link" href="https://islamqa.info/en/answers/194080/is-hunting-prohibited-in-islam" target="_blank" rel="noopener">
+<a class="cta-link" href="https://islamqa.info/en/answers/194080/is-hunting-prohibited-in-islam" target="_blank" rel="noopener noreferrer">
   Is Hunting Prohibited in Islam?
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
 </a>
@@ -6991,10 +7019,10 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <p class="lede">A collection of external articles, videos, and resources responding to common Christian objections and apologetics, for further reading beyond this site.</p>
 
 <ul>
-  <li><a class="cta-link" href="https://docs.google.com/document/d/1UhKpA6sBlwUyqquF2xukzzZcf3gn5-Fg34-bv2h0SpI/edit?usp=drivesdk" target="_blank" rel="noopener">Christianity refutation document</a></li>
-  <li><a class="cta-link" href="https://youtube.com/@maklelan?si=HchPucTCDqOn6kiu" target="_blank" rel="noopener">Maklelan</a></li>
-  <li><a class="cta-link" href="https://www.instagram.com/metaphysicsmike?igsh=and1cmtiYmMxYjM5" target="_blank" rel="noopener">Metaphysics Mike</a></li>
-  <li><a class="cta-link" href="https://youtube.com/@muslimorthodoxy?si=Iu0H9lwPjXfJVDB4" target="_blank" rel="noopener">Muslim Orthodoxy</a></li>
+  <li><a class="cta-link" href="https://docs.google.com/document/d/1UhKpA6sBlwUyqquF2xukzzZcf3gn5-Fg34-bv2h0SpI/edit?usp=drivesdk" target="_blank" rel="noopener noreferrer">Christianity refutation document</a></li>
+  <li><a class="cta-link" href="https://youtube.com/@maklelan?si=HchPucTCDqOn6kiu" target="_blank" rel="noopener noreferrer">Maklelan</a></li>
+  <li><a class="cta-link" href="https://www.instagram.com/metaphysicsmike?igsh=and1cmtiYmMxYjM5" target="_blank" rel="noopener noreferrer">Metaphysics Mike</a></li>
+  <li><a class="cta-link" href="https://youtube.com/@muslimorthodoxy?si=Iu0H9lwPjXfJVDB4" target="_blank" rel="noopener noreferrer">Muslim Orthodoxy</a></li>
 </ul>
 
 <p><strong>Note:</strong> Do not take Islamic knowledge from these people; they simply have good refutations to Christianity.</p>
@@ -7003,7 +7031,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <p class="lede">A collection of external articles, videos, and resources responding to common Jewish objections and apologetics, for further reading beyond this site.</p>
 
 <ul>
-  <li><a class="cta-link" href="#" target="_blank" rel="noopener">Add a link here</a></li>
+  <li><a class="cta-link" href="#" target="_blank" rel="noopener noreferrer">Add a link here</a></li>
 </ul>
 
 <p>This list is a work in progress — more links will be added over time.</p>
@@ -7017,7 +7045,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <p>For the method behind the historical evidence, see <a href="#/forum/why-islam-is-true/verifying-isnaad-methodology">Verifying Isnaad Methodology</a>. For how to weigh evidence in general, see <a href="#/forum/why-islam-is-true/principles-to-understand/evidence-and-probability">Evidence and Probability</a>.</p>
 
 <h2>Read the Full Document</h2>
-<a class="cta-link" href="https://docs.google.com/document/d/1-XZWYGVoX4goc9faz4jzzEGCos9YzHYKz0K7N_nVEHE/edit?usp=sharing" target="_blank" rel="noopener">
+<a class="cta-link" href="https://docs.google.com/document/d/1-XZWYGVoX4goc9faz4jzzEGCos9YzHYKz0K7N_nVEHE/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
   Evidence for Islam (Google Doc)
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
 </a>
@@ -7173,7 +7201,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <p>Heinrich Graetz, 19th-century Jewish historian, observed:</p>
 <blockquote>&ldquo;It was in these <strong>favourable circumstances</strong> that the Spanish Jews came under the rule of Mahometans [Muslims], as whose allies they esteemed themselves the equals of their co-religionists in Babylonia and Persia. <strong>They were kindly treated, obtained religious liberty, of which they had so long been deprived, were permitted to exercise jurisdiction over their co-religionists</strong>, and were only obliged, like the conquered Christians, to pay poll tax&hellip;&rdquo;</blockquote>
 
-<p>Source: <a href="https://kavvanah.blog/2012/06/04/how-islam-saved-the-jews-david-wasserstein/" target="_blank" rel="noopener">How Islam Saved the Jews &mdash; David Wasserstein</a></p>
+<p>Source: <a href="https://kavvanah.blog/2012/06/04/how-islam-saved-the-jews-david-wasserstein/" target="_blank" rel="noopener noreferrer">How Islam Saved the Jews &mdash; David Wasserstein</a></p>
 <figure><img src="image_1790089733603.png" alt="Screenshot of David Wasserstein's article How Islam Saved the Jews"><figcaption>David Wasserstein, &ldquo;How Islam Saved the Jews.&rdquo;</figcaption></figure>
 
 <h2>The Influence of Islam on Science</h2>
@@ -7215,8 +7243,8 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <figure><img src="image_1790090026038.png" alt="Book excerpt describing the redefined legal status and human dignity of women with the advent of Islam"><figcaption>Excerpt on the legal status and human dignity of women in Islam.</figcaption></figure>
 <figure><img src="image_1790089996917.png" alt="Graphic listing reforms and rights attributed to Islam for women and wider society"><figcaption>Summary graphic of social and legal reforms attributed to Islam.</figcaption></figure>
 
-<p><a class="video-link" href="https://youtu.be/pYSO6Ep-zNA?si=JxLQRWI4453VQrFL" target="_blank" rel="noopener">Watch the related video</a></p>
-<p><a class="cta-link" href="https://islamqa.info/amp/en/answers/154573" target="_blank" rel="noopener">IslamQA: Women&rsquo;s rights in Islam</a></p>
+<p><a class="video-link" href="https://youtu.be/pYSO6Ep-zNA?si=JxLQRWI4453VQrFL" target="_blank" rel="noopener noreferrer">Watch the related video</a></p>
+<p><a class="cta-link" href="https://islamqa.info/amp/en/answers/154573" target="_blank" rel="noopener noreferrer">IslamQA: Women&rsquo;s rights in Islam</a></p>
 
 <p>Arnold J. Toynbee, the English historian and philosopher, said:</p>
 <blockquote><strong>&ldquo;Eliminating the idea of racism among Muslims is one of the outstanding achievements of Islam and in the contemporary world, there is also an urgent need to spread this Islamic virtue.&rdquo;</strong></blockquote>
@@ -7312,10 +7340,10 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <h2>Influence, Names, and Cultural Reach</h2>
 
 <p>Muhammad ﷺ and Jesus (ʿalayhi al-salām) are identified among the most influential people of all time in the following ranking:</p>
-<p><a class="cta-link" href="https://en.wikipedia.org/wiki/The_100:_A_Ranking_of_the_Most_Influential_Persons_in_History" target="_blank" rel="noopener">The 100: A Ranking of the Most Influential Persons in History</a></p>
+<p><a class="cta-link" href="https://en.wikipedia.org/wiki/The_100:_A_Ranking_of_the_Most_Influential_Persons_in_History" target="_blank" rel="noopener noreferrer">The 100: A Ranking of the Most Influential Persons in History</a></p>
 <p>Some of the most popular names are recorded here:</p>
-<p><a class="cta-link" href="https://forebears.io/earth/forenames" target="_blank" rel="noopener">Forebears: Popular forenames around the world</a></p>
-<p><a class="cta-link" href="https://histworld.fandom.com/wiki/The_100:_A_Ranking_of_the_Most_Influential_People_in_History" target="_blank" rel="noopener">The 100: A Ranking of the Most Influential People in History</a></p>
+<p><a class="cta-link" href="https://forebears.io/earth/forenames" target="_blank" rel="noopener noreferrer">Forebears: Popular forenames around the world</a></p>
+<p><a class="cta-link" href="https://histworld.fandom.com/wiki/The_100:_A_Ranking_of_the_Most_Influential_People_in_History" target="_blank" rel="noopener noreferrer">The 100: A Ranking of the Most Influential People in History</a></p>
 
 <p>Beethoven even wrote a song praising the Prophet, and many scientific advances were made by people who identified as Muslim.</p>
 `,
@@ -7331,7 +7359,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <p>Allah forgives all sins so long as you are a repentant believer. So do not despair of His mercy.</p>
 
 <h2>Qur&rsquo;an 39:53</h2>
-<blockquote>&ldquo;Say, O Prophet, that Allah says, &lsquo;O My servants who have exceeded the limits against their souls! Do not lose hope in Allah&rsquo;s mercy, for Allah certainly forgives all sins. He is indeed the All-Forgiving, Most Merciful.&rsquo;&rdquo;<cite><a href="https://quran.com/az-zumar/53-63" target="_blank" rel="noopener">Qur&rsquo;an 39:53</a></cite></blockquote>
+<blockquote>&ldquo;Say, O Prophet, that Allah says, &lsquo;O My servants who have exceeded the limits against their souls! Do not lose hope in Allah&rsquo;s mercy, for Allah certainly forgives all sins. He is indeed the All-Forgiving, Most Merciful.&rsquo;&rdquo;<cite><a href="https://quran.com/az-zumar/53-63" target="_blank" rel="noopener noreferrer">Qur&rsquo;an 39:53</a></cite></blockquote>
 `,
 "why-islam-is-true/superiority-of-islamic-teachings": `
 <p class="lede">The dress code protects the value of modesty and security, but also brings many other benefits.</p>
@@ -7353,21 +7381,21 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 
 <p>It also pleases Allah and within marriage, it can also be understood as a shared expression of dignity, privacy, and exclusivity</p>
 
-<p>Muslim women who dressed more modestly were more secure about their body image, and less likely to be pressured by Western media beauty standards. Whereas Muslim women who did not wear hijabs and wore western clothing were more insecure about their body. Source: <a href="https://www.sciencedirect.com/science/article/abs/pii/S1740144515000406" target="_blank" rel="noopener">https://www.sciencedirect.com/science/article/abs/pii/S1740144515000406</a></p>
+<p>Muslim women who dressed more modestly were more secure about their body image, and less likely to be pressured by Western media beauty standards. Whereas Muslim women who did not wear hijabs and wore western clothing were more insecure about their body. Source: <a href="https://www.sciencedirect.com/science/article/abs/pii/S1740144515000406" target="_blank" rel="noopener noreferrer">https://www.sciencedirect.com/science/article/abs/pii/S1740144515000406</a></p>
 
-<p>Compared to non-Muslim Western women who wore Western clothing, Muslim women who wear conservative Islamic clothing (i.e hijabs/abayas) had higher self-esteem, better body image, healthier body weight, felt less sexually objectified &amp; more respected. Source: <a href="https://www.sciencedirect.com/science/article/abs/pii/S1740144509001041" target="_blank" rel="noopener">https://www.sciencedirect.com/science/article/abs/pii/S1740144509001041</a></p>
+<p>Compared to non-Muslim Western women who wore Western clothing, Muslim women who wear conservative Islamic clothing (i.e hijabs/abayas) had higher self-esteem, better body image, healthier body weight, felt less sexually objectified &amp; more respected. Source: <a href="https://www.sciencedirect.com/science/article/abs/pii/S1740144509001041" target="_blank" rel="noopener noreferrer">https://www.sciencedirect.com/science/article/abs/pii/S1740144509001041</a></p>
 
-<p>Wearing hijab and more conservative Islamic clothing resulted in lower rates of sexual objectification and sexual harassment. Source: <a href="https://psycnet.apa.org/doiLanding?doi=10.1037%2Fa0023461" target="_blank" rel="noopener">https://psycnet.apa.org/doiLanding?doi=10.1037%2Fa0023461</a></p>
+<p>Wearing hijab and more conservative Islamic clothing resulted in lower rates of sexual objectification and sexual harassment. Source: <a href="https://psycnet.apa.org/doiLanding?doi=10.1037%2Fa0023461" target="_blank" rel="noopener noreferrer">https://psycnet.apa.org/doiLanding?doi=10.1037%2Fa0023461</a></p>
 
-<p>Islamic values such as wearing more modest clothing protects Muslim women's body image &amp; mental health from unrealistic Western media beauty standards. More religiosity was related to lower body dissatisfaction/objectification, and less eating disorders. Source: <a href="https://www.tandfonline.com/doi/abs/10.1080/13674670802358190" target="_blank" rel="noopener">https://www.tandfonline.com/doi/abs/10.1080/13674670802358190</a></p>
+<p>Islamic values such as wearing more modest clothing protects Muslim women's body image &amp; mental health from unrealistic Western media beauty standards. More religiosity was related to lower body dissatisfaction/objectification, and less eating disorders. Source: <a href="https://www.tandfonline.com/doi/abs/10.1080/13674670802358190" target="_blank" rel="noopener noreferrer">https://www.tandfonline.com/doi/abs/10.1080/13674670802358190</a></p>
 
-<p>Use of the hijab, results in more positive body image, less fixation with appearance &amp; less reliance on Western media beauty standards. Source: <a href="https://bpspsychub.onlinelibrary.wiley.com/doi/abs/10.1111/bjop.12045" target="_blank" rel="noopener">https://bpspsychub.onlinelibrary.wiley.com/doi/abs/10.1111/bjop.12045</a></p>
+<p>Use of the hijab, results in more positive body image, less fixation with appearance &amp; less reliance on Western media beauty standards. Source: <a href="https://bpspsychub.onlinelibrary.wiley.com/doi/abs/10.1111/bjop.12045" target="_blank" rel="noopener noreferrer">https://bpspsychub.onlinelibrary.wiley.com/doi/abs/10.1111/bjop.12045</a></p>
 
-<p>Despite feminists attempting to speak for Muslim women to claim the hijab/Islam is &quot;oppressive&quot;, this fails to take into account voice of real Muslim women. In reality Muslim women contradict feminist myths about the hijab, and say Islam protects them. Source: <a href="https://www.tandfonline.com/doi/abs/10.1080/00909880701434299" target="_blank" rel="noopener">https://www.tandfonline.com/doi/abs/10.1080/00909880701434299</a></p>
+<p>Despite feminists attempting to speak for Muslim women to claim the hijab/Islam is &quot;oppressive&quot;, this fails to take into account voice of real Muslim women. In reality Muslim women contradict feminist myths about the hijab, and say Islam protects them. Source: <a href="https://www.tandfonline.com/doi/abs/10.1080/00909880701434299" target="_blank" rel="noopener noreferrer">https://www.tandfonline.com/doi/abs/10.1080/00909880701434299</a></p>
 
-<blockquote>“The results show that veiled women score much lower on social appearance anxiety than non-veiled women.” Source: <a href="https://brill.com/view/journals/jet/30/2/article-p127_127.xml" target="_blank" rel="noopener">https://brill.com/view/journals/jet/30/2/article-p127_127.xml</a></blockquote>
+<blockquote>“The results show that veiled women score much lower on social appearance anxiety than non-veiled women.” Source: <a href="https://brill.com/view/journals/jet/30/2/article-p127_127.xml" target="_blank" rel="noopener noreferrer">https://brill.com/view/journals/jet/30/2/article-p127_127.xml</a></blockquote>
 
-<p>A study of 450 French Muslim women found that those who wore the hijab reported significantly lower body dissatisfaction, disordered eating, and pressure to meet beauty ideals compared to those who did not—despite experiencing higher levels of perceived discrimination. The findings suggest that wearing the hijab may serve as a protective factor against body image issues. Source: <a href="https://www.tandfonline.com/doi/abs/10.1080/13674676.2017.1312322?journalCode=cmhr20" target="_blank" rel="noopener">https://www.tandfonline.com/doi/abs/10.1080/13674676.2017.1312322?journalCode=cmhr20</a></p>
+<p>A study of 450 French Muslim women found that those who wore the hijab reported significantly lower body dissatisfaction, disordered eating, and pressure to meet beauty ideals compared to those who did not—despite experiencing higher levels of perceived discrimination. The findings suggest that wearing the hijab may serve as a protective factor against body image issues. Source: <a href="https://www.tandfonline.com/doi/abs/10.1080/13674676.2017.1312322?journalCode=cmhr20" target="_blank" rel="noopener noreferrer">https://www.tandfonline.com/doi/abs/10.1080/13674676.2017.1312322?journalCode=cmhr20</a></p>
 
 <h2>The Queen Argument: Modesty Befits Status</h2>
 
@@ -8149,8 +8177,8 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <p class="lede">If you want to see the beauty of Islam please read the Qur’an and then the document below.</p>
 
 <ul>
-  <li><a class="cta-link" href="https://quran.com/" target="_blank" rel="noopener">Read the Qur’an</a></li>
-  <li><a class="cta-link" href="https://docs.google.com/document/d/1UKHavIN1DwII0Ils284jnIBq-zUueZmotuWtIkbsbUk/edit?usp=sharing" target="_blank" rel="noopener">Read the document</a></li>
+  <li><a class="cta-link" href="https://quran.com/" target="_blank" rel="noopener noreferrer">Read the Qur’an</a></li>
+  <li><a class="cta-link" href="https://docs.google.com/document/d/1UKHavIN1DwII0Ils284jnIBq-zUueZmotuWtIkbsbUk/edit?usp=sharing" target="_blank" rel="noopener noreferrer">Read the document</a></li>
 </ul>
 
 <p class="lede">Islamic scripture and classical law give women a set of explicit rights, and assign certain social and household responsibilities mainly to men. Because some rights are exclusive to women and many protective rules exist, one can point to a long list of women-specific entitlements and exemptions: men often carry heavier financial and public obligations, while women have many legally guaranteed protections and some exclusive entitlements. Below is a list of the main texts and historical/modern points, with proofs and brief commentary.</p>
@@ -8241,7 +8269,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 
 <p>It is essential to distinguish Islamic teachings from cultural practices. Many abuses against women in Muslim societies today stem from patriarchal culture, colonial disruption of Islamic legal systems, and misinterpretation or selective application of texts. These practices contradict Islamic principles rather than represent them.</p>
 
-<p><a class="video-link" href="https://youtu.be/pYSO6Ep-zNA?si=JxLQRWI4453VQrFL" target="_blank" rel="noopener">Watch the related video</a></p>
+<p><a class="video-link" href="https://youtu.be/pYSO6Ep-zNA?si=JxLQRWI4453VQrFL" target="_blank" rel="noopener noreferrer">Watch the related video</a></p>
 
 <h2>The best of you are the best to their wives</h2>
 
@@ -8904,9 +8932,9 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 
 <h2>Learn the method and its different parts</h2>
 
-<p>See this <a href="https://www.islamandihsan.com/wudu-ablution" target="_blank" rel="noopener">step-by-step explanation of wudu and its different parts</a> for the method and its rulings.</p>
+<p>See this <a href="https://www.islamandihsan.com/wudu-ablution" target="_blank" rel="noopener noreferrer">step-by-step explanation of wudu and its different parts</a> for the method and its rulings.</p>
 
-<p>For a video demonstration that includes Sunnahs, see this <a href="https://youtu.be/CO5O3JBjgGI?si=5td8SAb7K1g3YwO1" target="_blank" rel="noopener">video demonstration of wudu</a>.</p>
+<p>For a video demonstration that includes Sunnahs, see this <a href="https://youtu.be/CO5O3JBjgGI?si=5td8SAb7K1g3YwO1" target="_blank" rel="noopener noreferrer">video demonstration of wudu</a>.</p>
 
 <p><strong>Practical reminder:</strong> Learn the details from a trusted teacher and follow the school of law you are studying. If you are unsure whether your wudu was valid, do not fall into constant waswas; act on reasonable certainty and ask a qualified teacher about persistent questions.</p>
 `,
@@ -8920,7 +8948,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 
 <h2>Learn how to perform tayammum</h2>
 
-<p>For a practical explanation and demonstration, see this <a href="https://youtu.be/8frJLplYkc4?si=Hy2nuo5JOxFBVU9w" target="_blank" rel="noopener">video on how to perform tayammum</a>.</p>
+<p>For a practical explanation and demonstration, see this <a href="https://youtu.be/8frJLplYkc4?si=Hy2nuo5JOxFBVU9w" target="_blank" rel="noopener noreferrer">video on how to perform tayammum</a>.</p>
 
 <p>When the excuse ends and water becomes available and safe to use, return to the ordinary purification required by the act of worship.</p>
 `,
@@ -8940,7 +8968,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <li>Pour water over the body, starting with the left side, three times.</li>
 </ol>
 
-<p>For a visual demonstration, see this <a href="https://youtu.be/iWFMlUyB73A?si=ADO23hbMcMMzwgrF" target="_blank" rel="noopener">video showing ghusl</a>.</p>
+<p>For a visual demonstration, see this <a href="https://youtu.be/iWFMlUyB73A?si=ADO23hbMcMMzwgrF" target="_blank" rel="noopener noreferrer">video showing ghusl</a>.</p>
 
 <h2>The minimum valid ghusl</h2>
 
@@ -9305,12 +9333,12 @@ function renderIntro(){
         <a class="enter-big" href="#/index">Enter the Index <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h15M13 6l6 6-6 6"/></svg></a>
       </section>
     </div>
-    <footer>Ilm — for study and reflection.<p class="site-disclaimer">This website is for education and study only. It describes classical Islamic rulings and the views of scholars. It does not call for, encourage or approve of violence, vigilantism, rebellion or any unlawful action against any person, group or government. Where rulings on war, punishment or rulers are mentioned, they are explained as matters of Islamic law, not as instructions to individuals.</p></footer>
+    ${siteFooter()}
   </div>`;
 }
 
 function linktreeLink(extra){
-  return `<a class="linktree-link notranslate${extra?" "+extra:""}" translate="no" href="https://linktr.ee/daiyanii" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3A4 4 0 0 0 11 18.7l1-1"/></svg>Linktree</a>`;
+  return `<a class="linktree-link notranslate${extra?" "+extra:""}" translate="no" href="https://linktr.ee/daiyanii" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3A4 4 0 0 0 11 18.7l1-1"/></svg>Linktree</a>`;
 }
 function topbar(crumbs){
   const crumbHTML = crumbs.map((c,i) => {
@@ -9356,7 +9384,7 @@ function renderIndex(){
       </div>
       <div class="forum-grid">${cards}</div>
     </main>
-    <footer>Ilm — for study and reflection.<p class="site-disclaimer">This website is for education and study only. It describes classical Islamic rulings and the views of scholars. It does not call for, encourage or approve of violence, vigilantism, rebellion or any unlawful action against any person, group or government. Where rulings on war, punishment or rulers are mentioned, they are explained as matters of Islamic law, not as instructions to individuals.</p></footer>
+    ${siteFooter()}
   </div>`;
   bind3DMotion();
 }
@@ -9390,14 +9418,14 @@ function placeholderPage(crumbs, eyebrow, title, desc, backHref, backLabel){
         Back to ${backLabel}
       </a>
     </main>
-    <footer>Ilm — for study and reflection.<p class="site-disclaimer">This website is for education and study only. It describes classical Islamic rulings and the views of scholars. It does not call for, encourage or approve of violence, vigilantism, rebellion or any unlawful action against any person, group or government. Where rulings on war, punishment or rulers are mentioned, they are explained as matters of Islamic law, not as instructions to individuals.</p></footer>
+    ${siteFooter()}
   </div>`;
 }
 
 function articlePage(crumbs, eyebrow, title, desc, html, backHref, backLabel){
   const renderedHtml = title === "Islam has the most impact out of any religion"
     ? html.replace(/<figure[\s\S]*?<\/figure>/gi, "") + `
-<p><a class="cta-link" href="https://docs.google.com/document/d/1nNRCCTa_elaueuP1qbqGDwrOSVQ9lrKx1wSM_WJEo_E/edit?usp=sharing" target="_blank" rel="noopener">View all the images</a></p>`
+<p><a class="cta-link" href="https://docs.google.com/document/d/1nNRCCTa_elaueuP1qbqGDwrOSVQ9lrKx1wSM_WJEo_E/edit?usp=sharing" target="_blank" rel="noopener noreferrer">View all the images</a></p>`
     : html;
   return `
   <div class="view">
@@ -9412,7 +9440,7 @@ function articlePage(crumbs, eyebrow, title, desc, html, backHref, backLabel){
         Back to ${backLabel}
       </a>
     </main>
-    <footer>Ilm — for study and reflection.<p class="site-disclaimer">This website is for education and study only. It describes classical Islamic rulings and the views of scholars. It does not call for, encourage or approve of violence, vigilantism, rebellion or any unlawful action against any person, group or government. Where rulings on war, punishment or rulers are mentioned, they are explained as matters of Islamic law, not as instructions to individuals.</p></footer>
+    ${siteFooter()}
   </div>`;
 }
 
@@ -9433,7 +9461,7 @@ function renderForum(id){
         Back to Index
       </a>
     </main>
-    <footer>Ilm — for study and reflection.<p class="site-disclaimer">This website is for education and study only. It describes classical Islamic rulings and the views of scholars. It does not call for, encourage or approve of violence, vigilantism, rebellion or any unlawful action against any person, group or government. Where rulings on war, punishment or rulers are mentioned, they are explained as matters of Islamic law, not as instructions to individuals.</p></footer>
+    ${siteFooter()}
   </div>`;
 }
 
@@ -9474,7 +9502,7 @@ function renderSub(fid, slug){
           Back to ${f.title}
         </a>
       </main>
-      <footer>Ilm — for study and reflection.<p class="site-disclaimer">This website is for education and study only. It describes classical Islamic rulings and the views of scholars. It does not call for, encourage or approve of violence, vigilantism, rebellion or any unlawful action against any person, group or government. Where rulings on war, punishment or rulers are mentioned, they are explained as matters of Islamic law, not as instructions to individuals.</p></footer>
+      ${siteFooter()}
     </div>`;
     return;
   }
@@ -9531,7 +9559,7 @@ function renderNode(fid, slugs){
           Back to ${backLabel}
         </a>
       </main>
-      <footer>Ilm — for study and reflection.<p class="site-disclaimer">This website is for education and study only. It describes classical Islamic rulings and the views of scholars. It does not call for, encourage or approve of violence, vigilantism, rebellion or any unlawful action against any person, group or government. Where rulings on war, punishment or rulers are mentioned, they are explained as matters of Islamic law, not as instructions to individuals.</p></footer>
+      ${siteFooter()}
     </div>`;
     return;
   }
@@ -9644,6 +9672,7 @@ function translateToast(msg){
 }
 function pickCombo(combo,code){ combo.value=code; combo.dispatchEvent(new Event("change")); }
 async function setSiteLanguage(code){
+  if(code && !(consent&&consent.opt)){ const s=document.querySelector("[data-translate-select]"); if(s) s.value=currentLang; openConsent("manage","translate"); return; }
   const sel=document.querySelector("[data-translate-select]");
   const previous=currentLang;
   currentLang=code;
@@ -9699,7 +9728,7 @@ function buildGuide(art){
   const mins=Math.max(1,Math.round((art.textContent.match(/\S+/g)||[]).length/210));
   const tips=[];
   const fid=location.hash.split("/")[2]||"";
-  if(FORUM_TIPS[fid]) tips.push(FORUM_TIPS[fid]);
+  if(Object.prototype.hasOwnProperty.call(FORUM_TIPS,fid)) tips.push(FORUM_TIPS[fid]);
   if(heads.length>=3) tips.push("On a long page, use the On this page buttons to jump to a section, and the round arrow button to return to the top.");
   if(count(/<blockquote/g)) tips.push("Quotes are the evidence. The source is written in small text under each one, so you can look it up yourself.");
   if(count(/class="cta-link"|href="#\/forum/g)) tips.push("Gold links and buttons open related pages. Use your browser's back button to return.");
@@ -9709,7 +9738,7 @@ function buildGuide(art){
   tips.push("To read this page in another language, use the Translate menu at the top.");
   let open=true; try{ open=localStorage.getItem("ilm-howto")!=="0"; }catch(e){}
   const chips=heads.length>=3
-    ? `<nav class="otp" aria-label="On this page"><span>On this page</span>${heads.slice(0,10).map((x,i)=>`<button type="button" data-jump="${i}">${x.textContent.trim().slice(0,40)}</button>`).join("")}</nav>` : "";
+    ? `<nav class="otp" aria-label="On this page"><span>On this page</span>${heads.slice(0,10).map((x,i)=>`<button type="button" data-jump="${i}">${esc(x.textContent.trim().slice(0,40))}</button>`).join("")}</nav>` : "";
   art.insertAdjacentHTML("beforebegin",
     `<div class="pageinfo"><span class="chip">&asymp; ${mins} min read</span></div>${chips}
      <details class="howto"${open?" open":""}><summary>How to use this page</summary><ul>${tips.slice(0,5).map(t=>`<li>${t}</li>`).join("")}</ul></details>`);
@@ -9763,6 +9792,130 @@ window.addEventListener("hashchange",()=>setTimeout(revealSafety,900));
 setInterval(revealSafety,2500);
 toTop&&toTop.addEventListener("click",()=>window.scrollTo({top:0,behavior:motionOK?"smooth":"auto"}));
 
+/* ============ LEGAL, CONSENT & PRIVACY ============ */
+const LEGAL_VERSION="2026-10-12";
+const CONTACT="Discord: @dnx4";
+const SITE_DISCLAIMER="This website is for education and study only. It describes classical Islamic rulings and the views of scholars. It does not call for, encourage or approve of unlawful violence, vigilantism, rebellion or action against any person, group or government. Where rulings are mentioned, such as on war, punishment or rulers, they are explained as matters of Islamic law for education and not as instructions to particular individuals.";
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const LEGAL={
+terms:{t:"Terms of Use",h:`<p class="lede">These terms are in plain language. By using this site you agree to them.</p>
+<h2>1. What this site is</h2><p>Ilm is a free site for education and study. It explains classical Islamic rulings and the views of scholars. It is not a fatwa for your personal situation, and it is not legal, medical or financial advice. For a personal ruling, ask a qualified scholar.</p>
+<h2>2. Disclaimer</h2><p>${SITE_DISCLAIMER}</p>
+<h2>3. Accuracy</h2><p>We try to be accurate and to cite sources so you can check them. We are not infallible. The content is provided as it is, with no promise that it is complete or free of error. If you find a mistake, tell us and we will review and correct it. Nothing here excuses dishonesty, and nothing limits any right that cannot lawfully be limited.</p>
+<h2>4. Your responsibility</h2><p>You are responsible for how you use what you read. Matters such as war, punishment, rulers and declaring individuals to be disbelievers belong to qualified scholars and those with proper authority. They are explained here for knowledge, not as instructions to you or anyone else.</p>
+<h2>5. Rules of use</h2><ul><li>Do not use the site for anything forbidden by Allah's law, or unlawful where you live.</li><li>Do not alter our text, misquote it, or present it as someone else's or as yours.</li><li>Do not try to break, overload or interfere with the site, or scrape it in a way that harms it.</li><li>Do not use anything here to harm, threaten or harass anyone.</li></ul>
+<h2>6. Sharing and sources</h2><p>You may share links to this site and quote short parts with attribution, for education. Do not sell the content. Qur'an, hadith, quotations, screenshots and referenced works belong to their authors and publishers and are shown for education, commentary and citation. If you own something here and want it corrected or removed, contact us. We will look at it promptly and fairly.</p>
+<h2>7. Other websites</h2><p>This site links to other sites and videos. We do not control them and are not responsible for their content or practices.</p>
+<h2>8. Changes and availability</h2><p>We may change or remove content, or these terms, at any time. When the terms change in a way that matters, you will be asked to agree again.</p>
+<h2>9. Problems and disputes</h2><p>If something is wrong, contact us first. We will deal with you fairly and honestly and try to settle it by mutual agreement and goodwill (sulh). These terms do not force you into any particular court or arbitrator, and do not remove any right you have under the law where you live.</p>
+<h2>10. Your agreement</h2><p>You confirm you are old enough to agree, or have your parent or guardian's permission. You can withdraw at any time from "Privacy &amp; cookie choices" in the footer, or by leaving the site.</p>
+<h2>Contact</h2><p>${CONTACT}</p><p><em>Version ${LEGAL_VERSION}</em></p>`},
+privacy:{t:"Privacy Policy",h:`<p class="lede">Short version: this site does not ask for or collect personal information.</p>
+<h2>What we collect</h2><p>Nothing ourselves. There are no accounts, forms, comments, ads, analytics or trackers on this site. We never sell, trade or misuse information. Anything that did reach us would be treated as an amanah (a trust).</p>
+<h2>What is saved on your device</h2><p>Only small settings kept in your browser and never sent to us: your agreement and choices, light or dark theme, your language choice, and whether the "How to use this page" box is open. See Cookies &amp; storage.</p>
+<h2>Optional Google services (off until you allow them)</h2><ul><li><strong>Google Fonts</strong> supplies the site's fonts. Google receives your IP address and browser details when it loads them.</li><li><strong>Google Translate</strong> translates the page. The page text is sent to Google, and a cookie remembers your language.</li></ul><p>If you leave these off, nothing is requested from Google, the site uses standard fonts and translation is off. Google's own policy is at policies.google.com/privacy.</p>
+<h2>Hosting</h2><p>Our hosting provider may keep ordinary technical logs, such as IP address and time of visit, to run and secure the service. We do not use them to track you.</p>
+<h2>Other sites</h2><p>Links to YouTube, Instagram, Telegram, Discord, Google Docs and other sites lead to services with their own privacy practices.</p>
+<h2>Your choices</h2><p>You can change or withdraw your choices, and clear everything saved on your device, from "Privacy &amp; cookie choices" in the footer. For any privacy question, contact us.</p>
+<h2>Children</h2><p>We do not collect information from anyone, including children.</p>
+<h2>Changes</h2><p>If this notice changes in a way that matters, you will be asked to agree again.</p>
+<h2>Contact</h2><p>${CONTACT}</p>`},
+cookies:{t:"Cookies & storage",h:`<p class="lede">The site sets no cookies of its own. It uses a few small browser storage items, listed here. Preference items are saved only when you use that feature.</p>
+<table><thead><tr><th>Name</th><th>Purpose</th><th>Needed?</th></tr></thead><tbody>
+<tr><td>ilm-consent</td><td>Remembers your agreement and choices so you are not asked on every visit.</td><td>Yes</td></tr>
+<tr><td>ilm-theme</td><td>Remembers light or dark theme.</td><td>Preference</td></tr>
+<tr><td>ilm-howto</td><td>Remembers whether the "How to use this page" box is open.</td><td>Preference</td></tr>
+<tr><td>ilm-lang</td><td>Remembers your chosen language.</td><td>Optional (Translate)</td></tr>
+<tr><td>googtrans (cookie)</td><td>Set by Google Translate to remember the language.</td><td>Optional (Translate)</td></tr></tbody></table>
+<p>Google Fonts sets no cookie here, but it contacts Google to deliver fonts (optional).</p>
+<p>Optional items are blocked until you allow them. You can withdraw at any time from "Privacy &amp; cookie choices" in the footer.</p>`},
+guidelines:{t:"Site Guidelines",h:`<p class="lede">How we ask you to use this site. These guidelines are part of the Terms of Use.</p>
+<ul><li><strong>Learn, then verify.</strong> Check the sources and ask qualified scholars about your own situation.</li>
+<li><strong>Do not act on rulings alone.</strong> Rulings on war, punishment, rulers and similar matters are explained for knowledge. They are not instructions to individuals, and this site does not call for or approve unlawful violence or vigilantism.</li>
+<li><strong>Keep the context.</strong> When sharing, share the page link, not a clipped line or screenshot, so the full explanation travels with it.</li>
+<li><strong>Be truthful and fair.</strong> Do not misquote or distort, and do not use the content to harm, threaten, harass or accuse specific people.</li>
+<li><strong>Tell us about mistakes.</strong> Send corrections and rights concerns to ${CONTACT}.</li></ul>`}
+};
+function renderLegal(key){
+  const L=Object.prototype.hasOwnProperty.call(LEGAL,key)?LEGAL[key]:null;
+  if(!L){ location.hash="#/index"; return; }
+  app.innerHTML=articlePage([{label:"Index",href:"#/index"},{label:L.t}],"Legal",L.t,"",L.h,"#/index","Index");
+}
+function siteFooter(){
+  return `<footer>Ilm — for study and reflection.<p class="site-disclaimer">${SITE_DISCLAIMER}</p>
+  <nav class="legal-links" aria-label="Legal"><a href="#/legal/terms">Terms of Use</a><a href="#/legal/privacy">Privacy</a><a href="#/legal/cookies">Cookies &amp; storage</a><a href="#/legal/guidelines">Guidelines</a><button type="button" data-consent-open>Privacy &amp; cookie choices</button></nav>
+  <p class="site-copy">&copy; ${new Date().getFullYear()} Ilm. You may share links and quote with attribution, for education. Do not alter, sell or misattribute the content. Quoted works remain their authors' and publishers' property.</p></footer>`;
+}
+
+/* ---- consent gate: nothing renders until the visitor agrees ---- */
+const CK="ilm-consent";
+let consent=null, siteReady=false;
+function readConsent(){ try{ const c=JSON.parse(localStorage.getItem(CK)||"null"); return c&&c.v===LEGAL_VERSION?c:null; }catch(_){ return null; } }
+function saveConsent(opt){ consent={v:LEGAL_VERSION,t:new Date().toISOString(),opt:!!opt}; try{ localStorage.setItem(CK,JSON.stringify(consent)); }catch(_){} }
+function loadGoogleFonts(){
+  if(document.getElementById("ilm-gfonts")) return;
+  const l=document.createElement("link"); l.id="ilm-gfonts"; l.rel="stylesheet";
+  l.href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600&display=swap";
+  document.head.appendChild(l);
+}
+function applyOptional(){ if(consent&&consent.opt) loadGoogleFonts(); else clearTranslateCookie(); }
+function wipeAndReload(){
+  try{ ["ilm-consent","ilm-theme","ilm-howto","ilm-lang"].forEach(k=>localStorage.removeItem(k)); }catch(_){}
+  clearTranslateCookie(); location.reload();
+}
+function setLocked(on){
+  document.documentElement.classList.toggle("gate-open",on);
+  ["#app",".to-top",".weave"].forEach(s=>{ const el=document.querySelector(s); if(!el) return; if(on){ el.setAttribute("inert",""); el.setAttribute("aria-hidden","true"); } else { el.removeAttribute("inert"); el.removeAttribute("aria-hidden"); } });
+}
+function closeConsent(){ document.getElementById("consent")?.remove(); setLocked(false); }
+function openConsent(mode,reason){
+  closeConsent();
+  const manage=mode==="manage";
+  const ov=document.createElement("div");
+  ov.id="consent"; ov.className="consent"; ov.setAttribute("role","dialog"); ov.setAttribute("aria-modal","true"); ov.setAttribute("aria-labelledby","consent-h");
+  const docs=Object.keys(LEGAL).map(k=>`<details class="c-doc"><summary>${LEGAL[k].t}</summary><div class="c-doc-body article">${LEGAL[k].h}</div></details>`).join("");
+  ov.innerHTML=`<div class="c-box" tabindex="-1">
+    <p class="c-eyebrow">${manage?"Your choices":"Before you enter"}</p>
+    <h2 id="consent-h">${manage?"Privacy &amp; cookie choices":"Please read and agree to continue"}</h2>
+    ${reason==="translate"?`<p class="c-note">Translation uses Google's service. Allow the optional services below to use it.</p>`:""}
+    <div class="c-disc"><strong>Disclaimer</strong><p>${SITE_DISCLAIMER}</p></div>
+    <p class="c-small">Read the full documents (tap to open):</p>${docs}
+    <label class="c-check"><input type="checkbox" id="c-req"${manage?" checked":""}><span>I have read the disclaimer above and I agree to the Terms of Use, Privacy Policy, Cookies &amp; storage notice and Site Guidelines. I am old enough to agree, or I have my parent or guardian's permission.</span></label>
+    <label class="c-check"><input type="checkbox" id="c-opt"${consent&&consent.opt?" checked":""}><span><strong>Optional.</strong> Allow Google Fonts and Google Translate. They are run by Google and receive your IP address. If you leave this off, the site works fully with standard fonts and translation stays off.</span></label>
+    <div class="c-actions"><button type="button" class="c-go" id="c-go" disabled>${manage?"Save choices":"Agree and enter"}</button>${manage?`<button type="button" class="c-alt" id="c-close">Close</button><button type="button" class="c-alt" id="c-wipe">Withdraw and clear saved data</button>`:`<button type="button" class="c-alt" id="c-no">I do not agree</button>`}</div>
+    <p class="c-small">Your choice is saved only on this device. You can change or withdraw it at any time from the footer.</p></div>`;
+  document.body.appendChild(ov); setLocked(true);
+  const box=ov.querySelector(".c-box"), req=ov.querySelector("#c-req"), go=ov.querySelector("#c-go");
+  const sync=()=>{ go.disabled=!req.checked; }; req.addEventListener("change",sync); sync();
+  go.onclick=()=>{
+    if(!req.checked) return;
+    const first=!siteReady, hadOpt=!!(consent&&consent.opt), opt=ov.querySelector("#c-opt").checked;
+    saveConsent(opt);
+    if(hadOpt&&!opt){ try{ localStorage.removeItem("ilm-lang"); }catch(_){} clearTranslateCookie(); location.reload(); return; }
+    applyOptional(); closeConsent();
+    if(first){ siteReady=true; route(); }
+    else if(reason==="translate"&&opt) translateToast("Optional services allowed. Choose your language again.");
+  };
+  const no=ov.querySelector("#c-no");
+  if(no) no.onclick=()=>{ box.innerHTML=`<h2 id="consent-h">Agreement needed</h2><p>You need to agree to the terms to use this site. Nothing has been saved. You can close this tab, or go back and read the agreement again.</p><div class="c-actions"><button type="button" class="c-go" id="c-back">Back to the agreement</button></div>`; box.querySelector("#c-back").onclick=()=>openConsent("gate"); box.focus(); };
+  const cl=ov.querySelector("#c-close"); if(cl) cl.onclick=closeConsent;
+  const wp=ov.querySelector("#c-wipe"); if(wp) wp.onclick=wipeAndReload;
+  ov.addEventListener("keydown",e=>{
+    if(e.key==="Escape"&&manage){ closeConsent(); return; }
+    if(e.key!=="Tab") return;
+    const f=[...ov.querySelectorAll("button:not([disabled]),input,summary,a[href]")]; if(!f.length) return;
+    const a=f[0], z=f[f.length-1];
+    if(e.shiftKey&&(document.activeElement===a||document.activeElement===box)){ e.preventDefault(); z.focus(); }
+    else if(!e.shiftKey&&document.activeElement===z){ e.preventDefault(); a.focus(); }
+  });
+  box.focus();
+}
+document.addEventListener("click",e=>{ if(e.target.closest("[data-consent-open]")) openConsent("manage"); });
+function consentBoot(){
+  consent=readConsent(); applyOptional();
+  if(consent){ siteReady=true; route(); } else openConsent("gate");
+}
+
 /* ============ ROUTER ============ */
 function routeBase(){
   const hash = location.hash.replace(/^#\/?/,"");
@@ -9772,14 +9925,15 @@ function routeBase(){
 
   if(parts.length === 0){ renderIntro(); return; }
   if(parts[0] === "index"){ renderIndex(); return; }
+  if(parts[0] === "legal"){ renderLegal(parts[1]); return; }
   if(parts[0] === "forum" && parts[1] && !parts[2]){ renderForum(parts[1]); return; }
   if(parts[0] === "forum" && parts[1] && parts[2] && !parts[3]){ renderSub(parts[1], parts[2]); return; }
   if(parts[0] === "forum" && parts[1] && parts[2] && parts[3]){ renderNode(parts[1], parts.slice(2)); return; }
   renderIntro();
 }
-function route(){ routeBase(); enhanceView(); syncToTop(); }
+function route(){ if(!siteReady) return; routeBase(); enhanceView(); syncToTop(); }
 window.addEventListener("hashchange", route);
-route();
+consentBoot();
 </script>
 </body>
 </html>
