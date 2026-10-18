@@ -727,6 +727,14 @@ html.gate-open{overflow:hidden;}
 @media (prefers-reduced-motion:reduce){
   .back-note{ transition:none; }
 }
+
+/* ---- contact note and link notes ---- */
+.contact-note{max-width:46rem;margin:1rem auto 0;font-size:.92rem;font-weight:600;line-height:1.6;text-align:center;color:#B3261E;}
+.contact-note a{color:inherit;text-decoration:underline;}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .contact-note{color:#FF8A80;}}
+:root[data-theme="dark"] .contact-note{color:#FF8A80;}
+.article .link-note{font-size:.82rem;font-style:italic;color:var(--ink-soft);}
+.article p.link-note{margin:.9rem 0 .3rem;}
 </style>
 </head>
 <body>
@@ -851,7 +859,7 @@ const FORUMS = [
           ["Abandonment of Salah","The ruling on deliberately abandoning the prayer, with the further evidence from the Salaf and the Maliki school."],
           ["Madkhalism Debate","A fun fact about the biggest name-calling match in modern Sunni circles."],
           ["Common Mistakes in Fiqh",""],
-          ["Tasweer","The ruling on drawings, photography and digital images, according to the Maliki school."],
+          ["Tasweer","The ruling on drawings, photography and digital images, with the Maliki position."],
           ["Awrah",""],
           ["Menstruation",""],
           ["Mahrams",""],
@@ -880,7 +888,7 @@ const FORUMS = [
           ["Sodomy",""],
           ["Bestiality",""],
           ["Euthanasia",""],
-          ["Abortion and Blood Money for Fetuses","The ruling on abortion at each stage of pregnancy, and the blood money (ghurrah) owed for a fetus, according to the Maliki school."],
+          ["Abortion and Blood Money for Fetuses","The ruling on abortion at each stage of pregnancy, and the blood money (ghurrah) owed for a fetus, with the Maliki position."],
           ["Ruling on Newborns Who Die",""],
           ["Intersexuality or Sexual Ambiguity",""],
           ["Voting",""],
@@ -1018,9 +1026,11 @@ const FORUMS = [
             ["Christian Philosophy rips off Avicenna and Averroes",""],
             ["Ahistorical prophets?",""],
             ["Jizyah Is Not Bad","Why the jizyah is a light and fair tax, and what it replaces."],
+            ["Christians Were Saved by Muslims",""],
             ["Links to Refutations","External articles, videos, and resources refuting Christian objections."]
       ]],
       ["Jews","Common objections raised in Jewish apologetics, and Islamic responses.",[
+        ["Jews Were Saved by Muslims",""],
         ["Links to Refutations","External articles, videos, and resources refuting Jewish objections."]
       ]],
       ["Philosophers","Responses to philosophical objections to religious belief.",[
@@ -1727,21 +1737,13 @@ const CONTENT = {
 
 <p>When this site says <strong>&ldquo;necessary parts of Aqeedah,&rdquo;</strong> it always means the second meaning: what is known by necessity (mass transmission, Fitrah, and what follows directly from the Shahadah). This is what the pages on Tawhid, Sect, the Pillars of Islam, Iman and Ihsan, the Nullifiers of Islam, Bid&lsquo;ah and Takfir are about, and it is what a person must have in order to be Muslim.</p>
 
-<p>The non-essential material belongs to the wide meaning and is collected in the section called <strong>Specific Beliefs</strong>. Not knowing it does not nullify a person&rsquo;s Islam, as long as the very basics are affirmed:</p>
+<p>The non-essential material belongs to the wide meaning and is collected in the section called <strong>Specific Beliefs</strong>. Not knowing it does not nullify a person&rsquo;s Islam, as long as the very basics are affirmed.</p>
 
-<a class="cta-link" href="#/forum/what-is-islam/aqeedah/specific-beliefs">
-  Go to Specific Beliefs
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
-</a>
 
 <p>Some things that appear inside Specific Beliefs overlap with what is necessary to faith. For example, the Hereafter, the reality of Paradise and Hell, the angels, and the obligation of the Sunnah are not optional. These are not treated as extras: they are addressed earlier, on the pages about the Pillars of Iman and the Nullifiers of Islam, and the Specific Beliefs pages only add the details.</p>
 
-<p>A mistake in the wide meaning, one that is not known by necessity and was made through sincere ijtihad, is a different case from denying the necessary parts. It is explained under <em>Deficiency in Aqeedah</em> on the Nullifiers of Islam page:</p>
+<p>A mistake in the wide meaning, one that is not known by necessity and was made through sincere <strong>ijtihad</strong> (<em>ijtihad</em> is when a qualified scholar exerts his full effort to work out a ruling or an understanding from the Qur&rsquo;an and the Sunnah, in a matter where the texts leave room for more than one valid understanding), is a different case from denying the necessary parts. It is explained under <em>Deficiency in Aqeedah</em> on the Nullifiers of Islam page.</p>
 
-<a class="cta-link" href="#/forum/what-is-islam/aqeedah/nawaqidul-islam">
-  Go to the Nullifiers of Islam
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
-</a>
 
 <p>Faith (Iman in Arabic) in Islam is not purely within the belief of the religion being true. It is also in your actions and what you believe. Your faith even increases with good deeds and decreases with bad deeds. This also relates to why reverting to Islam requires one to pronounce the Shahada (Declaration of Faith), which we cover in the forum on how to be Muslim.</p>
 
@@ -6596,7 +6598,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
   <div>
     <h2>Important disclaimer: acceptable differences of opinion in fiqh</h2>
     <p><strong>Fiqh is not the same thing as revelation itself.</strong> The Qur&rsquo;an and authentic Sunnah are the revelation; fiqh is the careful human effort of qualified scholars to understand the evidence and apply it. Because scholars may weigh evidence, reconcile texts, understand Arabic wording, assess hadith, or apply legal principles differently, qualified scholars can reach different fiqh rulings while all seeking to follow the same revelation.</p>
-    <p>Not every disagreement is acceptable, and not every opinion is equally strong. A view must still be grounded in valid evidence and sound principles. But a genuine difference among qualified scholars is not automatically a deviation, sin, or reason to attack another Muslim. Beginners should learn from a trustworthy teacher, follow a coherent school or scholarly method, and avoid collecting easy opinions or turning secondary legal questions into arguments about someone&rsquo;s faith.</p>
+    <p>Not every disagreement is acceptable, and not every opinion is equally strong. A view must still be grounded in valid evidence and sound principles. But a genuine difference among qualified scholars is not automatically a deviation, sin, or reason to attack another Muslim. Beginners should learn from a trustworthy teacher, follow the evidence rather than a specific school, and avoid collecting easy opinions or turning secondary legal questions into arguments about someone&rsquo;s faith.</p>
     <p>This is why Muslims should distinguish between <strong>matters of creed and clear fundamentals</strong>, where the truth must be affirmed, and <strong>secondary fiqh questions</strong>, where different inferences from the evidence may be valid. The existence of a difference does not mean that all positions are true in the same sense; it means that the evidence can sometimes allow more than one qualified interpretation.</p>
     <p>The Salaf themselves differed in fiqh. Abdullah ibn Umar reported that the Messenger of Allah (peace and blessings be upon him) made an announcement on the day he returned from the Confederates:</p>
     <blockquote>&ldquo;No one will pray his noon prayer unless he is among the tribe of Qurayzah.&rdquo; Some people feared that the time for prayer would expire, so they performed their prayers before reaching Qurayzah. Others said, &ldquo;We will only perform our prayer where the Prophet has ordered us to pray, even if the time expires.&rdquo; When the Prophet heard this, he did not rebuke anyone from the two groups.<cite>Sahih al-Bukhari and Sahih Muslim</cite></blockquote>
@@ -6612,6 +6614,14 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
   <li><strong>Ijma’ (Consensus):</strong> The unanimous agreement of the salaf (the first 3 generations) and the khalaf (later scholars).</li>
   <li><strong>Qiyas (Analogy):</strong> Applying an established rule to a new situation based on shared reasoning (e.g., applying the ban on wine to modern intoxicants).</li>
 </ol>
+
+<h2>Schools of Fiqh (Madhhabs)</h2>
+<p>You will hear about the four schools of fiqh: Hanafi, Maliki, Shafi&rsquo;i and Hanbali. A school is a tool for reaching rulings, not a part of the religion. This site does not follow any one school, and the advice is to <strong>follow the evidence over a specific school</strong>. The full explanation, including what to watch out for, is on the Usool al-Fiqh page:</p>
+
+<a class="cta-link" href="#/forum/what-is-islam/fiqh/usool-al-fiqh">
+  Go to Usool al-Fiqh
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
 `,
 
 "what-is-islam/fiqh/different-acts-of-worship/dawah-and-etiquette-of-discussion": `
@@ -7518,7 +7528,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 
 `,
 "what-is-islam/fiqh/fatwas/abortion-and-blood-money-for-fetuses": `
-<p class="lede">What is the ruling on abortion, and what must be paid when a fetus is lost because of someone&rsquo;s act? This page follows the Maliki school, the school this site recommends.</p>
+<p class="lede">What is the ruling on abortion, and what must be paid when a fetus is lost because of someone&rsquo;s act? This page gives the Maliki position, which is well documented, and notes where other schools differ. This site is not based on any one school: rulings follow the evidence.</p>
 
 <blockquote><strong>Two different things.</strong> A <em>miscarriage</em> that happens on its own is not a sin and nothing is owed. <em>Abortion</em> is when someone causes the loss of the pregnancy. Blood money for a fetus is owed when someone else causes it, by accident or on purpose.</blockquote>
 
@@ -7584,26 +7594,49 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 
 `,
 "what-is-islam/fiqh/usool-al-fiqh": `
-<p class="lede">Usool al-Fiqh (legal principles) is the framework for interpreting and understanding Islamic law. There are 4 main schools, each with its own usool, but I recommend the Maliki school. Why?</p>
-
-<blockquote><strong>What does &ldquo;Maliki&rdquo; mean?</strong> &ldquo;Maliki&rdquo; means &ldquo;of Malik&rdquo;. It describes the school of Islamic law (madhhab) founded by Imam Malik ibn Anas of Medina (d. 179 AH), and a Maliki is a follower of that school.</blockquote>
+<p class="lede">Usool al-Fiqh (legal principles) is the framework for interpreting and understanding Islamic law. Before anything else: <strong>follow the evidence, not a specific school.</strong> A school (madhhab) is only a tool, and this site is not built on any one school.</p>
 
 <h2>What is a &ldquo;school&rdquo; of fiqh?</h2>
 
 <p>A madhhab (school) is not a physical school. It has no building, campus or membership. It is a <strong>school of thought</strong>: a consistent method for drawing rulings out of the Qur&rsquo;an and Sunnah, named after the scholar whose approach it follows and developed by his students over the generations. Following a school means following its method and rulings.</p>
 
-<p><strong>Following a school of fiqh is not obligatory in itself.</strong> A Muslim may learn from trustworthy scholars and follow the evidence according to their ability. If you choose to follow one school consistently, I recommend the Maliki madhhab, which is why this section gives it special attention. This recommendation does not mean that every Muslim must be Maliki, nor that the other recognized schools should be dismissed.</p>
+<p>There are four main schools, each with its own usool: Hanafi, Maliki, Shafi&rsquo;i and Hanbali. Their founders were scholars who lived within the first few centuries of Islam. They did not found these schools as separate religions or sects. Their students and later followers organized and spread the methods after them.</p>
 
-<p>Briefly, the other three schools are:</p>
+<h2>A school is a tool, not a requirement</h2>
+
+<p><strong>Following a school of fiqh is not obligatory.</strong> What is obligatory is following the Qur&rsquo;an and the authentic Sunnah, as the Salaf understood them. None of the four leaders called people to follow his madhhab, or obliged anyone else to act in accordance with it. They called people to follow the Qur&rsquo;an and the Sunnah.</p>
+
+<p>A school only has one real use. If you do not want to sift through which scholars are reliable, which narrations are sound, and how each ruling was reached, a school lets you lean on a method that someone has already built. That is all it is: a convenience. It is never a replacement for the evidence, and it is never a reason to ignore evidence you can see against a ruling.</p>
+
+<h2>My recommendation: do not choose a madhhab</h2>
+
+<p>I recommend that you <strong>do not follow any specific madhhab</strong>. Follow the evidence instead. Go to the Qur&rsquo;an and the authentic Sunnah, take the understanding of the Salaf, and go to scholars who show you their evidence and explain how they understand it. This keeps you tied to the proof and not to a name.</p>
+
+<h2>Watch out for the schools themselves</h2>
+
+<p>If you do follow a school, be careful, because not every school is the same. In my view, some schools have positions attributed to their founders that the founders never held, and some rest on methods that were criticized by the Salaf. A school can also drift from its founder over time, so what is taught under his name is not always what he said. This is one more reason to check the evidence and not just the label.</p>
+
+<p><strong>The Hanafi school is the clearest example, and I advise against choosing it.</strong> For the details, see the page on Abu Hanifah:</p>
+
+<a class="cta-link" href="#/forum/refutations/heretics/abu-hanifah">
+  Go to Abu Hanifah
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
+</a>
+
+<p>Briefly, the four schools are:</p>
 
 <ul>
-  <li><strong>Hanafi:</strong> named after Imam Abu Hanifa (d. 150 AH) of Kufa in Iraq. It is known for its heavy use of reasoned analysis, such as qiyas (analogy) and istihsan (juristic preference).</li>
+  <li><strong>Hanafi:</strong> named after Imam Abu Hanifa (d. 150 AH) of Kufa in Iraq. It is known for its heavy use of reasoned analysis, such as qiyas (analogy) and istihsan (juristic preference). I advise against choosing it.</li>
+  <li><strong>Maliki:</strong> named after Imam Malik ibn Anas of Medina (d. 179 AH). &ldquo;Maliki&rdquo; means &ldquo;of Malik&rdquo;, and a Maliki is a follower of that school. It is the school of the people of Medina, and it is explained below.</li>
   <li><strong>Shafi&rsquo;i:</strong> named after Imam al-Shafi&rsquo;i (d. 204 AH), a student of Imam Malik. He wrote <em>al-Risalah</em>, the first systematic book on legal theory, and built his method on the Qur&rsquo;an, Sunnah, ijma&rsquo; and qiyas.</li>
   <li><strong>Hanbali:</strong> named after Imam Ahmad ibn Hanbal (d. 241 AH) of Baghdad. It puts great emphasis on hadith and the statements of the Companions.</li>
 </ul>
 
-<h2>Why the Maliki School?</h2>
-<p>Imam Malik is the scholar the school is based on. He was a member of the salaf, the leaders of the other schools are either heavily rejected by the salaf, heavily criticized, or arguably not even members of the salaf.</p>
+<h2>If you still want to follow a school: choose Maliki</h2>
+
+<p>If, despite the above, you want to follow a school, then <strong>definitely choose the Maliki school</strong>. This does not mean that every Muslim must be Maliki, and it does not make this site a Maliki site. It is only the best choice if you want a school at all.</p>
+
+<p>Imam Malik is the scholar the school is based on. He was a member of the salaf, whereas the leaders of the other schools are either heavily rejected by the salaf, heavily criticized, or arguably not even members of the salaf.</p>
 
 <p>The Maliki school is the school of Ahl al-Madinah, the people of Medina, and its rulings are heavily based on Medinan practice.</p>
 
@@ -7685,7 +7718,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <hr class="rule">
 
 <h2>Do Not Make Taqlid</h2>
-<p>Thus, you should be a Maliki, but do not make taqlid (blind following) of Imam Malik!!!</p>
+<p>Thus, if you choose a school, choose Maliki, but do not make taqlid (blind following) of Imam Malik!!!</p>
 
 <p>You should use his usool and how the early reliable scholars go about interpreting things, and look at the evidence they give from the above sources before taking an opinion.</p>
 
@@ -7694,7 +7727,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 
 <p>Not every taqlid is blatant kufr, fisq or shirk; rather, there are some details pertaining to this matter. None of the four leaders of the schools of fiqh called people to follow his madhhab (school of jurisprudence), or obliged anyone else to act in accordance with it or with a specific madhhab. They used to call people to follow the Qur’an and the Sunnah and to interpret Islamic texts.</p>
 
-<p>When I say become Maliki, I do not mean it in the way some people do nowadays who say you need to make taqlid of scholars if you are not a scholar. No, you do not. What you do is go to the scholars for their evidence and their interpretations, but you do NOT just blindly take their opinion without understanding why, nor do you persist in their opinion if you see evidence against it!</p>
+<p>When I say choose Maliki, I do not mean it in the way some people do nowadays who say you need to make taqlid of scholars if you are not a scholar. No, you do not. What you do is go to the scholars for their evidence and their interpretations, but you do NOT just blindly take their opinion without understanding why, nor do you persist in their opinion if you see evidence against it!</p>
 
 <hr class="rule">
 
@@ -10425,6 +10458,8 @@ function renderIntro(){
         <ol class="w-steps">
           <li><strong>Start at the Index.</strong> It lists the four sections. Pick one, and it shows the pages inside it.</li>
           <li><strong>Read in order if you are new.</strong> Pages build on each other. <em>What Is Islam</em> is the best first stop, and the sections inside it run from the introduction onward.</li>
+          <li><strong>Read each page fully before moving on.</strong> Read the entire page, top to bottom, on every tab and every sub tab, before opening the next one.</li>
+          <li><strong>Links are extra.</strong> When a link is shared on a page, it is only for extra information, or to show what is being talked about. Do not go and read it on your own. Stay where you are and keep reading in order.</li>
           <li><strong>Find your way around.</strong> The trail at the top of every page shows where you are, and the <strong>Ilm</strong> logo takes you back to the Index. On long pages, the <em>On this page</em> buttons jump between sections and the round ↑ button takes you back to the top.</li>
           <li><strong>Check the sources.</strong> Pages quote the Quran, hadith, and scholars. Follow the references and study further. A single page is an introduction, not a replacement for learning from qualified teachers.</li>
           <li><strong>Read in your language.</strong> Use the <strong>Translate</strong> dropdown in the top bar to translate the page you are on. Machine translation can miss nuance, so check important points against the original.</li>
@@ -10520,7 +10555,7 @@ function placeholderPage(crumbs, eyebrow, title, desc, backHref, backLabel){
       <h1 class="sf-title">${title}</h1>
       <div class="sf-panel">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 8v5M12 16h.01M12 3l9 16H3L12 3Z"/></svg>
-        <p><strong>This section is still being written.</strong> Come back soon, or ask Dai what you'd like to know about this page, @dnx4 on Discord.</p>
+        <p><strong>This section is still being written.</strong> Come back soon, or ask Dai what you'd like to know about this page, @dnx4 on Discord, or use the <a href="https://linktr.ee/daiyanii" target="_blank" rel="noopener noreferrer">Linktree</a> instead.</p>
       </div>
       <a class="back-link" href="${backHref}">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12H6M11 6l-6 6 6 6"/></svg>
@@ -10837,12 +10872,12 @@ function buildGuide(art){
   const h=art.innerHTML, count=re=>(h.match(re)||[]).length;
   const heads=[...art.querySelectorAll("h2")];
   const mins=Math.max(1,Math.round((art.textContent.match(/\S+/g)||[]).length/210));
-  const tips=[];
+  const tips=["<strong>Read the entire page</strong> before moving on to the next one. Read in order, top to bottom, on every tab and every sub tab, and do not skip ahead.","When a link is shared on a page, it is only for extra information, or to show you what is being talked about. Do not go off and read it on your own. Stay where you are and keep reading in order."];
   const fid=location.hash.split("/")[2]||"";
   if(Object.prototype.hasOwnProperty.call(FORUM_TIPS,fid)) tips.push(FORUM_TIPS[fid]);
   if(heads.length>=3) tips.push("On a long page, use the On this page buttons to jump to a section, and the round arrow button to return to the top.");
   if(count(/<blockquote/g)) tips.push("Quotes are the evidence. The source is written in small text under each one, so you can look it up yourself.");
-  if(count(/class="cta-link"|href="#\/forum/g)) tips.push("Gold links and buttons open related pages. Use your browser's back button to return.");
+  if(count(/class="cta-link"|href="#\/forum/g)) tips.push("Gold links and buttons open related pages for extra detail. Finish the page you are on first, and only then click if you want more. Use your browser's back button to return.");
   if(count(/<ol/g)) tips.push("Numbered lists are meant to be read in order, because each point builds on the one before.");
   if(count(/<table/g)) tips.push("Tables scroll sideways on small screens.");
   if(count(/<strong>/g)>6) tips.push("Bold text marks key terms and rulings. Skim the bold first, then read the detail.");
@@ -10852,10 +10887,28 @@ function buildGuide(art){
     ? `<nav class="otp" aria-label="On this page"><span>On this page</span>${heads.slice(0,10).map((x,i)=>`<button type="button" data-jump="${i}">${esc(x.textContent.trim().slice(0,40))}</button>`).join("")}</nav>` : "";
   art.insertAdjacentHTML("beforebegin",
     `<div class="pageinfo"><span class="chip">&asymp; ${mins} min read</span></div>${chips}
-     <details class="howto"${open?" open":""}><summary>How to use this page</summary><ul>${tips.slice(0,5).map(t=>`<li>${t}</li>`).join("")}</ul></details>`);
+     <details class="howto"${open?" open":""}><summary>How to use this page</summary><ul>${tips.map(t=>`<li>${t}</li>`).join("")}</ul></details>`);
+}
+function addLinkNotes(art){
+  art.querySelectorAll('a[href^="#/forum"]').forEach(a=>{
+    if(a.dataset.noted || a.closest(".link-note,.back-link,.toc-item,.otp,nav")) return;
+    a.dataset.noted="1";
+    if(a.classList.contains("cta-link")){
+      const p=document.createElement("p");
+      p.className="link-note";
+      p.textContent="Read this tab fully first. Only click below if you want more detail.";
+      a.before(p);
+    } else {
+      const s=document.createElement("small");
+      s.className="link-note";
+      s.textContent=" (read this tab fully first, then click if you want details)";
+      a.after(s);
+    }
+  });
 }
 function enhanceView(){
   const art=document.querySelector(".article");
+  if(art) addLinkNotes(art);
   if(art) buildGuide(art);
   bind3DMotion();
   revealOnScroll([...document.querySelectorAll(".article > *:nth-child(n+9), .w-section")]);
@@ -10955,7 +11008,8 @@ function renderLegal(key){
 function siteFooter(){
   return `<footer>Ilm — for study and reflection.<p class="site-disclaimer">${SITE_DISCLAIMER}</p>
   <nav class="legal-links" aria-label="Legal"><a href="#/legal/terms">Terms of Use</a><a href="#/legal/privacy">Privacy</a><a href="#/legal/cookies">Cookies &amp; storage</a><a href="#/legal/guidelines">Guidelines</a><button type="button" data-consent-open>Privacy &amp; cookie choices</button></nav>
-  <p class="site-copy">&copy; ${new Date().getFullYear()} Ilm. You may share links and quote with attribution, for education. Do not alter, sell or misattribute the content. Quoted works remain their authors' and publishers' property.</p></footer>`;
+  <p class="site-copy">&copy; ${new Date().getFullYear()} Ilm. You may share links and quote with attribution, for education. Do not alter, sell or misattribute the content. Quoted works remain their authors' and publishers' property.</p>
+  <p class="contact-note">If you have any questions at all, contact Dai on Discord <span class="notranslate" translate="no">@dnx4</span>, or on other socials through the <a href="https://linktr.ee/daiyanii" target="_blank" rel="noopener noreferrer">Linktree</a>.</p></footer>`;
 }
 
 /* ---- consent gate: nothing renders until the visitor agrees ---- */
