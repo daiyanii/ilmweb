@@ -472,9 +472,13 @@ body > .skiptranslate, iframe.skiptranslate, .goog-te-banner-frame, #goog-gt-tt,
 .linktree-big{height:auto;padding:.7rem 1.3rem;font-size:.95rem;margin-top:1rem;}
 @media (max-width:700px){.linktree-link{padding:0 .6rem;font-size:.72rem;}}
 @media (max-width:700px){
-  .topbar{align-items:flex-start;gap:.7rem;}
-  .topbar-actions{gap:.5rem;align-items:flex-start;}
-  .crumbs{justify-content:flex-end;text-align:right;}
+  .topbar{align-items:center;flex-wrap:wrap;gap:.5rem;padding:1rem 1rem;}
+  .wordmark{flex:0 0 auto;}
+  .topbar-actions{flex:1 1 250px;min-width:0;flex-wrap:wrap;gap:.45rem;align-items:center;justify-content:flex-end;}
+  .topbar-actions .linktree-link{order:1}
+  .topbar-actions .theme-toggle{order:2}
+  .topbar-actions .translate-control{order:3}
+  .topbar-actions .crumbs{order:4;flex:1 0 100%;min-width:0;justify-content:flex-start;text-align:left;overflow-wrap:anywhere;}
   .translate-select{padding:.48rem 1.8rem .48rem .7rem;max-width:8.5rem;}
 }
 
@@ -771,7 +775,7 @@ const FORUMS = [
         ["Udhr bil Jahil and Iqamatul Hujjah",""],
         ["Al Wala wal Bara wa Kufr bi Taghut wa Iman Billah",""],
         ["Nawaqidul-Islam",""],
-        ["Specific Beliefs","This section is extra &mdash; not knowing it does not necessarily nullify your Islam, as long as the very basics are affirmed. The other Aqeedah sections above cover the essential stuff and basics. A few matters in here overlap with what is known by necessity, and those are addressed on the earlier pages.",[
+        ["Specific Beliefs","Further revealed reports and details. Genuine ignorance of an obscure detail without rejecting it is distinct from denying a necessary belief or a revealed attribute; matters known by necessity remain foundational.",[ 
           ["The Hereafter and the End Times","The Akhirah, what awaits in Heaven and Hell, and the signs and events of the end times.",[
             ["The Akhirah",""],
             ["Description of Heaven and Hell",""],
@@ -810,12 +814,12 @@ const FORUMS = [
             ["Waswas and Shubhat",""],
             ["Extremism",""]
           ]],
-          ["Dar, War, Taghut and Caliphates","Lands, war, false authority, and the caliphate &mdash; past, present and foretold.",[
+          ["Dar, War, Taghut and Caliphates","Lands, war, false authority, and the caliphate &mdash; past, present and foretold. Here, <em>hukm</em> means the legal ruling or classification applied to a land, authority, or act; a territorial classification alone does not settle every resident's individual status.",[
             ["Dar al Islam and Dar al Harb",""],
             ["War",""],
             ["Taghut",""],
             ["Caliphates",""],
-            ["Future Caliphate by Imam al-Mahdi and Isa (peace be upon him)","The caliphate foretold for the last days."],
+            ["Future Caliphate by al-Mahdi and Isa (peace be upon him)","The caliphate foretold for the last days."],
             ["Apostasy",""],
             ["Revolting, Disobeying and Advising",""],
             ["Specific and Unspecific Laws",""],
@@ -886,6 +890,7 @@ const FORUMS = [
           ["Adulthood",""],
           ["Homosexuality","A respectful overview of the traditional Islamic legal and ethical framework, with attention to dignity and personal accountability."],
           ["Sodomy",""],
+          ["Lesbianism",""],
           ["Bestiality",""],
           ["Euthanasia",""],
           ["Abortion and Blood Money for Fetuses","The ruling on abortion at each stage of pregnancy, and the blood money (ghurrah) owed for a fetus, with the Maliki position."],
@@ -901,7 +906,6 @@ const FORUMS = [
           ["What to do after Isha",""]
         ]]
       ]],
-      ["Resources","A curated set of libraries, search engines, and databases for studying the Islamic sciences."]
     ]
   },
   {
@@ -1332,11 +1336,11 @@ const CONTENT = {
 <li><a href="https://discord.gg/aNwvDTPX7d" target="_blank" rel="noopener noreferrer">https://discord.gg/aNwvDTPX7d</a></li>
 </ul>
 
-<h2>The consensus of the Imams against him</h2>
+<h2>The consensus of the scholars against him</h2>
 
-<p>Al-Khatib al-Baghdadi narrated with an authentic chain to Abu Bakr ibn Abi Dawud al-Sijistani on the consensus of the Imams that Abu Hanifah was a misguidance. Muhammad ibn &lsquo;Ali ibn Mukhlid al-Warraq narrated to us, word for word, and said: in my book, from Abu Bakr Muhammad ibn &lsquo;Abdullah ibn Sali al-Asadi al-Faqih al-Maliki (al-Abhari), who said:</p>
+<p>Al-Khatib al-Baghdadi narrated with an authentic chain to Abu Bakr ibn Abi Dawud al-Sijistani on the consensus of the scholars that Abu Hanifah was a misguidance. Muhammad ibn &lsquo;Ali ibn Mukhlid al-Warraq narrated to us, word for word, and said: in my book, from Abu Bakr Muhammad ibn &lsquo;Abdullah ibn Sali al-Asadi al-Faqih al-Maliki (al-Abhari), who said:</p>
 
-<blockquote>I heard Abu Bakr ibn Abi Dawud al-Sijistani one day say to his companions: &ldquo;What do you say about a matter in which Imam Malik and his companions, Imam al-Shafi&lsquo;i and his companions, Imam al-Awza&lsquo;i and his companions, Imam al-Hasan ibn Salih (al-Hamdhani) and his companions, Imam Sufyan al-Thawri and his companions, and Imam Ahmad ibn Hanbal and his companions agreed upon?&rdquo; They said to him: &ldquo;O Abu Bakr, there is no matter that is more correct than this.&rdquo; So he said: &ldquo;All of them agreed upon Abu Hanifah being a misguidance.&rdquo;</blockquote>
+<blockquote>I heard Abu Bakr ibn Abi Dawud al-Sijistani one day say to his companions: &ldquo;What do you say about a matter in which Malik and his companions, al-Shafi&lsquo;i and his companions, al-Awza&lsquo;i and his companions, al-Hasan ibn Salih (al-Hamdhani) and his companions, Sufyan al-Thawri and his companions, and Ahmad ibn Hanbal and his companions agreed upon?&rdquo; They said to him: &ldquo;O Abu Bakr, there is no matter that is more correct than this.&rdquo; So he said: &ldquo;All of them agreed upon Abu Hanifah being a misguidance.&rdquo;</blockquote>
 
 <h2>Further narrations against him</h2>
 
@@ -1364,7 +1368,7 @@ const CONTENT = {
 
 <h3>His fiqh can still be useful</h3>
 
-<p>None of this means everything in Hanafi fiqh is to be thrown away. His fiqh is sometimes useful, and Imam Malik himself used to study it at times. The problem is taking him as an authority in creed, or elevating his school for political reasons, not benefiting from a sound legal point that agrees with the evidence.</p>
+<p>None of this means everything in Hanafi fiqh is to be thrown away. His fiqh is sometimes useful, and Malik himself used to study it at times. The problem is taking him as an authority in creed, or elevating his school for political reasons, not benefiting from a sound legal point that agrees with the evidence.</p>
 `,
 "refutations/westerners/the-west/western-education": `
 <p class="lede">The foundation of mass compulsory schooling was not built on a desire to elevate the individual, but on the urgent need of the nation-state to secure unquestioning loyalty and military readiness.</p>
@@ -1766,7 +1770,7 @@ const CONTENT = {
 <p>The Sunnah is also revelation, and the Qur&rsquo;an orders it. When the Prophet &#xFDFA; forbids something, it is as if it is in Allah&rsquo;s Book, because Allah&rsquo;s Book commands us to take what the Messenger gives and to abstain from what he forbids (Quran 59:7). Ibn Mas&lsquo;ud answered the woman who claimed that she could not find the matter in the Qur&rsquo;an by showing her that the Qur&rsquo;an itself contains the order to follow the Sunnah, so anyone who asks &ldquo;where is this in the Qur&rsquo;an?&rdquo; has already been answered by this verse.</p>
 `,
 "what-is-islam/aqeedah/introduction-to-aqeedah": `
-<p class="lede">The word Aqeedah comes from the Arabic root <em>&lsquo;aqada</em>, which literally means &ldquo;to tie a knot.&rdquo; In Islamic terminology, it refers to a firm, unshakeable belief in the heart that is free from any doubt &mdash; the creed or theology of Islam.</p>
+<p class="lede">The word Aqeedah comes from the Arabic root <em>&lsquo;aqada</em>, meaning &ldquo;to tie a knot.&rdquo; On this site, Aqeedah means the core beliefs every Muslim must affirm; rejecting a core belief is kufr.</p>
 
 <p>Aqeedah deals with the foundation of belief upon which all Islamic practice is built; without a sound Aqeedah, actions are considered void.</p>
 
@@ -1778,24 +1782,13 @@ const CONTENT = {
 
 <blockquote>&ldquo;From this, it is derived that one should study matters related to belief before studying Fiqh and the Qur&rsquo;an.&rdquo;<cite>See Inja&rsquo; al-Hajah, Sharh Sunan Ibn Majah</cite></blockquote>
 
-<h2>Two meanings of Aqeedah, and which one this section means</h2>
+<h2>What Aqeedah means here</h2>
 
-<p>The word Aqeedah is used in two ways, and mixing them up is the source of a lot of confusion.</p>
+<p>This site uses one definition: <strong>Aqeedah is the core beliefs every Muslim must affirm.</strong> Rejecting a core belief is kufr. These foundations include Tawhid, the truth of the Messenger and revelation, the pillars of Iman, and what is known by necessity through mass attestation and the Fitrah.</p>
 
-<ol>
-<li><strong>The wide meaning:</strong> every reality that revelation tells us about, whether it is essential or not. Examples are the details of the Barzakh, the exact signs of the Hour, the specifics of the Attributes, and disputes between the scholars of Ahlus Sunnah over narrations. Not everyone knows all of this, and not everything in it is known by necessity.</li>
-<li><strong>The narrow meaning:</strong> the core beliefs without which a person is not Muslim at all. These are the beliefs that every Muslim knows, because they are known <strong>by necessity</strong>: they are mass-transmitted, found throughout the Qur&rsquo;an and the Sunnah, or known by the Fitrah.</li>
-</ol>
+<p>Further details reported in the texts do not create a second definition of Aqeedah. A person may genuinely not know an obscure matter that is known only through a particular text; that is different from denying or rejecting it. For such an obscure matter, the allowance is only for not knowing while not rejecting it. Whoever affirms, &ldquo;Everything with which Allah has described Himself, or with which the Prophet has described Him, is true,&rdquo; has not denied a particular attribute merely because he does not know that report. Denial of a revealed attribute is not excused by lack of a separate personal explanation of the evidence.</p>
 
-<p>When this site says <strong>&ldquo;necessary parts of Aqeedah,&rdquo;</strong> it always means the second meaning: what is known by necessity (mass transmission, Fitrah, and what follows directly from the Shahadah). This is what the pages on Tawhid, Sect, the Pillars of Islam, Iman and Ihsan, the Nullifiers of Islam, Bid&lsquo;ah and Takfir are about, and it is what a person must have in order to be Muslim.</p>
-
-<p>The non-essential material belongs to the wide meaning and is collected in the section called <strong>Specific Beliefs</strong>. Not knowing it does not nullify a person&rsquo;s Islam, as long as the very basics are affirmed.</p>
-
-
-<p>Some things that appear inside Specific Beliefs overlap with what is necessary to faith. For example, the Hereafter, the reality of Paradise and Hell, the angels, and the obligation of the Sunnah are not optional. These are not treated as extras: they are addressed earlier, on the pages about the Pillars of Iman and the Nullifiers of Islam, and the Specific Beliefs pages only add the details.</p>
-
-<p>A mistake in the wide meaning, one that is not known by necessity and was made through sincere <strong>ijtihad</strong> (<em>ijtihad</em> is when a qualified scholar exerts his full effort to work out a ruling or an understanding from the Qur&rsquo;an and the Sunnah, in a matter where the texts leave room for more than one valid understanding), is a different case from denying the necessary parts. It is explained under <em>Deficiency in Aqeedah</em> on the Nullifiers of Islam page.</p>
-
+<p>The Specific Beliefs pages collect additional scriptural details. Some details there overlap with what is known by necessity and remain foundational; others may be obscure. The distinction is between genuine lack of knowledge without rejection and denial, not between two meanings of Aqeedah. A sincere interpretive mistake by a qualified scholar in a matter open to ijtihad is also distinct from rejecting revelation.</p>
 
 <p>Faith (Iman in Arabic) in Islam is not purely within the belief of the religion being true. It is also in your actions and what you believe. Your faith even increases with good deeds and decreases with bad deeds. This also relates to why reverting to Islam requires one to pronounce the Shahada (Declaration of Faith), which we cover in the forum on how to be Muslim.</p>
 
@@ -1817,7 +1810,7 @@ const CONTENT = {
 
 <blockquote>&ldquo;Indeed, mankind is in loss, except for those who have believed and done righteous deeds and advised each other to truth and advised each other to patience.&rdquo;<cite>Surah al-&lsquo;Asr, 103:2&ndash;3</cite></blockquote>
 
-<p><strong>5. The Prophet &#xFDFA; called deeds parts of faith.</strong> Imam al-Bukhari placed this hadith in a chapter titled &ldquo;(What is said) regarding the deeds of faith&rdquo;:</p>
+<p><strong>5. The Prophet &#xFDFA; called deeds parts of faith.</strong> al-Bukhari placed this hadith in a chapter titled &ldquo;(What is said) regarding the deeds of faith&rdquo;:</p>
 
 <blockquote>&ldquo;Faith (Belief) consists of more than sixty branches (i.e. parts). And Haya [modesty] is a part of faith.&rdquo;<cite>Sahih al-Bukhari, 9</cite></blockquote>
 
@@ -1829,7 +1822,7 @@ const CONTENT = {
 
 <blockquote>&ldquo;And Allah would never make your faith (prayers) to be lost.&rdquo;<cite>Sahih al-Bukhari, 40; Surah al-Baqarah, 2:143</cite></blockquote>
 
-<p>Imam al-Bukhari titled that chapter &ldquo;The (offering of) Salat (prayers) is a part of faith.&rdquo;</p>
+<p>al-Bukhari titled that chapter &ldquo;The (offering of) Salat (prayers) is a part of faith.&rdquo;</p>
 
 <p><strong>8. Forbidding evil is part of faith, and its lowest level is the weakest faith.</strong></p>
 
@@ -1837,7 +1830,7 @@ const CONTENT = {
 
 <p>In all of these texts, deeds are named as parts of faith itself. Faith is not only believing that Islam is true.</p>
 
-<p>There are things in Aqeedah which are known by necessity, fitrah, and mass attestation. Not knowing these removes a person from Islam. Examples include knowing that Allah exists, knowing his properties known by necessity, affirming he is the only divinity, that Allah controls all of creation and owns it, that disbelievers are not Muslim, that even people who claim Islam are not Muslim if they do a nullifier, that Allah is unique in every way, that prayer, zakat, hajj, sawm are obligations, knowing revelation is Qur’an, and Sunnah, fulfilling every pillar of iman and the pillar ihsan. You can even affirm it in your own words, it does not have to be memorized exactly this way, as long as you affirm their meaning.</p>
+<p>There is no excuse for denying what is known by necessity, the Fitrah, and mass attestation. Examples include Allah&rsquo;s existence and oneness, His sole right to worship, His Lordship, the truth of revelation, and the pillars of Islam and Iman. The wording need not be memorized: what matters is affirming the meaning. Genuine lack of knowledge about an obscure text-based detail, without rejecting it, is a different case.</p>
 
 <p>If someone has committed disbelief in this world while having had absolutely no access to Islam at all, Allah may test that person on the Day of Judgment &mdash; this is outlined elsewhere on this site.</p>
 
@@ -1845,7 +1838,7 @@ const CONTENT = {
 
 <blockquote>&ldquo;And We would never punish (a people) until We have sent a messenger.&rdquo;<cite>Surah al-Isra, 17:15</cite></blockquote>
 
-<p>Imam Ibn Abi Hatim, in his Tafsir, narrates the following with a good chain. The Messenger of Allah &#xFDFA; said:</p>
+<p>Ibn Abi Hatim, in his Tafsir, narrates the following with a good chain. The Messenger of Allah &#xFDFA; said:</p>
 
 <blockquote>&ldquo;The one who died during the Fatrah will say, &lsquo;My Lord! No Book or Messenger came to me.&rsquo; Then he will recite the following ayah: &lsquo;Our Lord! If only You had sent us a messenger, we would have followed Your signs and become believers.&rsquo;&rdquo;<cite>Tafsir Ibn Abi Hatim; the ayah is Surah al-Qasas, 28:47</cite></blockquote>
 
@@ -1857,7 +1850,7 @@ const CONTENT = {
 
 <p>The Prophet &#xFDFA; said:</p>
 
-<blockquote>&ldquo;There are four who will present their case on the Day of Resurrection: a deaf man who never heard anything, an insane man, a very old and senile man, and a man who died during the Fatrah. As for the deaf man, he will say: &lsquo;O Lord, Islam came but I never heard anything.&rsquo; As for the insane man, he will say: &lsquo;O Lord, Islam came and the young boys were throwing camel dung at me.&rsquo; As for the senile man, he will say: &lsquo;O Lord, Islam came and I did not understand anything.&rsquo; As for the one who died during the Fatrah, he will say: &lsquo;O Lord, no Messenger from You came to me.&rsquo; Allah will accept their pledge of obedience to Him, then He will send word to them that they should enter the Fire. By the One in Whose Hand is the soul of Muhammad, if they enter it, it will be cool and safe for them.&rdquo;<cite>al-Tabarani (2/79) with a Sahih sanad; Musnad Ahmad (16301); Ibn Hibban (1827); graded Sahih by Shaykh al-Albani in as-Sahihah (1434), by Ibn al-Qayyim in Tariq al-Hijratayn (1/397), and by Shaykh Muqbil in Sahih al-Musnad (19)</cite></blockquote>
+<blockquote>&ldquo;There are four who will present their case on the Day of Resurrection: a deaf man who never heard anything, an insane man, a very old and senile man, and a man who died during the Fatrah. As for the deaf man, he will say: &lsquo;O Lord, Islam came but I never heard anything.&rsquo; As for the insane man, he will say: &lsquo;O Lord, Islam came and the young boys were throwing camel dung at me.&rsquo; As for the senile man, he will say: &lsquo;O Lord, Islam came and I did not understand anything.&rsquo; As for the one who died during the Fatrah, he will say: &lsquo;O Lord, no Messenger from You came to me.&rsquo; Allah will accept their pledge of obedience to Him, then He will send word to them that they should enter the Fire. By the One in Whose Hand is the soul of Muhammad, if they enter it, it will be cool and safe for them.&rdquo;<cite>al-Tabarani (2/79) with a Sahih sanad; Musnad Ahmad (16301); Ibn Hibban (1827); graded Sahih by al-Albani in as-Sahihah (1434), by Ibn al-Qayyim in Tariq al-Hijratayn (1/397), and by Muqbil in Sahih al-Musnad (19)</cite></blockquote>
 
 <p>Yazid bin Aban said: We said to Anas (may Allah be pleased with him): O Abu Hamzah! What do you say in regards to the children of the Mushriks? He said: The Messenger of Allah &#xFDFA; said:</p>
 
@@ -1865,13 +1858,13 @@ const CONTENT = {
 
 <p>Anas (may Allah be pleased with him) said that the Prophet &#xFDFA; said:</p>
 
-<blockquote>&ldquo;Four (types of people) will come on the Day of Judgment: the infant, the insane, the one who died during al-Fatrah and a very old and senile man. Everyone will present their case. Allah will say to the neck from the Hellfire: {Arise!} And He will say to them: {I used to send Messengers to my slaves from among themselves, and I am a Messenger from Myself to you. So enter into this (Fire).} So those for whom misery was written will say: O Lord! How should we enter this, whereas this is what we are trying to run away from? As for those for whom happiness was written, they will be charging towards it (to enter it). Allah will say: {You (would have been) more severe in denying and disobeying My Messengers.} So those (who ran to enter the fire) will be made to enter the Jannah and those (who complained) will be made to enter the Hellfire.&rdquo;<cite>Musnad al-Bazzar (7594); Musnad Abu Ya&lsquo;la (4224). Shaykh al-Albani said that the Hadith with this chain is &ldquo;Da&lsquo;if&rdquo; (weak), but there are other Ahadith that raise its level (like the first Hadith of al-Aswad); see as-Sahihah (2468)</cite></blockquote>
+<blockquote>&ldquo;Four (types of people) will come on the Day of Judgment: the infant, the insane, the one who died during al-Fatrah and a very old and senile man. Everyone will present their case. Allah will say to the neck from the Hellfire: {Arise!} And He will say to them: {I used to send Messengers to my slaves from among themselves, and I am a Messenger from Myself to you. So enter into this (Fire).} So those for whom misery was written will say: O Lord! How should we enter this, whereas this is what we are trying to run away from? As for those for whom happiness was written, they will be charging towards it (to enter it). Allah will say: {You (would have been) more severe in denying and disobeying My Messengers.} So those (who ran to enter the fire) will be made to enter the Jannah and those (who complained) will be made to enter the Hellfire.&rdquo;<cite>Musnad al-Bazzar (7594); Musnad Abu Ya&lsquo;la (4224). al-Albani said that the Hadith with this chain is &ldquo;Da&lsquo;if&rdquo; (weak), but there are other Ahadith that raise its level (like the first Hadith of al-Aswad); see as-Sahihah (2468)</cite></blockquote>
 
-<p>Hafiz Abu Bakr al-Bazzar reported in his Musnad, on the authority of Thawban (may Allah be pleased with him), that the Prophet &#xFDFA; said:</p>
+<p>Abu Bakr al-Bazzar reported in his Musnad, on the authority of Thawban (may Allah be pleased with him), that the Prophet &#xFDFA; said:</p>
 
 <blockquote>&ldquo;When it will be the Day of Judgment, people from the days of ignorance will come forth carrying idols on their backs. Their Lord will ask them [in al-Zuhd of Ibn al-Mubarak it is: Allah will ask them: {What did you used to worship?}] and they will say: O our Lord! You did not send any Messenger to us nor did we receive any commands from You. Had You sent us the Messenger we would have been Your obedient servants. Their Lord will say to them: {If I command you with a task will you obey Me?} They will say: Yes! They will be commanded to walk towards the Hellfire and enter it. They will walk towards it till when they come close to it, they will hear its raging and roaring. They will return back to their Lord saying: O our Lord! Take us out from it. He will say to them: {Did you not claim to Me that if I command you with a task, you will obey Me?} He will take a promise from them and say to them: {Go towards it and enter it.} They will (again) walk towards it till when they see it, they will disperse and return back. They will say: O our Lord! Distance us from it for we cannot enter it. He will say: {Enter it humiliated.}&rdquo; The Prophet &#xFDFA; said: &ldquo;Had they entered it the first time, they would have found it cool and safe (for them).&rdquo;<cite>Musnad al-Bazzar (4169); the words within the brackets are from al-Zuhd (1323) of Ibn al-Mubarak. Hakim also reported it in al-Mustadrak (8390) and said: &ldquo;It is Sahih as per the condition of al-Bukhari and Muslim but they did not report it,&rdquo; and al-Dhahabi agreed with him</cite></blockquote>
 
-<p>Imam adh-Dhuhli reported on the authority of Abu Sa&lsquo;id al-Khudri (may Allah be pleased with him) that the Prophet &#xFDFA; said:</p>
+<p>adh-Dhuhli reported on the authority of Abu Sa&lsquo;id al-Khudri (may Allah be pleased with him) that the Prophet &#xFDFA; said:</p>
 
 <blockquote>&ldquo;(In regards to) the one who died during al-Fatrah, the insane and the infant. The one who died during the Fatrah will say: No Book had reached me. The insane will say: O my Lord! You did not give me a sound intellect so that I could distinguish what is good and what is evil. The infant will say: O my Lord! I did not reach adolescence. Then the fire will be raised for them and it will be said to them: {Enter it.}&rdquo; The Prophet &#xFDFA; said: &ldquo;So those who were in Allah&rsquo;s knowledge from the successful people &ndash; had they been given the chance to act (in this world) &ndash; they will enter it (and no harm will happen to them), and those who were in Allah&rsquo;s knowledge from the wretched people &ndash; had they been given the chance to act (in this world) &ndash; will hold back (from entering it). He will say (to those who did not enter): {You disobey Me (now), so how would you be had My Messengers come to you?}&rdquo;</blockquote>
 `,
@@ -1991,7 +1984,7 @@ const CONTENT = {
 
 <h3>Evidence for the Two Categories of Kufr</h3>
 
-<p>The principle that Kufr is divided into greater (Akbar) and lesser (Asghar) is well established through the statements of the Salaf and the leading Imams, whose words stay firmly within the boundaries of the Qur&rsquo;an and Sunnah.</p>
+<p>The principle that Kufr is divided into greater (Akbar) and lesser (Asghar) is well established through the statements of the Salaf and the leading scholars, whose words stay firmly within the boundaries of the Qur&rsquo;an and Sunnah.</p>
 
 <p><strong>Evidence from the Companions</strong></p>
 
@@ -2001,15 +1994,15 @@ const CONTENT = {
 
 <p><strong>Kufr Less Than Kufr (Kufr Duna Kufr) in Judgment</strong></p>
 
-<p>Ibn &lsquo;Abbas explained the verse &ldquo;Whoever does not judge by what Allah has revealed, then they are the disbelievers&rdquo; (Al-Ma&rsquo;idah, 5:44) as meaning &ldquo;Kufr less than Kufr.&rdquo; This Tafsir was accepted by major scholars such as Imam Ahmad, Al-Bukhari and others, and was reported by Abu &lsquo;Ubayd and Hakim with a sound chain.</p>
+<p>Ibn &lsquo;Abbas explained the verse &ldquo;Whoever does not judge by what Allah has revealed, then they are the disbelievers&rdquo; (Al-Ma&rsquo;idah, 5:44) as meaning &ldquo;Kufr less than Kufr.&rdquo; This Tafsir was accepted by major scholars such as Ahmad, Al-Bukhari and others, and was reported by Abu &lsquo;Ubayd and Hakim with a sound chain.</p>
 
 <p>Ibn Taymiyyah confirmed that this was the understanding of many early scholars. Ibn al-Qayyim said it was the view of the majority of the Companions, and explained that it does not mean literal apostasy. &lsquo;Ata&rsquo; ibn Abi Rabah and Tawus also said &ldquo;Kufr less than Kufr.&rdquo;</p>
 
-<p><strong>Statements from the Imams of the Salaf</strong></p>
+<p><strong>Statements from the scholars of the Salaf</strong></p>
 
 <ul>
 <li><strong>Abu &lsquo;Ubayd</strong> said that the terms Kufr and Shirk used in some hadiths about sins do not always mean disbelief that removes faith.</li>
-<li><strong>Imam Ahmad</strong> agreed that there is Kufr which does not expel a person from Islam, and compared it to the varying levels of Iman.</li>
+<li><strong>Ahmad</strong> agreed that there is Kufr which does not expel a person from Islam, and compared it to the varying levels of Iman.</li>
 <li><strong>Al-Marwazi</strong>, representing the people of Hadith, said that Kufr, like injustice and defiance, is of two types: one that removes from Islam, and one that does not.</li>
 <li><strong>Ibn Mandah</strong> said that fighting a Muslim is Kufr, but not the type that equals Shirk or leaves Islam.</li>
 <li><strong>Al-Bukhari</strong> titled a chapter in his Sahih &ldquo;Kufr less than Kufr,&rdquo; supporting this principle clearly.</li>
@@ -2017,7 +2010,7 @@ const CONTENT = {
 
 <p><strong>Conclusion</strong></p>
 
-<p>The statements of the Companions and Imams confirm that Kufr is of two kinds:</p>
+<p>The statements of the Companions and scholars confirm that Kufr is of two kinds:</p>
 
 <ol>
 <li><strong>Major Kufr (Kufr Akbar):</strong> which removes a person from Islam.</li>
@@ -2190,7 +2183,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <ul>
 <li><strong>We take knowledge from them, we do not worship them.</strong> A scholar is followed in what he conveys from the Qur&rsquo;an, the Sunnah and the Salaf. His own opinion has no authority against them. Allah condemned those who made their rabbis and monks lords besides Him (Quran 9:31), and it was by obeying them in making things halal and haram that they did so.</li>
-<li><strong>A scholar&rsquo;s statement is accepted when it agrees with the evidence and the way of the Salaf, and left when it contradicts them.</strong> The great Imams said this about themselves. Imam Malik told people to measure his opinions against the Book and the Sunnah and to leave whatever contradicted them.</li>
+<li><strong>A scholar&rsquo;s statement is accepted when it agrees with the evidence and the way of the Salaf, and left when it contradicts them.</strong> The great scholars said this about themselves. Malik told people to measure his opinions against the Book and the Sunnah and to leave whatever contradicted them.</li>
 <li><strong>We must choose our teachers carefully.</strong> Not everyone who is called a scholar teaches the way of the Salaf. Knowledge is religion, so we look at whom we take it from, and we stay away from those who give verdicts without knowledge, because the Prophet &#xFDFA; warned that when the real scholars are gone, people will take ignorant leaders who answer without knowledge, go astray, and lead others astray (<em>Sahih al-Bukhari</em>, 100).</li>
 <li><strong>A person who is not a scholar learns from the scholars and does not invent his own interpretation.</strong> That is why Salafis return to the books and students of the Salaf, and why the layman asks, learns and follows evidence instead of inventing his own reading of the text.</li>
 </ul>
@@ -2254,7 +2247,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <blockquote>&ldquo;Bring her to me.&rdquo; So I brought her to him and he said to her: &ldquo;Where is Allah?&rdquo; She said: &ldquo;Above the heavens.&rdquo; He said: &ldquo;Who am I?&rdquo; She said: &ldquo;You are the Messenger of Allah.&rdquo; He said: &ldquo;Set her free, for she is a believer.&rdquo;<cite>Sahih Muslim, 537</cite></blockquote>
 
-<p>When asked about how Allah rose over His Throne (Istiwa&rsquo;), Imam Malik (d. 179 AH) famously stated:</p>
+<p>When asked about how Allah rose over His Throne (Istiwa&rsquo;), Malik (d. 179 AH) famously stated:</p>
 
 <blockquote>&ldquo;The rising (Istiwa&rsquo;) is known in meaning, the modality (Kayf) is ungraspable by mind, believing in it is obligatory, and asking &lsquo;how&rsquo; about it is an innovation.&rdquo;</blockquote>
 
@@ -2373,7 +2366,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 <li><strong>The sign must be clear.</strong> The Shahadah, the Salah, and other deeds that belong only to our religion count. A name, a beard or hijab, or simply saying &ldquo;I am Muslim&rdquo; with nothing else does not settle it on its own in Dar al-Kufr.</li>
 <li><strong>A claim without any sign is not yet enough.</strong> In Dar al-Kufr his Islam still needs to be verified, and the next section explains how.</li>
 <li><strong>Affirming his Islam is a ruling on what is apparent.</strong> If he later commits a nullifier, or you see clear Kufr from him, then Takfir is made on him as described on this page.</li>
-<li><strong>It is not a license for suspicion.</strong> Once the sign is shown, you do not make Takfir by doubt or by assumption, as Shaykh Muhammad ibn &lsquo;Abd al-Wahhab is quoted below.</li>
+<li><strong>It is not a license for suspicion.</strong> Once the sign is shown, you do not make Takfir by doubt or by assumption, as Muhammad ibn &lsquo;Abd al-Wahhab is quoted below.</li>
 </ul>
 
 <h3>How to verify someone&rsquo;s Islam: the hadith of the slave girl</h3>
@@ -2422,9 +2415,9 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <h3>Praying behind someone whose belief is unknown</h3>
 
-<p>Imam Ibn Taymiyyah said: &ldquo;A man is permitted to perform the five daily prayers, the Jumu&lsquo;ah prayer, and other prayers behind someone from whom no Bid&lsquo;ah or Fisq is known, by consensus of the four Imams and other Muslim Imams. It is not a condition for the follower to know the beliefs of the Imam or to test him by asking: &lsquo;What do you believe?&rsquo; Rather, he may pray behind someone whose condition is not known.&rdquo;</p>
+<p>Ibn Taymiyyah said: &ldquo;A man is permitted to perform the five daily prayers, the Jumu&lsquo;ah prayer, and other prayers behind someone from whom no Bid&lsquo;ah or Fisq is known, by consensus of the four scholars and other Muslim scholars. It is not a condition for the follower to know the beliefs of the Imam or to test him by asking: &lsquo;What do you believe?&rsquo; Rather, he may pray behind someone whose condition is not known.&rdquo;</p>
 
-<p>If someone argues that some of the Salaf, like Sufyan ath-Thawri (rahimahullah), stated that one should only pray behind the one whose &lsquo;Aqidah is known, then they show their ignorance of the time of the Salaf, for these statements were issued during the time of the Mihnah, when the Khalifah was a Mu&lsquo;tazili and the leaders of prayer in the Masajid were appointed by the Mu&lsquo;tazilah and Jahmiyyah, who only supported those who held their own Kufri beliefs.</p>
+<p>If someone argues that some of the Salaf, like Sufyan ath-Thawri, stated that one should only pray behind the one whose &lsquo;Aqidah is known, then they show their ignorance of the time of the Salaf, for these statements were issued during the time of the Mihnah, when the Khalifah was a Mu&lsquo;tazili and the leaders of prayer in the Masajid were appointed by the Mu&lsquo;tazilah and Jahmiyyah, who only supported those who held their own Kufri beliefs.</p>
 
 <h3>The signs of Islam</h3>
 
@@ -2448,15 +2441,15 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <blockquote>&ldquo;Verily he among you who lives long will see great controversy, so you must keep to my Sunnah and to the Sunnah of the rightly-guided Khulafa&rsquo;.&rdquo;</blockquote>
 
-<p>The Sahabah accepted all signs of Islam even if they were not exclusive to the Muslims. This is also what was practiced by the Salaf as-Salih. It is reported that Imam Ahmad was asked about the one who died in Dar al-Kufr and cannot be identified, and he replied:</p>
+<p>The Sahabah accepted all signs of Islam even if they were not exclusive to the Muslims. This is also what was practiced by the Salaf as-Salih. It is reported that Ahmad was asked about the one who died in Dar al-Kufr and cannot be identified, and he replied:</p>
 
 <blockquote>&ldquo;He is identified (as a Muslim or Kafir) by circumcision and clothing.&rdquo;</blockquote>
 
-<p>Neither circumcision nor clothing is exclusive to the Muslims, but Imam Ahmad (rahimahullah) counted them among the signs of Islam by which the unknown is identified.</p>
+<p>Neither circumcision nor clothing is exclusive to the Muslims, but Ahmad counted them among the signs of Islam by which the unknown is identified.</p>
 
 <h3>Not making Takfir on suspicion</h3>
 
-<p>As for those who make Takfir upon someone who shows Islamic signs based on suspicions that he might have committed widespread disbelief, Shaykh Muhammad ibn &lsquo;Abd al-Wahhab said:</p>
+<p>As for those who make Takfir upon someone who shows Islamic signs based on suspicions that he might have committed widespread disbelief, Muhammad ibn &lsquo;Abd al-Wahhab said:</p>
 
 <blockquote>&ldquo;Whoever shows Islam and we think that he has fallen into a nullifier of Islam, we do not declare him a disbeliever by this assumption, because certainty is not eliminated by doubt. Likewise, we do not declare a disbeliever if we do not know the disbelief because of a nullifier that has been mentioned about him but we have not verified it.&rdquo;</blockquote>
 
@@ -2491,7 +2484,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <blockquote>&lsquo;Uqba ibn &lsquo;Amir al-Juhani passed by a man who looked like a Muslim, and the man greeted him. &lsquo;Uqba answered: &ldquo;And on you, and the mercy of Allah and His blessings.&rdquo; His slave said to him: &ldquo;He is a Christian!&rdquo; &lsquo;Uqba got up and followed him until he caught up to him. He said: &ldquo;The mercy of Allah and His blessings are for the believers, but may Allah make your life long and give you much wealth and many children.&rdquo;</blockquote>
 
-<p>Imam al-Kasani said: &ldquo;The ways in which a person is deemed to be a believer are three: documentary evidence, proofs and implication &hellip; A child may be ruled to be a Muslim by implication if his parents are Muslim, whether he has reached maturity or not. He may also be deemed to be a Muslim because of the land in which he lives.&rdquo;<cite>Badai&lsquo; al-Sanai&lsquo;, 7/104</cite></p>
+<p>al-Kasani said: &ldquo;The ways in which a person is deemed to be a believer are three: documentary evidence, proofs and implication &hellip; A child may be ruled to be a Muslim by implication if his parents are Muslim, whether he has reached maturity or not. He may also be deemed to be a Muslim because of the land in which he lives.&rdquo;<cite>Badai&lsquo; al-Sanai&lsquo;, 7/104</cite></p>
 
 <p>Al-Sarakhsi said: &ldquo;For an individual who lives in Dar al-Islam, without need of evidence for his being a Muslim, the ruling of Muslim will be given according to his Dhahir.&rdquo;<cite>Al-Mabsut, 19/484</cite> He also said: &ldquo;Whoever lives in Dar al-Harb and no information is known regarding his condition will be counted as one of the people of the land. Likewise, those who live in Dar al-Islam and there is no information regarding their condition will be counted as one of the people of the land.&rdquo;<cite>Al-Mabsut, 3/76</cite></p>
 
@@ -2499,7 +2492,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <blockquote>Al-Sa&lsquo;b ibn Jaththamah (radiyallahu &lsquo;anhu) said: The Messenger of Allah (&#xFDFA;) was asked about attacking the Mushrikin at night, which might expose their women and children to harm. He said: &ldquo;They are from them.&rdquo;<cite>Sahih al-Bukhari, Sahih Muslim</cite></blockquote>
 
-<p>Ibn Qudamah said: &ldquo;If you find a dead person and you do not know whether he is Muslim or Kafir, then you look at the outward signs in terms of circumcision, clothing and coloring (of the hair or beard). If he has no sign and is in Dar al-Islam, he is washed and prayed over. And if he is in Dar al-Kufr (and there is no sign), he is not washed and he is not prayed over, and this is what al-Imam Ahmad said explicitly, because the foundation is that one belongs to his Dar, and their judgment is confirmed for him unless there is evidence to the contrary.&rdquo;<cite>Al-Mughni, 2/404</cite></p>
+<p>Ibn Qudamah said: &ldquo;If you find a dead person and you do not know whether he is Muslim or Kafir, then you look at the outward signs in terms of circumcision, clothing and coloring (of the hair or beard). If he has no sign and is in Dar al-Islam, he is washed and prayed over. And if he is in Dar al-Kufr (and there is no sign), he is not washed and he is not prayed over, and this is what al-Ahmad said explicitly, because the foundation is that one belongs to his Dar, and their judgment is confirmed for him unless there is evidence to the contrary.&rdquo;<cite>Al-Mughni, 2/404</cite></p>
 
 <p>The <em>Mawsu&lsquo;ah al-Fiqhiyyah</em> says the same: a body found in Dar al-Islam is washed, and one found in Dar al-Harb is not, because the principle is that whoever lives in a country is counted as one of its people, and unless there is evidence proving otherwise he is treated according to his Dhahir.</p>
 
@@ -2565,9 +2558,9 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <h2>Takfir al-&lsquo;Adhir: the one who excuses the disbeliever</h2>
 
-<p>Whoever denies the Kufr of a kaafir, or excuses the Kufr of a kaafir, is himself a kaafir. This is because he is calling falsehood truth: Allah has judged this person to be a disbeliever, and the one who refuses that judgment is contradicting Allah and the Messenger &#xFDFA;. This is why the Takfir of the one who does not make Takfir of the disbelievers is stated among the nullifiers of Islam. Shaykh Muhammad ibn &lsquo;Abd al-Wahhab listed it as one of them: whoever does not declare the disbelievers to be disbelievers, or doubts their disbelief, or considers their way to be correct, has disbelieved.<cite>Nawaqid al-Islam, the third nullifier</cite></p>
+<p>Whoever denies the Kufr of a kaafir, or excuses the Kufr of a kaafir, is himself a kaafir. This is because he is calling falsehood truth: Allah has judged this person to be a disbeliever, and the one who refuses that judgment is contradicting Allah and the Messenger &#xFDFA;. This is why the Takfir of the one who does not make Takfir of the disbelievers is stated among the nullifiers of Islam. Muhammad ibn &lsquo;Abd al-Wahhab listed it as one of them: whoever does not declare the disbelievers to be disbelievers, or doubts their disbelief, or considers their way to be correct, has disbelieved.<cite>Nawaqid al-Islam, the third nullifier</cite></p>
 
-<p><strong>The condition is that the Hujjah has been established upon him.</strong> The ruling does not fall on a person who has not been shown the proof, because Takfir is based on knowledge and ability, as explained on the page about Udhr bil Jahil and Iqamatul Hujjah.</p>
+<p><strong>This condition is specific to the case of excusing a particular disbeliever.</strong> It must not be read as an excuse to deny a necessary belief or a revealed attribute of Allah; the Aqeedah section distinguishes genuine lack of knowledge of an obscure matter from rejection. No reader should pronounce takfir on a named person based on suspicion or use this page as authority for private enforcement.</p>
 
 <p><strong>An example.</strong> Suppose I prove to you that Bob has just sacrificed an animal to an idol, practices black magic, and does not believe in the Sunnah. The proof is clear and you understand it. If you still insist that Bob is a Muslim, then you also leave Islam, because you have taken the Kufr of the kaafir and called it Islam. It is not a difference of opinion over a side issue. You are refusing to call what Allah called Kufr by its name.</p>
 
@@ -2579,46 +2572,46 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 </a>
 `,
 "what-is-islam/aqeedah/udhr-bil-jahil-and-iqamatul-hujjah": `
-<p class="lede">Whether ignorance excuses a person in Islam depends on the nature of the matter in question.</p>
+<p class="lede">The principle is that Aqeedah has no excuse of ignorance, except genuine lack of knowledge of an obscure text-based matter that the person does not reject.</p>
 
 <h2>Definitions</h2>
 
-<p><strong>Udhr bil Jahil</strong> (<em>&lsquo;udhr bil-jahl</em>, the excuse of ignorance) means that a person is excused, and the ruling of sin, punishment or disbelief does not fall on him, because he did not know that what he did was wrong. It is a ruling about <em>blame</em>, and it depends on the kind of matter he was ignorant of.</p>
+<p><strong>Udhr bil Jahil</strong> (<em>&lsquo;udhr bil-jahl</em>, the excuse of ignorance) is relevant here only to genuine lack of knowledge about an obscure matter known through a particular text, where the person does not reject or deny it. This narrow allowance does not apply to denying a core belief, a matter known by necessity, or a revealed attribute of Allah.</p>
 
-<p><strong>Iqamatul Hujjah</strong> (<em>iqamat al-hujjah</em>, establishing the proof) means that the evidence has reached the person in a way that removes the excuse of not knowing: the proof has been conveyed to him, and he is able to understand it. After the Hujjah is established, ignorance is no longer an excuse for that matter.</p>
+<p><strong>Iqamatul Hujjah</strong> (<em>iqamat al-hujjah</em>, establishing the proof) means that the evidence has been conveyed in a way the person can understand. It is relevant when assessing a claimed lack of knowledge; it does not turn an act of denial into mere ignorance. The denial of a revealed attribute is kufr even without a separate personal presentation of the proof.</p>
 
-<p>The two go together. The excuse of ignorance stands until the proof is established, and for some matters the proof is considered established already. The rest of this page explains which is which, in outline.</p>
+<p>The distinction is between <strong>not knowing</strong> an obscure text-based matter while not denying it, and <strong>rejecting</strong> what Allah or His Messenger revealed. Only the first is an excuse of ignorance in Aqeedah. Matters known by necessity have no such excuse.</p>
 
 <p>The ruling can be summarized in three points:</p>
 
 <ol>
-  <li><strong>Matters that are mass-transmitted, universally attested, or known by Fitrah.</strong> Not affirming these is disbelief.</li>
-  <li><strong>Matters known only through studying the texts.</strong> Denying these becomes disbelief only after Hujjah has been established.</li>
+  <li><strong>Matters known by necessity, mass attestation, or the Fitrah.</strong> Denying them is kufr; ignorance is no excuse.</li>
+  <li><strong>Obscure matters known through particular texts.</strong> Genuine lack of knowledge without rejection is distinct from denial. Denying a revealed attribute or teaching is not excused by not having received an individual explanation of the evidence.</li>
   <li><strong>Having no access to Islam at all.</strong> If someone committed disbelief in this world while having absolutely no access to Islam, Allah may test that person on the Day of Judgment.</li>
 </ol>
 
 <h2>Matters known by necessity</h2>
 
-<p>Mistakes or ignorance concerning Aqeedah, mass-transmitted matters, and matters known by Fitrah are not excused, because these are matters known by necessity.</p>
+<p>There is no excuse for denying a necessary belief, including what is known through mass attestation or the Fitrah. A person&rsquo;s lack of knowledge about an obscure textual detail, where he does not reject it, is a separate and narrow case.</p>
 
 <p>The only exceptions are those who had no access to Islam whatsoever, or who lacked the capacity to understand it at all &mdash; such as an infant, a person living on a remote island, or an insane person. These people have an excuse and may be tested on the Day of Judgment. This is the justice of Allah.</p>
 
 <div class="sf-panel">
   <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 8v5M12 16h.01M12 3l9 16H3L12 3Z"/></svg>
-  <p><strong>The key distinction:</strong> the excuse of ignorance is not about how a person feels, but about whether the matter is known by necessity or is obscure and derived only from the texts.</p>
+  <p><strong>The key distinction:</strong> genuine non-knowledge of an obscure text-based matter is not the same as denying it. The former may be excused; rejection is not.</p>
 </div>
 
 <h2>Obscure matters derived only from the texts</h2>
 
-<p>For matters that are obscure and derived only from the texts, ignorance (<strong>Udhr bil Jahil</strong>) is an excuse. A person who was truly ignorant of such a matter may be exempt from punishment in both the dunya and the akhirah.</p>
+<p>For a genuinely obscure matter, a person who simply does not know it and does not reject it may be excused. If he says that everything Allah has described Himself with, and everything the Prophet has described Him with, is true, that is sufficient with respect to a specific attribute he has not learned, if Allah wills.</p>
 
-<p>Once the proof has been established against him (<strong>Iqamatul Hujjah</strong>), if he persists after that, this is Kufr, and he is outside Islam.</p>
+<p>This allowance is not for denial. Whoever rejects or denies a revealed attribute of Allah is a disbeliever, even if the evidence has not been presented to him in a separate personal explanation. The special case of someone to whom Islam never reached at all, or who lacked capacity, is distinct and is left to Allah&rsquo;s judgment.</p>
 
 <h2>The Asl: There Is No Excuse in the Foundations</h2>
 
-<p>The default ruling (the <em>asl</em>) is this: in matters of Aqeedah, in matters that are mass-attested or known by necessity, and in matters on which there is unanimous agreement (Ijma&lsquo;), the proof is considered established and the excuse is cut off. A person to whom Islam has reached is not excused in these matters because he was sincere, because he meant well, or because he reasoned his way to his view. Good intention does not turn a mistake into guidance.</p>
+<p>The <em>asl</em> is that there is no excuse of ignorance in Aqeedah. There is no excuse for rejecting core beliefs or matters known by necessity, and no one is excused for denying a revealed attribute of Allah. The only ordinary ignorance exception is an obscure teaching known through a particular text that the person genuinely does not know and does not reject. A sincere statement that all Allah and His Messenger have described is true is affirmation, not denial.</p>
 
-<p>The excuse remains in three places: for those whom the message did not reach or who lacked the capacity to understand it (above), for genuine ijtihad in matters where ijtihad is permitted, and for matters that are truly obscure and known only to a few.</p>
+<p>In Aqeedah, the narrow allowance is for genuine non-knowledge of an obscure text-based matter without rejection. Qualified ijtihad in secondary legal questions is a separate issue; it does not excuse denying revelation. Those to whom the message never reached or who lacked capacity are a distinct case whose judgment belongs to Allah.</p>
 
 <div class="sf-panel">
   <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 8v5M12 16h.01M12 3l9 16H3L12 3Z"/></svg>
@@ -2647,21 +2640,21 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <p>Ali ibn Abi Talib, may Allah be pleased with him, was asked about &ldquo;the greatest losers as to [their] deeds&rdquo; (Quran 18:103-104), and said that they are the disbelievers among the People of the Scripture. Their beginning was upon truth, then they associated others with their Lord and innovated in their religion, so they gathered in misguidance while thinking they were upon guidance, and they strove in falsehood thinking they were upon truth. (Narrated by Ibn Mandah, who cited it as evidence that the one who exerts himself and errs in the knowledge of Allah and His Oneness is like the one who defies.)</p>
 
-<h3>The Salaf and the Imams</h3>
+<h3>The Salaf and the scholars</h3>
 
 <p>Umarah ibn Zaadan, may Allah have mercy on him, said: &ldquo;It reached me that the Qadariyyah will be gathered on the Day of Resurrection with the polytheists. They will say: &lsquo;By Allah, we were not polytheists.&rsquo; It will be said to them: &lsquo;Indeed, you committed shirk from where you did not know.&rsquo;&rdquo;</p>
 
-<p>Muhammad ibn Salamah, may Allah have mercy on him, said: &ldquo;It is not permissible for one who does not know the Book and the Sunnah, and whom the people of authority have not preceded, to exert himself in legal reasoning (ijtihad), because it is not permissible for him to exert his opinion when his exertion may contradict the Quran, the Sunnah, or the agreed-upon matter.&rdquo;</p>
+<p>Muhammad ibn Salamah said: &ldquo;It is not permissible for one who does not know the Book and the Sunnah, and whom the people of authority have not preceded, to exert himself in legal reasoning (ijtihad), because it is not permissible for him to exert his opinion when his exertion may contradict the Quran, the Sunnah, or the agreed-upon matter.&rdquo;</p>
 
-<p>In Dhamm al-Kalam it is narrated that al-Muzani, may Allah have mercy on him, said: &ldquo;I used to study Kalam before al-Shafi&lsquo;i arrived. When al-Shafi&lsquo;i arrived, I came to him and asked him about an issue in Kalam. He said to me: &lsquo;Do you know where you are?&rsquo; I said: &lsquo;Yes, I am in the mosque in Fustat.&rsquo; He said to me: &lsquo;You are in Tiran.&rsquo;&rdquo; Abu al-Qasim explained that Tiran is a place in the Red Sea from which hardly any ship survives. Al-Muzani continued: &ldquo;Then he asked me a question in Fiqh, and I answered it. I introduced something that corrupted my answer. I answered differently, and I introduced something that corrupted my answer. Every time I answered with something, he would point out its flaw. Then he said to me: &lsquo;This Fiqh, which contains the Book, the Sunnah, and the statements of the people, you introduce such things into it. So how about Kalam about the Lord of the Worlds, in which error is disbelief?&rsquo; So I abandoned Kalam and turned to Fiqh.&rdquo;</p>
+<p>In Dhamm al-Kalam it is narrated that al-Muzani said: &ldquo;I used to study Kalam before al-Shafi&lsquo;i arrived. When al-Shafi&lsquo;i arrived, I came to him and asked him about an issue in Kalam. He said to me: &lsquo;Do you know where you are?&rsquo; I said: &lsquo;Yes, I am in the mosque in Fustat.&rsquo; He said to me: &lsquo;You are in Tiran.&rsquo;&rdquo; Abu al-Qasim explained that Tiran is a place in the Red Sea from which hardly any ship survives. Al-Muzani continued: &ldquo;Then he asked me a question in Fiqh, and I answered it. I introduced something that corrupted my answer. I answered differently, and I introduced something that corrupted my answer. Every time I answered with something, he would point out its flaw. Then he said to me: &lsquo;This Fiqh, which contains the Book, the Sunnah, and the statements of the people, you introduce such things into it. So how about Kalam about the Lord of the Worlds, in which error is disbelief?&rsquo; So I abandoned Kalam and turned to Fiqh.&rdquo;</p>
 
 <p>Al-Muzani also said: &ldquo;I asked al-Shafi&lsquo;i about an issue in Kalam. He said: &lsquo;Ask me about something in which if I err, I would say I erred, and do not ask me about something in which if I err, I would say I disbelieved.&rsquo;&rdquo;</p>
 
-<p>Malik, may Allah have mercy on him, said: &ldquo;It is from the happiness of a person that he is guided to what is correct and good, and it is from the misery of a person that he continues to err.&rdquo; Ibn Abd al-Barr commented: &ldquo;In this is evidence that the one who errs, according to him (Malik), even if he exerted himself, is not in a good state. And Allah knows best.&rdquo;</p>
+<p>Malik said: &ldquo;It is from the happiness of a person that he is guided to what is correct and good, and it is from the misery of a person that he continues to err.&rdquo; Ibn Abd al-Barr commented: &ldquo;In this is evidence that the one who errs, according to him (Malik), even if he exerted himself, is not in a good state. And Allah knows best.&rdquo;</p>
 
-<p>Abu Sa&lsquo;id al-Darimi, may Allah have mercy on him, said: &ldquo;As for what you mentioned about exerting one&rsquo;s opinion in describing the Attributes of the Lord, we do not allow exerting one&rsquo;s opinion in many of the inheritance laws and rulings that we see with our own eyes and hear with our own ears. So how about the Attributes of Allah, which the eyes have not seen, and about which thoughts fall short?&rdquo;</p>
+<p>Abu Sa&lsquo;id al-Darimi said: &ldquo;As for what you mentioned about exerting one&rsquo;s opinion in describing the Attributes of the Lord, we do not allow exerting one&rsquo;s opinion in many of the inheritance laws and rulings that we see with our own eyes and hear with our own ears. So how about the Attributes of Allah, which the eyes have not seen, and about which thoughts fall short?&rdquo;</p>
 
-<p>Al-Tabari, may Allah have mercy on him, divided matters of this kind into two aspects:</p>
+<p>Al-Tabari divided matters of this kind into two aspects:</p>
 
 <blockquote>&ldquo;The statement regarding what I have understood of the reality of His knowledge through reasoning is based on two aspects. First, one is excused for error in it, and rewarded for his exertion, examination, and seeking, as the Messenger of Allah &#xFDFA; said: &lsquo;Whoever exerts himself and is correct, he has two rewards. And whoever exerts himself and errs, he has one reward.&rsquo; This error occurs when the evidences for the correct view are different and not in agreement, and the fundamentals of their indication are divergent and not harmonious, even though there is evidence for the correct view. So distinguish between this and the corrupt view. However, some of it is obscure, hidden from many of its seekers, and confusing to many of those who desire it. And the second aspect is that one is not excused for error in it, being accountable and having reached the age of responsibility, and the ignorant one is declared a disbeliever for his ignorance of it. This is when the evidences indicating its correctness are harmonious and not divergent, in agreement and not different, and they are apparent to the senses.&rdquo;</blockquote>
 
@@ -2669,7 +2662,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <p>Isma&lsquo;il al-Isbahani, &ldquo;Qawam al-Sunnah&rdquo;, said: &ldquo;The one who interprets (the texts) and errs, if he is from the people of the foundations of faith, his interpretation is examined. If it is related to a matter that leads him to contradict some of the Book of Allah or an authentic Sunnah, or a consensus, then he is declared a disbeliever and is not excused. This is because the doubt he clings to in this case is weak and does not have the strength to excuse him. What is supported by any of these fundamentals is extremely clear and evident. So since it is not difficult for the holder of this view to grasp the truth, and the place of evidence is not hidden from him, he is not excused for abandoning the truth. Rather, his opposition to it is considered stubbornness and insistence.&rdquo;</p>
 
-<p>Ibn Abi Zayd al-Qayrawani, may Allah have mercy on him, said: &ldquo;And from the statements of the people of the Sunnah is that one who is led by his exertion to innovation is not excused, because the Kharijites exerted themselves in interpretation but were not excused when they deviated from the Companions with their interpretation. So the Prophet (peace and blessings be upon him) called them those who have left the religion, and considered the one who exerts himself in rulings to be rewarded even if he errs.&rdquo;</p>
+<p>Ibn Abi Zayd al-Qayrawani said: &ldquo;And from the statements of the people of the Sunnah is that one who is led by his exertion to innovation is not excused, because the Kharijites exerted themselves in interpretation but were not excused when they deviated from the Companions with their interpretation. So the Prophet (peace and blessings be upon him) called them those who have left the religion, and considered the one who exerts himself in rulings to be rewarded even if he errs.&rdquo;</p>
 
 <p>Ubaydullah ibn Sa&lsquo;id al-Sijzi (d. 444 AH) said: &ldquo;Umar and Sahl ibn Hunayf criticized the use of opinion in matters of religion, and no Companion disagreed with them in that. They both used to exert themselves in legal rulings in the branches (of religion). So it is known that they intended by that to prohibit resorting to intellect in matters of belief.&rdquo;</p>
 
@@ -2693,7 +2686,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <blockquote>&ldquo;Indeed Allah Most High will not punish anybody until news from Allah reaches him or until a proof from Allah reaches him (i.e. by means of the Messenger of Allah &#xFDFA;).&rdquo;<cite>Tafsir Ibn Jarir and Tafsir Ibn Abi Hatim</cite></blockquote>
 
-<p>Imam Ibn Abi Hatim, in his Tafsir, narrates the following with a good chain. The Messenger of Allah &#xFDFA; said:</p>
+<p>Ibn Abi Hatim, in his Tafsir, narrates the following with a good chain. The Messenger of Allah &#xFDFA; said:</p>
 
 <blockquote>&ldquo;The one who died during the Fatrah will say, &lsquo;My Lord! No Book or Messenger came to me.&rsquo; Then he will recite the following ayah: &lsquo;Our Lord! If only You had sent us a messenger, we would have followed Your signs and become believers.&rsquo;&rdquo;<cite>Tafsir Ibn Abi Hatim; the ayah is Surah al-Qasas, 28:47</cite></blockquote>
 
@@ -2701,11 +2694,11 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <p>The Prophet &#xFDFA; said:</p>
 
-<blockquote>&ldquo;There are four who will present their case on the Day of Resurrection: a deaf man who never heard anything, an insane man, a very old and senile man, and a man who died during the Fatrah. As for the deaf man, he will say: &lsquo;O Lord, Islam came but I never heard anything.&rsquo; As for the insane man, he will say: &lsquo;O Lord, Islam came and the young boys were throwing camel dung at me.&rsquo; As for the senile man, he will say: &lsquo;O Lord, Islam came and I did not understand anything.&rsquo; As for the one who died during the Fatrah, he will say: &lsquo;O Lord, no Messenger from You came to me.&rsquo; Allah will accept their pledge of obedience to Him, then He will send word to them that they should enter the Fire. By the One in Whose Hand is the soul of Muhammad, if they enter it, it will be cool and safe for them.&rdquo;<cite>Al-Tabarani (2/79) with a Sahih sanad; Musnad Ahmad (16301); Ibn Hibban (1827). Graded Sahih by Shaykh al-Albani in as-Sahihah (1434), by Ibn al-Qayyim in Tariq al-Hijratayn (1/397), and by Shaykh Muqbil in Sahih al-Musnad (19)</cite></blockquote>
+<blockquote>&ldquo;There are four who will present their case on the Day of Resurrection: a deaf man who never heard anything, an insane man, a very old and senile man, and a man who died during the Fatrah. As for the deaf man, he will say: &lsquo;O Lord, Islam came but I never heard anything.&rsquo; As for the insane man, he will say: &lsquo;O Lord, Islam came and the young boys were throwing camel dung at me.&rsquo; As for the senile man, he will say: &lsquo;O Lord, Islam came and I did not understand anything.&rsquo; As for the one who died during the Fatrah, he will say: &lsquo;O Lord, no Messenger from You came to me.&rsquo; Allah will accept their pledge of obedience to Him, then He will send word to them that they should enter the Fire. By the One in Whose Hand is the soul of Muhammad, if they enter it, it will be cool and safe for them.&rdquo;<cite>Al-Tabarani (2/79) with a Sahih sanad; Musnad Ahmad (16301); Ibn Hibban (1827). Graded Sahih by al-Albani in as-Sahihah (1434), by Ibn al-Qayyim in Tariq al-Hijratayn (1/397), and by Muqbil in Sahih al-Musnad (19)</cite></blockquote>
 
 <p>Anas (may Allah be pleased with him) said that the Prophet &#xFDFA; said:</p>
 
-<blockquote>&ldquo;Four (types of people) will come on the Day of Judgment: the infant, the insane, the one who died during al-Fatrah and a very old and senile man. Everyone will present their case. Allah will say to the neck from the Hellfire: {Arise!} And He will say to them: {I used to send Messengers to my slaves from among themselves, and I am a Messenger from Myself to you. So enter into this (Fire).} So those for whom misery was written will say: O Lord! How should we enter this, whereas this is what we are trying to run away from? As for those for whom happiness was written, they will be charging towards it (to enter it). Allah will say: {You (would have been) more severe in denying and disobeying My Messengers.} So those (who ran to enter the fire) will be made to enter the Jannah and those (who complained) will be made to enter the Hellfire.&rdquo;<cite>Musnad al-Bazzar (7594); Musnad Abu Ya&lsquo;la (4224). Shaykh al-Albani said that the Hadith with this chain is &ldquo;Da&lsquo;if&rdquo; (weak), but there are other Ahadith that raise its level (like the first Hadith of al-Aswad); see as-Sahihah (2468)</cite></blockquote>
+<blockquote>&ldquo;Four (types of people) will come on the Day of Judgment: the infant, the insane, the one who died during al-Fatrah and a very old and senile man. Everyone will present their case. Allah will say to the neck from the Hellfire: {Arise!} And He will say to them: {I used to send Messengers to my slaves from among themselves, and I am a Messenger from Myself to you. So enter into this (Fire).} So those for whom misery was written will say: O Lord! How should we enter this, whereas this is what we are trying to run away from? As for those for whom happiness was written, they will be charging towards it (to enter it). Allah will say: {You (would have been) more severe in denying and disobeying My Messengers.} So those (who ran to enter the fire) will be made to enter the Jannah and those (who complained) will be made to enter the Hellfire.&rdquo;<cite>Musnad al-Bazzar (7594); Musnad Abu Ya&lsquo;la (4224). al-Albani said that the Hadith with this chain is &ldquo;Da&lsquo;if&rdquo; (weak), but there are other Ahadith that raise its level (like the first Hadith of al-Aswad); see as-Sahihah (2468)</cite></blockquote>
 
 <h3>Children and the Fitrah</h3>
 
@@ -2719,7 +2712,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <p>Udhr bil Jahil does not excuse the <em>name</em> of the sin &mdash; it excuses the <em>punishment</em> only. A person who commits Zina is still a Zani; a person who commits murder is still a murderer. What may be lifted is the punishment, whether in this life or the next.</p>
 
-<p>There is no excuse of ignorance in Aqeedah for someone whom Islam has reached, because the mere presence of Islam is itself considered Hujjah.</p>
+<p>There is no ordinary excuse for rejecting a core belief or denying a revealed attribute of Allah. Genuine ignorance is considered only in the narrow case of an obscure text-based matter that the person does not know and does not reject.</p>
 
 <p><strong>A concrete example:</strong> a man commits Zina. Is he lashed, and does a major sin get recorded against him on the Day of Judgment? Not necessarily, if he was genuinely ignorant of its prohibition. (This example is extreme &mdash; being ignorant of the prohibition of Zina is not realistic &mdash; but it illustrates the logic.)</p>
 
@@ -2731,7 +2724,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 <h2>Major Sins</h2>
 
 <ul>
-<li>Minor Shirk (minor idolatry, such as doing acts of worship purely for reward in this world &mdash; showing off while praying, showing off to other than Allah, or swearing by other than Allah)</li>
+<li>Minor Shirk (such as showing off while praying, showing off to other than Allah, or swearing by other than Allah)</li>
 <li>Murder</li>
 <li>Killing non-human creatures without valid reason</li>
 <li>Consuming an orphan&rsquo;s wealth</li>
@@ -2772,6 +2765,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 <li>Mut&rsquo;ah (temporary marriage entered into with the intention of a short, fixed-term union)</li>
 <li>Marrying a woman solely as a loophole to make her lawful again for a previous husband (Tahlil marriage)</li>
 <li>Cheating others</li>
+<li>Deception</li>
 <li>Torture</li>
 <li>Severely harming others, whether through speech or action, without reason</li>
 <li>Arrogance</li>
@@ -2783,7 +2777,6 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 <li>Gambling</li>
 <li>Non-alcoholic intoxication</li>
 <li>Ungratefulness</li>
-<li>Doing acts of worship purely for worldly purposes</li>
 <li>Calling Muslims disbelievers (without valid grounds)</li>
 <li>Eavesdropping</li>
 <li>Self-harm</li>
@@ -3085,9 +3078,9 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <ul>
 <li><strong>Hanafi:</strong> al-Kasani said: &ldquo;Territory becomes territory of disbelief through the manifestation of the laws of disbelief within it.&rdquo;<cite>Bada&rsquo;i&lsquo; al-Sana&rsquo;i&lsquo;, 7/130</cite> Abu Yusuf and Muhammad ibn al-Hasan said that a land is attributed to us or to them by strength and dominance, so every place where the rule of Shirk is manifest is a place where power belongs to the polytheists.<cite>Al-Sarakhsi, al-Mabsut, 10/114</cite></li>
-<li><strong>Maliki:</strong> territory in which the laws of the disbelievers are manifest and operate. Imam Malik gave the example of Makkah before the conquest, which was Dar al-Kufr because the laws of Jahiliyyah were manifest there.<cite>Al-Mudawwanah, 3/23</cite></li>
+<li><strong>Maliki:</strong> territory in which the laws of the disbelievers are manifest and operate. Malik gave the example of Makkah before the conquest, which was Dar al-Kufr because the laws of Jahiliyyah were manifest there.<cite>Al-Mudawwanah, 3/23</cite></li>
 <li><strong>Shafi&lsquo;i:</strong> territory over which Muslims have no established control.<cite>Al-Mawardi, al-Ahkam al-Sultaniyyah, p. 191</cite></li>
-<li><strong>Hanbali:</strong> territory in which the laws of disbelief prevail. Al-Qadi Abu Ya&lsquo;la said: &ldquo;Every territory in which the laws of disbelief prevail rather than Islamic laws is territory of disbelief.&rdquo;<cite>Al-Mu&lsquo;tamad fi Usul al-Din, p. 276</cite> Ibn al-Qayyim noted that al-Ta&rsquo;if was very close to Makkah yet did not become Islamic territory through the conquest of Makkah.<cite>Ahkam Ahl al-Dhimmah, 1/366</cite> Ibn Sa&lsquo;di said: &ldquo;When governing laws belong to disbelievers, it is territory of disbelief, even if many Muslims live there.&rdquo;<cite>Al-Fatawa al-Sa&lsquo;diyyah, 1/92</cite></li>
+<li><strong>Hanbali:</strong> territory in which the laws of disbelief prevail. Abu Ya&lsquo;la said: &ldquo;Every territory in which the laws of disbelief prevail rather than Islamic laws is territory of disbelief.&rdquo;<cite>Al-Mu&lsquo;tamad fi Usul al-Din, p. 276</cite> Ibn al-Qayyim noted that al-Ta&rsquo;if was very close to Makkah yet did not become Islamic territory through the conquest of Makkah.<cite>Ahkam Ahl al-Dhimmah, 1/366</cite> Ibn Sa&lsquo;di said: &ldquo;When governing laws belong to disbelievers, it is territory of disbelief, even if many Muslims live there.&rdquo;<cite>Al-Fatawa al-Sa&lsquo;diyyah, 1/92</cite></li>
 <li><strong>Zahiri:</strong> territory possessed and governed by disbelievers, in which their laws prevail. Al-Shawkani added that Islamic practices appearing there do not change this, &ldquo;because those practices have not appeared through the strength or power of the Muslims,&rdquo; but only after permission from the disbelievers.<cite>Ibn Hazm, al-Muhalla, 13/140; al-Shawkani, al-Sayl al-Jarrar, 4/575</cite></li>
 </ul>
 
@@ -3329,7 +3322,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <h2>The Five Heads of Taghut</h2>
 
-<p>Shaykh Muhammad ibn &lsquo;Abd al-Wahhab listed the heads of the Tawaghit as five (<em>Thalathat al-Usul</em>):</p>
+<p>Muhammad ibn &lsquo;Abd al-Wahhab listed the heads of the Tawaghit as five (<em>Thalathat al-Usul</em>):</p>
 
 <ol>
   <li>Iblis, the curse of Allah be on him.</li>
@@ -3402,10 +3395,10 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 <ul>
   <li><strong>The Major Imamate (Al-Imamah al-Kubra):</strong> general leadership of the whole Ummah in matters of religion and worldly affairs. The one who holds it is the Caliph, so when the books of fiqh speak of &ldquo;the Imam&rdquo; in rulings on war, prisoners, hudud and the state, they mean the ruler of the Muslims. The Prophet &#xFDFA; said: <em>&ldquo;The Imam is a shield, behind whom the people fight and by whom they protect themselves.&rdquo;</em> (<em>Sahih al-Bukhari</em>, 2957; <em>Sahih Muslim</em>, 1841).</li>
   <li><strong>The Minor Imamate (Al-Imamah al-Sughra):</strong> leading the prayer. The one who stands in front of the congregation is also called the Imam. The Prophet &#xFDFA; said: <em>&ldquo;The Imam is appointed only to be followed.&rdquo;</em> (<em>Sahih al-Bukhari</em>, 722; <em>Sahih Muslim</em>, 414). The Imam of a mosque has this role. He leads the prayer, and he is not a ruler.</li>
-  <li>The title <em>Imam</em> is also used as a mark of honor for leading scholars, such as Imam Malik or Imam al-Bukhari. This is how it is used on this site when the name of a scholar is mentioned.</li>
+  <li>This site does not use this title for later scholars; it gives their names without honorifics.</li>
 </ul>
 
-<p>So the same word is used for the ruler of the Muslims and for the leader of a prayer. Neither is the same as the other, and neither should be confused with the title of a scholar. Whenever you see &ldquo;Imam&rdquo; in a ruling, ask which one is meant.</p>
+<p>So the same word is used for the ruler of the Muslims and for the leader of a prayer. Neither is the same as the other. Whenever the term occurs in a ruling, ask which kind of leadership is meant.</p>
 
 <h2>Choosing the Caliph and His Requirements</h2>
 
@@ -3446,7 +3439,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <h2>The Quraysh Condition</h2>
 
-<p>The Caliph must be from Quraysh. This is the position of the great majority of Ahlus Sunnah. Qadi &lsquo;Iyad reported that it is the position of the scholars as a whole, counted it among the matters of ijma&lsquo;, and said that the Khawarij and some of the Mu&lsquo;tazilah who allowed otherwise are not counted (quoted by al-Nawawi in <em>Sharh Sahih Muslim</em>; Ibn Hajar also discusses it in <em>Fath al-Bari</em>).</p>
+<p>The Caliph must be from Quraysh. This is the position of the great majority of Ahlus Sunnah. &lsquo;Iyad reported that it is the position of the scholars as a whole, counted it among the matters of ijma&lsquo;, and said that the Khawarij and some of the Mu&lsquo;tazilah who allowed otherwise are not counted (quoted by al-Nawawi in <em>Sharh Sahih Muslim</em>; Ibn Hajar also discusses it in <em>Fath al-Bari</em>).</p>
 
 <p class="ar" dir="rtl" lang="ar">إِنَّ هَذَا الأَمْرَ فِي قُرَيْشٍ، لاَ يُعَادِيهِمْ أَحَدٌ إِلاَّ كَبَّهُ اللَّهُ عَلَى وَجْهِهِ، مَا أَقَامُوا الدِّينَ</p>
 
@@ -3456,7 +3449,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <blockquote>&ldquo;Islam will continue to be triumphant until there have been twelve Caliphs,&rdquo; and his father said the Prophet &#xFDFA; added that all of them are from Quraysh.<cite>Jabir ibn Samurah; Sahih Muslim, 1821</cite></blockquote>
 
-<blockquote>&ldquo;The Imams are from Quraysh.&rdquo;<cite>Musnad Ahmad</cite></blockquote>
+<blockquote>&ldquo;The scholars are from Quraysh.&rdquo;<cite>Musnad Ahmad</cite></blockquote>
 
 <blockquote>&ldquo;Quraysh are the people in charge of this matter.&rdquo;<cite>Musnad Ahmad</cite></blockquote>
 
@@ -3466,7 +3459,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <h3>What the condition covers</h3>
 
-<p>The texts speak of <em>al-amr</em>, the supreme leadership, and of the Imams who hold it. They do not say that every Muslim who rules a land must be from Quraysh. The Prophet &#xFDFA; himself put people who were not from Quraysh in command, such as Usamah ibn Zayd over an army that included the senior Companions (<em>Sahih al-Bukhari</em>, the hadith of Usamah&rsquo;s appointment). So the Quraysh condition is for the Caliph, and the Caliph may appoint non-Qurayshis as governors and commanders.</p>
+<p>The texts speak of <em>al-amr</em>, the supreme leadership, and of the scholars who hold it. They do not say that every Muslim who rules a land must be from Quraysh. The Prophet &#xFDFA; himself put people who were not from Quraysh in command, such as Usamah ibn Zayd over an army that included the senior Companions (<em>Sahih al-Bukhari</em>, the hadith of Usamah&rsquo;s appointment). So the Quraysh condition is for the Caliph, and the Caliph may appoint non-Qurayshis as governors and commanders.</p>
 
 <h3>The hadith of the Abyssinian slave</h3>
 
@@ -3588,7 +3581,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <p>So the duty of the one who advises is to deliver the advice sincerely. It is not to make the ruler accept it, and once he has delivered it, he has fulfilled what was on him, whether the ruler accepts or rejects it. It does not give permission to rebel, to speak against him among the people, or to gather people against him.</p>
 
-<p>This was the way of the Salaf. Imam Ibn Rajab commented:</p>
+<p>This was the way of the Salaf. Ibn Rajab commented:</p>
 
 <blockquote>&ldquo;The righteous predecessors, when they wished to advise someone, would admonish him privately, such that one of them said: Whoever admonishes his brother privately, then it is sincere advice. But whoever admonishes him in front of people has only humiliated and disgraced him.&rdquo;<cite>Ibn Rajab, Jami&lsquo; al-&lsquo;Ulum wal-Hikam, 1/225</cite></blockquote>
 
@@ -3693,31 +3686,31 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <h3>Obeying the ruler who took power</h3>
 
-<blockquote>&ldquo;The jurists are in agreement concerning the obligation to give obedience to the Sultan who took over them by force and also to perform Jihad along with him. Obeying him is better than rebelling against him.&rdquo;<cite>Al-Hafiz Ibn Hajar, Fath al-Bari</cite></blockquote>
+<blockquote>&ldquo;The jurists are in agreement concerning the obligation to give obedience to the Sultan who took over them by force and also to perform Jihad along with him. Obeying him is better than rebelling against him.&rdquo;<cite>Ibn Hajar, Fath al-Bari</cite></blockquote>
 
-<p>Imam Ahmad, in the creed reported from him by &lsquo;Abdus ibn Malik al-&lsquo;Attar, said that whoever overcomes the people by the sword until he becomes the ruler and is called Amir al-Mu&rsquo;minin, it is not allowed for anyone who believes in Allah and the Last Day to spend a night without considering him an Imam, whether he is righteous or sinful.</p>
+<p>Ahmad, in the creed reported from him by &lsquo;Abdus ibn Malik al-&lsquo;Attar, said that whoever overcomes the people by the sword until he becomes the ruler and is called Amir al-Mu&rsquo;minin, it is not allowed for anyone who believes in Allah and the Last Day to spend a night without considering him an Imam, whether he is righteous or sinful.</p>
 
-<p>Shaykh &lsquo;Abd al-Latif ibn &lsquo;Abd al-Rahman Al ash-Shaykh said that the people of knowledge are unanimously agreed on obeying the one who took over by force in whatever is good. They hold that his Imamah is correct, that his orders are to be fulfilled, and that it is not allowed to rebel against him with the sword and divide the Ummah, even if the leaders are sinful, so long as they do not show clear open disbelief.</p>
+<p>&lsquo;Abd al-Latif ibn &lsquo;Abd al-Rahman Al ash-Shaykh said that the people of knowledge are unanimously agreed on obeying the one who took over by force in whatever is good. They hold that his Imamah is correct, that his orders are to be fulfilled, and that it is not allowed to rebel against him with the sword and divide the Ummah, even if the leaders are sinful, so long as they do not show clear open disbelief.</p>
 
-<p>Shaykh al-Islam Muhammad ibn &lsquo;Abd al-Wahhab said that the Imams of every school agree that whoever takes control of a region or regions has the ruling of &ldquo;Imam&rdquo; in all matters. If this were not so, the affairs of the world would never have been established, since the people had not gathered behind a single Imam for a very long time, from before the era of Imam Ahmad until his own day. He said he knew of no scholar who mentioned that the rulings of the Shariah cannot be carried out except by the one overall Imam, the Khalifah.</p>
+<p>Muhammad ibn &lsquo;Abd al-Wahhab said that the scholars of every school agree that whoever takes control of a region or regions has the ruling of &ldquo;Imam&rdquo; in all matters. If this were not so, the affairs of the world would never have been established, since the people had not gathered behind a single Imam for a very long time, from before the era of Ahmad until his own day. He said he knew of no scholar who mentioned that the rulings of the Shariah cannot be carried out except by the one overall Imam, the Khalifah.</p>
 
 <h3>More than one ruler in the Muslim lands</h3>
 
 <p>As-San&rsquo;ani explained the hadith that whoever leaves obedience and separates from the Jama&lsquo;ah and dies, dies a death of Jahiliyyah. He said the obedience meant is to the Khalifah about whom there is agreement, and it is as if the Khalifah of a particular region is meant, because the people never gathered behind one Khalifah in all the lands of Islam after the Abbasid state. The people of every region had someone presiding over their affairs. If the hadith meant only the overall Khalifah all Muslims united behind, it would have no benefit.</p>
 
-<blockquote>&ldquo;There is no harm in the multiplicity of Imams and Sultans, and it is obligatory for those people in whose land his orders and prohibitions become effective to give obedience to him after having given bay&rsquo;ah to him. It is likewise for the people of all the other regions.&rdquo;<cite>Ash-Shawkani</cite></blockquote>
+<blockquote>&ldquo;There is no harm in the multiplicity of scholars and Sultans, and it is obligatory for those people in whose land his orders and prohibitions become effective to give obedience to him after having given bay&rsquo;ah to him. It is likewise for the people of all the other regions.&rdquo;<cite>Ash-Shawkani</cite></blockquote>
 
 <p>This does not cancel the rule above that there is only one Caliph over the Ummah at a time (Sahih Muslim, 1853). It means that the Muslims in a land with its own ruler must obey that ruler in the meantime, and that a Muslim who is not in the Caliph&rsquo;s land still owes the Caliph obedience.</p>
 
 <h3>The example of al-Hajjaj</h3>
 
-<p>Shaykh &lsquo;Abd al-Latif Al ash-Shaykh gave the example of al-Hajjaj ibn Yusuf ath-Thaqafi. His oppression is well known: he spilled much blood, killed notables of the Ummah such as Sa&rsquo;id ibn Jubayr, besieged Ibn az-Zubayr in the Haram and killed him, even though Ibn az-Zubayr held the allegiance of the people of Makkah, Madinah, Yemen and most of Iraq. Yet none of the people of knowledge hesitated to obey him in what obedience is allowed, in the pillars and obligations of Islam.</p>
+<p>&lsquo;Abd al-Latif Al ash-Shaykh gave the example of al-Hajjaj ibn Yusuf ath-Thaqafi. His oppression is well known: he spilled much blood, killed notables of the Ummah such as Sa&rsquo;id ibn Jubayr, besieged Ibn az-Zubayr in the Haram and killed him, even though Ibn az-Zubayr held the allegiance of the people of Makkah, Madinah, Yemen and most of Iraq. Yet none of the people of knowledge hesitated to obey him in what obedience is allowed, in the pillars and obligations of Islam.</p>
 
 <p>Al-Hajjaj was a governor appointed by the Qurayshi Caliph &lsquo;Abd al-Malik, so his example is evidence for patience under an oppressive ruler, and it is not evidence that a non-Qurayshi may be Caliph.</p>
 
 <p>Ibn &lsquo;Umar and the Companions who met al-Hajjaj did not contest with him or stop obeying him in what establishes Islam and perfects iman. The same is true of the Tabi&rsquo;in of his time, such as Ibn al-Musayyib, al-Hasan al-Basri, Ibn Sirin and Ibrahim at-Taymi.</p>
 
-<p>This is the position of the Salaf, and of later scholars including Shaykh Ibn &lsquo;Uthaymin, Shaykh Ibn Baz, Shaykh Salih al-Fawzan and Shaykh al-Albani.</p>
+<p>This is the position of the Salaf, and of later scholars including Ibn &lsquo;Uthaymin, Ibn Baz, Salih al-Fawzan and al-Albani.</p>
 
 <h3>Hijrah from Dar al-Kufr</h3>
 
@@ -3774,7 +3767,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
 </a>
 
-<p>Sources: Shaykh Abu &lsquo;Iyad; Quran 4:97-99; the hadith of Jarir above.</p>
+<p>Sources: Abu &lsquo;Iyad; Quran 4:97-99; the hadith of Jarir above.</p>
 
 <h2>The Rules of Obedience and Rebellion (Khuruj)</h2>
 
@@ -3801,9 +3794,9 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 <p>A missing condition, such as not being from Quraysh, is not kufr, so it is not a reason to withdraw allegiance. Real kufr is different: for example, denying Allah&rsquo;s attributes is kufr, and the exception above applies to it. The full rulings are on the Revolting page.</p>
 <h2>The Caliphate Foretold</h2>
 
-<p>The Prophet &#xFDFA; foretold that a Caliphate on the method of prophethood will return in the future. To read about it, and about Imam al-Mahdi and the descent of &lsquo;Isa (peace be upon him), go here:</p>
+<p>The Prophet &#xFDFA; foretold that a Caliphate on the method of prophethood will return in the future. To read about it, and about al-Mahdi and the descent of &lsquo;Isa (peace be upon him), go here:</p>
 
-<a class="cta-link" href="#/forum/what-is-islam/aqeedah/specific-beliefs/dar-war-taghut-and-caliphates/future-caliphate-by-imam-al-mahdi-and-isa-peace-be-upon-him">
+<a class="cta-link" href="#/forum/what-is-islam/aqeedah/specific-beliefs/dar-war-taghut-and-caliphates/future-caliphate-by-al-mahdi-and-isa-peace-be-upon-him">
   Go to Future Caliphate
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
 </a>
@@ -4061,9 +4054,32 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <p>Some of Allah&rsquo;s attributes are known by necessity, meaning reason and revelation both point to them, such as His life, knowledge and power. Others are more obscure and are known only because Allah or His Messenger &#xFDFA; told us about them. All of them are affirmed as they came in the Qur&rsquo;an and Sunnah, without likening Allah to His creation and without asking &ldquo;how&rdquo;: nothing is like Him.</p>
 
+<h2>Affirming the attributes: ignorance is not denial</h2>
+
+<p>No one has an excuse to deny any attribute Allah has revealed, even if the evidence is not readily available to him. Denial is not excused by lack of a separate personal presentation of the proof. Genuine ignorance of an obscure attribute is different: if a person does not know a particular report, does not deny it, and affirms that everything with which Allah has described Himself and His Messenger has described Him is true, that is sufficient with respect to that attribute.</p>
+
+<p>Al-Barbahari wrote in <em>Sharh al-Sunnah</em>:</p>
+
+<blockquote>&ldquo;Whatever you hear of the narrations that your intellect cannot comprehend, such as the statement of the Messenger of Allah &#xFDFA;, &lsquo;The hearts of the servants are between two fingers of the Most Merciful, Mighty and Majestic&rsquo;; his statement, &lsquo;Indeed, Allah, Blessed and Exalted, descends to the lowest heaven,&rsquo; and that He descends on the Day of &lsquo;Arafah and descends on the Day of Resurrection; and that Hellfire will continue to have things thrown into it until He, Glorified is His praise, places His foot upon it; and Allah&rsquo;s statement to the servant, &lsquo;If you walk towards Me, I will hurry towards you&rsquo;; and his statement, &lsquo;Allah created Adam in His image&rsquo;; and the statement of the Messenger of Allah &#xFDFA;, &lsquo;I saw my Lord in the most beautiful form&rsquo;; and narrations similar to these&mdash;then you must submit, affirm their truth, consign their meaning to Allah, and be content with them. Do not interpret any of these according to your own desires, for belief in them is obligatory. Whoever interprets any of this according to his own desires and rejects it is a Jahmi.&rdquo;<cite>Al-Barbahari, <em>Sharh al-Sunnah</em></cite></blockquote>
+
+<p>Ibn Battah wrote on the same subject:</p>
+
+<blockquote>&ldquo;Know that protection in religion lies in stopping where you have been brought to a stop and not exceeding the limits set for you. For among the foundations of religion are recognising what is right and rejecting what is wrong. Whatever has been made accessible to you through knowledge, to which hearts have become settled, whose basis is mentioned in the Book and the Sunnah, and whose knowledge has been transmitted by the community from generation to generation&mdash;then do not fear to mention it. Describe your Lord according to how He has described Himself, and do not presume to determine the precise nature of what He has described to you.
+
+As for what your own self finds objectionable, and whose mention you do not find in the Book of your Lord or in the hadith of your Prophet, concerning the attributes of your Lord, do not attempt to ascertain it through your intellect, nor describe Him with your tongue. Remain silent concerning it, just as the Lord remained silent concerning it with respect to Himself. For your attempting to ascertain what He has not described of Himself is like your denying what He has described of Himself.
+
+Just as you regard as grave the rejection by those who deny what He has described of Himself, so too regard as grave the presumptuous attempt to determine what those who describe Him have mentioned, which He Himself has not described.
+
+By Allah, the Muslims who recognise what is right have indeed attained greatness. Through their recognition of what is right, what is right becomes known; and through their rejection of what is wrong, what is wrong becomes rejected. They hear what Allah has described Himself with in His Book, and what reaches them of similar descriptions from His Prophet. No Muslim&rsquo;s heart has become diseased merely because he mentions this and attributes it to the Lord; nor has any believer attempted to determine the precise nature of its attributes or attribute to the Lord a designation other than what has been mentioned.
+
+Whatever has been reported from the Messenger of Allah &#xFDFA; that he designated as an attribute of his Lord is equivalent to what the Lord, Exalted is He, has Himself designated and described.
+
+Those firmly grounded in knowledge are those who stop where their knowledge ends, describe their Lord according to how He has described Himself, and leave aside what He has left unmentioned concerning His attributes. They do not deny an attribute He has mentioned out of rejection, nor do they presume to describe Him with what He has not mentioned out of excessive probing. This is because the truth lies in leaving what He has left unmentioned and affirming the designation of what He has designated.&rdquo;<cite>Ibn Battah, on the transmitted attributes</cite></blockquote>
+
+
 <h3>Why we take the attributes literally</h3>
 
-<p>We affirm the attributes upon their apparent, literal meaning because this is how the Salaf understood them. The Companions and the early generations took the texts as they came, without twisting them (Tahrif), emptying them of meaning (Ta&rsquo;til), asking how (Takyif), or likening Allah to creation (Tamthil). It is reported from the early Imams such as Al-Awza&rsquo;i, Malik, Ath-Thawri and Al-Layth ibn Sa&lsquo;d, when asked about the attributes, that they said to let them pass as they came, without asking how. Nobody among the Salaf turned them into metaphors. That later approach came from the people of Kalam.</p>
+<p>We affirm the attributes upon their apparent, literal meaning because this is how the Salaf understood them. The Companions and the early generations took the texts as they came, without twisting them (Tahrif), emptying them of meaning (Ta&rsquo;til), asking how (Takyif), or likening Allah to creation (Tamthil). It is reported from the early scholars such as Al-Awza&rsquo;i, Malik, Ath-Thawri and Al-Layth ibn Sa&lsquo;d, when asked about the attributes, that they said to let them pass as they came, without asking how. Nobody among the Salaf turned them into metaphors. That later approach came from the people of Kalam.</p>
 
 <h3>His attributes are uncreated</h3>
 
@@ -4282,7 +4298,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 <blockquote>&ldquo;It (Nuh&rsquo;s ark) sailed under the watch of Our eyes, as a reward for those (believers) who were rejected.&rdquo;<cite>Quran 54:14 (Al-Qamar)</cite></blockquote>
 <p>Ibn Khuzaymah said in Kitab at-Tawhid (1/97), after quoting a number of verses: It is obligatory for every believer to affirm for his Creator and Maker what the Creator and Maker affirmed for Himself of eyes. He is not a true believer who denies for Allah, may He be blessed and exalted, what He has affirmed for Himself in a clear text and was explained by the Prophet (blessings and peace of Allah be upon him), to whom Allah gave the task of explaining His words, as He said (interpretation of the meaning):</p>
 <blockquote>&ldquo;And We revealed to you the message that you may make clear to the people what was sent down to them.&rdquo;<cite>Quran 16:44 (An-Nahl)</cite></blockquote>
-<p>So the Prophet (blessings and peace of Allah be upon him) explained that Allah has two eyes, and his explanation was in accordance with the revealed text, which you find in the pages of the Mushaf and it is recited by the imams in prayer and is taught to children in the schools.</p>
+<p>So the Prophet (blessings and peace of Allah be upon him) explained that Allah has two eyes, and his explanation was in accordance with the revealed text, which you find in the pages of the Mushaf and it is recited by the scholars in prayer and is taught to children in the schools.</p>
 <p>And he said (1/114): We say: Our Lord the Creator has two eyes with which He sees whatever lies beneath the ground, whatever lies beneath the lowest, seventh earth, and whatever is in the highest heavens&hellip; (End quote)</p>
 
 <h3>Two Hands (Al-Yadan)</h3>
@@ -4294,7 +4310,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 <p>In the hadith of intercession, the people will say to Adam (peace be upon him): &ldquo;Allah created you with His Hand.&rdquo;(Reported by al-Bukhari and Muslim.)</p>
 <p>&lsquo;Abdullah ibn &lsquo;Umar (&#x631;&#x636;&#x64A; &#x627;&#x644;&#x644;&#x647; &#x639;&#x646;&#x647;) reported that the Prophet (&#xFDFA;) said:</p>
 <blockquote>&ldquo;Indeed, on the Day of Resurrection, Allah will place the just people on platforms of light. They will be on the right side of ar-Rahman (the Most Merciful)&mdash;and both of His hands are right hands. Those are the ones who are just in their rule, families, and anything of which they are in charge.&rdquo;</blockquote>
-<p>For this reason, the Imams of Ahl as-Sunnah used these texts as evidence for affirming two Hands for Allah, in a manner befitting Him, without likening Him to His creation and without asking how.</p>
+<p>For this reason, the scholars of Ahl as-Sunnah used these texts as evidence for affirming two Hands for Allah, in a manner befitting Him, without likening Him to His creation and without asking how.</p>
 
 <h3>Fingers (Al-Asabi&lsquo;)</h3>
 <blockquote>&ldquo;Indeed, all of the hearts of human beings are between two of the fingers of ar-Rahman (the Most Merciful). (To Him) they are all like one heart that He controls as He wishes.&rdquo;</blockquote>
@@ -4343,10 +4359,10 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 <p><strong>2.</strong> Nothing of the creation of Allah can encompass Him and He is not contained within His creation. He, may He be Glorified, has no need of it. He is above needing it and exalted be He above any of His creation encompassing Him. Allah says (interpretation of the meaning):</p>
 <blockquote>&ldquo;No vision can grasp Him, but He grasps all vision. He is Al-Lateef (the Most Subtle and Courteous), Well-Acquainted with all things.&rdquo;<cite>Quran 6:103 (Al-An&lsquo;am)</cite></blockquote>
 <blockquote>&ldquo;He (Allah) knows what happens to them (His creatures) in this world, and what will happen to them (in the Hereafter) but they will never compass anything of His Knowledge.&rdquo;<cite>Quran 20:110 (Ta-Ha)</cite></blockquote>
-<p>It is proven that &lsquo;Ali ibn Al-Hasan ibn Shaqiq (may Allah have mercy on him), the Shaykh of Al-Bukhari (may Allah have mercy on him) said: I said to &lsquo;Abdullah ibn Al-Mubarak: How do we know our Lord? He said: <a href="https://islamqa.info/en/answers/47048" target="_blank" rel="noopener noreferrer">[He is] in the seventh heaven above His Throne</a>. According to another version: [He is] above the seventh heaven above His Throne, and we do not say as the Jahmiyyah do, that He is here on earth.</p>
+<p>It is proven that &lsquo;Ali ibn Al-Hasan ibn Shaqiq, the teacher of Al-Bukhari said: I said to &lsquo;Abdullah ibn Al-Mubarak: How do we know our Lord? He said: <a href="https://islamqa.info/en/answers/47048" target="_blank" rel="noopener noreferrer">[He is] in the seventh heaven above His Throne</a>. According to another version: [He is] above the seventh heaven above His Throne, and we do not say as the Jahmiyyah do, that He is here on earth.</p>
 <p>That was said to Ahmad ibn Hanbal, and he said: This is how we understand it.</p>
-<p>Imam Adh-Dhahabi said, commenting on this report:</p>
-<blockquote>&ldquo;This is authentic and proven from Thabit ibn Al-Mubarak and Ahmad (may Allah have mercy on them both). The words &lsquo;in heaven&rsquo; in another report explain to you that what he meant by saying &lsquo;in heaven&rsquo; was &lsquo;above the heaven&rsquo;, as in the other sahih report which he wrote to Yahya ibn Mansoor Al-Faqeeh.&rdquo;<cite>Adh-Dhahabi, Al-&lsquo;Arsh, 2/189</cite></blockquote>
+<p>Adh-Dhahabi said, commenting on this report:</p>
+<blockquote>&ldquo;This is authentic and proven from Thabit ibn Al-Mubarak and Ahmad. The words &lsquo;in heaven&rsquo; in another report explain to you that what he meant by saying &lsquo;in heaven&rsquo; was &lsquo;above the heaven&rsquo;, as in the other sahih report which he wrote to Yahya ibn Mansoor Al-Faqeeh.&rdquo;<cite>Adh-Dhahabi, Al-&lsquo;Arsh, 2/189</cite></blockquote>
 
 <h3>Sitting Upon the Throne (Julus)</h3>
 
@@ -4523,7 +4539,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <h2>The famous collections</h2>
 
-<p>Imam al-Bukhari (d. 256 AH) and Imam Muslim (d. 261 AH) each compiled a collection containing only the reports they judged Sahih, and these two are considered the most reliable books after the Qur&rsquo;an. Other major works are the Sunan of Abu Dawud, al-Tirmidhi, al-Nasa&rsquo;i and Ibn Majah, and the Muwatta of Imam Malik. Unlike the two Sahih books, these include reports of varying grades, so scholars grade them individually.</p>
+<p>al-Bukhari (d. 256 AH) and Muslim (d. 261 AH) each compiled a collection containing only the reports they judged Sahih, and these two are considered the most reliable books after the Qur&rsquo;an. Other major works are the Sunan of Abu Dawud, al-Tirmidhi, al-Nasa&rsquo;i and Ibn Majah, and the Muwatta of Malik. Unlike the two Sahih books, these include reports of varying grades, so scholars grade them individually.</p>
 
 <h2>Common misconceptions</h2>
 
@@ -5509,7 +5525,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <p>Ibn Abu &lsquo;Asim also narrated (516) that Abu Hurayrah (may Allah be pleased with him) said: The Messenger of Allah (peace and blessings of Allah be upon him) said:</p>
 <blockquote>&ldquo;When any one of you fights let him avoid the face, for Allah created Adam in the image of His Face.&rdquo;<cite>Al-Sunnah of Ibn Abu &lsquo;Asim, 516</cite></blockquote>
-<p>Shaykh Al-Albani said: &ldquo;Its chain of narration is authentic.&rdquo;</p>
+<p>Al-Albani said: &ldquo;Its chain of narration is authentic.&rdquo;</p>
 
 <p>These two Hadiths indicate that the pronoun in the phrase &ldquo;in His image&rdquo; refers to Allah, may He be Glorified.</p>
 
@@ -5528,7 +5544,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 <blockquote>&ldquo;Just as everything that exists must have attributes, so too everything that exists by itself must have a form or image. It is impossible for something that exists by itself not to have a form or image.&rdquo;<cite>Ibn Taymiyyah</cite></blockquote>
 
 <p>And he said:</p>
-<blockquote>&ldquo;There was no dispute among the Salaf of the first three generations that the pronoun in the Hadith refers to Allah, and it is narrated through many chains of narration from many Companions. The contexts of the Hadiths all indicate that&hellip; but when Al-Jahmiyyah became widespread in the third century AH, a group began to say that the pronoun refers to something other than Allah, and this was transmitted from a group of scholars who are known to have knowledge and to follow the Sunnah in most of their affairs, such as Abu Thawr, Ibn Khuzaymah, Abu Ash-Shaykh Al-Asfahani and others. Hence they were denounced by the imams of Islam and other Sunni scholars.&rdquo;<cite>Ibn Taymiyyah, Naqd At-Ta&rsquo;sis, 3/202</cite></blockquote>
+<blockquote>&ldquo;There was no dispute among the Salaf of the first three generations that the pronoun in the Hadith refers to Allah, and it is narrated through many chains of narration from many Companions. The contexts of the Hadiths all indicate that&hellip; but when Al-Jahmiyyah became widespread in the third century AH, a group began to say that the pronoun refers to something other than Allah, and this was transmitted from a group of scholars who are known to have knowledge and to follow the Sunnah in most of their affairs, such as Abu Thawr, Ibn Khuzaymah, Abu Ash-Al-Asfahani and others. Hence they were denounced by the scholars of Islam and other Sunni scholars.&rdquo;<cite>Ibn Taymiyyah, Naqd At-Ta&rsquo;sis, 3/202</cite></blockquote>
 
 <p>What is meant, according to the scholars, is that Allah created Adam with the ability to hear and see, and to speak when he wants. These are also attributes of Allah, for He is All-Hearing, All-Seeing, and He speaks when He wants, and He has a Face, may He be Glorified and Exalted.</p>
 
@@ -5670,23 +5686,23 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <h3>2. Deficiency in Aqeedah</h3>
 
-<p><strong>In short: you are not Muslim without the correct Aqeedah.</strong> Here &ldquo;Aqeedah&rdquo; means the necessary parts, what is known by necessity, not the wide sense of every detail revelation mentions (see the introduction to Aqeedah and the Specific Beliefs section for the difference). The necessary parts of Aqeedah have been outlined in this section, meaning the Aqeedah pages above, before Specific Beliefs, and those are what a person must have.</p>
+<p><strong>In short: Aqeedah is the core beliefs every Muslim must affirm.</strong> Rejecting a core belief is kufr. There is no second, wider definition of Aqeedah on this site: the Specific Beliefs pages collect further textual details, some foundational and some obscure.</p>
 
-<p>There are things in Aqeedah which are known by necessity, Fitrah, and mass attestation. Not knowing these removes a person from Islam. Examples include knowing that Allah exists, knowing his properties known by necessity, affirming he is the only divinity, that Allah controls all of creation and owns it, that disbelievers are not Muslim, that even people who claim Islam are not Muslim if they do a nullifier, that Allah is unique in every way, that prayer, zakat, hajj, sawm are obligations, knowing revelation is Qur’an, and Sunnah, fulfilling every pillar of iman and the pillar ihsan. You can even affirm it in your own words, it does not have to be memorized exactly this way, as long as you affirm their meaning.</p>
+<p>There is no excuse for denying what is known by necessity, the Fitrah, and mass attestation: Allah&rsquo;s existence and oneness, His sole right to worship and Lordship, the truth of revelation, and the pillars of Islam and Iman. The wording need not be memorized; the meaning must be affirmed. Genuine lack of knowledge about an obscure textual detail without rejecting it is a different case.</p>
 
-<p>For things known only through studying the texts, it becomes disbelief only after Hujjah is established upon the person.</p>
+<p>For an obscure matter known through a particular text, genuine lack of knowledge without rejection may be excused. This does not excuse denial: rejecting or denying a revealed attribute of Allah is kufr even without a separate personal presentation of the evidence.</p>
 
-<h4>Mistakes in ijtihad that are not about the necessary Aqeedah</h4>
+<h4>Genuine ignorance and ijtihad without denial</h4>
 
-<p>All of the above is about the <strong>necessary</strong> parts of Aqeedah. It is a different matter when a person makes a mistake in something that is <strong>not</strong> a necessary part of Aqeedah, meaning a matter outside what is known by necessity, such as a detail of how exactly you apply takfir bil umum, a detail from the Specific Beliefs section, not knowing that refraining from Hajj is Kufr Akbar, or an issue of Fiqh. If a person makes a sincere mistake in such an issue through ijtihad, he is <strong>not</strong> a kaafir for it, and it does not nullify his Islam. The Prophet &#xFDFA; said:</p>
+<p>This is different from rejecting revelation. A sincere mistake by a qualified person in an issue open to ijtihad, or genuine lack of knowledge about an obscure text-based detail without rejection, is not the same as denying a core belief or revealed attribute. The exception is for error or non-knowledge, not refusal to affirm what Allah and His Messenger revealed. The Prophet &#xFDFA; said:</p>
 
 <blockquote>&ldquo;If the judge exercises ijtihad and is correct, he has two rewards; and if he exercises ijtihad and is mistaken, he has one reward.&rdquo;<cite>Sahih al-Bukhari, 7352; Sahih Muslim, 1716</cite></blockquote>
 
 <p>A few clarifications so that this is not misused:</p>
 
 <ul>
-<li><strong>It applies only to matters that are not known by necessity.</strong> Nobody can use &ldquo;ijtihad&rdquo; as an excuse to deny the Shahadah, the pillars, the nullifiers, or anything else mass-attested.</li>
-<li><strong>Ijtihad means a sincere attempt to reach what the evidence shows.</strong> It is not following desires or philosophy against clear texts. Someone who is shown a clear text from the Qur&rsquo;an or authentic Sunnah, understands it, and still rejects it is no longer making a mistake in ijtihad. He is rejecting the text, and that is the case in which Hujjah has been established, as stated above.</li>
+<li><strong>It does not excuse denial.</strong> Nobody can use &ldquo;ijtihad&rdquo; to deny the Shahadah, the pillars, a necessary belief, or a revealed attribute.</li>
+<li><strong>Non-knowledge and rejection are different.</strong> A person who simply does not know an obscure textual detail and does not reject it is not the same as a person who denies it. Rejecting a revealed attribute is kufr even before a separate personal hujjah. Individual judgments must not be made on suspicion.</li>
 <li><strong>A mistake is still a mistake.</strong> Being excused does not make the wrong view correct. It is corrected with evidence and the way of the Salaf, and it is not to be taught or followed as the truth.</li>
 </ul>
 
@@ -6399,12 +6415,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
 </a>
 </li>
-<li><strong>Study the books of the Salaf and the Salafi scholars.</strong> They give you the understanding of the religion as it was received. Go to the Resources tab if you need help finding sources. Most are in Arabic, which is why you started learning it first, but a lot are available in English.
-<a class="cta-link" href="#/forum/what-is-islam/resources">
-  Go to Resources
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
-</a>
-</li>
+<li><strong>Study primary sources with qualified teachers.</strong> Verify the Qur&rsquo;an, hadith, tafsir, and legal works cited in each article; ask a teacher to help with difficult texts.</li>
 </ol>
 
 <h3>Apply all of it as you go</h3>
@@ -6418,12 +6429,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <li>Learn and act upon Islam</li>
 </ul>
 
-<p><strong>Do your own research.</strong> Do not take this order, or anything on this site, on blind trust. Check the evidence yourself, and use the Resources tab as a helper to find the Qur&rsquo;an, hadith, tafsir, books and the answers of the scholars.</p>
-
-<a class="cta-link" href="#/forum/what-is-islam/resources">
-  Go to Resources
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
-</a>
+<p><strong>Do your own research.</strong> Check the evidence cited in each page and ask qualified teachers to explain difficult sources; do not take this site on blind trust.</p>
 
 <h3>Part 3: Keep improving</h3>
 
@@ -6438,296 +6444,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
 </a>
 `,
-"what-is-islam/resources": `
-<p class="lede">A curated set of libraries, search engines, and databases for studying the Quran, Hadith, Fiqh, and the classical Islamic sciences. They are ordered from the easiest for new learners (mostly English) to the hardest (Arabic and technical tools), both from section to section and within each section.</p>
 
-<h2>Start here: the Qur&rsquo;an and the Salaf in English</h2>
-
-<div class="res-item">
-  <a class="res-link" href="https://quran.com" target="_blank" rel="noopener noreferrer">
-    Quran.com
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">quran.com</span>
-  <p class="res-desc">Read, search, and listen to the Qur&rsquo;an with translations, tafsir, and word-by-word meanings.</p>
-</div>
-
-<div class="res-item">
-  <a class="res-link" href="https://www.sayingsofthesalaf.org/" target="_blank" rel="noopener noreferrer">
-    Sayings of the Salaf
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">sayingsofthesalaf.org</span>
-  <p class="res-desc">A searchable collection of reported sayings and reminders attributed to the early generations of Islam.</p>
-</div>
-
-<h2>Articles &amp; Q&amp;A</h2>
-
-<div class="res-item">
-  <a class="res-link" href="https://athari-archive.com/" target="_blank" rel="noopener noreferrer">
-    Athari Archive
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">athari-archive.com</span>
-  <p class="res-desc">Articles in English that gather the early narrations and statements of the Salaf on creed, with the original reports quoted.</p>
-</div>
-
-<div class="res-item">
-  <a class="res-link" href="https://abukhadeejah.com/" target="_blank" rel="noopener noreferrer">
-    Abu Khadeejah — Articles &amp; Q&amp;A
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">abukhadeejah.com</span>
-  <p class="res-desc">Articles, answers, and lessons on Islamic creed, worship, and the way of the Salaf.</p>
-</div>
-
-<div class="res-item">
-  <a class="res-link" href="https://www.abuaminaelias.com/" target="_blank" rel="noopener noreferrer">
-    Faith in Allah (Abu Amina Elias)
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">abuaminaelias.com</span>
-  <p class="res-desc">A large archive of articles on Islamic beliefs, hadith, and practice, including responses to common objections raised against Islam.</p>
-</div>
-
-<h2>Fiqh, Fatawa &amp; Scholarly Audio</h2>
-
-<div class="res-item">
-  <a class="res-link" href="https://islamqa.info" target="_blank" rel="noopener noreferrer">
-    IslamQA
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">islamqa.info</span>
-  <p class="res-desc">Massive multilingual fatwa database that extensively quotes classical texts.</p>
-</div>
-
-<div class="res-item">
-  <a class="res-link" href="https://alifta.gov.sa" target="_blank" rel="noopener noreferrer">
-    Al-Ifta
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">alifta.gov.sa</span>
-  <p class="res-desc">Saudi Permanent Committee for Scholarly Research (Lajnah Da’imah).</p>
-</div>
-
-<div class="res-item">
-  <a class="res-link" href="https://islamway.net" target="_blank" rel="noopener noreferrer">
-    Islamway
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">islamway.net</span>
-  <p class="res-desc">The absolute largest database of Arabic audio lectures, featuring line-by-line scholarly explanations (Sharh) of classical books.</p>
-</div>
-
-<div class="res-item">
-  <a class="res-link" href="https://taqyeed.com" target="_blank" rel="noopener noreferrer">
-    Taqyeed
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">taqyeed.com</span>
-  <p class="res-desc">Platform that transcribes hundreds of hours of major scholarly audio lectures into highly searchable PDF text documents.</p>
-</div>
-
-<h2>Tafsir &amp; Quranic Study Tools</h2>
-
-<div class="res-item">
-  <a class="res-link" href="https://altafsir.com" target="_blank" rel="noopener noreferrer">
-    Altafsir.com
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">altafsir.com</span>
-  <p class="res-desc">Extensive database of classical Tafsir (Al-Tabari, Al-Qurtubi, Ibn Kathir) available in multiple languages.</p>
-</div>
-
-<div class="res-item">
-  <a class="res-link" href="https://almaany.com" target="_blank" rel="noopener noreferrer">
-    Almaany
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">almaany.com</span>
-  <p class="res-desc">A reliable contemporary/classical Arabic-English lexicon used for translating difficult classical terms.</p>
-</div>
-
-<div class="res-item">
-  <a class="res-link" href="https://furqan.co" target="_blank" rel="noopener noreferrer">
-    Furqan
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">furqan.co</span>
-  <p class="res-desc">A fast, highly streamlined search engine for Quranic verses and their classical exegeses.</p>
-</div>
-
-<div class="res-item">
-  <a class="res-link" href="https://tafsir.app" target="_blank" rel="noopener noreferrer">
-    Al-Bahith Al-Qurani
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">tafsir.app</span>
-  <p class="res-desc">A multi-query search engine that pulls up dozens of classic Tafsir books simultaneously for side-by-side reading.</p>
-</div>
-
-<div class="res-item">
-  <a class="res-link" href="https://baheth.info" target="_blank" rel="noopener noreferrer">
-    Baheth
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">baheth.info</span>
-  <p class="res-desc">Crucial search engine for classical Arabic dictionaries (Lisan al-Arab, Taj al-Arus) to understand obscure Nusoos (texts).</p>
-</div>
-
-<h2>Hadith, Isnad &amp; Scholar Biography Tools</h2>
-
-<div class="res-item">
-  <a class="res-link" href="https://sunnah.com" target="_blank" rel="noopener noreferrer">
-    Sunnah.com
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">sunnah.com</span>
-  <p class="res-desc">The standard bilingual (English/Arabic) database of major hadith collections with integrated gradings.</p>
-</div>
-
-<div class="res-item">
-  <a class="res-link" href="http://muslimscholars.info" target="_blank" rel="noopener noreferrer">
-    Muslim Scholars Database (Rijal)
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">muslimscholars.info</span>
-  <p class="res-desc">Quick-reference database to check narrator biographies, teacher networks, and reliability grades.</p>
-</div>
-
-<div class="res-item">
-  <a class="res-link" href="https://dorar.net" target="_blank" rel="noopener noreferrer">
-    Dorar Al-Saniyya
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">dorar.net</span>
-  <p class="res-desc">The search engine for checking hadith authenticity, gradings, and primary sources instantly.</p>
-</div>
-
-<div class="res-item">
-  <a class="res-link" href="https://play.google.com/store/apps/details?id=com.arabiait.sunna" target="_blank" rel="noopener noreferrer">
-    Jami’ al-Kutub al-Tis’ah
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">play.google.com/store/apps/details?id=com.arabiait.sunna</span>
-  <p class="res-desc">Desktop/mobile app exclusively for cross-searching the 9 primary Hadith collections.</p>
-</div>
-
-<div class="res-item">
-  <a class="res-link" href="https://tarrjim.com" target="_blank" rel="noopener noreferrer">
-    Tarrjim
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">tarrjim.com</span>
-  <p class="res-desc">Maps out narrator chains, biographical dates, and scholars’ Jarh wa Ta’dil (reliability grades).</p>
-</div>
-
-<div class="res-item">
-  <a class="res-link" href="https://tarajm.com" target="_blank" rel="noopener noreferrer">
-    Tarajm
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">tarajm.com</span>
-  <p class="res-desc">Massive biographical database of companions, narrators, and classical scholars.</p>
-</div>
-
-<div class="res-item">
-  <a class="res-link" href="https://islamweb.net/ar/library" target="_blank" rel="noopener noreferrer">
-    Islamweb Library
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">islamweb.net/ar/library</span>
-  <p class="res-desc">Fully hyperlinked web encyclopedia. Clicking a narrator links to their biography; clicking a text links to its Sharh (commentary).</p>
-</div>
-
-<div class="res-item">
-  <a class="res-link" href="https://hadith.islam-db.com" target="_blank" rel="noopener noreferrer">
-    Mawsu’at al-Hadith
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">hadith.islam-db.com</span>
-  <p class="res-desc">Deep cross-referencing for hadith variants and mapping different transmission chains (turuq).</p>
-</div>
-
-<div class="res-item">
-  <a class="res-link" href="https://mutoon.net" target="_blank" rel="noopener noreferrer">
-    Mutoon al-Hadith
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">mutoon.net</span>
-  <p class="res-desc">Database isolating hadith text variations (matn) across different transmissions.</p>
-</div>
-
-<div class="res-item">
-  <a class="res-link" href="https://turath.io" target="_blank" rel="noopener noreferrer">
-    Jami’ Al-Khadim / Al-Turath
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">turath.io</span>
-  <p class="res-desc">Advanced suite designed specifically for deep isnad (chain) analysis and biographical cross-referencing.</p>
-</div>
-
-<div class="res-item">
-  <a class="res-link" href="https://shamela.ws" target="_blank" rel="noopener noreferrer">
-    Al-Maktaba Al-Shamela
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">shamela.ws</span>
-  <p class="res-desc">The heavyweight. 30,000+ searchable volumes of classical texts covering all Islamic sciences.</p>
-</div>
-
-<h2>Books, PDFs &amp; Manuscripts</h2>
-
-<div class="res-item">
-  <a class="res-link" href="https://www.kalamullah.com/classical.html" target="_blank" rel="noopener noreferrer">
-    Kalamullah
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">www.kalamullah.com/classical.html</span>
-  <p class="res-desc">Massive, highly organized English/Arabic repository for classical PDFs, translated books, audio lectures, and manhaj material.</p>
-</div>
-
-<div class="res-item">
-  <a class="res-link" href="https://archive.org/details/islamic_library" target="_blank" rel="noopener noreferrer">
-    Archive.org (Islamic Kutub Tags)
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">archive.org/details/islamic_library</span>
-  <p class="res-desc">A goldmine for finding rare classical prints and out-of-print commentaries uploaded by researchers.</p>
-</div>
-
-<div class="res-item">
-  <a class="res-link" href="https://noor-book.com" target="_blank" rel="noopener noreferrer">
-    Noor Library
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">noor-book.com</span>
-  <p class="res-desc">One of the absolute largest open-source PDF databases for Arabic and Islamic print books.</p>
-</div>
-
-<div class="res-item">
-  <a class="res-link" href="https://waqfeya.net" target="_blank" rel="noopener noreferrer">
-    Al-Maktaba Al-Waqfeya
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">waqfeya.net</span>
-  <p class="res-desc">The repository for downloading high-quality PDF book scans with critical verifications (Tahqiq).</p>
-</div>
-
-<div class="res-item">
-  <a class="res-link" href="https://wadod.net" target="_blank" rel="noopener noreferrer">
-    Wadod
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M7 17L17 7M9 7h8v8"/></svg>
-  </a>
-  <span class="res-url">wadod.net</span>
-  <p class="res-desc">Highly specialized archive specifically for downloading scanned original Islamic manuscripts (Makhtutat).</p>
-</div>
-
-<div class="sf-panel">
-  <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 8v5M12 16h.01M12 3l9 16H3L12 3Z"/></svg>
-  <p><strong>A note of caution:</strong> Do not take knowledge from some of these sites blindly — be wary of what they say, as several contain deviance, and you should NOT take Aqeedah from them. This applies especially to sites that host the opinions of “scholars,” where there is a lot of deviance mixed in. Some of the sites listed here are simply neutral resources (search tools, manuscript archives, dictionaries), for which this isn’t a concern. Everything above is linked because these are huge libraries containing a lot of good knowledge — use discernment, and verify what you read against reliable scholars.</p>
-</div>
-`,
 "what-is-islam/fiqh/introduction-to-fiqh": `
 <p class="lede">Fiqh (<span lang="ar">فقه</span>) literally means “deep understanding.” In Islamic tradition, it refers to Islamic jurisprudence: the practical rules and human understanding of Islamic law (Sharia) derived from sacred sources. Fiqh is the human attempt to apply those principles to daily life and real-world situations.</p>
 
@@ -6736,7 +6453,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
   <div>
     <h2>Important disclaimer: acceptable differences of opinion in fiqh</h2>
     <p><strong>Fiqh is not the same thing as revelation itself.</strong> The Qur&rsquo;an and authentic Sunnah are the revelation; fiqh is the careful human effort of qualified scholars to understand the evidence and apply it. Because scholars may weigh evidence, reconcile texts, understand Arabic wording, assess hadith, or apply legal principles differently, qualified scholars can reach different fiqh rulings while all seeking to follow the same revelation.</p>
-    <p>Not every disagreement is acceptable, and not every opinion is equally strong. A view must still be grounded in valid evidence and sound principles. But a genuine difference among qualified scholars is not automatically a deviation, sin, or reason to attack another Muslim. Beginners should learn from a trustworthy teacher, follow the evidence rather than a specific school, and avoid collecting easy opinions or turning secondary legal questions into arguments about someone&rsquo;s faith.</p>
+    <p>Not every disagreement is acceptable, and not every opinion is equally strong. A view must still be grounded in valid evidence and sound principles. But a genuine difference among qualified scholars is not automatically a deviation, sin, or reason to attack another Muslim. Beginners should learn from a trustworthy teacher and use the Maliki school as this site&rsquo;s default legal framework. Do not adopt another madhhab as your governing school. Avoid collecting easy opinions or turning secondary legal questions into arguments about someone&rsquo;s faith; the evidence and the principles by which it is understood still matter.</p>
     <p>This is why Muslims should distinguish between <strong>matters of creed and clear fundamentals</strong>, where the truth must be affirmed, and <strong>secondary fiqh questions</strong>, where different inferences from the evidence may be valid. The existence of a difference does not mean that all positions are true in the same sense; it means that the evidence can sometimes allow more than one qualified interpretation.</p>
     <p>The Salaf themselves differed in fiqh. Abdullah ibn Umar reported that the Messenger of Allah (peace and blessings be upon him) made an announcement on the day he returned from the Confederates:</p>
     <blockquote>&ldquo;No one will pray his noon prayer unless he is among the tribe of Qurayzah.&rdquo; Some people feared that the time for prayer would expire, so they performed their prayers before reaching Qurayzah. Others said, &ldquo;We will only perform our prayer where the Prophet has ordered us to pray, even if the time expires.&rdquo; When the Prophet heard this, he did not rebuke anyone from the two groups.<cite>Sahih al-Bukhari and Sahih Muslim</cite></blockquote>
@@ -6754,7 +6471,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </ol>
 
 <h2>Schools of Fiqh (Madhhabs)</h2>
-<p>You will hear about the four schools of fiqh: Hanafi, Maliki, Shafi&rsquo;i and Hanbali. A school is a tool for reaching rulings, not a part of the religion. This site does not follow any one school, and the advice is to <strong>follow the evidence over a specific school</strong>. The full explanation, including what to watch out for, is on the Usool al-Fiqh page:</p>
+<p>You will hear about the four schools of fiqh: Hanafi, Maliki, Shafi&rsquo;i and Hanbali. This website follows Maliki usul as its legal framework. Readers should not follow another madhhab as their governing school. Following a framework does not mean blind taqlid: rulings must be understood through evidence, and no scholar is infallible. The full explanation and warnings are on the Usool al-Fiqh page:</p>
 
 <a class="cta-link" href="#/forum/what-is-islam/fiqh/usool-al-fiqh">
   Go to Usool al-Fiqh
@@ -6919,7 +6636,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <blockquote>The Messenger of Allah &#xFDFA; made zakat al-fitr obligatory, a sa&lsquo; of dates or a sa&lsquo; of barley, on the slave and the free, male and female, young and old among the Muslims, and he commanded that it be paid before the people go out to the prayer.<cite>Sahih al-Bukhari 1503, Sahih Muslim 984</cite></blockquote><blockquote>&ldquo;Whoever pays it before the prayer, it is an accepted zakah. Whoever pays it after the prayer, it is only ordinary charity.&rdquo;<cite>Sunan Abi Dawud 1609</cite></blockquote>
 
 <h3>Take ghusl <span class="tag">Sunnah</span></h3>
-<p>Ibn &lsquo;Umar used to take ghusl on the day of Eid before going out to the prayer. (Muwatta Imam Malik, Book of the Two Eids)</p>
+<p>Ibn &lsquo;Umar used to take ghusl on the day of Eid before going out to the prayer. (Muwatta Malik, Book of the Two Eids)</p>
 
 <h3>Wear your best permissible clothes and perfume <span class="tag">Sunnah</span></h3>
 <p>&lsquo;Umar suggested buying a robe to wear on Eid. The Prophet &#xFDFA; did not object to dressing well for Eid. He only objected to that robe because it was silk, which is forbidden for men. (Sahih al-Bukhari 948)</p>
@@ -7305,51 +7022,9 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <h3>Say &#xFDFA; whenever the Prophet &#xFDFA; is mentioned <span class="tag">Sunnah</span></h3>
 <p>Make it a habit to say <strong>Sallallahu &lsquo;alayhi wa sallam</strong> (&ldquo;May Allah&rsquo;s peace and blessings be upon him&rdquo;), or simply <strong>&#xFDFA;</strong>, whenever the Prophet Muhammad &#xFDFA; is mentioned. This is a simple way to honour him and follow the command to send blessings upon him.</p>
 
-<h2>Honorifics: what to say after names</h2>
+<h2>Forms of address used on this site</h2>
 
-<p>When Muslims mention Allah, the prophets, the companions and the scholars, they follow the name with a short phrase of praise or prayer. It is a matter of respect and etiquette (adab), and it also earns reward. Here is what to say for each.</p>
-
-<h3>After the name of Allah</h3>
-<ul>
-<li><strong>Subhanahu wa ta&lsquo;ala</strong> <span lang="ar" dir="rtl">سُبْحَانَهُ وَتَعَالَى</span> &mdash; &ldquo;Glorified and Exalted is He.&rdquo;</li>
-<li><strong>&lsquo;Azza wa jalla</strong> <span lang="ar" dir="rtl">عَزَّ وَجَلَّ</span> &mdash; &ldquo;Mighty and Majestic.&rdquo;</li>
-<li><strong>Tabaraka wa ta&lsquo;ala</strong> <span lang="ar" dir="rtl">تَبَارَكَ وَتَعَالَى</span> &mdash; &ldquo;Blessed and Exalted is He.&rdquo;</li>
-<li><strong>Ta&lsquo;ala</strong> <span lang="ar" dir="rtl">تَعَالَى</span> &mdash; &ldquo;Exalted,&rdquo; the short form.</li>
-</ul>
-
-<h3>After the name of the Prophet Muhammad &#xFDFA;</h3>
-<ul>
-<li><strong>Sallallahu &lsquo;alayhi wa sallam</strong> <span lang="ar" dir="rtl">صَلَّى اللَّهُ عَلَيْهِ وَسَلَّمَ</span>, or the symbol &#xFDFA; &mdash; &ldquo;May Allah&rsquo;s peace and blessings be upon him.&rdquo; This is the one with a command behind it and a promised reward, covered in the section on sending blessings at the top of this page.</li>
-</ul>
-
-<h3>After the name of any other prophet, and of angels</h3>
-<ul>
-<li><strong>&lsquo;Alayhis-salam</strong> <span lang="ar" dir="rtl">عَلَيْهِ السَّلَامُ</span> &mdash; &ldquo;Peace be upon him.&rdquo; Used for prophets such as Musa, &lsquo;Isa and Ibrahim, and for angels such as Jibril.</li>
-<li><strong>&lsquo;Alayhimus-salam</strong> <span lang="ar" dir="rtl">عَلَيْهِمُ السَّلَامُ</span> &mdash; for more than one prophet.</li>
-<li><strong>&lsquo;Alayhas-salam</strong> <span lang="ar" dir="rtl">عَلَيْهَا السَّلَامُ</span> &mdash; for a woman who is named in revelation as being among the righteous, such as Maryam.</li>
-</ul>
-
-<h3>After the name of a companion (Sahabi)</h3>
-<p>Say <strong>Radiyallahu &lsquo;anhu</strong>, &ldquo;May Allah be pleased with him,&rdquo; and change the ending to match who you are speaking about:</p>
-<ul>
-<li><strong>&lsquo;Anhu</strong> <span lang="ar" dir="rtl">رَضِيَ اللَّهُ عَنْهُ</span> &mdash; one man.</li>
-<li><strong>&lsquo;Anha</strong> <span lang="ar" dir="rtl">رَضِيَ اللَّهُ عَنْهَا</span> &mdash; one woman.</li>
-<li><strong>&lsquo;Anhuma</strong> <span lang="ar" dir="rtl">رَضِيَ اللَّهُ عَنْهُمَا</span> &mdash; two people, such as a companion and his father who was also a companion.</li>
-<li><strong>&lsquo;Anhum</strong> <span lang="ar" dir="rtl">رَضِيَ اللَّهُ عَنْهُمْ</span> &mdash; a group of men, or a mixed group.</li>
-<li><strong>&lsquo;Anhunna</strong> <span lang="ar" dir="rtl">رَضِيَ اللَّهُ عَنْهُنَّ</span> &mdash; a group of women.</li>
-</ul>
-<p>Allah Himself says of the companions: &ldquo;Allah is pleased with them, and they are pleased with Him.&rdquo; (Qur&rsquo;an 9:100)</p>
-
-<h3>After the name of a scholar or righteous person after the companions</h3>
-<ul>
-<li><strong>Rahimahullah</strong> <span lang="ar" dir="rtl">رَحِمَهُ اللَّهُ</span> &mdash; &ldquo;May Allah have mercy on him.&rdquo; Used for scholars and righteous people who have died.</li>
-<li><strong>Rahimahallah</strong> <span lang="ar" dir="rtl">رَحِمَهَا اللَّهُ</span> &mdash; for a woman.</li>
-<li><strong>Rahimahumullah</strong> <span lang="ar" dir="rtl">رَحِمَهُمُ اللَّهُ</span> &mdash; for more than one person.</li>
-<li><strong>Hafizahullah</strong> <span lang="ar" dir="rtl">حَفِظَهُ اللَّهُ</span> &mdash; &ldquo;May Allah preserve him.&rdquo; Used for scholars who are still alive.</li>
-</ul>
-
-<h3>Should you abbreviate them?</h3>
-<p>It is better to say or write these in full. Writing letters such as &ldquo;SAW,&rdquo; &ldquo;RA&rdquo; or &ldquo;AS&rdquo; is disliked by many scholars, because it shortens a prayer to something that is not clearly a prayer. For the Prophet &#xFDFA; the symbol &#xFDFA; is widely used, and writing it in full is better still.</p>
+<p>This site retains blessings for the Prophets, and the established honorifics for the Companions and the Tabi&rsquo;in when they appear. For later scholars and other people, it uses names without appended supplications or titles of respect. This is a consistent editorial style and is not a judgment on anyone&rsquo;s knowledge or rank.</p>
 
 <h2>Greeting</h2>
 
@@ -7666,7 +7341,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 
 `,
 "what-is-islam/fiqh/fatwas/abortion-and-blood-money-for-fetuses": `
-<p class="lede">What is the ruling on abortion, and what must be paid when a fetus is lost because of someone&rsquo;s act? This page gives the Maliki position, which is well documented, and notes where other schools differ. This site is not based on any one school: rulings follow the evidence.</p>
+<p class="lede">What is the ruling on abortion, and what must be paid when a fetus is lost because of someone&rsquo;s act? This site presents the issue through Maliki usul and the relied-upon Maliki position, while noting where other schools differ for context. Evidence is assessed through that framework.</p>
 
 <blockquote><strong>Two different things.</strong> A <em>miscarriage</em> that happens on its own is not a sin and nothing is owed. <em>Abortion</em> is when someone causes the loss of the pregnancy. Blood money for a fetus is owed when someone else causes it, by accident or on purpose.</blockquote>
 
@@ -7709,7 +7384,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <h3>How much is it in the Maliki school?</h3>
 
 <ul>
-  <li>It is <strong>one tenth of the blood money of a free Muslim woman</strong>: fifty dinars of gold or six hundred dirhams of silver (<em>al-Muwatta</em>, Book of Blood Money, from Rabi&rsquo;ah and Imam Malik). Today this is paid as the value of that gold or silver.</li>
+  <li>It is <strong>one tenth of the blood money of a free Muslim woman</strong>: fifty dinars of gold or six hundred dirhams of silver (<em>al-Muwatta</em>, Book of Blood Money, from Rabi&rsquo;ah and Malik). Today this is paid as the value of that gold or silver.</li>
   <li>For the fetus of a Jewish or Christian woman, Malik said it is one tenth of her mother&rsquo;s blood money.</li>
   <li>The Maliki scholars apply it to a fetus that is known to be a pregnancy, even if it was still only a clot or a lump of flesh.</li>
 </ul>
@@ -7732,7 +7407,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 
 `,
 "what-is-islam/fiqh/usool-al-fiqh": `
-<p class="lede">Usool al-Fiqh (legal principles) is the framework for interpreting and understanding Islamic law. Before anything else: <strong>follow the evidence, not a specific school.</strong> A school (madhhab) is only a tool, and this site is not built on any one school.</p>
+<p class="lede">Usool al-Fiqh (legal principles) is the framework for interpreting and understanding Islamic law. This site is built on Maliki usul: use the Maliki school as the legal framework, and do not follow another madhhab as your governing school. The warning against blind taqlid still applies.</p>
 
 <h2>What is a &ldquo;school&rdquo; of fiqh?</h2>
 
@@ -7740,21 +7415,21 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 
 <p>There are four main schools, each with its own usool: Hanafi, Maliki, Shafi&rsquo;i and Hanbali. Their founders were scholars who lived within the first few centuries of Islam. They did not found these schools as separate religions or sects. Their students and later followers organized and spread the methods after them.</p>
 
-<h2>A school is a tool, not a requirement</h2>
+<h2>The Maliki school as this site&rsquo;s framework</h2>
 
-<p><strong>Following a school of fiqh is not obligatory.</strong> What is obligatory is following the Qur&rsquo;an and the authentic Sunnah, as the Salaf understood them. None of the four leaders called people to follow his madhhab, or obliged anyone else to act in accordance with it. They called people to follow the Qur&rsquo;an and the Sunnah.</p>
+<p><strong>This website follows Maliki usul and recommends the Maliki school as its legal framework.</strong> Do not adopt the Hanafi, Shafi&rsquo;i, or Hanbali madhhab as your governing school. Other schools may be described for comparison, but the site&rsquo;s rulings are presented through the Maliki method.</p>
 
-<p>A school only has one real use. If you do not want to sift through which scholars are reliable, which narrations are sound, and how each ruling was reached, a school lets you lean on a method that someone has already built. That is all it is: a convenience. It is never a replacement for the evidence, and it is never a reason to ignore evidence you can see against a ruling.</p>
+<p>A madhhab is a developed method for deriving and applying rulings from the Qur&rsquo;an and Sunnah. Following a method helps keep practice coherent; it does not make the method or its scholars infallible. The proof remains the Qur&rsquo;an and Sunnah, understood through sound principles and the transmitted practice of the early community.</p>
 
-<h2>My recommendation: do not choose a madhhab</h2>
+<h2>Do not follow another madhhab</h2>
 
-<p>I recommend that you <strong>do not follow any specific madhhab</strong>. Follow the evidence instead. Go to the Qur&rsquo;an and the authentic Sunnah, take the understanding of the Salaf, and go to scholars who show you their evidence and explain how they understand it. This keeps you tied to the proof and not to a name.</p>
+<p>Use the Maliki school as the framework taught on this site. Do not treat another madhhab as your governing school. This does not mean blindly accepting every opinion attributed to Malik or to later Maliki scholars: learn the evidence and the Maliki principles used to understand it, and ask qualified teachers when you cannot assess it yourself.</p>
 
-<h2>Watch out for the schools themselves</h2>
+<h2>Warnings about taqlid and attribution</h2>
 
-<p>If you do follow a school, be careful, because not every school is the same. In my view, some schools have positions attributed to their founders that the founders never held, and some rest on methods that were criticized by the Salaf. A school can also drift from its founder over time, so what is taught under his name is not always what he said. This is one more reason to check the evidence and not just the label.</p>
+<p>No school or scholar is infallible. A view may be misattributed to a school&rsquo;s founder, and later jurists may differ about how a principle applies. Verify citations, learn the evidence, and do not treat a school label as proof by itself. These warnings apply within the Maliki school as well as when reading about other schools.</p>
 
-<p><strong>The Hanafi school is the clearest example, and I advise against choosing it.</strong> For the details, see the page on Abu Hanifah:</p>
+<p>This site explains other schools for comparison, not as recommended frameworks. For a historical discussion of Abu Hanifah, see:</p>
 
 <a class="cta-link" href="#/forum/refutations/heretics/abu-hanifah">
   Go to Abu Hanifah
@@ -7764,17 +7439,15 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <p>Briefly, the four schools are:</p>
 
 <ul>
-  <li><strong>Hanafi:</strong> named after Imam Abu Hanifa (d. 150 AH) of Kufa in Iraq. It is known for its heavy use of reasoned analysis, such as qiyas (analogy) and istihsan (juristic preference). I advise against choosing it.</li>
-  <li><strong>Maliki:</strong> named after Imam Malik ibn Anas of Medina (d. 179 AH). &ldquo;Maliki&rdquo; means &ldquo;of Malik&rdquo;, and a Maliki is a follower of that school. It is the school of the people of Medina, and it is explained below.</li>
-  <li><strong>Shafi&rsquo;i:</strong> named after Imam al-Shafi&rsquo;i (d. 204 AH), a student of Imam Malik. He wrote <em>al-Risalah</em>, the first systematic book on legal theory, and built his method on the Qur&rsquo;an, Sunnah, ijma&rsquo; and qiyas.</li>
-  <li><strong>Hanbali:</strong> named after Imam Ahmad ibn Hanbal (d. 241 AH) of Baghdad. It puts great emphasis on hadith and the statements of the Companions.</li>
+  <li><strong>Hanafi:</strong> named after Abu Hanifa (d. 150 AH) of Kufa in Iraq. It is known for its heavy use of reasoned analysis, such as qiyas (analogy) and istihsan (juristic preference). I advise against choosing it.</li>
+  <li><strong>Maliki:</strong> named after Malik ibn Anas of Medina (d. 179 AH). &ldquo;Maliki&rdquo; means &ldquo;of Malik&rdquo;, and a Maliki is a follower of that school. It is the school of the people of Medina, and it is explained below.</li>
+  <li><strong>Shafi&rsquo;i:</strong> named after al-Shafi&rsquo;i (d. 204 AH), a student of Malik. He wrote <em>al-Risalah</em>, the first systematic book on legal theory, and built his method on the Qur&rsquo;an, Sunnah, ijma&rsquo; and qiyas.</li>
+  <li><strong>Hanbali:</strong> named after Ahmad ibn Hanbal (d. 241 AH) of Baghdad. It puts great emphasis on hadith and the statements of the Companions.</li>
 </ul>
 
-<h2>If you still want to follow a school: choose Maliki</h2>
+<h2>The Maliki school and its foundations</h2>
 
-<p>If, despite the above, you want to follow a school, then <strong>definitely choose the Maliki school</strong>. This does not mean that every Muslim must be Maliki, and it does not make this site a Maliki site. It is only the best choice if you want a school at all.</p>
-
-<p>Imam Malik is the scholar the school is based on. He was a member of the salaf, whereas the leaders of the other schools are either heavily rejected by the salaf, heavily criticized, or arguably not even members of the salaf.</p>
+<p>The site&rsquo;s Maliki framework is not optional advice to compare schools and choose freely: readers are directed to use Maliki usul and not another madhhab as their governing school. Malik ibn Anas is the scholar after whom the school is named; later Maliki jurists developed and applied its principles.</p>
 
 <p>The Maliki school is the school of Ahl al-Madinah, the people of Medina, and its rulings are heavily based on Medinan practice.</p>
 
@@ -7833,39 +7506,39 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <hr class="rule">
 
 <h2>The Maliki Methodology</h2>
-<p>The Maliki school was formulated by Imam Malik ibn Anas (d. 179 AH) in Medina and later codified by Maliki scholars (like Qadi Abu Bakr al-Baqillani and al-Shatibi). It balances strict reliance on textual revelation with heavy consideration for public welfare (maslahah) and local custom (‘urf).</p>
+<p>The Maliki school was formulated by Malik ibn Anas (d. 179 AH) in Medina and later codified by Maliki scholars (like Abu Bakr al-Baqillani and al-Shatibi). It balances strict reliance on textual revelation with heavy consideration for public welfare (maslahah) and local custom (‘urf).</p>
 
-<p>While Imam Malik did not leave behind a single book dedicated purely to legal theory, his legal methodology was extracted directly from his premier Hadith and Fiqh text, Al-Muwatta, and his rulings in Al-Mudawwanah.</p>
+<p>While Malik did not leave behind a single book dedicated purely to legal theory, his legal methodology was extracted directly from his premier Hadith and Fiqh text, Al-Muwatta, and his rulings in Al-Mudawwanah.</p>
 
-<h3>The Hierarchy of Sources in Maliki Usool al-Fiqh</h3>
+<h3>The Sources and Principles of Maliki Usool al-Fiqh</h3>
 <ol>
   <li><strong>The Qur’an</strong></li>
   <li><strong>The Sunnah:</strong> The actions, statements, and approvals of Prophet Muhammad &#xFDFA;.
     <ul>
       <li><strong>Mutawatir (Mass-transmitted):</strong> Unquestionable authority.</li>
-      <li><strong>Ahad (Isolated/Solitary Hadiths):</strong> Accepted, but with a critical condition: if an isolated Hadith directly contradicts the established, widespread practice of the people of Medina, Imam Malik rejected the isolated report in favor of Medina’s practice.</li>
+      <li><strong>Ahad (Isolated/Solitary Hadiths):</strong> Accepted and assessed through the established principles of the school, including comparison with authoritative, continuously transmitted practice.</li>
     </ul>
   </li>
   <li><strong>Ijma’ (Consensus of Scholars and Salaf)</strong></li>
-  <li><strong>‘Amal Ahl al-Madinah (The Practice of the People of Medina):</strong> This is the most distinct principle of the Maliki school. Imam Malik argued that Medina was where the Qur’an was revealed and where thousands of Companions lived alongside the Prophet &#xFDFA;. Therefore, a continuous, living tradition practiced by hundreds of scholars and residents in early Medina carried more legal weight than a single isolated chain of narration (Ahad Hadith).</li>
+  <li><strong>‘Amal Ahl al-Madinah (the practice of the people of Medina):</strong> An authoritative, continuously transmitted practice of the people of Medina is a central proof in Maliki usul. Its weight is assessed through the school&rsquo;s principles and the nature of the particular practice.</li>
   <li>The legal opinions of major Companions (especially the Rightly Guided Caliphs and scholars like Abdullah ibn Umar) carry legal weight when they do not contradict clear texts or general principles. Generally, so do many sayings of the salaf, but they may not be binding.</li>
   <li><strong>Qiyas (Analogical Reasoning):</strong> Applying the ruling of an established case to a new scenario due to a shared effective cause (‘Illah).</li>
   <li><strong>Sadd al-Dhara’i’ (Blocking the Means):</strong> Prohibiting an otherwise permissible act if it almost certainly leads to a prohibited result. For example, selling weapons during a civil war is forbidden because it facilitates unlawful killing.</li>
 </ol>
 
+<h3>Rejecting ‘Amal Ahl al-Madinah</h3>
+
+<p>In the position presented on this site, rejecting the established authority of <em>‘Amal Ahl al-Madinah</em> as a proof is an innovation. If its proof has been conveyed and understood, a person who knowingly persists in rejecting the principle is ruled a kafir. This severe ruling concerns rejection of the established principle after the hujjah, not a technical disagreement about whether a particular report represents the transmitted practice or how it applies to a case. Takfir is not reserved to an exclusive class: every Muslim should affirm clear kufr as kufr and may make takfir when clear evidence establishes the relevant matter, the conditions are met, and impediments are absent. It must not be based on suspicion, rumor, or a technical disagreement.</p>
+
 <hr class="rule">
 
-<h2>Do Not Make Taqlid</h2>
-<p>Thus, if you choose a school, choose Maliki, but do not make taqlid (blind following) of Imam Malik!!!</p>
+<h2>Respect the proof; avoid blind taqlid</h2>
+<p>Use Maliki usul, but do not make blind taqlid of Malik or any later jurist. A scholar&rsquo;s view is not revelation and is not accepted merely because of who said it.</p>
 
-<p>You should use his usool and how the early reliable scholars go about interpreting things, and look at the evidence they give from the above sources before taking an opinion.</p>
+<p>Malik is reported to have said:</p>
+<blockquote>&ldquo;Indeed, I am but a human being. At times I am correct, at [other] times I err. So look into my sayings: whatever agrees with the Book and the Sunnah, accept it; whatever contradicts them, ignore it.&rdquo;<cite>Reported from Malik</cite></blockquote>
 
-<p>Because Imam Malik himself said:</p>
-<blockquote>“Indeed, I am but a human being. At times I am correct, at [other] times I err. So look into my sayings: whatever agrees with the Book and the Sunnah, accept it; whatever contradicts them, ignore it.”<cite>Imam Malik</cite></blockquote>
-
-<p>Not every taqlid is blatant kufr, fisq or shirk; rather, there are some details pertaining to this matter. None of the four leaders of the schools of fiqh called people to follow his madhhab (school of jurisprudence), or obliged anyone else to act in accordance with it or with a specific madhhab. They used to call people to follow the Qur’an and the Sunnah and to interpret Islamic texts.</p>
-
-<p>When I say choose Maliki, I do not mean it in the way some people do nowadays who say you need to make taqlid of scholars if you are not a scholar. No, you do not. What you do is go to the scholars for their evidence and their interpretations, but you do NOT just blindly take their opinion without understanding why, nor do you persist in their opinion if you see evidence against it!</p>
+<p>Taqlid has detailed rulings; it is not accurate to label every instance kufr, fisq, or shirk. The warning here is against treating a human opinion as binding authority over clear revelation or following a view simply because of its author. A non-specialist should learn from qualified Maliki teachers, ask for the evidence and its explanation, and not pretend to perform ijtihad without the required knowledge.</p>
 
 <hr class="rule">
 
@@ -7926,7 +7599,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 
 <blockquote>&ldquo;&hellip;until they give the jizyah willingly while they are humbled.&rdquo;<cite>Quran 9:29</cite></blockquote>
 
-<p>The part &ldquo;while they are humbled&rdquo; is the one that is most misunderstood. It does not mean that they are to be insulted or beaten. Imam ash-Shafi&lsquo;i explained that it means they submit to the rule of the Islamic state and its laws. The Prophet &#xFDFA; forbade mistreating them, as shown below.</p>
+<p>The part &ldquo;while they are humbled&rdquo; is the one that is most misunderstood. It does not mean that they are to be insulted or beaten. ash-Shafi&lsquo;i explained that it means they submit to the rule of the Islamic state and its laws. The Prophet &#xFDFA; forbade mistreating them, as shown below.</p>
 
 <h2>Who pays and who does not</h2>
 
@@ -8111,7 +7784,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <h2>Was the system really tested?</h2>
 
 <ul>
-  <li><strong>Scholars tested each other.</strong> A famous account tells of a public test of Imam al-Bukhari in Baghdad. Examiners deliberately scrambled the chains and the texts of hadith, and he is reported to have put every one back correctly from memory. Whether or not you take that single story as proven, it shows the culture: narrators were checked, not trusted.</li>
+  <li><strong>Scholars tested each other.</strong> A famous account tells of a public test of al-Bukhari in Baghdad. Examiners deliberately scrambled the chains and the texts of hadith, and he is reported to have put every one back correctly from memory. Whether or not you take that single story as proven, it shows the culture: narrators were checked, not trusted.</li>
   <li><strong>Modern non-Muslim historians have studied it too.</strong> Academics such as Harald Motzki developed a method called <em>isnad-cum-matn analysis</em>. It compares the chains and the texts of the same report across different collections, using careful analysis, to see whether the chains reflect real transmission. Motzki&rsquo;s studies concluded that a great deal of material can be traced back to the first Islamic century, which goes against the claim that hadith were mostly invented much later.</li>
 </ul>
 
@@ -8283,7 +7956,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 <li><strong>Salah ad-Din al-Ayyubi:</strong> recaptured Jerusalem in 1187.</li>
 <li><strong>Qutuz and Baybars:</strong> Mamluk leaders who defeated the Mongols at &lsquo;Ayn Jalut in 1260.</li>
 <li><strong>Mehmed II:</strong> conquered Constantinople in 1453.</li>
-<li><strong>Tipu Sultan, Imam Shamil, &lsquo;Abd al-Qadir al-Jaza&rsquo;iri and &lsquo;Umar al-Mukhtar:</strong> leaders of long resistance against the British, Russian, French and Italian empires.</li>
+<li><strong>Tipu Sultan, Shamil, &lsquo;Abd al-Qadir al-Jaza&rsquo;iri and &lsquo;Umar al-Mukhtar:</strong> leaders of long resistance against the British, Russian, French and Italian empires.</li>
 </ul>
 
 <h2>Scientists Who Claimed Islam</h2>
@@ -9592,8 +9265,8 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
 </a>
 `,
-"what-is-islam/aqeedah/specific-beliefs/dar-war-taghut-and-caliphates/future-caliphate-by-imam-al-mahdi-and-isa-peace-be-upon-him": `
-<p class="lede">The Prophet &#xFDFA; foretold that a Caliphate on the method of prophethood will return before the end of time. It will be led by Imam al-Mahdi, and &lsquo;Isa ibn Maryam (peace be upon him) will descend in his time.</p>
+"what-is-islam/aqeedah/specific-beliefs/dar-war-taghut-and-caliphates/future-caliphate-by-al-mahdi-and-isa-peace-be-upon-him": `
+<p class="lede">The Prophet &#xFDFA; foretold that a Caliphate on the method of prophethood will return before the end of time. It will be led by al-Mahdi, and &lsquo;Isa ibn Maryam (peace be upon him) will descend in his time.</p>
 
 <h2>The Caliphate returns</h2>
 
@@ -9608,7 +9281,7 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
 </a>
 
-<h2>Imam al-Mahdi</h2>
+<h2>al-Mahdi</h2>
 
 <p>The Mahdi (&ldquo;the guided one&rdquo;) is a righteous man who will rule the Muslims in the last days. He is not a prophet, he is not infallible, and he does not bring a new law. He rules by the Shariah of Muhammad &#xFDFA;.</p>
 
@@ -10070,7 +9743,7 @@ He still believes that the law is valid, that it is the best, and that it ought 
 
 <p class="ar" dir="rtl" lang="ar">فروينا عن عمر بن الخطاب رضي الله عنه، ومعاذ بن جبل، وابن مسعود، وجماعة من الصحابة رضي الله عنهم، وعن ابن المبارك، وأحمد بن حنبل، وإسحاق بن راهويه رحمة الله عليهم، وعن تمام سبعة عشر رجلا من الصحابة والتابعين رضي الله عنهم، أن من ترك صلاة فرض عامدا ذاكرا حتى يخرج وقتها فإنه كافر ومرتد، وبهذا يقول عبد الله بن الماجشون صاحب مالك، وبه يقول عبد الملك بن حبيب الأندلسي وغيره.</p>
 
-<blockquote>And we have narrated from &lsquo;Umar ibn al-Khattab (may Allah be pleased with him), Mu&lsquo;adh ibn Jabal, Ibn Mas&lsquo;ud, and a group of the Companions, and from Ibn al-Mubarak, Ahmad ibn Hanbal, and Ishaq ibn Rahawayh (may Allah have mercy on them), and from a total of seventeen men from the Companions and Tabi&lsquo;in, that whoever deliberately and knowingly abandons an obligatory prayer until its time has passed is a Kafir and an apostate. This is also the position of &lsquo;Abdullah ibn al-Majishun, the companion of Malik, and the position of &lsquo;Abd al-Malik ibn Habib al-Andalusi and others.<cite>Ibn Hazm, al-Fisal fi al-Milal wa-l-Ahwa&rsquo; wa-n-Nihal, 3/128</cite></blockquote>
+<blockquote>And we have narrated from &lsquo;Umar ibn al-Khattab (may Allah be pleased with him), Mu&lsquo;adh ibn Jabal, Ibn Mas&lsquo;ud, and a group of the Companions, and from Ibn al-Mubarak, Ahmad ibn Hanbal, and Ishaq ibn Rahawayh, and from a total of seventeen men from the Companions and Tabi&lsquo;in, that whoever deliberately and knowingly abandons an obligatory prayer until its time has passed is a Kafir and an apostate. This is also the position of &lsquo;Abdullah ibn al-Majishun, the companion of Malik, and the position of &lsquo;Abd al-Malik ibn Habib al-Andalusi and others.<cite>Ibn Hazm, al-Fisal fi al-Milal wa-l-Ahwa&rsquo; wa-n-Nihal, 3/128</cite></blockquote>
 
 <h2>The Position of Malik ibn Anas</h2>
 
@@ -10114,7 +9787,7 @@ He still believes that the law is valid, that it is the best, and that it ought 
 
 <p class="ar" dir="rtl" lang="ar">ومن مسائل نوازل سئل عنه أصبغ، قال أصبغ: في الذي يدع الصلاة، فيقال له: صل، فيقول: لا أصلي. فيقال له: أتجحد أنها ليست عليك مفروضة من الله؟ فيقول: لست بجاحد لها، وأعلم أنها الحق، غير أني لا أصلي. قال: أرى أن يقتل إذا قال: لا أصلي، وإن كان غير جاحد لها، فتركه إياها أو إصراره على أنه لا يصلي جحد لها. فإن أقام على قوله: لا أصلي قتل، وإن زعم أنه غير جاحد لها. وبلغني عن ابن شهاب أنه قال: إن فات وقتها، ولم يصل، ضربت عنقه. وبلغني عن عبد الملك بن عبد العزيز أيضا أنه كان يقول: إذا قال: لا أصلي قتل، كما قال أصبغ. قال أصبغ: وأما الزكاة، فإن جحدها أيضا قتل، وإن أقر أنها حق عليه، وقال: لا أؤديها، أخذت منه إن شاء أو أبى، ولا يقتل بقوله: لا أؤدي، لأنه يقدر على أخذها منه صاغرا. وإن دفع من يريد أخذها منه، فإن كان ليس به قوة يدفع بها، مثل أن يدفع هو بنفسه، ضرب، وأخذت منه كارها. إلا أن يدفع في جماعة، ويمنع بقوة، فإنه يجاهد ويقتل، ومن دفع معه، كما فعل أبو بكر رحمه الله حين منع الزكاة، فقال: والله، لو منعوني عقالا لجاهدتهم عليه. قال: ولو جحد الوضوء والغسل من الجنابة قتل. وإن لم يجحد الوضوء والغسل من الجنابة، إلا أنه قال: أنا أؤمن بالوضوء والغسل، ولا أتوضأ ولا أغتسل، قتل أيضا، لأن تركه ذلك جحد له. وكذلك لو قال: لا أصوم رمضان، وأصر على ذلك، قتل، وإن لم يجحد، لأن تركه الصوم الذي فرضه الله عليه جحد له.</p>
 
-<blockquote>Among the questions of nawazil about which Asbagh was asked, Asbagh said: Regarding one who abandons the prayer, it is said to him: &ldquo;Pray,&rdquo; and he says: &ldquo;I will not pray.&rdquo; It is then said to him: &ldquo;Do you deny that it is obligatory upon you from Allah?&rdquo; He says: &ldquo;I do not deny it, and I know that it is the truth, but I will not pray.&rdquo; He said: &ldquo;I hold that he is to be killed when he says: &lsquo;I will not pray,&rsquo; even if he does not deny it [i.e., the obligation], for his abandonment of it, or his persistence in saying that he will not pray, is a denial of it. If he persists upon his statement, &lsquo;I will not pray,&rsquo; he is killed, even if he claims that he does not deny it. And it reached me from Ibn Shihab that he said: &lsquo;If its time passes and he does not pray, his neck is struck.&rsquo; And it reached me from &lsquo;Abd al-Malik ibn &lsquo;Abd al-&lsquo;Aziz as well that he used to say: &lsquo;If he says: &ldquo;I will not pray,&rdquo; he is killed,&rsquo; just as Asbagh said.&rdquo; Asbagh said: &ldquo;As for Zakah, if he denies it, he is also killed. If he acknowledges that it is a right due upon him and says: &lsquo;I will not pay it,&rsquo; it is taken from him whether he wishes or refuses, and he is not killed merely for saying: &lsquo;I will not pay it,&rsquo; because it is possible to take it from him while he is humbled. If he resists the one who intends to take it from him, and he does not possess sufficient strength by which to resist, such as resisting by himself, he is struck and it is taken from him unwillingly. But if he resists as part of a group and prevents it by force, then he is fought and killed, as is whoever resists alongside him, just as Abu Bakr (may Allah have mercy on him) did when the Zakah was withheld. He said: &lsquo;By Allah, if they withheld from me even a rope, I would fight them over it.&rsquo;&rdquo; He said: &ldquo;If he denied wudu&rsquo; and ghusl from janabah, he is killed. And if he does not deny wudu&rsquo; or ghusl from janabah, but says: &lsquo;I believe in wudu&rsquo; and ghusl, but I will neither perform wudu&rsquo; nor ghusl,&rsquo; he is also killed, because his abandonment of that is a denial of it. Likewise, if he says: &lsquo;I will not fast Ramadan,&rsquo; and persists upon that, he is killed even if he does not deny it, because his abandonment of the fasting which Allah made obligatory upon him is a denial of it.&rdquo;<cite>Ibn Rushd al-Jadd, al-Bayan wa-t-Tahsil, 16/393&ndash;394</cite></blockquote>
+<blockquote>Among the questions of nawazil about which Asbagh was asked, Asbagh said: Regarding one who abandons the prayer, it is said to him: &ldquo;Pray,&rdquo; and he says: &ldquo;I will not pray.&rdquo; It is then said to him: &ldquo;Do you deny that it is obligatory upon you from Allah?&rdquo; He says: &ldquo;I do not deny it, and I know that it is the truth, but I will not pray.&rdquo; He said: &ldquo;I hold that he is to be killed when he says: &lsquo;I will not pray,&rsquo; even if he does not deny it [i.e., the obligation], for his abandonment of it, or his persistence in saying that he will not pray, is a denial of it. If he persists upon his statement, &lsquo;I will not pray,&rsquo; he is killed, even if he claims that he does not deny it. And it reached me from Ibn Shihab that he said: &lsquo;If its time passes and he does not pray, his neck is struck.&rsquo; And it reached me from &lsquo;Abd al-Malik ibn &lsquo;Abd al-&lsquo;Aziz as well that he used to say: &lsquo;If he says: &ldquo;I will not pray,&rdquo; he is killed,&rsquo; just as Asbagh said.&rdquo; Asbagh said: &ldquo;As for Zakah, if he denies it, he is also killed. If he acknowledges that it is a right due upon him and says: &lsquo;I will not pay it,&rsquo; it is taken from him whether he wishes or refuses, and he is not killed merely for saying: &lsquo;I will not pay it,&rsquo; because it is possible to take it from him while he is humbled. If he resists the one who intends to take it from him, and he does not possess sufficient strength by which to resist, such as resisting by himself, he is struck and it is taken from him unwillingly. But if he resists as part of a group and prevents it by force, then he is fought and killed, as is whoever resists alongside him, just as Abu Bakr did when the Zakah was withheld. He said: &lsquo;By Allah, if they withheld from me even a rope, I would fight them over it.&rsquo;&rdquo; He said: &ldquo;If he denied wudu&rsquo; and ghusl from janabah, he is killed. And if he does not deny wudu&rsquo; or ghusl from janabah, but says: &lsquo;I believe in wudu&rsquo; and ghusl, but I will neither perform wudu&rsquo; nor ghusl,&rsquo; he is also killed, because his abandonment of that is a denial of it. Likewise, if he says: &lsquo;I will not fast Ramadan,&rsquo; and persists upon that, he is killed even if he does not deny it, because his abandonment of the fasting which Allah made obligatory upon him is a denial of it.&rdquo;<cite>Ibn Rushd al-Jadd, al-Bayan wa-t-Tahsil, 16/393&ndash;394</cite></blockquote>
 
 <p><strong>Ibn Rushd al-Jadd</strong>, <em>al-Bayan wa-t-Tahsil</em>, on the narration of Ibn al-Qasim from Malik in the book <em>Hamal Sabiyyan</em>, and his comment on it:</p>
 
@@ -10200,9 +9873,9 @@ He still believes that the law is valid, that it is the best, and that it ought 
 
 <blockquote>&ldquo;Malik&rsquo;s position is that he is told: &lsquo;Pray, so long as the time remains.&rsquo; If he does so, he is left alone; but if he refuses until the time expires, he is killed.<br><br>Is he to be asked to repent or not? Some of our companions said: He is asked to repent; if he repents, [he is spared], otherwise he is killed. Others said: He is not asked to repent, because this is a prescribed legal punishment that is carried out upon him, and repentance does not annul it, just as with the fornicator and the thief.<br><br>The same ruling applies, according to us, to purification, ghusl from major ritual impurity, and fasting. Thus, if he says, &lsquo;I will not perform wudu&rsquo;,&rsquo; or &lsquo;I will not perform ghusl from major ritual impurity,&rsquo; or &lsquo;I will not fast,&rsquo; he is killed and is not asked to repent, regardless of whether he says, &lsquo;It is obligatory upon me,&rsquo; or denies its obligation.&rdquo;<cite>Abu Bakr at-Turtushi</cite></blockquote>
 
-<p><strong>Qadi &lsquo;Iyad al-Maliki</strong>:</p>
+<p><strong>&lsquo;Iyad al-Maliki</strong>:</p>
 
-<blockquote>&ldquo;The scholars differed concerning the counterparts of prayer among the obligatory acts, such as zakah, fasting, pilgrimage, wudu&rsquo;, and ghusl from major ritual impurity: is the one who refuses to perform one of them, while acknowledging its obligation, to be killed or punished? And is he a disbeliever or a sinner?<br><br>Malik&rsquo;s position concerning one who refuses one of these and says, &lsquo;I will not perform wudu&rsquo;,&rsquo; or &lsquo;I will not fast,&rsquo; is that he is asked to repent. If he repents, [he is spared]; otherwise, he is killed. If he says, &lsquo;I will not pay zakah,&rsquo; it is taken from him by force. If he refuses, he is fought. If he says, &lsquo;I will not perform pilgrimage,&rsquo; he is not compelled, because its obligation is on a delayed basis rather than immediately.<br><br>Ibn Habib said: Whoever says in the presence of the ruler, &lsquo;I will not pray, even though it is obligatory upon me,&rsquo; is killed and is not asked to repent. Likewise, whoever says in his presence, &lsquo;I will not perform wudu&rsquo;,&rsquo; or &lsquo;I will not perform ghusl from major ritual impurity,&rsquo; or &lsquo;I will not fast Ramadan.&rsquo;<br><br>Ibn Habib said: Whoever deliberately or negligently abandons prayer is a disbeliever, and whoever deliberately abandons its counterparts &ndash; zakah, fasting, and pilgrimage &ndash; is a disbeliever. Al-Hakam ibn &lsquo;Utaybah and a group of the Salaf held this as well.&rdquo;<cite>Qadi &lsquo;Iyad al-Maliki</cite></blockquote>
+<blockquote>&ldquo;The scholars differed concerning the counterparts of prayer among the obligatory acts, such as zakah, fasting, pilgrimage, wudu&rsquo;, and ghusl from major ritual impurity: is the one who refuses to perform one of them, while acknowledging its obligation, to be killed or punished? And is he a disbeliever or a sinner?<br><br>Malik&rsquo;s position concerning one who refuses one of these and says, &lsquo;I will not perform wudu&rsquo;,&rsquo; or &lsquo;I will not fast,&rsquo; is that he is asked to repent. If he repents, [he is spared]; otherwise, he is killed. If he says, &lsquo;I will not pay zakah,&rsquo; it is taken from him by force. If he refuses, he is fought. If he says, &lsquo;I will not perform pilgrimage,&rsquo; he is not compelled, because its obligation is on a delayed basis rather than immediately.<br><br>Ibn Habib said: Whoever says in the presence of the ruler, &lsquo;I will not pray, even though it is obligatory upon me,&rsquo; is killed and is not asked to repent. Likewise, whoever says in his presence, &lsquo;I will not perform wudu&rsquo;,&rsquo; or &lsquo;I will not perform ghusl from major ritual impurity,&rsquo; or &lsquo;I will not fast Ramadan.&rsquo;<br><br>Ibn Habib said: Whoever deliberately or negligently abandons prayer is a disbeliever, and whoever deliberately abandons its counterparts &ndash; zakah, fasting, and pilgrimage &ndash; is a disbeliever. Al-Hakam ibn &lsquo;Utaybah and a group of the Salaf held this as well.&rdquo;<cite>&lsquo;Iyad al-Maliki</cite></blockquote>
 
 <p>And of course, the proof for the pillars of Iman and Ihsan being Kufr to abandon is common sense &mdash; if you don&rsquo;t believe Allah sees you, then you are a Kaafir; if you don&rsquo;t believe in Allah, the angels, the prophets, etc., the ruling is the same. If you have a valid reason not to do one of the pillars of Islam, then you are free of blame.</p>
 
@@ -10220,7 +9893,7 @@ He still believes that the law is valid, that it is the best, and that it ought 
 <p class="lede">Fun fact: one of the loudest arguments in modern Sunni circles is this one, both sides throw the same few labels at each other.</p>
 
 <h2>Who are the Madkhalis?</h2>
-<p>&ldquo;Madkhalis&rdquo; is the nickname for followers of the teachings of Shaykh Rabee&lsquo; ibn Hadi al-Madkhali and those who follow his method. They are known for stressing obedience to Muslim rulers, refusing public criticism of rulers, rejecting revolts and political parties, and for a strict habit of warning against people they consider astray (<em>jarh wa ta&lsquo;dil</em> applied to living scholars). They usually reject the label and just say they are Salafis.</p>
+<p>&ldquo;Madkhalis&rdquo; is the nickname for followers of the teachings of Rabee&lsquo; ibn Hadi al-Madkhali and those who follow his method. They are known for stressing obedience to Muslim rulers, refusing public criticism of rulers, rejecting revolts and political parties, and for a strict habit of warning against people they consider astray (<em>jarh wa ta&lsquo;dil</em> applied to living scholars). They usually reject the label and just say they are Salafis.</p>
 
 <h2>The labels both sides use</h2>
 <ul>
@@ -10267,7 +9940,7 @@ He still believes that the law is valid, that it is the best, and that it ought 
 </li>
 <li><strong>It must not be excessive.</strong> The Prophet &#xFDFA; said:
 <blockquote>&ldquo;Do not laugh too much, for too much laughter deadens the heart.&rdquo;<cite>Sunan Ibn Majah, 4193; Sunan at-Tirmidhi, 2305 &mdash; graded Hasan</cite></blockquote>
-Imam an-Nawawi explained that the joking which is blameworthy is the kind that is excessive or constant, because it leads to too much laughter, hardness of the heart and distraction from the remembrance of Allah, and it takes away a person&rsquo;s dignity. Light, occasional joking is the Sunnah.</li>
+an-Nawawi explained that the joking which is blameworthy is the kind that is excessive or constant, because it leads to too much laughter, hardness of the heart and distraction from the remembrance of Allah, and it takes away a person&rsquo;s dignity. Light, occasional joking is the Sunnah.</li>
 </ol>
 
 <h3>Joking about the religion is kufr</h3>
@@ -10384,14 +10057,14 @@ Imam an-Nawawi explained that the joking which is blameworthy is the kind that i
 <blockquote>&ldquo;Whoever sees from his ruler something he dislikes, let him be patient, for whoever leaves the Jama&lsquo;ah by a hand span and dies, dies a death of Jahiliyyah.&rdquo;<cite>Ibn &lsquo;Abbas; Sahih al-Bukhari 7053, Sahih Muslim 1849</cite></blockquote>
 <blockquote>&ldquo;Hear and obey the ruler, even if he beats your back and takes your wealth.&rdquo;<cite>Hudhayfah ibn al-Yaman; Sahih Muslim 1847</cite></blockquote>
 <blockquote>&ldquo;You will see favouritism after me, so be patient until you meet me at the Pond.&rdquo;<cite>Sahih al-Bukhari 3792, Sahih Muslim 1845</cite></blockquote>
-<p>Scholars of Islam noted the agreement of the people of knowledge on this: Qadi &lsquo;Iyad said that leadership is not given to a disbeliever, and that if a ruler commits clear kufr he is removed (quoted by al-Nawawi in <em>Sharh Sahih Muslim</em>). Ibn Hajar relates in <em>Fath al-Bari</em> (13/7) the agreement of the scholars on obeying the ruler who has taken power, except when he commits clear kufr.</p>
+<p>Scholars of Islam noted the agreement of the people of knowledge on this: &lsquo;Iyad said that leadership is not given to a disbeliever, and that if a ruler commits clear kufr he is removed (quoted by al-Nawawi in <em>Sharh Sahih Muslim</em>). Ibn Hajar relates in <em>Fath al-Bari</em> (13/7) the agreement of the scholars on obeying the ruler who has taken power, except when he commits clear kufr.</p>
 
 <p>None of the following is kufr, so none of them allows revolt: oppression, favouring his own people, taking power by force, being chosen by the wrong people, not being from Quraysh, or lacking any other condition of the Caliph. These make the ruler a sinner or make his appointment wrong, and the answer is patience, sincere advice, and obeying him in what is good. Whoever says &ldquo;he lacks a condition, so he must be fought&rdquo; is following the way of the Khawarij, who rebelled over sins and mistakes, and not the way of the Salaf.</p>
 
 <h3>What counts as clear kufr?</h3>
 <p>Clear kufr is an act or belief that takes a person out of Islam. Rulers who commit it lose the right to obedience. The examples are:</p>
 <ul>
-<li><strong>Denying Allah&rsquo;s names and attributes</strong>, or saying that the Qur&rsquo;an is created. This is the creed of the Jahmiyyah, and the Salaf ruled that it is kufr. Imam Ahmad said so in <em>al-Radd &lsquo;ala al-Zanadiqah wa al-Jahmiyyah</em>.</li>
+<li><strong>Denying Allah&rsquo;s names and attributes</strong>, or saying that the Qur&rsquo;an is created. This is the creed of the Jahmiyyah, and the Salaf ruled that it is kufr. Ahmad said so in <em>al-Radd &lsquo;ala al-Zanadiqah wa al-Jahmiyyah</em>.</li>
 <li><strong>Replacing the Shariah</strong> with a man-made law (see section 4 below).</li>
 <li><strong>Shirk</strong>, worshipping other than Allah, or ruling that it is allowed.</li>
 <li><strong>Mocking Allah, His Messenger &#xFDFA; or the religion</strong>, and denying what is known by necessity to be part of the religion.</li>
@@ -10408,7 +10081,7 @@ Imam an-Nawawi explained that the joking which is blameworthy is the kind that i
 <li><strong>Ibn &lsquo;Umar</strong> refused to revolt against the Umayyad rulers. When the people of Madinah broke their pledge to Yazid, he warned them with the hadith: &ldquo;A banner will be raised for every betrayer on the Day of Resurrection&hellip; and there is no greater betrayal than a man who pledged to someone on the terms of Allah and His Messenger and then fights him&rdquo; (Sahih al-Bukhari 7111, Sahih Muslim 1735). He also prayed behind al-Hajjaj.</li>
 <li><strong>Al-Hasan al-Basri</strong> said about the oppression of al-Hajjaj that it is a punishment from Allah, so do not meet the punishment with the sword, but with humility and supplication.</li>
 <li><strong>Al-Tahawi</strong> in his <em>&lsquo;Aqidah</em>: &ldquo;We do not see rebellion against our leaders and those in charge, even if they are unjust, and we do not supplicate against them. We see obedience to them as obedience to Allah, an obligation, as long as they do not order sin.&rdquo;</li>
-<li><strong>Imam Ahmad</strong> held that the doctrine imposed in the Mihna, denying the attributes and saying the Qur&rsquo;an is created, is kufr. He endured beating and prison for refusing it, and did not call for revolt against the caliphs who tested him. In his <em>Usul al-Sunnah</em> he lists not fighting rulers and not rebelling with the sword.</li>
+<li><strong>Ahmad</strong> held that the doctrine imposed in the Mihna, denying the attributes and saying the Qur&rsquo;an is created, is kufr. He endured beating and prison for refusing it, and did not call for revolt against the caliphs who tested him. In his <em>Usul al-Sunnah</em> he lists not fighting rulers and not rebelling with the sword.</li>
 </ul>
 
 <h2>2. Disobeying: only in sin</h2>
@@ -10426,7 +10099,7 @@ Imam an-Nawawi explained that the joking which is blameworthy is the kind that i
 <h2>4. Judging by other than Shariah</h2>
 <p>The verses are: &ldquo;Whoever does not judge by what Allah has revealed, those are the disbelievers&rdquo; (5:44), &ldquo;the wrongdoers&rdquo; (5:45), &ldquo;the defiantly disobedient&rdquo; (5:47). They have two cases:</p>
 <h3>Kufr akbar: legislating a replacement for Shariah</h3>
-<p>Setting up a system of man-made law as an alternative to Shariah, or claiming it is better or equal to Shariah, or that it is allowed to judge by it, is major kufr. This is the case of the Tatar <em>Yasa</em>, which Ibn Kathir condemned as kufr in his tafsir of 5:50 and in <em>al-Bidayah wa al-Nihayah</em>. Shaykh Muhammad ibn Ibrahim Al al-Shaykh wrote the treatise <em>Tahkim al-Qawanin</em> on this, and Shaykh Ahmad Shakir said the same about the laws of his time.</p>
+<p>Setting up a system of man-made law as an alternative to Shariah, or claiming it is better or equal to Shariah, or that it is allowed to judge by it, is major kufr. This is the case of the Tatar <em>Yasa</em>, which Ibn Kathir condemned as kufr in his tafsir of 5:50 and in <em>al-Bidayah wa al-Nihayah</em>. Muhammad ibn Ibrahim Al al-Shaykh wrote the treatise <em>Tahkim al-Qawanin</em> on this, and Ahmad Shakir said the same about the laws of his time.</p>
 <h3>Not kufr akbar: an individual case, out of desire</h3>
 <p>A ruler or judge who knows the Shariah ruling and still rules otherwise in one case because of desire, bribery or bias, while believing the Shariah is right and that he is wrong, has committed a major sin and is not out of Islam. The same applies to oppressing someone while knowing it is unjust.</p>
 <blockquote>Ibn &lsquo;Abbas about the verse: &ldquo;It is not the kufr that you think. It is kufr duna kufr (a lesser kufr).&rdquo;<cite>Narrated by al-Hakim (2/313), who graded it sahih, and by al-Tabari; also reported from &lsquo;Ata&rsquo; and Tawus</cite></blockquote>
@@ -10521,12 +10194,12 @@ Imam an-Nawawi explained that the joking which is blameworthy is the kind that i
 <p>The command is distinct from the creation, so Allah&rsquo;s speech, which is His command, is not created. &lsquo;Amr ibn Dinar said: &ldquo;I met the people for seventy years, and they said: Allah is the Creator and everything other than Him is created, except the Qur&rsquo;an, for it is the speech of Allah. From Him it came and to Him it returns&rdquo; (reported by al-Bukhari in <em>Khalq Af&lsquo;al al-&lsquo;Ibad</em>; the same is reported from Sufyan ibn &lsquo;Uyaynah).</p>
 
 <h2>What the Salaf did not do</h2>
-<p>The Salaf never asked questions such as: &ldquo;Is the shape of this letter created?&rdquo;, &ldquo;Is the ink created?&rdquo;, &ldquo;Is my recitation created?&rdquo; We do not go into these questions either. Imam Ahmad refused to give an answer on the wording (<em>lafz</em>) in either direction, and is reported to have said that whoever says &ldquo;my wording of the Qur&rsquo;an is created&rdquo; is a Jahmi, and whoever says it is uncreated is an innovator. Ahmad also stood firm in the Mihna, when the Jahmiyyah and Mu&lsquo;tazilah forced the claim that the Qur&rsquo;an is created.</p>
+<p>The Salaf never asked questions such as: &ldquo;Is the shape of this letter created?&rdquo;, &ldquo;Is the ink created?&rdquo;, &ldquo;Is my recitation created?&rdquo; We do not go into these questions either. Ahmad refused to give an answer on the wording (<em>lafz</em>) in either direction, and is reported to have said that whoever says &ldquo;my wording of the Qur&rsquo;an is created&rdquo; is a Jahmi, and whoever says it is uncreated is an innovator. Ahmad also stood firm in the Mihna, when the Jahmiyyah and Mu&lsquo;tazilah forced the claim that the Qur&rsquo;an is created.</p>
 <p>So we say the Qur&rsquo;an is the uncreated speech of Allah, and that the mushaf, ink and voices of the reciters are created, and we leave it there.</p>
 `,
 
 };
-CONTENT["islamic-history/future-caliphate-by-imam-al-mahdi-and-isa-peace-be-upon-him"] = CONTENT["what-is-islam/aqeedah/specific-beliefs/dar-war-taghut-and-caliphates/future-caliphate-by-imam-al-mahdi-and-isa-peace-be-upon-him"];
+CONTENT["islamic-history/future-caliphate-by-al-mahdi-and-isa-peace-be-upon-him"] = CONTENT["what-is-islam/aqeedah/specific-beliefs/dar-war-taghut-and-caliphates/future-caliphate-by-al-mahdi-and-isa-peace-be-upon-him"];
 
 /* ============ ICONS (geometric / object line-art only — no living beings) ============ */
 const STAR_PATH = "M150,20 L170.67,100.11 L241.92,58.08 L199.89,129.33 L280,150 L199.89,170.67 L241.92,241.92 L170.67,199.89 L150,280 L129.33,199.89 L58.08,241.92 L100.11,170.67 L20,150 L100.11,129.33 L58.08,58.08 L129.33,100.11 Z";
@@ -10731,6 +10404,7 @@ function placeholderPage(crumbs, eyebrow, title, desc, backHref, backLabel){
     <main>
       <p class="sf-eyebrow">${eyebrow}</p>
       <h1 class="sf-title">${title}</h1>
+      ${sectionContextPanels({forumId: crumbs.some(c=>c.label==="What Is Islam") ? "what-is-islam" : "", labels: crumbs.map(c=>c.label)})}
       <div class="sf-panel">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 8v5M12 16h.01M12 3l9 16H3L12 3Z"/></svg>
         <p><strong>This section is still being written.</strong> Come back soon, or ask Dai what you'd like to know about this page, @dnx4 on Discord, or use the <a href="https://linktr.ee/daiyanii" target="_blank" rel="noopener noreferrer">Linktree</a> instead.</p>
@@ -10742,6 +10416,13 @@ function placeholderPage(crumbs, eyebrow, title, desc, backHref, backLabel){
     </main>
     ${siteFooter()}
   </div>`;
+}
+
+function sectionContextPanels({forumId="", slugs=[], labels=[]}={}){
+  let out="";
+  const isAqeedahIntro = forumId === "what-is-islam" && (slugs.includes("introduction-to-aqeedah") || labels.includes("Introduction to Aqeedah"));
+  if(isAqeedahIntro) out += `<div class="sf-panel"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 8v5M12 16h.01M12 3l9 16H3L12 3Z"/></svg><p><strong>Aqeedah: core rule on knowledge and denial.</strong> Aqeedah means the core beliefs every Muslim must affirm; rejecting a core belief is kufr. For an obscure text-based matter, only genuine lack of knowledge without rejection is an excuse. Denying a revealed attribute of Allah is kufr even without a separate personal presentation of the hujjah. Not knowing a particular report while affirming that all Allah and His Messenger described is true is different from denial. Every Muslim should affirm the general ruling that clear kufr is kufr; this is not reserved to an exclusive class. Apply takfir when clear evidence establishes the relevant matter and its conditions are met, never on suspicion alone.</p></div>`;
+  return out;
 }
 
 function articlePage(crumbs, eyebrow, title, desc, html, backHref, backLabel){
@@ -10756,6 +10437,7 @@ function articlePage(crumbs, eyebrow, title, desc, html, backHref, backLabel){
       <p class="sf-eyebrow">${eyebrow}</p>
       <h1 class="sf-title">${title}</h1>
       <div class="article-tools"><button class="copy-link" type="button" data-copy-link title="Copy this page link"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="9" width="10" height="10" rx="1.5"/><path d="M6 15H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v1"/></svg><span class="copy-text">Copy link</span></button></div>
+      ${sectionContextPanels({forumId: crumbs.some(c=>c.label==="What Is Islam") ? "what-is-islam" : "", labels: crumbs.map(c=>c.label)})}
       <div class="article">${renderedHtml}</div>
       <a class="back-link" href="${backHref}">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12H6M11 6l-6 6 6 6"/></svg>
@@ -10816,6 +10498,7 @@ function renderSub(fid, slug){
       ${topbar([{label:"Index",href:"#/index"},{label:f.title,href:`#/forum/${f.id}`},{label:title}])}
       <main>
         <div class="forum-head"><h1>${title}</h1></div>
+        ${sectionContextPanels({forumId:f.id, slugs:[slug], labels:[title]})}
         ${nodeWarning(`${f.id}/${slug}`)}
         ${desc ? `<p class="forum-sub">${desc}</p>` : ""}
         <div class="toc">${items}</div>
@@ -10873,6 +10556,7 @@ function renderNode(fid, slugs){
       ${topbar(crumbs)}
       <main>
         <div class="forum-head"><h1>${node.t}</h1></div>
+        ${sectionContextPanels({forumId:f.id, slugs, labels:chain.map(n=>n.t)})}
         ${nodeWarning(`${f.id}/${slugs.join("/")}`)}
         ${node.d ? `<p class="forum-sub">${node.d}</p>` : ""}
         <div class="toc">${items}</div>
