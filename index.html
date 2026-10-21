@@ -6020,7 +6020,7 @@ Those firmly grounded in knowledge are those who stop where their knowledge ends
 <li><strong>Imitating the disbelievers in their religion.</strong></li>
 <li><strong>Practicing their festivals:</strong> celebrating holidays like Christmas, Halloween, or New Year&rsquo;s, or partaking in their rites. These celebrations stem directly from underlying theological creeds (Aqeedah), so participating in them is endorsement of rites built on disbelief. There are only two official festivals in Islam &mdash; the two Eids.</li>
 <li><strong>Wearing or dressing with things exclusive to them,</strong> such as their religious symbols.</li>
-<li><strong>Sitting in gatherings where blasphemy is being spoken</strong> and not objecting to it, nor leaving.</li>
+<li><strong>Sitting in gatherings where blasphemy is being spoken</strong> and not objecting to it, nor leaving. (This is among the many reasons why media/games with Kufr and Shirk is prohibited to indulge in)</li>
 </ul>
 
 <p><strong>Note:</strong> There is some difference of opinion on some of the specifics of this.</p>
@@ -6276,7 +6276,7 @@ Those firmly grounded in knowledge are those who stop where their knowledge ends
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
 </a>
 
-<h2>Take Your Shahada (Testimony of Faith)</h2>
+<h2 id="take-your-shahada">Take Your Shahada (Testimony of Faith)</h2>
 <a class="video-link" href="https://mishkahacademy.com/how-to-say-the-shahada-arabic-english-in-islam/" target="_blank" rel="noopener noreferrer">
   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
   How to Say the Shahada (Arabic &amp; English)
@@ -6529,13 +6529,13 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
 </a>
 </li>
-<li><strong>Why Islam is true.</strong> You cannot commit your life to a religion you do not believe is true. Start with the evidence, so that your belief rests on reason and not on emotion or inheritance.
+<li><strong>Why Islam is true.</strong> You cannot commit your life to a religion you do not believe is true. So if you do not have belief in Islam, I recommend you start with the evidence for Islam, so that your belief rests on reason and not on emotion or inheritance.
 <a class="cta-link" href="#/forum/why-islam-is-true">
   Go to Why Islam Is True
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
 </a>
 </li>
-<li><strong>Clear your doubts (Shubha) with the refutations.</strong> Doubts left unanswered stay in the heart and grow. Deal with the objections you have heard, so they do not shake you later.
+<li><strong>Clear your doubts (Shubha) if you have any, with the refutations tab,</strong> if they prevent you from joining Islam. Doubts left unanswered stay in the heart and grow. Deal with the objections you have heard, so they do not shake you later. But if you only have minor doubts, do this later. Aqeedah is the most important aspect in the religion, so do not waste time.
 <a class="cta-link" href="#/forum/refutations">
   Go to Refutations
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
@@ -6549,8 +6549,8 @@ A brilliant channel focused on breaking down Arabic grammar, vocabulary, and Qur
 </li>
 <li><strong>Take your Shahada and make Ghusl.</strong> Do this especially if you are reverting to Islam for the first time, or if you left Islam, lost faith, fell into a nullifier of Islam, have not been praying, or fear that your Islam is not intact. It gives you a clean and certain start from the point at which you know what Islam is.
 <em>(See &ldquo;Take Your Shahada&rdquo; above.)</em>
-<a class="cta-link" href="#/forum/what-is-islam/fiqh/different-acts-of-worship/purification/ghusl">
-  Go to Ghusl
+<a class="cta-link" href="#take-your-shahada" data-goto="take-your-shahada">
+  Go to Take Your Shahada
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
 </a>
 </li>
@@ -11008,6 +11008,13 @@ document.addEventListener("click",async e=>{
       if(text) text.textContent="Copy unavailable";
       setTimeout(()=>{ if(text) text.textContent=original; },1800);
     }
+    return;
+  }
+  const g=e.target.closest("[data-goto]");
+  if(g){
+    e.preventDefault();
+    const t=document.getElementById(g.dataset.goto);
+    if(t) t.scrollIntoView({behavior:motionOK?"smooth":"auto",block:"start"});
     return;
   }
   const b=e.target.closest("[data-jump]"); if(!b) return;
