@@ -10968,12 +10968,12 @@ function addLinkNotes(art){
     if(a.classList.contains("cta-link")){
       const p=document.createElement("p");
       p.className="link-note";
-      p.textContent="Read this tab fully first. Only click below if you want more detail.";
+      p.textContent="Finish reading the current page first. Only click below if you want more detail.";
       a.before(p);
     } else {
       const s=document.createElement("small");
       s.className="link-note";
-      s.textContent=" (read this tab fully first, then click if you want details)";
+      s.textContent=" (finish the current page first, then open this if you want more detail)";
       a.after(s);
     }
   });
