@@ -11698,6 +11698,9 @@ html .forum-card.forum-card.lit,html .w-card.w-card.lit,html .toc-item.toc-item.
 html .forum-card.forum-card::before,html .forum-card.forum-card::after{display:none !important}
 html a.w-card.w-card:hover::after,html a.w-card.w-card:focus-visible::after{transform:translateX(-125%) !important}
 html .toc-item.toc-item:hover::after,html .toc-item.toc-item:focus-visible::after{transform:translateX(-130%) !important}
+/* keep text and icons above the reflection so nothing is washed out */
+html .toc-item.toc-item>*,html .w-card.w-card>*,html .forum-card.forum-card>*{position:relative;z-index:2}
+html .toc-item.toc-item::after,html .w-card.w-card::after{z-index:1}
 /* click: reflection + relief */
 html .forum-card.forum-card:active,html a.w-card.w-card:active,html .toc-item.toc-item:active,
 html .forum-card.forum-card.pressed,html a.w-card.w-card.pressed,html .toc-item.toc-item.pressed{--art-h:1 !important;transition-duration:.12s,.12s,.12s,.12s}
@@ -11707,7 +11710,7 @@ html .toc-item.toc-item:active::after,html .toc-item.toc-item.pressed::after{tra
 <script>
 /* keep the pressed look visible briefly after a click or tap */
 (function(){var sel=".forum-card,.w-card,.toc-item";
-addEventListener("pointerdown",function(e){var t=e.target.closest&&e.target.closest(sel);if(!t)return;t.classList.add("pressed");setTimeout(function(){t.classList.remove("pressed");},650);},true);})();
+addEventListener("pointerdown",function(e){var t=e.target.closest&&e.target.closest(sel);if(!t)return;t.classList.add("pressed");setTimeout(function(){t.classList.remove("pressed");},650);},true);addEventListener("hashchange",function(){document.querySelectorAll(".pressed").forEach(function(n){n.classList.remove("pressed");});});})();
 </script>
 </body>
 </html>
