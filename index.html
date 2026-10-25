@@ -11265,7 +11265,7 @@ function wipe(){
   const fr=s=>[{transform:`scale(${k*s}) rotate(0deg)`},{transform:`scale(0) rotate(${s>1?200:180}deg)`}];
   g.animate(fr(1.04),{...o,delay:70});p.animate(fr(1),o).onfinish=()=>{g.remove();p.remove();};
 }
-wipe();addEventListener("hashchange",()=>{if(location.hash.startsWith("#/"))wipe();});
+/* star wipe transition removed */
 
 /* scroll-spun ornament */
 const orn=$("div","orn",`<svg viewBox="0 0 300 300"><path d="${STAR_PATH}"/></svg>`);document.body.appendChild(orn);
@@ -11706,6 +11706,7 @@ html .forum-card.forum-card:active,html a.w-card.w-card:active,html .toc-item.to
 html .forum-card.forum-card.pressed,html a.w-card.w-card.pressed,html .toc-item.toc-item.pressed{--art-h:1 !important;transition-duration:.12s,.12s,.12s,.12s}
 html a.w-card.w-card:active::after,html a.w-card.w-card.pressed::after{transform:translateX(125%) !important}
 html .toc-item.toc-item:active::after,html .toc-item.toc-item.pressed::after{transform:translateX(130%) !important}
+.wipe{display:none !important}
 </style>
 <script>
 /* keep the pressed look visible briefly after a click or tap */
