@@ -11691,14 +11691,23 @@ mount();
 })();
 </script>
 <style id="no-lighting">
-/* lighting effect removed: no light sweeps, gloss, glow or "lit" flashes on categories, tabs and cards */
+/* no lighting on hover, on load or on its own: reflection and relief show only while a category/tab is pressed (click) */
 body::before{background:none !important;opacity:0 !important}
-html .forum-card.forum-card,html .w-card.w-card,html .toc-item.toc-item{--art-h:0 !important;background-image:none !important;box-shadow:none !important;animation-name:none}
 html .forum-card.forum-card:hover,html .forum-card.forum-card:focus-visible,html a.w-card.w-card:hover,html a.w-card.w-card:focus-visible,html .toc-item.toc-item:hover,html .toc-item.toc-item:focus-visible{--art-h:0 !important}
 html .forum-card.forum-card.lit,html .w-card.w-card.lit,html .toc-item.toc-item.lit{animation:none !important}
-html .forum-card.forum-card::before,html .forum-card.forum-card::after,html .w-card.w-card::after,html .toc-item.toc-item::after{display:none !important}
-html .forum-card h2,html .w-card h3,html .toc-item .ttl{text-shadow:none !important}
-html .forum-card .ic{filter:none !important}
+html .forum-card.forum-card::before,html .forum-card.forum-card::after{display:none !important}
+html a.w-card.w-card:hover::after,html a.w-card.w-card:focus-visible::after{transform:translateX(-125%) !important}
+html .toc-item.toc-item:hover::after,html .toc-item.toc-item:focus-visible::after{transform:translateX(-130%) !important}
+/* click: reflection + relief */
+html .forum-card.forum-card:active,html a.w-card.w-card:active,html .toc-item.toc-item:active,
+html .forum-card.forum-card.pressed,html a.w-card.w-card.pressed,html .toc-item.toc-item.pressed{--art-h:1 !important;transition-duration:.12s,.12s,.12s,.12s}
+html a.w-card.w-card:active::after,html a.w-card.w-card.pressed::after{transform:translateX(125%) !important}
+html .toc-item.toc-item:active::after,html .toc-item.toc-item.pressed::after{transform:translateX(130%) !important}
 </style>
+<script>
+/* keep the pressed look visible briefly after a click or tap */
+(function(){var sel=".forum-card,.w-card,.toc-item";
+addEventListener("pointerdown",function(e){var t=e.target.closest&&e.target.closest(sel);if(!t)return;t.classList.add("pressed");setTimeout(function(){t.classList.remove("pressed");},650);},true);})();
+</script>
 </body>
 </html>
