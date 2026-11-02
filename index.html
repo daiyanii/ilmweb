@@ -881,7 +881,6 @@ const FORUMS = [
         ["Udhr bil Jahil and Iqamatul Hujjah",""],
         ["Al Wala wal Bara wa Kufr bi Taghut wa Iman Billah",""],
         ["Bidah wa Manhaj","Innovation in the religion, and the methodology we follow."],
-        ["The Subcontinent (plus other locations) and Bidah",""],
         ["Nawaqidul-Islam",""],
         ["Specific Beliefs","Further revealed reports and details. Genuine ignorance of an obscure detail without rejecting it is distinct from denying a necessary belief or a revealed attribute; matters known by necessity remain foundational.",[ 
           ["Ethics and Morality","Good and evil, halal and haram, and character.",[
@@ -905,7 +904,9 @@ const FORUMS = [
             ["Mind, Soul, Consciousness, Fitrah and Free Will",""],
             ["Special Religious Places on Earth",""],
             ["Was the Prophet صلى الله عليه وسلم a disbeliever before prophethood?",""],
-            ["The Prophet (صلى الله عليه وسلم) Was a Human and Not Divine",""]
+            ["The Prophet (صلى الله عليه وسلم) Was a Human and Not Divine",""],
+            ["Calendar","The Islamic (Hijri) lunar calendar: the twelve months, the four sacred months, Ramadan, and why the moon sets the dates of worship."],
+            ["Tafdil",""]
           ]],
           ["Qur'an and Hadith","The preservation of the Qur'an and how hadith are transmitted and verified.",[
             ["Mushaf","",[
@@ -925,12 +926,10 @@ const FORUMS = [
             ["Life is not easy and it is temporary",""],
             ["Waswas and Shubhat",""],
             ["Extremism",""],
-            ["The Consequences of Sins and the Cure",""]
+            ["The Consequences of Sins and the Cure",""],
+            ["Is Iman created or uncreated?",""]
           ]],
-          ["Dar, War, Taghut and Caliphates","Lands, war, false authority, and the caliphate &mdash; past, present and foretold. Here, <em>hukm</em> means the legal ruling or classification applied to a land, authority, or act; a territorial classification alone does not settle every resident's individual status."],
-          ["Calendar","The Islamic (Hijri) lunar calendar: the twelve months, the four sacred months, Ramadan, and why the moon sets the dates of worship."],
-          ["Tafdil",""],
-          ["Is Iman created or uncreated?",""]
+          ["Dar, War, Taghut and Caliphates","Lands, war, false authority, and the caliphate &mdash; past, present and foretold. Here, <em>hukm</em> means the legal ruling or classification applied to a land, authority, or act; a territorial classification alone does not settle every resident's individual status."]
         ]]
       ]],
       ["How to Be Muslim","The essential requirements to enter and remain within Islam, and how to grow in faith beyond the bare minimum."],
@@ -1062,6 +1061,7 @@ const FORUMS = [
             ["Why no nation is Muslim today",""],
             ["The Myth of 2 Billion Muslims",""],
             ["Race, Ethnicity, Nationality and Bid’ah of hating thereby",""],
+            ["The Subcontinent (plus other locations) and Bidah",""],
             ["What Rules to Respect in Dar al-Kufr",""],
             ["Ruling on celebrating non-Muslim festivals like Halloween, Christmas and Easter",""],
             ["Should You Support Palestine?",""],
@@ -1124,65 +1124,71 @@ const FORUMS = [
     subs:[
       ["Heretics","Responses to historical sects and beliefs considered outside mainstream orthodoxy. This section also covers individual people, not just sects.",[
         ["Intro to Heretics and Ahlul Bid’ah",""],
-        ["Ahlul Ahwa","A broad term for people driven by religious whims or sectarian desires."],
-        ["Munafiqeen","Hypocrites; a Qur’anic term, not simply a synonym for every Muslim one disagrees with."],
-
-        ["Shi‘a (Rafidhi/Rafidah/Rawafid)","",[ 
-          ["General Refutes",""],
-          ["Links to Refutations",""],
-          ["Hadithul Ghadeer",""]
+        ["General Terms","Broad terms used for people who deviate from the religion, and the difference between them.",[
+            ["Ahlul Ahwa","A broad term for people driven by religious whims or sectarian desires."],
+            ["Munafiqeen","Hypocrites; a Qur’anic term, not simply a synonym for every Muslim one disagrees with."]
         ]],
-        ["Khawarij (Kharijites)",""],
-        ["Ghulat",""],
-        ["Ibadis",""],
-        ["Qur’anists / Hadith Rejectors (Quranists; Qur’an-only Muslims)",""],
-        ["Submitters", ""],
-        ["Ahmadiyya (Qadiani)",""],
-        ["Nation of Islam (NOI)",""],
-        ["Bahá’ís (Baha’is)",""],
-
-        ["Ash‘ariyyah (Ash‘aris; Ash‘arites)",""],
-        ["Maturidiyyah (Maturidis; Maturidites)",""],
-        ["Mu‘tazilah (Mu‘tazilites)",""],
-        ["Murji’ah (Murjiites)",""],
-        ["Qadariyyah (Qadarites)",""],
-        ["Jabriyyah (Jabrites)",""],
-        ["Jahmiyyah (Jahmites)",""],
-        ["Kullabiyyah (Kullabites)",""],
-        ["Karramiyyah (Karramites)",""],
-        ["al-Salimiyyah (As-Salimah)",""],
-        ["Lafziyyah",""],
-        ["Hululiyyah (Hululis)",""],
-        ["Mufawwidah (Mufawwida)",""],
-        ["Mujassimah (Mujassimites)",""],
-        ["al-Batiniyyah (Batiniyyah)",""],
-        ["al-Falasifah; al-Mutakallimun",""],
-
-        ["Sufis (Tasawwuf)",""],
-        ["Barelwi (Barelvi; Bareilvi)",""],
-        ["Deobandi (Deobandis)",""],
-        ["Tablighi Jamaat (Jamaat al-Tabligh)",""],
-        ["al-Ikhwan al-Muslimun (Muslim Brotherhood; Ikhwanis)",""],
-        ["Qutbiyyah (Qutbis)",""],
-        ["Madkhalis",""],
-        ["Adhiris",""],
-        ["Terrorist groups",""],
-        ["Hakimiyyah (Hakimis)",""],
-        ["Pseudo Salafis",""],
-        ["Scholar Worshippers",""],
-        ["Ibn Taymiyyah and his followers",""],
-        ["Muhammad ibn ‘Abd al-Wahhab (Muhammad bin Abdul Wahhab)",""],
-
-        ["Abu Hanifah","Individual scholar entry."],
-        ["al-Nawawi (Nawawi)",""],
-        ["al-Bukhari (Bukhari)",""],
-        ["al-Shafi‘i (Shafi’i)",""],
-        ["Ahmad ibn Hanbal (Ahmad bin Hanbal; Imam Ahmad)",""],
-        ["Dawud ibn Khalaf al-Zahiri (Dawud al-Zahiri)",""],
-        ["Ibn Bāz (Ibn Baz)",""],
-        ["al-Albani (Albani)",""],
-        ["al-Fawzan (Fawzan)",""],
-        ["Ibn ‘Uthaymin (Ibn Uthaymeen; al-‘Uthaymin)",""]
+        ["Sects and Movements","Sects and movements that split from the Muslim community, or that claim Islam while holding beliefs outside it.",[
+            ["Shi‘a (Rafidhi/Rafidah/Rawafid)","",[
+                ["General Refutes",""],
+                ["Links to Refutations",""],
+                ["Hadithul Ghadeer",""]
+              ]],
+            ["Khawarij (Kharijites)",""],
+            ["Ghulat",""],
+            ["Ibadis",""],
+            ["Qur’anists / Hadith Rejectors (Quranists; Qur’an-only Muslims)",""],
+            ["Submitters", ""],
+            ["Ahmadiyya (Qadiani)",""],
+            ["Nation of Islam (NOI)",""],
+            ["Bahá’ís (Baha’is)",""]
+        ]],
+        ["Creed and Kalam Sects","Schools and sects known for their doctrines on Allah, the Qur’an, faith and the creation, including the philosophers and theologians.",[
+            ["Ash‘ariyyah (Ash‘aris; Ash‘arites)",""],
+            ["Maturidiyyah (Maturidis; Maturidites)",""],
+            ["Mu‘tazilah (Mu‘tazilites)",""],
+            ["Murji’ah (Murjiites)",""],
+            ["Qadariyyah (Qadarites)",""],
+            ["Jabriyyah (Jabrites)",""],
+            ["Jahmiyyah (Jahmites)",""],
+            ["Kullabiyyah (Kullabites)",""],
+            ["Karramiyyah (Karramites)",""],
+            ["al-Salimiyyah (As-Salimah)",""],
+            ["Lafziyyah",""],
+            ["Hululiyyah (Hululis)",""],
+            ["Mufawwidah (Mufawwida)",""],
+            ["Mujassimah (Mujassimites)",""],
+            ["al-Batiniyyah (Batiniyyah)",""],
+            ["al-Falasifah (Philosophers); al-Mutakallimun",""]
+        ]],
+        ["Modern Groups and Movements","Groups and movements of recent centuries, and the sectarian currents of today.",[
+            ["Sufis (Tasawwuf)",""],
+            ["Barelwi (Barelvi; Bareilvi)",""],
+            ["Deobandi (Deobandis)",""],
+            ["Tablighi Jamaat (Jamaat al-Tabligh)",""],
+            ["al-Ikhwan al-Muslimun (Muslim Brotherhood; Ikhwanis)",""],
+            ["Qutbiyyah (Qutbis)",""],
+            ["Madkhalis",""],
+            ["Adhiris",""],
+            ["Terrorist groups",""],
+            ["Hakimiyyah (Hakimis)",""],
+            ["Pseudo Salafis",""],
+            ["Scholar Worshippers",""]
+        ]],
+        ["Individuals","Individual scholars and figures who are covered on their own, and their followers.",[
+            ["Ibn Taymiyyah and his followers",""],
+            ["Muhammad ibn ‘Abd al-Wahhab (Muhammad bin Abdul Wahhab)",""],
+            ["Abu Hanifah","Individual scholar entry."],
+            ["al-Nawawi (Nawawi)",""],
+            ["al-Bukhari (Bukhari)",""],
+            ["al-Shafi‘i (Shafi’i)",""],
+            ["Ahmad ibn Hanbal",""],
+            ["Dawud ibn Khalaf al-Zahiri (Dawud al-Zahiri)",""],
+            ["Ibn Bāz (Ibn Baz)",""],
+            ["al-Albani (Albani)",""],
+            ["al-Fawzan (Fawzan)",""],
+            ["Ibn ‘Uthaymin (Ibn Uthaymeen; al-‘Uthaymin)",""]
+        ]]
       ]],
       ["Christians","Common objections raised in Christian apologetics, and Islamic responses.",[
         ["Satanic Argument",""],
@@ -1204,10 +1210,12 @@ const FORUMS = [
             ["Jizyah Is Not Bad","Why the jizyah is a light and fair tax, and what it replaces."],
             ["Christians Were Saved by Muslims",""],
             ["Is Islam a compilation of things the Prophet (peace be upon him) heard from others and other texts?",""],
+            ["Praises of Islam",""],
             ["Links to Refutations","External articles, videos, and resources refuting Christian objections."]
       ]],
       ["Jews","Common objections raised in Jewish apologetics, and Islamic responses.",[
         ["Jews Were Saved by Muslims",""],
+        ["Praises of Islam",""],
         ["Links to Refutations","External articles, videos, and resources refuting Jewish objections."]
       ]],
       ["Philosophers","Responses to philosophical objections to religious belief.",[
@@ -1256,6 +1264,7 @@ const FORUMS = [
               ["You are not exempt from being racist by being a certain race",""]
             ]],
             ["LGBTQ Movement",""],
+            ["Effeminate male cuck culture",""],
             ["Hedonism, Ingratitude, and Attachment to Meaningless Things",""],
             ["Sexism",""],
             ["Feminism","Islamic responses to feminist claims about the sexes, gender roles, family and society.",[
@@ -1636,7 +1645,7 @@ const CONTENT = {
 <li><strong>A book that contains an error is not automatically a book to burn.</strong> This is about books whose purpose is to spread innovation or Kufr. A Fiqh book with a mistake, or a book of a scholar with a valid difference of opinion, is not in this category. Do not confuse a mistake in Fiqh with Bid&lsquo;ah. See the <a href="#/forum/what-is-islam/aqeedah/bidah-wa-manhaj">Bid&lsquo;ah</a> page.</li>
 </ul>
 `,
-"refutations/heretics/abu-hanifah": `
+"refutations/heretics/individuals/abu-hanifah": `
 <p class="lede">Abu Hanifah is included among the people to be refuted individually, not only sects. This page collects sources on the criticisms of him and on why he has been promoted.</p>
 
 <h2>Links going over his heresies</h2>
@@ -2015,7 +2024,7 @@ const CONTENT = {
 <blockquote>&ldquo;There is nothing like unto Him, and He is the Hearing, the Seeing.&rdquo;<cite>Quran 42:11</cite></blockquote>
 <blockquote>&ldquo;And I did not create the jinn and mankind except to worship Me.&rdquo;<cite>Quran 51:56</cite></blockquote>
 
-<p><strong>Tawhid, the Oneness of Allah, is the most important thing in Islam.</strong> It is the reason the creation exists, the first thing every Messenger called to, and the one thing Allah does not forgive a person who dies upon without repentance. Every other act of worship is only accepted from someone who holds it. When the Prophet <span lang="ar">صلى الله عليه وسلم</span> sent Mu&lsquo;adh to Yemen he told him that the first thing to call the people to is the worship of Allah alone.</p>
+<p><strong>Tawhid, the Oneness of Allah, is the most important thing in Islam.</strong> It is the reason the creation exists, the first thing every Messenger called to, and the one thing Allah does not forgive violating unless you repent for it and come back to Islam. Every other act of worship is only accepted from someone who holds it. When the Prophet <span lang="ar">صلى الله عليه وسلم</span> sent Mu&lsquo;adh to Yemen he told him that the first thing to call the people to is the worship of Allah alone.</p>
 <blockquote>&ldquo;And We certainly sent into every nation a messenger, [saying], &lsquo;Worship Allah and avoid Taghut.&rsquo;&rdquo;<cite>Quran 16:36</cite></blockquote>
 <blockquote>&ldquo;Indeed, associating others with Allah is a great injustice.&rdquo;<cite>Quran 31:13</cite></blockquote>
 <blockquote>&ldquo;Let the first thing you call them to be the worship of Allah alone.&rdquo;<cite>Sahih al-Bukhari, 7372; Sahih Muslim, 19 (the meaning)</cite></blockquote>
@@ -3096,11 +3105,7 @@ The &ldquo;path of the believers&rdquo; here is first of all the path of those w
 
 <blockquote>&ldquo;Verily he among you who lives long will see great controversy, so you must keep to my Sunnah and to the Sunnah of the rightly-guided Khulafa&rsquo;.&rdquo;</blockquote>
 
-<p>The Sahabah accepted all signs of Islam even if they were not exclusive to the Muslims. This is also what was practiced by the Salaf as-Salih. It is reported that Ahmad (Though we do not consider him of the salaf as salih, this is simply an example) was asked about the one who died in Dar al-Kufr and cannot be identified, and he replied:</p>
-
-<blockquote>&ldquo;He is identified (as a Muslim or Kafir) by circumcision and clothing.&rdquo;</blockquote>
-
-<p>Neither circumcision nor clothing is exclusive to the Muslims, but Ahmad counted them among the signs of Islam by which the unknown is identified.</p>
+<p>The Sahabah accepted all signs of Islam even if they were not exclusive to the Muslims. This is also what was practiced by the Salaf as-Salih.</p>
 
 <h3>Not making Takfir on suspicion</h3>
 
@@ -5309,7 +5314,7 @@ Those firmly grounded in knowledge are those who stop where their knowledge ends
 
 <p>The texts above do not tell Muslims what the Tablet is made of, how big it is, where it is, or how the writing is arranged. They also do not give a detailed account of everything that is written in it. Muslims do not add descriptions from stories, from weak reports or from their own opinion, because this belongs to the unseen. Muslims believe what Allah and His Messenger <span lang="ar">صلى الله عليه وسلم</span> told Muslims, and Muslims stop where the texts stop.</p>
 `,
-"what-is-islam/aqeedah/specific-beliefs/tafdil": `
+"what-is-islam/aqeedah/specific-beliefs/creation-and-mankind/tafdil": `
 <p class="lede">Tafdil (<span lang="ar">التفضيل</span>) is ranking the Companions by merit. There are two separate questions: who ruled after the Prophet <span lang="ar">صلى الله عليه وسلم</span> (the Khilafah), and who was most virtuous (<em>fadl</em>). The ruling of the people of Madinah on each is below.</p>
 
 <h2>The Khilafah</h2>
@@ -5691,8 +5696,17 @@ Those firmly grounded in knowledge are those who stop where their knowledge ends
 </ul>
 
 <p>The Prophet <span lang="ar">صلى الله عليه وسلم</span> said about the people who built places of worship over their graves and filled them with images: &ldquo;Those are the worst of creation in the sight of Allah.&rdquo; (Sahih al-Bukhari 427, Sahih Muslim 528) He also said: &ldquo;Whoever imitates a people is one of them.&rdquo; (Sunan Abi Dawud 4031) For the ruling on images in general, see <a href="#/forum/what-is-islam/fiqh/fatwas/dress-appearance-and-images/tasweer">Tasweer</a>.</p>
+
+<h2>24. Infringing on the rights of Muslims</h2>
+
+<p>Many people neglect the rights that Muslims owe each other, thinking they are optional courtesies. They are rights, and neglecting them without an excuse is a mistake. A Muslim owes another Muslim five rights:</p>
+
+<blockquote>&ldquo;A Muslim owes another Muslim five rights: returning the greeting of peace, visiting the sick, following the funeral processions, accepting invitations, and saying <em>tashm&imacr;t</em> (<em>yarhamuk Allah</em>, &ldquo;may Allah show mercy to you&rdquo;) to the person who sneezes.&rdquo;</blockquote>
+
+<p>Accepting invitations goes as far as marriage invitations (the walimah). It applies to any invitation that is halal, so it does not apply to an invitation to something haram.</p>
+
 `,
-"what-is-islam/aqeedah/specific-beliefs/calendar": `
+"what-is-islam/aqeedah/specific-beliefs/creation-and-mankind/calendar": `
 <p class="lede">The Islamic calendar is a lunar calendar. Its months begin with the new crescent moon, and many acts of worship, such as fasting Ramadan and performing Hajj, are tied to its dates.</p>
 
 <h2>A lunar calendar from Allah</h2>
@@ -6894,7 +6908,7 @@ Those firmly grounded in knowledge are those who stop where their knowledge ends
 <p>These are some well-known examples of deficiencies in Aqeedah that are Kufr. They are the doctrines of the sects of innovation, and most of them come down to mishandling Allah&rsquo;s Names and Attributes, or the definition of Iman and who is a Muslim. <strong>There are many more than these.</strong> They are listed here only as examples, so that the idea of an Aqeedah deficiency is clear.</p>
 
 <ol>
-<li><strong>Tajahhum (<span lang="ar">تجهّم</span>):</strong> adopting the creed of the Jahmiyyah, the followers of Jahm ibn Safwan. Their core is denying Allah&rsquo;s Names and Attributes. It also includes saying that the Qur&rsquo;an is created, denying that Allah is above His Throne (claiming He is everywhere or nowhere), and denying that the believers will see Him. Many of the Salaf declared them disbelievers for this. See <a href="#/forum/refutations/heretics/jahmiyya">Jahmiyya</a>.</li>
+<li><strong>Tajahhum (<span lang="ar">تجهّم</span>):</strong> adopting the creed of the Jahmiyyah, the followers of Jahm ibn Safwan. Their core is denying Allah&rsquo;s Names and Attributes. It also includes saying that the Qur&rsquo;an is created, denying that Allah is above His Throne (claiming He is everywhere or nowhere), and denying that the believers will see Him. Many of the Salaf declared them disbelievers for this. See <a href="#/forum/refutations/heretics/creed-and-kalam-sects/jahmiyyah-jahmites">Jahmiyya</a>.</li>
 
 <li><strong>Ta&rsquo;teel (<span lang="ar">تعطيل</span>):</strong> literally &ldquo;emptying&rdquo; or &ldquo;stripping.&rdquo; It means denying the Names, Attributes or actions that Allah affirmed for Himself, or emptying them of their meaning: for example saying that Allah does not have a Hand or a Face, does not speak, does not descend, or is not above the heavens, or that these texts have no meaning that Muslims can know. Nu&lsquo;aym ibn Hammad (d. 228 AH, the teacher of al-Bukhari) said, as quoted by al-Dhahabi in <em>al-&lsquo;Uluww</em>: &ldquo;Whoever denies anything of what Allah described Himself with has disbelieved.&rdquo;</li>
 
@@ -6906,11 +6920,11 @@ Those firmly grounded in knowledge are those who stop where their knowledge ends
 
 <li><strong>Ta&rsquo;weel (<span lang="ar">تأويل</span>), in the blameworthy sense:</strong> reinterpreting the texts about Allah&rsquo;s Names and Attributes away from their apparent meaning, without evidence, such as saying that the Hand means power, <em>istiwa&rsquo;</em> means taking control, or that Allah&rsquo;s coming means the coming of His command. The Salaf called this <em>tahrif</em>, distortion of the words from their places (Quran 4:46). It is different from <em>tafsir</em> (explaining a text correctly) and from an interpretation that has evidence from the text and context.</li>
 
-<li><strong>Irja&rsquo; (<span lang="ar">إرجاء</span>):</strong> the doctrine of the Murji&rsquo;ah, which says that Iman is only belief of the heart (or the heart and the tongue) and that actions are not part of it, so that no action, even idol-worship, abandoning the prayer or mocking Allah, takes a person out of Islam as long as he believes in his heart. This contradicts the texts that make Iman belief, speech and action, and the Qur&rsquo;an&rsquo;s ruling on the mockers: &ldquo;Make no excuse; you have disbelieved after your belief&rdquo; (Quran 9:66). See <a href="#/forum/refutations/heretics/murjiah">Murji&rsquo;ah</a>.</li>
+<li><strong>Irja&rsquo; (<span lang="ar">إرجاء</span>):</strong> the doctrine of the Murji&rsquo;ah, which says that Iman is only belief of the heart (or the heart and the tongue) and that actions are not part of it, so that no action, even idol-worship, abandoning the prayer or mocking Allah, takes a person out of Islam as long as he believes in his heart. This contradicts the texts that make Iman belief, speech and action, and the Qur&rsquo;an&rsquo;s ruling on the mockers: &ldquo;Make no excuse; you have disbelieved after your belief&rdquo; (Quran 9:66). See <a href="#/forum/refutations/heretics/creed-and-kalam-sects/murjiah-murjiites">Murji&rsquo;ah</a>.</li>
 
-<li><strong>Khuruj (<span lang="ar">خروج</span>):</strong> the doctrine of the Khawarij, who declare Muslims disbelievers because of major sins, say that the one who commits a major sin is a disbeliever who will be in Hell forever, and rebel against the Muslims and shed their blood on that basis. The Prophet <span lang="ar">صلى الله عليه وسلم</span> said of them that they pass through the religion as an arrow passes through its target (Sahih al-Bukhari, 3610; Sahih Muslim, 1064). See <a href="#/forum/refutations/heretics/khawarij">Khawarij</a>.</li>
+<li><strong>Khuruj (<span lang="ar">خروج</span>):</strong> the doctrine of the Khawarij, who declare Muslims disbelievers because of major sins, say that the one who commits a major sin is a disbeliever who will be in Hell forever, and rebel against the Muslims and shed their blood on that basis. The Prophet <span lang="ar">صلى الله عليه وسلم</span> said of them that they pass through the religion as an arrow passes through its target (Sahih al-Bukhari, 3610; Sahih Muslim, 1064). See <a href="#/forum/refutations/heretics/sects-and-movements/khawarij-kharijites">Khawarij</a>.</li>
 
-<li><strong>The Mu&lsquo;tazili &ldquo;station between the two stations&rdquo; (<em>al-manzilah bayn al-manzilatayn</em>, <span lang="ar">المنزلة بين المنزلتين</span>):</strong> the Mu&lsquo;tazilah claim that the one who commits a major sin is neither a believer nor a disbeliever but is in a third position, and that he will be in Hell forever if he dies without repenting. This contradicts the texts which call a sinner a believer, such as &ldquo;if two groups of the believers fight each other&rdquo; (Quran 49:9), and the texts that say Allah forgives what is below Shirk as He wills (Quran 4:48). The Mu&lsquo;tazilah also deny Allah&rsquo;s Attributes and say the Qur&rsquo;an is created. See <a href="#/forum/refutations/heretics/mutazilites">Mu&rsquo;tazilites</a>.</li>
+<li><strong>The Mu&lsquo;tazili &ldquo;station between the two stations&rdquo; (<em>al-manzilah bayn al-manzilatayn</em>, <span lang="ar">المنزلة بين المنزلتين</span>):</strong> the Mu&lsquo;tazilah claim that the one who commits a major sin is neither a believer nor a disbeliever but is in a third position, and that he will be in Hell forever if he dies without repenting. This contradicts the texts which call a sinner a believer, such as &ldquo;if two groups of the believers fight each other&rdquo; (Quran 49:9), and the texts that say Allah forgives what is below Shirk as He wills (Quran 4:48). The Mu&lsquo;tazilah also deny Allah&rsquo;s Attributes and say the Qur&rsquo;an is created. See <a href="#/forum/refutations/heretics/creed-and-kalam-sects/mutazilah-mutazilites">Mu&rsquo;tazilites</a>.</li>
 </ol>
 
 <p>See <a href="#/forum/what-is-islam/aqeedah/takfir">Takfir</a> and <a href="#/forum/what-is-islam/aqeedah/udhr-bil-jahil-and-iqamatul-hujjah">Udhr bil Jahil and Iqamatul Hujjah</a>.</p>
@@ -9516,7 +9530,7 @@ Those firmly grounded in knowledge are those who stop where their knowledge ends
 
 <p>This site explains other schools for comparison only. They are not frameworks to follow. For a historical discussion of Abu Hanifah, see:</p>
 
-<a class="cta-link" href="#/forum/refutations/heretics/abu-hanifah">
+<a class="cta-link" href="#/forum/refutations/heretics/individuals/abu-hanifah">
   Go to Abu Hanifah
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h16M14 6l6 6-6 6"/></svg>
 </a>
