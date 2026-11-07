@@ -12829,7 +12829,7 @@ function quizAccepts(code, ans){ // ans: "y" | "i" | "n"
 const QZ_KEY="ilm-quiz";
 function qzLoad(){ try{ const o=JSON.parse(localStorage.getItem(QZ_KEY)||"null"); if(o&&typeof o==="object") return {i:Math.max(0,Math.min(QUIZ.length,+o.i||0)),passed:!!o.passed}; }catch(_){} return {i:0,passed:false}; }
 function qzSave(o){ try{ localStorage.setItem(QZ_KEY,JSON.stringify({i:o.i,passed:!!o.passed})); }catch(_){} }
-const QZ_REP="And that if you did fall into abandoning this pillar of islam, that you repented and came back to islam?";
+const QZ_REP="And that if you did fall into abandoning this pillar of islam, that you repented and came back to islam, if so then click no.";
 const QZ_NOTES=[
  [/Do you miss any of your five daily prayers/,QZ_REP],
  [/purposely not done hajj/,"If you have done hajj in the past whilst you were certain you were upon islam, then click NO! "+QZ_REP],
@@ -12950,7 +12950,10 @@ function renderQuiz(step){
         <button type="button" data-nav="1"${n===QUIZ.length-1?" disabled":""}>Next</button>
       </div>
       <p style="margin-top:1.2rem"><label>Jump to question <select data-jump>${QUIZ.map((_,k)=>`<option value="${k}"${k===n?" selected":""}>${k+1}</option>`).join("")}</select></label></p>
-      <p><a class="back-link" href="#/quiz">Back to the quiz page</a></p>`);
+      <p><button class="quiz-btn" type="button" data-jumpq>Jump to this question</button></p>
+      <p><a class="back-link" href="#/quiz" data-backquiz>Back to the quiz page</a></p>`);
+    app.querySelector("[data-jumpq]").addEventListener("click",()=>{ renderQuiz({i:n}); window.scrollTo(0,0); });
+    app.querySelector("[data-backquiz]").addEventListener("click",e=>{ e.preventDefault(); renderQuiz(); window.scrollTo(0,0); });
     app.querySelectorAll("[data-nav]").forEach(b=>b.addEventListener("click",()=>{ renderQuiz({browse:n+(+b.dataset.nav)}); window.scrollTo(0,0); }));
     app.querySelector("[data-jump]").addEventListener("change",e=>{ renderQuiz({browse:+e.target.value}); window.scrollTo(0,0); });
     return;
