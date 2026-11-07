@@ -12839,6 +12839,8 @@ const QZ_NOTES=[
 ];
 function qzNote(q){ for(const [re,t] of QZ_NOTES){ if(re.test(q.q)) return t; } return ""; }
 function qzNoteHtml(q){ const n=qzNote(q); return n?`<p class="quiz-note" style="margin:-.6rem 0 1.4rem;padding:.8rem 1rem;border-left:4px solid var(--teal);background:var(--card-bg);line-height:1.6">${quizEsc(n)}</p>`:""; }
+const QZ_CODE_HASH=3337277637;
+function qzCodeOk(v){ let h=5381; v=String(v).trim(); for(let k=0;k<v.length;k++) h=((h*33)^v.charCodeAt(k))>>>0; return v.length===8&&h===QZ_CODE_HASH; }
 function qzAnsLabel(c){ return {Y:"Yes",YI:"Yes, or I do not know and have not seen proof",N:"No",NI:"No, or I do not know and have not seen proof"}[c]||c; }
 function quizEsc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
 
@@ -12969,10 +12971,21 @@ function renderQuiz(step){
       ${saved.passed?`<div class="quiz-result pass"><p>You have already completed this quiz. You can browse every question and its accepted answer without answering.</p><p><button class="quiz-btn" type="button" data-quiz-browse>Behind the spreadsheet</button></p></div>`:""}
       ${(!saved.passed&&saved.i>0&&saved.i<QUIZ.length)?`<button class="quiz-start" type="button" data-quiz-resume style="margin-bottom:.8rem">Continue from question ${saved.i+1}</button>`:""}
       <button class="quiz-start" type="button" data-quiz-start${(!saved.passed&&saved.i>0&&saved.i<QUIZ.length)?' style="background:var(--card-bg);color:var(--ink);border:2px solid var(--line)"':""}>${(!saved.passed&&saved.i>0)?"Start again from question 1":"Start quiz"}</button>
+      <form class="quiz-admin" data-quiz-admin style="margin-top:1.4rem;display:flex;gap:.6rem;flex-wrap:wrap;align-items:center">
+        <label for="qz-code" style="font-weight:600">Admin code</label>
+        <input id="qz-code" type="password" inputmode="numeric" autocomplete="off" style="padding:.6rem .8rem;border:2px solid var(--line);border-radius:10px;background:var(--card-bg);color:var(--ink);font:inherit;min-width:9rem">
+        <button class="quiz-btn" type="submit" style="padding:.6rem 1.2rem;font-size:1rem">Unlock</button>
+        <span data-quiz-admin-msg role="status" style="flex-basis:100%;color:#B3261E"></span>
+      </form>
       <p class="quiz-cta-note" style="margin-top:1rem">Your progress is saved on this device only. See Cookies &amp; storage.</p>
       <a class="back-link" href="#/index" style="margin-top:1.6rem">Back to Index</a>`);
     app.querySelector("[data-quiz-start]").addEventListener("click",()=>{ qzSave({i:0,passed:saved.passed}); renderQuiz({i:0}); });
     const rs=app.querySelector("[data-quiz-resume]"); if(rs) rs.addEventListener("click",()=>renderQuiz({i:saved.i}));
+    app.querySelector("[data-quiz-admin]").addEventListener("submit",e=>{
+      e.preventDefault();
+      if(qzCodeOk(app.querySelector("#qz-code").value)){ qzSave({i:saved.i,passed:true}); renderQuiz({browse:0}); window.scrollTo(0,0); }
+      else app.querySelector("[data-quiz-admin-msg]").textContent="Wrong code.";
+    });
     const br=app.querySelector("[data-quiz-browse]"); if(br) br.addEventListener("click",()=>renderQuiz({browse:0}));
     return;
   }
