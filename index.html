@@ -12835,7 +12835,7 @@ const QZ_NOTES=[
  [/purposely not done hajj/,"If you have done hajj in the past whilst you were certain you were upon islam, then click NO! "+QZ_REP],
  [/purposely not given zakat/,QZ_REP],
  [/purposely not fasted during the month of Ramadan/,"Answer No if you fasted it, or have made it up. "+QZ_REP],
- [/repented from any kufr, even if it was a mistake/,"Ghusl is just to be able to pray. For now you may repent by regretting, renouncing and taking the shahada right now. Renewing your islam is for people who failed or fell into Kufr."]
+ [/repented from any kufr, even if it was a mistake/,"Ghusl is just to be able to pray. For now you may repent by regretting, renouncing and taking the shahada right now. Renewing your islam is for people who failed or fell into Kufr. Press yes if you have not fallen into Kufr."]
 ];
 function qzNote(q){ for(const [re,t] of QZ_NOTES){ if(re.test(q.q)) return t; } return ""; }
 function qzNoteHtml(q){ const n=qzNote(q); return n?`<p class="quiz-note" style="margin:-.6rem 0 1.4rem;padding:.8rem 1rem;border-left:4px solid var(--teal);background:var(--card-bg);line-height:1.6">${quizEsc(n)}</p>`:""; }
@@ -12970,7 +12970,7 @@ function renderQuiz(step){
         <li>If you say i do not know, for something that is not obscure, i.e that is known by necessity by every Muslim (known by fitrah or mass attestation), you will be eliminated, because this is Kufr</li>
       </ol>
       <p>If i made a mistake in the coding please let me know. Sometimes the "i do not know" option will still eliminate you, especially for the things known by necessity!</p>
-      <div class="quiz-warn">If you fail, then go to the How to be Muslim tab and renew your islam, because you have fallen into Kufr from apparency</div>
+      <div class="quiz-warn">If you fail (as in, an actual fail, not a misclick or you trying to rush through the questions) then go to the How to be Muslim tab and renew your islam, because you have fallen into Kufr from apparency</div>
       ${saved.passed?`<div class="quiz-result pass"><p>You have already completed this quiz. You can browse every question and its accepted answer without answering.</p><p><button class="quiz-btn" type="button" data-quiz-browse>Behind the spreadsheet</button></p></div>`:""}
       ${(!saved.passed&&saved.i>0&&saved.i<QUIZ.length)?`<button class="quiz-start" type="button" data-quiz-resume style="margin-bottom:.8rem">Continue from question ${saved.i+1}</button>`:""}
       <button class="quiz-start" type="button" data-quiz-start${(!saved.passed&&saved.i>0&&saved.i<QUIZ.length)?' style="background:var(--card-bg);color:var(--ink);border:2px solid var(--line)"':""}>${(!saved.passed&&saved.i>0)?"Start again from question 1":"Start quiz"}</button>
@@ -13005,7 +13005,7 @@ function renderQuiz(step){
         <p><strong>Read these then come back and try again:</strong></p>
         <ul class="quiz-read">${quizReadList(q)}</ul>
       </div>
-      <div class="quiz-warn">If you fail, then go to the How to be Muslim tab and renew your islam, because you have fallen into Kufr from apparency</div>
+      <div class="quiz-warn">If you fail (as in, an actual fail, not a misclick or you trying to rush through the questions) then go to the How to be Muslim tab and renew your islam, because you have fallen into Kufr from apparency</div>
       <p><a class="quiz-btn" href="#/forum/what-is-islam/how-to-be-muslim">Go to How to be Muslim</a></p>
       <p><button class="quiz-btn" type="button" data-quiz-retry style="background:var(--card-bg);color:var(--ink);border:2px solid var(--line)">Retake the quiz</button></p>`);
     app.querySelector("[data-quiz-retry]").addEventListener("click",()=>{ qzSave({i:0,passed:saved.passed}); renderQuiz({i:0}); });
