@@ -12971,7 +12971,8 @@ function renderQuiz(step){
       ${saved.passed?`<div class="quiz-result pass"><p>You have already completed this quiz. You can browse every question and its accepted answer without answering.</p><p><button class="quiz-btn" type="button" data-quiz-browse>Behind the spreadsheet</button></p></div>`:""}
       ${(!saved.passed&&saved.i>0&&saved.i<QUIZ.length)?`<button class="quiz-start" type="button" data-quiz-resume style="margin-bottom:.8rem">Continue from question ${saved.i+1}</button>`:""}
       <button class="quiz-start" type="button" data-quiz-start${(!saved.passed&&saved.i>0&&saved.i<QUIZ.length)?' style="background:var(--card-bg);color:var(--ink);border:2px solid var(--line)"':""}>${(!saved.passed&&saved.i>0)?"Start again from question 1":"Start quiz"}</button>
-      <form class="quiz-admin" data-quiz-admin style="margin-top:1.4rem;display:flex;gap:.6rem;flex-wrap:wrap;align-items:center">
+      <form class="quiz-admin" data-quiz-admin style="margin-top:1.6rem;padding:1.2rem 1.4rem;border:2px dashed var(--line);border-radius:12px;background:var(--card-bg);display:flex;gap:.6rem;flex-wrap:wrap;align-items:center">
+        <strong style="flex-basis:100%">Admin: unlock Behind the spreadsheet</strong>
         <label for="qz-code" style="font-weight:600">Admin code</label>
         <input id="qz-code" type="password" inputmode="numeric" autocomplete="off" style="padding:.6rem .8rem;border:2px solid var(--line);border-radius:10px;background:var(--card-bg);color:var(--ink);font:inherit;min-width:9rem">
         <button class="quiz-btn" type="submit" style="padding:.6rem 1.2rem;font-size:1rem">Unlock</button>
