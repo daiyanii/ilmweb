@@ -13039,8 +13039,9 @@ function quizAccepts(code, ans){ // ans: "y" | "i" | "n"
   return code==="YI"||code==="NI";
 }
 const QZ_KEY="ilm-quiz";
-function qzLoad(){ try{ const o=JSON.parse(localStorage.getItem(QZ_KEY)||"null"); if(o&&typeof o==="object") return {i:Math.max(0,Math.min(QUIZ.length,+o.i||0)),passed:!!o.passed}; }catch(_){} return {i:0,passed:false}; }
-function qzSave(o){ try{ localStorage.setItem(QZ_KEY,JSON.stringify({i:o.i,passed:!!o.passed})); }catch(_){} }
+const QZ_CP=10; // a checkpoint is saved every 10 correct answers
+function qzLoad(){ try{ const o=JSON.parse(localStorage.getItem(QZ_KEY)||"null"); if(o&&typeof o==="object") return {i:Math.max(0,Math.min(QUIZ.length,+o.i||0)),cp:Math.floor(Math.max(0,Math.min(QUIZ.length,+o.cp||0))/QZ_CP)*QZ_CP,passed:!!o.passed}; }catch(_){} return {i:0,cp:0,passed:false}; }
+function qzSave(o){ try{ localStorage.setItem(QZ_KEY,JSON.stringify({i:o.i,cp:o.cp||0,passed:!!o.passed})); }catch(_){} }
 const QZ_REP="And that if you did fall into abandoning this pillar of islam, that you repented and came back to islam, if so then click no.";
 const QZ_NOTES=[
  [/Do you miss any of your five daily prayers/,QZ_REP],
@@ -13180,6 +13181,7 @@ function renderQuiz(step){
         <li>If you answer Yes or No, and are wrong or admit to a nullifier of islam, you are eliminated, because that is Kufr</li>
         <li>If you answer i do not know, for something that is obscure and only known through studying the texts, then you are not eliminated, because this is not Kufr in itself, until you are shown the proof</li>
         <li>If you say i do not know, for something that is not obscure, i.e that is known by necessity by every Muslim (known by fitrah or mass attestation), you will be eliminated, because this is Kufr</li>
+        <li>There is a checkpoint every ${QZ_CP} questions. If you are eliminated, you do not go back to question 1, you go back to your last checkpoint. Your checkpoint is saved on this device only</li>
       </ol>
       <p>If i made a mistake in the coding please let me know. Sometimes the "i do not know" option will still eliminate you, especially for the things known by necessity!</p>
       <div class="quiz-warn">If you fail (as in, an actual fail, not a misclick or you trying to rush through the questions) then go to the How to be Muslim tab and renew your islam, because you may have fallen into Kufr from apparency</div>
@@ -13195,18 +13197,34 @@ function renderQuiz(step){
       </form>
       <p class="quiz-cta-note" style="margin-top:1rem">Your progress is saved on this device only. See Cookies &amp; storage.</p>
       <a class="back-link" href="#/index" style="margin-top:1.6rem">Back to Index</a>`);
-    app.querySelector("[data-quiz-start]").addEventListener("click",()=>{ qzSave({i:0,passed:saved.passed}); renderQuiz({i:0}); });
+    app.querySelector("[data-quiz-start]").addEventListener("click",()=>{ qzSave({i:0,cp:0,passed:saved.passed}); renderQuiz({i:0}); });
     const rs=app.querySelector("[data-quiz-resume]"); if(rs) rs.addEventListener("click",()=>renderQuiz({i:saved.i}));
     app.querySelector("[data-quiz-admin]").addEventListener("submit",e=>{
       e.preventDefault();
-      if(qzCodeOk(app.querySelector("#qz-code").value)){ qzSave({i:saved.i,passed:true}); renderQuiz({browse:0}); window.scrollTo(0,0); }
+      if(qzCodeOk(app.querySelector("#qz-code").value)){ qzSave({i:saved.i,cp:saved.cp,passed:true}); renderQuiz({browse:0}); window.scrollTo(0,0); }
       else app.querySelector("[data-quiz-admin-msg]").textContent="Wrong code.";
     });
     const br=app.querySelector("[data-quiz-browse]"); if(br) br.addEventListener("click",()=>renderQuiz({browse:0}));
     return;
   }
+  if(step.checkpoint!==undefined){
+    const n=step.checkpoint;
+    wrap(`
+      <p class="sf-eyebrow">Imtihan</p>
+      <h1 class="sf-title">Checkpoint reached</h1>
+      <div class="quiz-bar"><i style="width:${Math.round(n/QUIZ.length*100)}%"></i></div>
+      <div class="quiz-result pass">
+        <h2>${n} of ${QUIZ.length} questions answered</h2>
+        <p>Your progress is saved. If you are eliminated later, you will restart from question ${n+1}, not from question 1.</p>
+      </div>
+      <p><button class="quiz-start" type="button" data-quiz-next>Continue to question ${n+1}</button></p>
+      <a class="back-link" href="#/index">Back to Index</a>`);
+    app.querySelector("[data-quiz-next]").addEventListener("click",()=>{ renderQuiz({i:n}); window.scrollTo(0,0); });
+    return;
+  }
   if(step.fail!==undefined){
     const q=QUIZ[step.fail];
+    qzSave({i:saved.cp,cp:saved.cp,passed:saved.passed});
     wrap(`
       <p class="sf-eyebrow">Imtihan</p>
       <h1 class="sf-title">You are eliminated</h1>
@@ -13219,12 +13237,14 @@ function renderQuiz(step){
       </div>
       <div class="quiz-warn">If you fail (as in, an actual fail, not a misclick or you trying to rush through the questions) then go to the How to be Muslim tab and renew your islam, because you may have fallen into Kufr from apparency</div>
       <p><a class="quiz-btn" href="#/forum/what-is-islam/how-to-be-muslim">Go to How to be Muslim</a></p>
-      <p><button class="quiz-btn" type="button" data-quiz-retry style="background:var(--card-bg);color:var(--ink);border:2px solid var(--line)">Retake the quiz</button></p>`);
-    app.querySelector("[data-quiz-retry]").addEventListener("click",()=>{ qzSave({i:0,passed:saved.passed}); renderQuiz({i:0}); });
+      ${saved.cp>0?`<p><button class="quiz-btn" type="button" data-quiz-cp>Restart from your checkpoint (question ${saved.cp+1})</button></p>`:""}
+      <p><button class="quiz-btn" type="button" data-quiz-retry style="background:var(--card-bg);color:var(--ink);border:2px solid var(--line)">${saved.cp>0?"Start again from question 1":"Retake the quiz"}</button></p>`);
+    const cpb=app.querySelector("[data-quiz-cp]"); if(cpb) cpb.addEventListener("click",()=>{ renderQuiz({i:saved.cp}); window.scrollTo(0,0); });
+    app.querySelector("[data-quiz-retry]").addEventListener("click",()=>{ qzSave({i:0,cp:0,passed:saved.passed}); renderQuiz({i:0}); window.scrollTo(0,0); });
     return;
   }
   if(step.i>=QUIZ.length){
-    qzSave({i:QUIZ.length,passed:true});
+    qzSave({i:QUIZ.length,cp:saved.cp,passed:true});
     wrap(`
       <p class="sf-eyebrow">Imtihan</p>
       <h1 class="sf-title">Quiz complete</h1>
@@ -13252,7 +13272,11 @@ function renderQuiz(step){
     </div>`);
   app.querySelectorAll(".quiz-ans button").forEach(b=>b.addEventListener("click",()=>{
     const a=b.dataset.a;
-    if(quizAccepts(q.a,a)){ qzSave({i:step.i+1,passed:saved.passed}); renderQuiz({i:step.i+1}); window.scrollTo(0,0); }
+    if(quizAccepts(q.a,a)){
+      const ni=step.i+1, hit=(ni%QZ_CP===0&&ni<QUIZ.length);
+      qzSave({i:ni,cp:hit?ni:saved.cp,passed:saved.passed});
+      renderQuiz(hit?{checkpoint:ni}:{i:ni}); window.scrollTo(0,0);
+    }
     else renderQuiz({fail:step.i,ans:a});
   }));
 }
@@ -13727,7 +13751,7 @@ terms:{t:"Terms of Use",h:`<p class="lede">These terms are in plain language. By
 <h2>7. Other websites</h2><p>This site links to other sites and videos. We do not control them and are not responsible for their content or practices.</p>
 <h2>8. Changes and availability</h2><p>We may change or remove content, or these terms, at any time. When the terms change in a way that matters, you will be asked to agree again.</p>
 <h2>9. Problems and disputes</h2><p>If something is wrong, contact us first. We will deal with you fairly and honestly and try to settle it by mutual agreement and goodwill (sulh). These terms do not force you into any particular court or arbitrator, and do not remove any right you have under the law where you live.</p>
-<h2>9a. Saved quiz progress</h2><p>The Imtihan Quiz saves your progress and whether you have completed it in your browser, on your own device only. Nothing is sent to us, and we do not see your answers or result. Once you have completed the quiz, you can browse its questions and accepted answers without answering. Clearing your browser data, or "Withdraw and clear saved data" in the footer, removes this.</p>
+<h2>9a. Saved quiz progress</h2><p>The Imtihan Quiz saves your progress, your last checkpoint (one is saved every 10 questions, and you go back to it if you are eliminated) and whether you have completed it in your browser, on your own device only. Nothing is sent to us, and we do not see your answers or result. Once you have completed the quiz, you can browse its questions and accepted answers without answering. Clearing your browser data, or "Withdraw and clear saved data" in the footer, removes this.</p>
 <h2>10. Your agreement</h2><p>You confirm you are old enough to agree, or have your parent or guardian's permission. You can withdraw at any time from "Privacy &amp; cookie choices" in the footer, or by leaving the site.</p>
 <h2>11. General information, not advice</h2><p>These pages give general information about classical Islamic rulings and the views of scholars. They are not advice on your own situation.</p>
 <h2>12. Liability</h2><p>To the fullest extent the law allows, we are not liable for any loss or damage that comes from using the content. This does not limit any right you have that cannot lawfully be limited.</p>
@@ -13737,7 +13761,7 @@ terms:{t:"Terms of Use",h:`<p class="lede">These terms are in plain language. By
 <h2>Contact</h2><p>${CONTACT}</p><p><em>Version ${LEGAL_VERSION}</em></p>`},
 privacy:{t:"Privacy Policy",h:`<p class="lede">Short version: this site does not ask for or collect personal information.</p>
 <h2>What we collect</h2><p>Nothing ourselves. There are no accounts, forms, comments, ads, analytics or trackers on this site. We never sell, trade or misuse information. Anything that did reach us would be treated as an amanah (a trust).</p>
-<h2>What is saved on your device</h2><p>Only small settings kept in your browser and never sent to us: your agreement and choices, light or dark theme, your language choice, and whether the "How to use this page" box is open, and your Imtihan Quiz progress (the question you reached and whether you have completed it). See Cookies &amp; storage.</p>
+<h2>What is saved on your device</h2><p>Only small settings kept in your browser and never sent to us: your agreement and choices, light or dark theme, your language choice, and whether the "How to use this page" box is open, and your Imtihan Quiz progress (the question you reached, your last checkpoint, and whether you have completed it). See Cookies &amp; storage.</p>
 <h2>Optional Google service (off until you allow it)</h2><ul><li><strong>Google Translate</strong> translates the page. The page text is sent to Google, and a cookie remembers your language.</li></ul><p>The site's fonts are built into the page and are not requested from Google. If you leave translation off, nothing is requested from Google. Google's own policy is at policies.google.com/privacy.</p>
 <h2>Hosting</h2><p>This site is hosted on GitHub Pages, provided by GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. GitHub may keep ordinary technical logs, such as IP address and time of visit, to run and secure the service. We do not use them to track you.</p>
 <h2>Other sites</h2><p>Links to YouTube, Instagram, Telegram, Discord, Google Docs and other sites lead to services with their own privacy practices.</p>
@@ -13750,7 +13774,7 @@ cookies:{t:"Cookies & storage",h:`<p class="lede">The site sets no cookies of it
 <tr><td>ilm-consent</td><td>Remembers your agreement and choices so you are not asked on every visit.</td><td>Yes</td></tr>
 <tr><td>ilm-theme</td><td>Remembers light or dark theme.</td><td>Preference</td></tr>
 <tr><td>ilm-howto</td><td>Remembers whether the "How to use this page" box is open.</td><td>Preference</td></tr>
-<tr><td>ilm-quiz</td><td>Saves your Imtihan Quiz progress (the question you reached and whether you have completed it), so you can continue later and, once you have completed it, browse the questions freely.</td><td>Preference</td></tr>
+<tr><td>ilm-quiz</td><td>Saves your Imtihan Quiz progress (the question you reached, your last checkpoint, and whether you have completed it), so you can continue later and, once you have completed it, browse the questions freely.</td><td>Preference</td></tr>
 <tr><td>ilm-lang</td><td>Remembers your chosen language.</td><td>Optional (Translate)</td></tr>
 <tr><td>googtrans (cookie)</td><td>Set by Google Translate to remember the language.</td><td>Optional (Translate)</td></tr></tbody></table>
 <p>The site's fonts are built into the page, so no font service is contacted.</p>
@@ -13765,7 +13789,7 @@ guidelines:{t:"Site Guidelines",h:`<p class="lede">How we ask you to use this si
 <li>Rulings on war, punishment, rulers and similar matters are explained for knowledge, and you are responsible for how you act on them. This site does not call for or approve unlawful violence or vigilantism.</li>
 <li><strong>Keep the context if you can.</strong> Sharing the page link, rather than a clipped line or screenshot, helps the full explanation travel with it. This is a request and not a rule.</li>
 <li><strong>Be truthful and fair.</strong> Please do not misquote or distort, and do not use the content to harm, threaten or harass specific people.</li>
-<li><strong>Your quiz progress stays on your device.</strong> The Imtihan Quiz saves how far you got and whether you finished, in your own browser only.</li>
+<li><strong>Your quiz progress stays on your device.</strong> The Imtihan Quiz saves how far you got, your last checkpoint and whether you finished, in your own browser only.</li>
 <li><strong>Tell us about mistakes.</strong> Send corrections and rights concerns to ${CONTACT}.</li></ul>`}
 };
 function renderLegal(key){
