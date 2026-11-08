@@ -14926,8 +14926,6 @@ html[data-size="xl"]{font-size:125%}
 
 /* ---- Dar al-Islam note shown wherever Imtihan is mentioned ---- */
 .article .dar-note{max-width:none;margin:1.4rem 0 1.15rem}
-.welcome .dar-note{margin-top:.8rem}
-.quiz-cta-wrap + .dar-note{margin:.2rem 0 1.2rem;max-width:none}
 .sf-title + .dar-note{max-width:none;margin:.2rem 0 1.2rem}
 </style>
 <script id="display-prefs-js">
@@ -15059,10 +15057,7 @@ function run(){
   if(document.querySelector("[data-imtihan-dar]"))return;
   var art=document.querySelector(".article");
   if(art){if(/imtihan/i.test(art.textContent))art.appendChild(mk());return;}
-  var w=document.querySelector(".welcome .imtihan-note");
-  if(w){w.insertAdjacentElement("afterend",mk());return;}
-  var q=document.querySelector(".quiz-cta-wrap");
-  if(q){q.insertAdjacentElement("afterend",mk());return;}
+  if(document.querySelector(".welcome")||document.querySelector(".quiz-cta-wrap"))return;
   var r=document.querySelector(".quiz-rules");
   if(r){var t=document.querySelector(".sf-title");if(t&&/imtihan quiz/i.test(t.textContent))t.insertAdjacentElement("afterend",mk());}
 }
