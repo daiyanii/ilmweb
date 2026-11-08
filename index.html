@@ -13182,7 +13182,7 @@ function renderQuiz(step){
         <li>If you say i do not know, for something that is not obscure, i.e that is known by necessity by every Muslim (known by fitrah or mass attestation), you will be eliminated, because this is Kufr</li>
       </ol>
       <p>If i made a mistake in the coding please let me know. Sometimes the "i do not know" option will still eliminate you, especially for the things known by necessity!</p>
-      <div class="quiz-warn">If you fail (as in, an actual fail, not a misclick or you trying to rush through the questions) then go to the How to be Muslim tab and renew your islam, because you have fallen into Kufr from apparency</div>
+      <div class="quiz-warn">If you fail (as in, an actual fail, not a misclick or you trying to rush through the questions) then go to the How to be Muslim tab and renew your islam, because you may have fallen into Kufr from apparency</div>
       ${saved.passed?`<div class="quiz-result pass"><p>You have already completed this quiz. You can browse every question and its accepted answer without answering.</p><p><button class="quiz-btn" type="button" data-quiz-browse>Behind the spreadsheet</button></p></div>`:""}
       ${(!saved.passed&&saved.i>0&&saved.i<QUIZ.length)?`<button class="quiz-start" type="button" data-quiz-resume style="margin-bottom:.8rem">Continue from question ${saved.i+1}</button>`:""}
       <button class="quiz-start" type="button" data-quiz-start${(!saved.passed&&saved.i>0&&saved.i<QUIZ.length)?' style="background:var(--card-bg);color:var(--ink);border:2px solid var(--line)"':""}>${(!saved.passed&&saved.i>0)?"Start again from question 1":"Start quiz"}</button>
@@ -13217,7 +13217,7 @@ function renderQuiz(step){
         <p><strong>Read these then come back and try again:</strong></p>
         <ul class="quiz-read">${quizReadList(q)}</ul>
       </div>
-      <div class="quiz-warn">If you fail (as in, an actual fail, not a misclick or you trying to rush through the questions) then go to the How to be Muslim tab and renew your islam, because you have fallen into Kufr from apparency</div>
+      <div class="quiz-warn">If you fail (as in, an actual fail, not a misclick or you trying to rush through the questions) then go to the How to be Muslim tab and renew your islam, because you may have fallen into Kufr from apparency</div>
       <p><a class="quiz-btn" href="#/forum/what-is-islam/how-to-be-muslim">Go to How to be Muslim</a></p>
       <p><button class="quiz-btn" type="button" data-quiz-retry style="background:var(--card-bg);color:var(--ink);border:2px solid var(--line)">Retake the quiz</button></p>`);
     app.querySelector("[data-quiz-retry]").addEventListener("click",()=>{ qzSave({i:0,passed:saved.passed}); renderQuiz({i:0}); });
