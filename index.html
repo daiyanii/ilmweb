@@ -610,7 +610,7 @@ html{background:var(--parchment);}
 /* ============ ISLAMIC GEOMETRY AND MOTION ============ */
 .weave::before{
   content:"";position:absolute;inset:0;pointer-events:none;
-  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%23B8863B' stroke-width='.8'%3E%3Crect x='22' y='22' width='28' height='28'/%3E%3C/g%3E%3C/svg%3E") 0 0/72px 72px;opacity:.3;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%23B8863B' stroke-width='.8'%3E%3Crect x='22' y='22' width='28' height='28' transform='rotate(45 36 36)'/%3E%3C/g%3E%3C/svg%3E") 0 0/72px 72px;opacity:.3;
   animation:weaveDrift 140s linear infinite;
 }
 @keyframes weaveDrift{to{background-position:72px 72px;}}
