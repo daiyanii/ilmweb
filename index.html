@@ -846,6 +846,7 @@ body::before{background:radial-gradient(min(520px,85vmin) circle at var(--mx) va
 }
 </style>
 <style>
+.site-edu-note{margin:2.5rem 0 0;padding:1rem 1.2rem;border:1px solid var(--line);border-left:3px solid var(--gold-2);border-radius:3px;background:var(--card-bg);color:var(--ink-soft);font-size:.88rem;line-height:1.65;font-style:italic}
 .site-link-disclaimer{margin:2.5rem 0 0;padding:1rem 1.2rem;border:1px solid var(--line);border-left:3px solid var(--gold-2);border-radius:3px;background:var(--card-bg);color:var(--ink-soft);font-size:.88rem;line-height:1.65;font-style:italic}
 </style>
 </head>
@@ -1315,7 +1316,9 @@ const FORUMS = [
               ["Lesbianism is bad",""],
               ["Women need Men",""]
             ]],
-            ["Lookism",""]
+            ["Lookism",""],
+            ["Propaganda and Brainwashing",""],
+            ["Beauty standards in western culture",""]
           ]],
           ["Western Education",""],
           ["Western History",""]
@@ -6988,9 +6991,9 @@ Those firmly grounded in knowledge are those who stop where their knowledge ends
 
 <h3>&ldquo;We must love everyone&rdquo;</h3>
 
-<p>Muslims do not love the disbelievers. Allah said that the believers do not find those who believe in Allah and the Last Day loving those who oppose Allah and His Messenger, even if they are their fathers, sons or brothers (Quran 58:22), and He praised Ibrahim and those with him for declaring enmity and hatred towards their people&rsquo;s disbelief (Quran 60:4). Muslims do not love the wicked for their wickedness either. A Muslim who sins is loved for his faith and disliked for his sin, in proportion to each.</p>
+<p>Allah said that the believers do not find those who believe in Allah and the Last Day loving those who oppose Allah and His Messenger, even if they are their fathers, sons or brothers (Quran 58:22), and He praised Ibrahim and those with him for declaring enmity and hatred towards their people&rsquo;s disbelief (Quran 60:4). Muslims do not love the wicked for their wickedness either. A Muslim who sins is loved for his faith and disliked for his sin, in proportion to each.</p>
 
-<p>This does not mean mistreating anyone. Allah does not forbid kindness and justice towards non-Muslims who do not fight the Muslims (Quran 60:8), and a person may have natural affection for a relative, as the Prophet <span lang="ar">صلى الله عليه وسلم</span> did for his uncle, without that being the love of religion. What is forbidden is loving them for their religion or taking them as close allies against the believers (Quran 5:51).</p>
+<p>This does not mean mistreating anyone. Allah does not forbid kindness and justice towards non-Muslims who do not fight the Muslims (Quran 60:8), and a person may have natural affection for a relative, as the Prophet <span lang="ar">صلى الله عليه وسلم</span> did for his uncle, without that being the love of religion. What is forbidden is loving them for their religion or taking them as close allies against the believers (Quran 5:51). Loving aspects of them that have nothing to do with religion is different from loving them as a whole or their religions. Muslims do not love such things.</p>
 
 <h3>&ldquo;Having more than one wife was only for war, not for desire&rdquo;</h3>
 
@@ -7000,7 +7003,7 @@ Those firmly grounded in knowledge are those who stop where their knowledge ends
 
 <p>Marriage for desire is completely halal and is encouraged, even for a person who struggles with desire, as long as the conditions of marriage are met. The Prophet <span lang="ar">صلى الله عليه وسلم</span> said: &ldquo;O young men, whoever among you can afford marriage, let him marry, for it lowers the gaze and protects the private parts.&rdquo; (Sahih al-Bukhari 5066) He also said that in a man&rsquo;s relations with his wife there is a charity, and when the Companions asked how one gets a reward for satisfying his desire, he said: &ldquo;Do you not see that if he did it unlawfully he would bear a sin? So when he does it lawfully he has a reward.&rdquo; (Sahih Muslim 1006)</p>
 
-<h3>&ldquo;Marrying before puberty is a sin&rdquo;</h3>
+<h3>&ldquo;Marrying before puberty ends is a sin&rdquo;</h3>
 
 <p>The classical position of the jurists is that Islamic law sets no minimum age for the marriage <em>contract</em>. They based this on Allah&rsquo;s mention of the waiting period of women who have not menstruated (Quran 65:4), which the scholars understood to include girls who are too young. Ibn al-Mundhir and others reported that the scholars agreed that a father may marry off his young daughter to a suitable husband. They also pointed to the Prophet <span lang="ar">صلى الله عليه وسلم</span>&rsquo;s marriage to &lsquo;A&rsquo;ishah when she was young, with the consummation when she was nine. (Sahih al-Bukhari 5133, Sahih Muslim 1422)</p>
 
@@ -13126,7 +13129,7 @@ Those firmly grounded in knowledge are those who stop where their knowledge ends
 
 <div class="sf-panel">
   <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 8v5M12 16h.01M12 3l9 16H3L12 3Z"/></svg>
-  <p><strong>A note on the Einsteinian view:</strong> Einstein treated space as a kind of container (a physical fabric that things sit in and that can bend). Muslims do not necessarily believe this. Muslims hold that space is relational between existents, and Muslims do not view space as a box. However, a Muslim could say that the observable universe, which is in the lowest heaven, has a container. That would be why the mathematics holds up, while the relational nature of space is still preserved.</p>
+  <p><strong>A note on the Einsteinian view:</strong> Einstein treated space as a kind of container (a physical fabric that things sit in and that can bend). Muslims do not necessarily believe this. Muslims hold that space is relational between existents, and Muslims do not view space as a box.</p>
 </div>
 `,
 "why-islam-is-true/principles-to-understand/evidence-and-probability": `
@@ -15824,8 +15827,23 @@ function addLinkDisclaimer(){
   n.textContent=LINK_DISCLAIMER;
   main.appendChild(n);
 }
+const EDU_NOTE="This page is shared for educational purposes, to inform readers about classical Islamic views as they appear in the sources. Some of what is described may differ from the laws of certain countries. Nothing here is a call, encouragement or instruction to unjust illegal acts or harm against persons, groups or authorities. Readers are responsible for what they do with the classical explanations of the religious doctrines.";
+const EDU_NOTE_RE=/contains discussion of|\btakfir\b|\bka+fi?r(un|s)?\b|\bkuffar\b|apostas|\bmurtad|\bjihad\b|\bwar(s|fare)?\b|\bexecut|\bhudud\b|\bpunish|\bpenalt|\bjizy|\bslave|\bcaptive|\bpolygyn|young marriage|age of marriage|marriage law|\bzina\b|\bstoning\b|\blashes\b|\brebel|\bpersecut|non-muslims under/i;
+function addEduNote(){
+  const main=document.querySelector("main");
+  if(!main || main.querySelector(".site-edu-note")) return;
+  const art=main.querySelector(".article");
+  if(!art || art.querySelector(".warning")) return;
+  if(!EDU_NOTE_RE.test(art.textContent||"")) return;
+  const n=document.createElement("p");
+  n.className="site-edu-note";
+  n.setAttribute("role","note");
+  n.textContent=EDU_NOTE;
+  art.appendChild(n);
+}
 function enhanceView(){
   addLinkDisclaimer();
+  addEduNote();
   const art=document.querySelector(".article");
   if(art) addLinkNotes(art);
   if(art) buildGuide(art);
