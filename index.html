@@ -443,27 +443,9 @@ body::before{
 }
 
 
-/* ============ TRANSLATOR ============ */
+/* ============ TOP BAR ============ */
 .topbar{position:relative;z-index:10;}
 .topbar-actions{display:flex;align-items:center;justify-content:flex-end;gap:.85rem;min-width:0;}
-.translate-control{position:relative;}
-.translate-select{
-  appearance:none;-webkit-appearance:none;
-  border:1px solid var(--line);background-color:var(--card-bg);color:var(--ink);
-  border-radius:999px;padding:.5rem 2rem .5rem .9rem;font-family:inherit;font-size:.78rem;cursor:pointer;max-width:11rem;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23B8863B' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right .75rem center;
-  transition:border-color .2s ease,box-shadow .2s ease;
-}
-.translate-select:hover,.translate-select:focus-visible{border-color:var(--gold-2);outline:none;box-shadow:0 0 0 3px rgba(184,134,59,.14);}
-.translate-select:disabled{opacity:.6;cursor:progress;}
-.translate-select option{background:var(--parchment);color:var(--ink);}
-.translate-toast{position:fixed;left:50%;bottom:1.5rem;transform:translateX(-50%);z-index:50;max-width:min(92vw,420px);background:var(--ink);color:var(--parchment);padding:.7rem 1rem;border-radius:10px;font-size:.85rem;line-height:1.45;box-shadow:0 8px 24px rgba(0,0,0,.25);}
-/* hide Google's own banner/toolbar so only our dropdown shows */
-body{top:0 !important;}
-body > .skiptranslate, iframe.skiptranslate, .goog-te-banner-frame, #goog-gt-tt, .goog-te-balloon-frame{display:none !important;}
-#google_translate_element{display:none;}
-.goog-text-highlight{background:none !important;box-shadow:none !important;}
 
 .linktree-link{display:inline-flex;align-items:center;gap:.4rem;height:34px;padding:0 .8rem;border:1px solid var(--line);border-radius:999px;background:var(--card-bg);color:var(--ink);font-family:inherit;font-size:.78rem;font-weight:600;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:color .2s ease,border-color .2s ease,background .2s ease,box-shadow .2s ease;}
 .linktree-link svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;}
@@ -476,9 +458,7 @@ body > .skiptranslate, iframe.skiptranslate, .goog-te-banner-frame, #goog-gt-tt,
   .topbar-actions{flex:1 1 250px;min-width:0;flex-wrap:wrap;gap:.45rem;align-items:center;justify-content:flex-end;}
   .topbar-actions .linktree-link{order:1}
   .topbar-actions .theme-toggle{order:2}
-  .topbar-actions .translate-control{order:3}
   .topbar-actions .crumbs{order:4;flex:1 0 100%;min-width:0;justify-content:flex-start;text-align:left;overflow-wrap:anywhere;}
-  .translate-select{padding:.48rem 1.8rem .48rem .7rem;max-width:8.5rem;}
 }
 
 
@@ -605,7 +585,6 @@ html.js .article h2.rv:not(.in)::after{transform:scaleX(0);}
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){color-scheme:dark;} }
 :root[data-theme="dark"]{color-scheme:dark;}
 html{background:var(--parchment);}
-.translate-select{color-scheme:inherit;}
 
 /* ============ ISLAMIC GEOMETRY AND MOTION ============ */
 .weave::before{
@@ -655,7 +634,6 @@ html.gate-open{overflow:hidden;}
 .c-box h2{margin:0 0 .8rem;font-size:1.5rem;line-height:1.25;}
 .c-disc{border:2px solid var(--teal);border-radius:10px;padding:.8rem 1rem;margin:0 0 1rem;background:var(--card-bg);}
 .c-disc p{margin:.3rem 0 0;font-size:1rem;}
-.c-note{border-left:3px solid var(--gold);padding:.2rem .7rem;margin:0 0 1rem;}
 .c-small{font-size:.84rem;color:var(--ink-soft);margin:.7rem 0;}
 .c-doc{border:1px solid var(--line);border-radius:8px;margin:.4rem 0;background:var(--card-bg);}
 .c-doc summary{cursor:pointer;padding:.55rem .8rem;font-weight:600;color:var(--teal);}
@@ -848,7 +826,6 @@ body::before{background:radial-gradient(min(520px,85vmin) circle at var(--mx) va
 </head>
 <body>
 <div class="weave"></div>
-<div id="google_translate_element"></div>
 <div id="app"></div>
 <noscript><p style="max-width:44rem;margin:2rem auto;padding:0 1rem;font-family:Georgia,serif;line-height:1.6">This site needs JavaScript. This website is for education and study purposes. It describes classical Islamic rulings and the views of scholars. It does not call for, encourage or approve of unlawful violence, vigilantism, rebellion or action against any person, group or government. Where rulings are mentioned, such as on war, punishment or rulers, they are explained as matters of Islamic law.</p></noscript>
 <button class="to-top" type="button" aria-label="Back to top"><svg viewBox="0 0 48 48" aria-hidden="true"><circle class="trk" cx="24" cy="24" r="21"/><circle class="bar" cx="24" cy="24" r="21"/></svg><span class="arr" aria-hidden="true">&#8593;</span></button>
@@ -13980,10 +13957,6 @@ function renderIntro(){
     <div class="welcome-tools">
       ${linktreeLink()}
       ${themeToggle()}
-      <div class="translate-control notranslate" translate="no">
-        <label for="ilm-lang" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Translate this page</label>
-        <select id="ilm-lang" class="translate-select" data-translate-select>${langOptions()}</select>
-      </div>
     </div>
     <div class="welcome">
       <header class="welcome-hero">
@@ -14019,7 +13992,6 @@ function renderIntro(){
           <li><strong>Links are extra.</strong> When a link is shared on a page, it is only for extra information, or to show what is being talked about. Do not go and read it on your own. Stay where you are and keep reading in order.</li>
           <li><strong>Find your way around.</strong> The trail at the top of every page shows where you are, and the <strong>Ilm</strong> logo takes you back to the Index. On long pages, the <em>On this page</em> buttons jump between sections and the round ↑ button takes you back to the top.</li>
           <li><strong>Check the sources.</strong> Pages quote the Quran, hadith, and scholars. Follow the references and study further. A single page is an introduction, not a replacement for learning from qualified teachers.</li>
-          <li><strong>Read in your language.</strong> Use the <strong>Translate</strong> dropdown in the top bar to translate the page you are on. Machine translation can miss nuance, so check important points against the original.</li>
         </ol>
       </section>
 
@@ -14057,10 +14029,6 @@ function topbar(crumbs){
       <nav class="crumbs">${crumbHTML}</nav>
       ${linktreeLink()}
       ${themeToggle()}
-      <div class="translate-control notranslate" translate="no">
-        <label for="ilm-lang" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);">Translate this page</label>
-        <select id="ilm-lang" class="translate-select" data-translate-select>${langOptions()}</select>
-      </div>
     </div>
   </div>`;
 }
@@ -14336,91 +14304,6 @@ function bind3DMotion(){
 }
 
 
-/* ============ TRANSLATION (Google Website Translator, no API key) ============ */
-const TRANSLATE_LANGS=[
-  ["sq","Shqip (Albanian)"],["am","አማርኛ (Amharic)"],["ar","العربية (Arabic)"],["az","Azərbaycan (Azerbaijani)"],
-  ["bn","বাংলা (Bengali)"],["bs","Bosanski (Bosnian)"],["zh-CN","简体中文 (Chinese, Simplified)"],["zh-TW","繁體中文 (Chinese, Traditional)"],
-  ["nl","Nederlands (Dutch)"],["fr","Français (French)"],["de","Deutsch (German)"],["ha","Hausa"],
-  ["hi","हिन्दी (Hindi)"],["id","Bahasa Indonesia (Indonesian)"],["it","Italiano (Italian)"],["ja","日本語 (Japanese)"],
-  ["kk","Қазақша (Kazakh)"],["ko","한국어 (Korean)"],["ms","Bahasa Melayu (Malay)"],["fa","فارسی (Persian)"],
-  ["pl","Polski (Polish)"],["pt","Português (Portuguese)"],["ps","پښتو (Pashto)"],["ru","Русский (Russian)"],
-  ["so","Soomaali (Somali)"],["es","Español (Spanish)"],["sw","Kiswahili (Swahili)"],["ta","தமிழ் (Tamil)"],
-  ["th","ไทย (Thai)"],["tr","Türkçe (Turkish)"],["ur","اردو (Urdu)"],["uz","Oʻzbek (Uzbek)"],["vi","Tiếng Việt (Vietnamese)"]
-];
-let currentLang="";
-try{ currentLang=localStorage.getItem("ilm-lang")||""; }catch(e){}
-function langOptions(){
-  const first=`<option value="">${currentLang?"English (original)":"Translate"}</option>`;
-  return first+TRANSLATE_LANGS.map(([c,n])=>`<option value="${c}"${c===currentLang?" selected":""}>${n}</option>`).join("");
-}
-let translatorPromise=null;
-function translatorReady(){
-  if(translatorPromise) return translatorPromise;
-  translatorPromise=new Promise((resolve,reject)=>{
-    window.ilmTranslateInit=()=>{
-      try{
-        new google.translate.TranslateElement({pageLanguage:"en",autoDisplay:false,includedLanguages:TRANSLATE_LANGS.map(l=>l[0]).join(",")},"google_translate_element");
-      }catch(e){ reject(e); return; }
-      let tries=0;
-      const t=setInterval(()=>{
-        const combo=document.querySelector("#google_translate_element select.goog-te-combo");
-        if(combo){ clearInterval(t); resolve(combo); }
-        else if(++tries>80){ clearInterval(t); reject(new Error("timeout")); }
-      },100);
-    };
-    const sc=document.createElement("script");
-    sc.src="https://translate.google.com/translate_a/element.js?cb=ilmTranslateInit";
-    sc.async=true;
-    sc.onerror=()=>reject(new Error("load"));
-    document.head.appendChild(sc);
-  }).catch(err=>{ translatorPromise=null; throw err; });
-  return translatorPromise;
-}
-function pageIsTranslated(){ const c=document.documentElement.classList; return c.contains("translated-ltr")||c.contains("translated-rtl"); }
-function clearTranslateCookie(){
-  const past="googtrans=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
-  document.cookie=past;
-  const host=location.hostname; if(host) document.cookie=past+";domain="+host;
-}
-function translateToast(msg){
-  document.querySelector(".translate-toast")?.remove();
-  const el=document.createElement("div"); el.className="translate-toast"; el.setAttribute("role","status"); el.textContent=msg;
-  document.body.appendChild(el); setTimeout(()=>el.remove(),5000);
-}
-function pickCombo(combo,code){ combo.value=code; combo.dispatchEvent(new Event("change")); }
-async function setSiteLanguage(code){
-  if(code && !(consent&&consent.opt)){ const s=document.querySelector("[data-translate-select]"); if(s) s.value=currentLang; openConsent("manage","translate"); return; }
-  const sel=document.querySelector("[data-translate-select]");
-  const previous=currentLang;
-  currentLang=code;
-  try{ localStorage.setItem("ilm-lang",code); }catch(e){}
-  if(!code && !translatorPromise && !pageIsTranslated()){ clearTranslateCookie(); if(sel) sel.innerHTML=langOptions(); return; }
-  if(sel) sel.disabled=true;
-  try{
-    const combo=await translatorReady();
-    pickCombo(combo,code);
-    if(!code){
-      setTimeout(()=>{ if(pageIsTranslated()){ clearTranslateCookie(); location.reload(); } },1200);
-    }
-    const now=document.querySelector("[data-translate-select]");
-    if(now){ now.innerHTML=langOptions(); }
-  }catch(e){
-    currentLang=previous;
-    try{ localStorage.setItem("ilm-lang",previous); }catch(_){}
-    if(sel) sel.value=previous;
-    translateToast("Translation couldn't load. Check your internet connection and try again. (It also needs the site to be opened from a web address, not a local file.)");
-  }finally{
-    const now=document.querySelector("[data-translate-select]"); if(now) now.disabled=false;
-  }
-}
-document.addEventListener("change",event=>{
-  const sel=event.target.closest&&event.target.closest("[data-translate-select]");
-  if(sel) setSiteLanguage(sel.value);
-});
-if(currentLang){
-  translatorReady().then(combo=>{ if(combo.value!==currentLang) pickCombo(combo,currentLang); }).catch(()=>{});
-}
-
 /* ============ PAGE ENHANCEMENTS ============ */
 document.documentElement.classList.add("js");
 const FORUM_TIPS={
@@ -14451,7 +14334,6 @@ function buildGuide(art){
   if(count(/<ol/g)) tips.push("Numbered lists are meant to be read in order, because each point builds on the one before.");
   if(count(/<table/g)) tips.push("Tables scroll sideways on small screens.");
   if(count(/<strong>/g)>6) tips.push("Bold text marks key terms and rulings. Skim the bold first, then read the detail.");
-  tips.push("To read this page in another language, use the Translate menu at the top.");
   let open=true; try{ open=localStorage.getItem("ilm-howto")!=="0"; }catch(e){}
   const chips=heads.length>=3
     ? `<nav class="otp" aria-label="On this page"><span>On this page</span>${heads.slice(0,10).map((x,i)=>`<button type="button" data-jump="${i}">${esc(x.textContent.trim().slice(0,40))}</button>`).join("")}</nav>` : "";
@@ -14573,7 +14455,7 @@ terms:{t:"Terms of Use",h:`<p class="lede">These terms are in plain language. By
 <h2>3. Accuracy</h2><p>We try to be accurate and to cite sources so you can check them. We are not infallible. The content is provided as it is, with no promise that it is complete or free of error. Translations from Arabic are approximate, so check the Arabic where you can. If you find a mistake, tell us and we will review and correct it. Nothing here excuses dishonesty, and nothing limits any right that cannot lawfully be limited.</p>
 <h2>4. Your responsibility</h2><p>You are responsible for how you use what you read. Matters such as war, punishment and rulers belong to qualified scholars and those with proper authority. They are explained here for knowledge, and you are responsible for how you act on what you learn.</p>
 <h2>5. Rules of use</h2><ul><li>Do not use the site for anything forbidden by Allah's law.</li><li>Do not try to break, overload or interfere with the site, or scrape it in a way that harms it.</li></ul>
-<h2>6. Sharing, copying and credit</h2><p>You are free to share, copy, quote, translate, adapt and reuse anything written on this site, for any purpose, with no permission needed. I would appreciate it if you credit me, but you do not have to, and I do not mind if you do not. Do what you like with it, with two conditions: that it is halal, and that it does not cause me legal issues. If you have any concern about anything on this site, contact me and I will look at it promptly and fairly.</p>
+<h2>6. Sharing, copying and credit</h2><p>You are free to share, copy, quote, translate, adapt and reuse what belongs to me on this site, for any purpose, with no permission needed. I would appreciate it if you credit me, but you do not have to, and I do not mind if you do not. Do what you like with it, with two conditions: that it is halal, and that it does not cause me legal issues. If you have any concern about anything on this site, contact me and I will look at it promptly and fairly.</p>
 <h2>7. Other websites</h2><p>This site links to other sites and videos. We do not control them and are not responsible for their content or practices.</p>
 <h2>8. Changes and availability</h2><p>We may change or remove content, or these terms, at any time. When the terms change in a way that matters, you will be asked to agree again.</p>
 <h2>9. Problems and disputes</h2><p>If something is wrong, contact us first. We will deal with you fairly and honestly and try to settle it by mutual agreement and goodwill (sulh). These terms do not force you into any particular court or arbitrator, and do not remove any right you have under the law where you live.</p>
@@ -14587,8 +14469,7 @@ terms:{t:"Terms of Use",h:`<p class="lede">These terms are in plain language. By
 <h2>Contact</h2><p>${CONTACT}</p><p><em>Version ${LEGAL_VERSION}</em></p>`},
 privacy:{t:"Privacy Policy",h:`<p class="lede">Short version: this site does not ask for or collect personal information.</p>
 <h2>What we collect</h2><p>Nothing ourselves. There are no accounts, forms, comments, ads, analytics or trackers on this site. We never sell, trade or misuse information. Anything that did reach us would be treated as an amanah (a trust).</p>
-<h2>What is saved on your device</h2><p>Only small settings kept in your browser and never sent to us: your agreement and choices, light or dark theme, your dark mode colour (green, blue, purple or black), your text size, whether animations are on or off, your language choice, whether the "How to use this page" box is open, and the last page you were reading and how far you had scrolled (so you can continue there). See Cookies &amp; storage.</p>
-<h2>Optional Google service (off until you allow it)</h2><ul><li><strong>Google Translate</strong> translates the page. The page text is sent to Google, and a cookie remembers your language.</li></ul><p>The site's fonts are built into the page and are not requested from Google. If you leave translation off, nothing is requested from Google. Google's own policy is at policies.google.com/privacy.</p>
+<h2>What is saved on your device</h2><p>Only small settings kept in your browser and never sent to us: your agreement and choices, light or dark theme, your dark mode colour (green, blue, purple or black), your text size, whether animations are on or off, whether the "How to use this page" box is open, and the last page you were reading and how far you had scrolled (so you can continue there). See Cookies &amp; storage.</p>
 <h2>Hosting</h2><p>This site is hosted on GitHub Pages, provided by GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA. GitHub may keep ordinary technical logs, such as IP address and time of visit, to run and secure the service. We do not use them to track you.</p>
 <h2>Other sites</h2><p>Links to YouTube, Instagram, Telegram, Discord, Google Docs and other sites lead to services with their own privacy practices.</p>
 <h2>Your choices</h2><p>You can change or withdraw your choices, and clear everything saved on your device, from "Privacy &amp; cookie choices" in the footer. For any privacy question, contact us.</p>
@@ -14605,10 +14486,9 @@ cookies:{t:"Cookies & storage",h:`<p class="lede">The site sets no cookies of it
 <tr><td>ilm-last</td><td>Remembers the last page you were reading and how far you had scrolled, so the "Continue reading" link can take you back. You can erase it with "Forget where I stopped reading" in Display settings.</td><td>Preference</td></tr>
 <tr><td>ilm-back (session storage)</td><td>Keeps the "Back to" trail for the current tab only. It is erased when the tab is closed.</td><td>Preference</td></tr>
 <tr><td>ilm-howto</td><td>Remembers whether the "How to use this page" box is open.</td><td>Preference</td></tr>
-<tr><td>ilm-lang</td><td>Remembers your chosen language.</td><td>Optional (Translate)</td></tr>
-<tr><td>googtrans (cookie)</td><td>Set by Google Translate to remember the language.</td><td>Optional (Translate)</td></tr></tbody></table>
+</tbody></table>
 <p>The site's fonts are built into the page, so no font service is contacted.</p>
-<p>Optional items are blocked until you allow them. You can withdraw at any time from "Privacy &amp; cookie choices" in the footer.</p>`},
+<p>You can withdraw at any time from "Privacy &amp; cookie choices" in the footer.</p>`},
 report:{t:"Report a problem",h:`<p class="lede">If something on this site is wrong, harmful, unlawful or infringes your rights, tell me. I read every report and will look at it promptly and fairly.</p>
 <h2>How to report</h2><p>Contact ${CONTACT}, or on other socials through the <a href="https://linktr.ee/daiyanii" target="_blank" rel="noopener noreferrer">Linktree</a>. Please include:</p>
 <ul><li>The page, or the link to it.</li><li>The passage or item you are reporting.</li><li>What is wrong, or why it concerns you.</li><li>For a copyright concern: what the work is, and why it is yours or you are authorised to speak for the owner.</li></ul>
@@ -14629,7 +14509,7 @@ function renderLegal(key){
 function siteFooter(){
   return `<footer>Ilm — for study and reflection.<p class="site-disclaimer">${SITE_DISCLAIMER}</p>
   <nav class="legal-links" aria-label="Legal"><a href="#/legal/terms">Terms of Use</a><a href="#/legal/privacy">Privacy</a><a href="#/legal/cookies">Cookies &amp; storage</a><a href="#/legal/guidelines">Guidelines</a><a href="#/legal/report">Report a problem</a><button type="button" data-consent-open>Privacy &amp; cookie choices</button></nav>
-  <p class="site-copy">You are free to share, copy, quote and reuse what is written on this site. Crediting me is appreciated but not required, and I do not mind if you do not. Use it as you like, as long as it is halal and does not cause legal trouble for me.</p>
+  <p class="site-copy">You are free to share, copy, quote and reuse what belongs to me on this site. Crediting me is appreciated but not required, and I do not mind if you do not. Use it as you like, as long as it is halal and does not cause legal trouble for me.</p>
   <p class="contact-note">If you have any questions at all, contact Dai on Discord <span class="notranslate" translate="no">@dnx4</span>, or on other socials through the <a href="https://linktr.ee/daiyanii" target="_blank" rel="noopener noreferrer">Linktree</a>.</p></footer>`;
 }
 
@@ -14637,18 +14517,17 @@ function siteFooter(){
 const CK="ilm-consent";
 let consent=null, siteReady=false;
 function readConsent(){ try{ const c=JSON.parse(localStorage.getItem(CK)||"null"); return c&&c.v===LEGAL_VERSION?c:null; }catch(_){ return null; } }
-function saveConsent(opt){ consent={v:LEGAL_VERSION,t:new Date().toISOString(),opt:!!opt}; try{ localStorage.setItem(CK,JSON.stringify(consent)); }catch(_){} }
-function applyOptional(){ if(!(consent&&consent.opt)) clearTranslateCookie(); }
+function saveConsent(){ consent={v:LEGAL_VERSION,t:new Date().toISOString()}; try{ localStorage.setItem(CK,JSON.stringify(consent)); }catch(_){} }
 function wipeAndReload(){
-  try{ ["ilm-consent","ilm-theme","ilm-dark","ilm-size","ilm-last","ilm-calm","ilm-howto","ilm-lang","ilm-quiz"].forEach(k=>localStorage.removeItem(k)); sessionStorage.removeItem("ilm-back"); }catch(_){}
-  clearTranslateCookie(); location.reload();
+  try{ ["ilm-consent","ilm-theme","ilm-dark","ilm-size","ilm-last","ilm-calm","ilm-howto","ilm-quiz"].forEach(k=>localStorage.removeItem(k)); sessionStorage.removeItem("ilm-back"); }catch(_){}
+  location.reload();
 }
 function setLocked(on){
   document.documentElement.classList.toggle("gate-open",on);
   ["#app",".to-top",".weave"].forEach(s=>{ const el=document.querySelector(s); if(!el) return; if(on){ el.setAttribute("inert",""); el.setAttribute("aria-hidden","true"); } else { el.removeAttribute("inert"); el.removeAttribute("aria-hidden"); } });
 }
 function closeConsent(){ document.getElementById("consent")?.remove(); setLocked(false); }
-function openConsent(mode,reason){
+function openConsent(mode){
   closeConsent();
   const manage=mode==="manage";
   const ov=document.createElement("div");
@@ -14657,11 +14536,9 @@ function openConsent(mode,reason){
   ov.innerHTML=`<div class="c-box" tabindex="-1">
     <p class="c-eyebrow">${manage?"Your choices":"Before you enter"}</p>
     <h2 id="consent-h">${manage?"Privacy &amp; cookie choices":"Please read and agree to continue"}</h2>
-    ${reason==="translate"?`<p class="c-note">Translation uses Google's service. Allow the optional services below to use it.</p>`:""}
     <div class="c-disc"><strong>Disclaimer</strong><p>${SITE_DISCLAIMER}</p></div>
     <p class="c-small">Read the full documents (tap to open):</p>${docs}
     <label class="c-check"><input type="checkbox" id="c-req"${manage?" checked":""}><span>I have read the disclaimer above and I agree to the Terms of Use, Privacy Policy, Cookies &amp; storage notice and Site Guidelines. I am old enough to agree, or I have my parent or guardian's permission.</span></label>
-    <label class="c-check"><input type="checkbox" id="c-opt"${consent&&consent.opt?" checked":""}><span><strong>Optional.</strong> Allow Google Translate. It is run by Google and receives your IP address and the page text. If you leave this off, the site works fully and translation stays off.</span></label>
     <div class="c-actions"><button type="button" class="c-go" id="c-go" disabled>${manage?"Save choices":"Agree and enter"}</button>${manage?`<button type="button" class="c-alt" id="c-close">Close</button><button type="button" class="c-alt" id="c-wipe">Withdraw and clear saved data</button>`:`<button type="button" class="c-alt" id="c-no">I do not agree</button>`}</div>
     <p class="c-small">Your choice is saved only on this device. You can change or withdraw it at any time from the footer.</p></div>`;
   document.body.appendChild(ov); setLocked(true);
@@ -14669,12 +14546,9 @@ function openConsent(mode,reason){
   const sync=()=>{ go.disabled=!req.checked; }; req.addEventListener("change",sync); sync();
   go.onclick=()=>{
     if(!req.checked) return;
-    const first=!siteReady, hadOpt=!!(consent&&consent.opt), opt=ov.querySelector("#c-opt").checked;
-    saveConsent(opt);
-    if(hadOpt&&!opt){ try{ localStorage.removeItem("ilm-lang"); }catch(_){} clearTranslateCookie(); location.reload(); return; }
-    applyOptional(); closeConsent();
+    const first=!siteReady;
+    saveConsent(); closeConsent();
     if(first){ siteReady=true; route(); }
-    else if(reason==="translate"&&opt) translateToast("Optional services allowed. Choose your language again.");
   };
   const no=ov.querySelector("#c-no");
   if(no) no.onclick=()=>{ box.innerHTML=`<h2 id="consent-h">Agreement needed</h2><p>You need to agree to the terms to use this site. Nothing has been saved. You can close this tab, or go back and read the agreement again.</p><div class="c-actions"><button type="button" class="c-go" id="c-back">Back to the agreement</button></div>`; box.querySelector("#c-back").onclick=()=>openConsent("gate"); box.focus(); };
@@ -14692,7 +14566,7 @@ function openConsent(mode,reason){
 }
 document.addEventListener("click",e=>{ if(e.target.closest("[data-consent-open]")) openConsent("manage"); });
 function consentBoot(){
-  consent=readConsent(); applyOptional();
+  consent=readConsent();
   if(consent){ siteReady=true; route(); } else openConsent("gate");
 }
 
